@@ -1,0 +1,99 @@
+[
+  {
+    "id": "cosrx-snail-mucin-essence",
+    "slug": "cosrx-snail-mucin-essence",
+    "name": {
+      "ko": "코스알엑스 어드밴스드 스네일 96 뮤신 파워 에센스",
+      "vi": "Tinh chất ốc sên COSRX Advanced Snail 96 Mucin Power Essence",
+      "en": "COSRX Advanced Snail 96 Mucin Power Essence"
+    },
+    "brand": "cosrx",
+    "category": "serum",
+    "image": "/images/products/cosrx-snail-mucin-essence.webp",
+    "concerns": ["moisturizing", "anti-aging"],
+    "ingredients": [
+      { "ingredientId": "snail-secretion-filtrate", "order": 1, "isKey": true },
+      { "ingredientId": "betaine", "order": 2, "isKey": false },
+      { "ingredientId": "sodium-hyaluronate", "order": 3, "isKey": true },
+      { "ingredientId": "panthenol", "order": 4, "isKey": true },
+      { "ingredientId": "arginine", "order": 5, "isKey": false },
+      { "ingredientId": "allantoin", "order": 6, "isKey": false },
+      { "ingredientId": "carbomer", "order": 7, "isKey": false },
+      { "ingredientId": "phenoxyethanol", "order": 8, "isKey": false }
+    ],
+    "popularity": {
+      "rank": 1,
+      "updatedAt": "2026-03-01"
+    },
+    "purchase": {
+      "shopee": "https://shopee.vn/cosrx-snail-mucin",
+      "tiktokShop": "https://www.tiktok.com/shop/cosrx-snail-mucin",
+      "hasaki": "https://hasaki.vn/cosrx-snail-mucin"
+    },
+    "tags": ["best-seller", "sensitive-safe"]
+  },
+  {
+    "id": "anua-heartleaf-toner",
+    "slug": "anua-heartleaf-toner",
+    "name": {
+      "ko": "아누아 어성초 77 수딩 토너",
+      "vi": "Nước hoa hồng Anua Heartleaf 77% Soothing Toner",
+      "en": "Anua Heartleaf 77% Soothing Toner"
+    },
+    "brand": "anua",
+    "category": "toner",
+    "image": "/images/products/anua-heartleaf-toner.webp",
+    "concerns": ["acne", "moisturizing"],
+    "ingredients": [
+      { "ingredientId": "houttuynia-cordata-extract", "order": 1, "isKey": true },
+      { "ingredientId": "water", "order": 2, "isKey": false },
+      { "ingredientId": "propanediol", "order": 3, "isKey": false },
+      { "ingredientId": "betaine", "order": 4, "isKey": false },
+      { "ingredientId": "panthenol", "order": 5, "isKey": true },
+      { "ingredientId": "sodium-hyaluronate", "order": 6, "isKey": true },
+      { "ingredientId": "allantoin", "order": 7, "isKey": false },
+      { "ingredientId": "butylene-glycol", "order": 8, "isKey": false }
+    ],
+    "popularity": {
+      "rank": 3,
+      "updatedAt": "2026-03-01"
+    },
+    "purchase": {
+      "shopee": "https://shopee.vn/anua-heartleaf-toner",
+      "hasaki": "https://hasaki.vn/anua-heartleaf-toner"
+    },
+    "tags": ["best-seller"]
+  },
+  {
+    "id": "beauty-of-joseon-relief-sun",
+    "slug": "beauty-of-joseon-relief-sun",
+    "name": {
+      "ko": "조선미녀 라이스 프로바이오틱스 선크림",
+      "vi": "Kem chống nắng Beauty of Joseon Relief Sun: Rice + Probiotics",
+      "en": "Beauty of Joseon Relief Sun: Rice + Probiotics SPF50+ PA++++"
+    },
+    "brand": "beauty-of-joseon",
+    "category": "sunscreen",
+    "image": "/images/products/beauty-of-joseon-relief-sun.webp",
+    "concerns": ["brightening"],
+    "ingredients": [
+      { "ingredientId": "oryza-sativa-bran-extract", "order": 1, "isKey": true },
+      { "ingredientId": "propanediol", "order": 2, "isKey": false },
+      { "ingredientId": "niacinamide", "order": 3, "isKey": true },
+      { "ingredientId": "ethylhexyl-triazone", "order": 4, "isKey": false },
+      { "ingredientId": "lactobacillus-rice-ferment-filtrate", "order": 5, "isKey": true },
+      { "ingredientId": "butylene-glycol", "order": 6, "isKey": false },
+      { "ingredientId": "coco-caprylate-caprate", "order": 7, "isKey": false },
+      { "ingredientId": "caprylyl-methicone", "order": 8, "isKey": false }
+    ],
+    "popularity": {
+      "rank": 2,
+      "updatedAt": "2026-03-01"
+    },
+    "purchase": {
+      "shopee": "https://shopee.vn/beauty-of-joseon-sun",
+      "tiktokShop": "https://www.tiktok.com/shop/beauty-of-joseon-sun"
+    },
+    "tags": ["best-seller"]
+  }
+]

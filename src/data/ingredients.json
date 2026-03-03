@@ -1,0 +1,373 @@
+[
+  {
+    "id": "snail-secretion-filtrate",
+    "name": {
+      "inci": "Snail Secretion Filtrate",
+      "vi": "Dịch tiết ốc sên",
+      "ko": "달팽이 분비 여과물"
+    },
+    "description": {
+      "vi": "Cung cấp độ ẩm sâu, giúp phục hồi và tái tạo da"
+    },
+    "effects": [
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": { "vi": "Giữ ẩm sâu, giúp da căng mọng" }
+      },
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": { "vi": "Thúc đẩy tái tạo tế bào, giảm nếp nhăn" }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "betaine",
+    "name": {
+      "inci": "Betaine",
+      "vi": "Betaine",
+      "ko": "베타인"
+    },
+    "description": {
+      "vi": "Amino acid tự nhiên giữ ẩm, giúp da mềm mại"
+    },
+    "effects": [
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": { "vi": "Giữ ẩm tự nhiên, không gây kích ứng" }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "moisturizer"
+  },
+  {
+    "id": "sodium-hyaluronate",
+    "name": {
+      "inci": "Sodium Hyaluronate",
+      "vi": "Sodium Hyaluronate",
+      "ko": "히알루론산나트륨"
+    },
+    "description": {
+      "vi": "Dạng muối của hyaluronic acid, giữ ẩm gấp 1000 lần trọng lượng"
+    },
+    "effects": [
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": { "vi": "Giữ nước cực mạnh, da căng mọng tức thì" }
+      },
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": { "vi": "Giảm nếp nhăn nhờ cấp ẩm sâu" }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "moisturizer"
+  },
+  {
+    "id": "panthenol",
+    "name": {
+      "inci": "Panthenol",
+      "vi": "Panthenol (Vitamin B5)",
+      "ko": "판테놀"
+    },
+    "description": {
+      "vi": "Làm dịu da, phục hồi hàng rào bảo vệ da"
+    },
+    "effects": [
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": { "vi": "Phục hồi hàng rào ẩm tự nhiên của da" }
+      },
+      {
+        "concern": "acne",
+        "type": "good",
+        "reason": { "vi": "Làm dịu da kích ứng do mụn" }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "arginine",
+    "name": {
+      "inci": "Arginine",
+      "vi": "Arginine",
+      "ko": "아르기닌"
+    },
+    "description": {
+      "vi": "Amino acid giúp phục hồi và bảo vệ da"
+    },
+    "effects": [
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": { "vi": "Hỗ trợ sản xuất collagen, giữ da săn chắc" }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "allantoin",
+    "name": {
+      "inci": "Allantoin",
+      "vi": "Allantoin",
+      "ko": "알란토인"
+    },
+    "description": {
+      "vi": "Làm dịu da kích ứng, thúc đẩy tái tạo tế bào"
+    },
+    "effects": [
+      {
+        "concern": "acne",
+        "type": "good",
+        "reason": { "vi": "Làm dịu viêm, giúp da mụn hồi phục nhanh" }
+      },
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": { "vi": "Giữ ẩm nhẹ, phù hợp da nhạy cảm" }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "carbomer",
+    "name": {
+      "inci": "Carbomer",
+      "vi": "Carbomer",
+      "ko": "카보머"
+    },
+    "description": {
+      "vi": "Chất tạo đặc, giúp sản phẩm có kết cấu phù hợp"
+    },
+    "effects": [],
+    "ewgGrade": "1",
+    "category": "other"
+  },
+  {
+    "id": "phenoxyethanol",
+    "name": {
+      "inci": "Phenoxyethanol",
+      "vi": "Phenoxyethanol",
+      "ko": "페녹시에탄올"
+    },
+    "description": {
+      "vi": "Chất bảo quản phổ biến trong mỹ phẩm"
+    },
+    "effects": [
+      {
+        "concern": "acne",
+        "type": "caution",
+        "reason": { "vi": "Chất bảo quản — một số da nhạy cảm có thể kích ứng nhẹ" }
+      }
+    ],
+    "ewgGrade": "2",
+    "category": "preservative"
+  },
+  {
+    "id": "houttuynia-cordata-extract",
+    "name": {
+      "inci": "Houttuynia Cordata Extract",
+      "vi": "Chiết xuất rau diếp cá",
+      "ko": "어성초 추출물"
+    },
+    "description": {
+      "vi": "Kháng viêm mạnh, làm dịu da mụn, kiểm soát dầu thừa"
+    },
+    "effects": [
+      {
+        "concern": "acne",
+        "type": "good",
+        "reason": { "vi": "Kháng khuẩn tự nhiên, giảm viêm mụn hiệu quả" }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "water",
+    "name": {
+      "inci": "Water",
+      "vi": "Nước",
+      "ko": "정제수"
+    },
+    "description": {
+      "vi": "Dung môi cơ bản trong mỹ phẩm"
+    },
+    "effects": [],
+    "category": "other"
+  },
+  {
+    "id": "propanediol",
+    "name": {
+      "inci": "Propanediol",
+      "vi": "Propanediol",
+      "ko": "프로판디올"
+    },
+    "description": {
+      "vi": "Chất giữ ẩm có nguồn gốc tự nhiên từ ngô"
+    },
+    "effects": [
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": { "vi": "Giữ ẩm nhẹ, giúp các thành phần khác thẩm thấu" }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "moisturizer"
+  },
+  {
+    "id": "butylene-glycol",
+    "name": {
+      "inci": "Butylene Glycol",
+      "vi": "Butylene Glycol",
+      "ko": "부틸렌글라이콜"
+    },
+    "description": {
+      "vi": "Chất giữ ẩm, giúp các thành phần khác thẩm thấu tốt hơn"
+    },
+    "effects": [
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": { "vi": "Dưỡng ẩm nhẹ, tăng hiệu quả của sản phẩm" }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "moisturizer"
+  },
+  {
+    "id": "oryza-sativa-bran-extract",
+    "name": {
+      "inci": "Oryza Sativa (Rice) Bran Extract",
+      "vi": "Chiết xuất cám gạo",
+      "ko": "쌀겨 추출물"
+    },
+    "description": {
+      "vi": "Giàu vitamin E và khoáng chất, dưỡng sáng da tự nhiên"
+    },
+    "effects": [
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": { "vi": "Dưỡng sáng da tự nhiên nhờ vitamin E và khoáng chất" }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "niacinamide",
+    "name": {
+      "inci": "Niacinamide",
+      "vi": "Niacinamide (Vitamin B3)",
+      "ko": "나이아신아마이드"
+    },
+    "description": {
+      "vi": "Làm sáng da, thu nhỏ lỗ chân lông, kiểm soát dầu"
+    },
+    "effects": [
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": { "vi": "Ức chế melanin, giúp da sáng đều màu" }
+      },
+      {
+        "concern": "acne",
+        "type": "good",
+        "reason": { "vi": "Kiểm soát dầu, thu nhỏ lỗ chân lông" }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "ethylhexyl-triazone",
+    "name": {
+      "inci": "Ethylhexyl Triazone",
+      "vi": "Ethylhexyl Triazone",
+      "ko": "에틸헥실트리아존"
+    },
+    "description": {
+      "vi": "Chất chống nắng hóa học, bảo vệ da khỏi tia UVB"
+    },
+    "effects": [
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": { "vi": "Chặn tia UVB, ngăn sạm nám do nắng" }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "lactobacillus-rice-ferment-filtrate",
+    "name": {
+      "inci": "Lactobacillus/Rice Ferment Filtrate",
+      "vi": "Dịch lên men gạo Lactobacillus",
+      "ko": "유산균/쌀 발효 여과물"
+    },
+    "description": {
+      "vi": "Probiotic giúp sáng da và tăng cường hàng rào bảo vệ da"
+    },
+    "effects": [
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": { "vi": "Sáng da nhờ quá trình lên men tự nhiên" }
+      },
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": { "vi": "Tăng cường hàng rào bảo vệ, giữ ẩm tốt hơn" }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "coco-caprylate-caprate",
+    "name": {
+      "inci": "Coco-Caprylate/Caprate",
+      "vi": "Coco-Caprylate/Caprate",
+      "ko": "코코-카프릴레이트/카프레이트"
+    },
+    "description": {
+      "vi": "Chất làm mềm có nguồn gốc từ dừa, giúp da mịn màng"
+    },
+    "effects": [
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": { "vi": "Làm mềm da tự nhiên, không gây bít tắc" }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "emollient"
+  },
+  {
+    "id": "caprylyl-methicone",
+    "name": {
+      "inci": "Caprylyl Methicone",
+      "vi": "Caprylyl Methicone",
+      "ko": "카프릴릴메치콘"
+    },
+    "description": {
+      "vi": "Silicone nhẹ, giúp sản phẩm dễ tán và mịn trên da"
+    },
+    "effects": [],
+    "ewgGrade": "1",
+    "category": "emollient"
+  }
+]

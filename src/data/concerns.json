@@ -1,0 +1,80 @@
+[
+  {
+    "id": "acne",
+    "label": {
+      "vi": "Mụn",
+      "ko": "여드름"
+    },
+    "icon": "🧴",
+    "keyIngredients": [
+      "houttuynia-cordata-extract",
+      "niacinamide",
+      "panthenol",
+      "allantoin"
+    ],
+    "weatherTrigger": {
+      "condition": "high_humidity",
+      "message": {
+        "vi": "Độ ẩm cao hôm nay — da dễ bị bít tắc lỗ chân lông"
+      }
+    }
+  },
+  {
+    "id": "moisturizing",
+    "label": {
+      "vi": "Cấp ẩm",
+      "ko": "보습"
+    },
+    "icon": "💧",
+    "keyIngredients": [
+      "snail-secretion-filtrate",
+      "sodium-hyaluronate",
+      "panthenol",
+      "betaine"
+    ],
+    "weatherTrigger": {
+      "condition": "dry",
+      "message": {
+        "vi": "Không khí khô hôm nay — da cần được cấp ẩm thêm"
+      }
+    }
+  },
+  {
+    "id": "brightening",
+    "label": {
+      "vi": "Sáng da",
+      "ko": "미백"
+    },
+    "icon": "✨",
+    "keyIngredients": [
+      "niacinamide",
+      "oryza-sativa-bran-extract",
+      "lactobacillus-rice-ferment-filtrate"
+    ],
+    "weatherTrigger": {
+      "condition": "high_uv",
+      "message": {
+        "vi": "Tia UV mạnh hôm nay — cần bảo vệ da khỏi nắng"
+      }
+    }
+  },
+  {
+    "id": "anti-aging",
+    "label": {
+      "vi": "Chống lão hóa",
+      "ko": "안티에이징"
+    },
+    "icon": "🌿",
+    "keyIngredients": [
+      "snail-secretion-filtrate",
+      "sodium-hyaluronate",
+      "arginine"
+    ],
+    "weatherTrigger": {
+      "condition": "high_uv",
+      "message": {
+        "vi": "Tia UV mạnh hôm nay — cần chống lão hóa do ánh nắng"
+      }
+    }
+  }
+]
