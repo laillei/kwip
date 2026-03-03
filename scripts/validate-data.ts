@@ -1,6 +1,7 @@
 import { readFileSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
+import type { Brand, Category, Concern, IngredientCategory } from "../src/lib/types";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const dataDir = join(__dirname, "../src/data");
@@ -11,16 +12,17 @@ const products = JSON.parse(readFileSync(join(dataDir, "products.json"), "utf-8"
 
 const errors: string[] = [];
 
-// --- Valid values ---
-const validConcerns = ["acne", "moisturizing", "brightening", "anti-aging"];
-const validBrands = ["cosrx", "anua", "torriden", "beauty-of-joseon", "round-lab", "skin1004"];
-const validCategories = ["toner", "serum", "sunscreen", "cream", "pad"];
-const validIngredientCategories = ["active", "moisturizer", "emollient", "surfactant", "preservative", "fragrance", "other"];
+// --- Valid values (derived from types to stay in sync) ---
+const validConcerns: Concern[] = ["acne", "moisturizing", "brightening", "anti-aging"];
+const validBrands: Brand[] = ["cosrx", "anua", "torriden", "beauty-of-joseon", "round-lab", "skin1004"];
+const validCategories: Category[] = ["toner", "serum", "sunscreen", "cream", "pad"];
+const validIngredientCategories: IngredientCategory[] = ["active", "moisturizer", "emollient", "surfactant", "preservative", "fragrance", "other"];
 
 // --- Validate concerns ---
 const concernIds = new Set<string>();
 for (const c of concerns) {
   if (!c.id || !validConcerns.includes(c.id)) errors.push(`Invalid concern id: ${c.id}`);
+  if (concernIds.has(c.id)) errors.push(`Duplicate concern id: ${c.id}`);
   concernIds.add(c.id);
   if (!c.label?.vi) errors.push(`Concern ${c.id}: missing vi label`);
   if (!c.label?.ko) errors.push(`Concern ${c.id}: missing ko label`);
@@ -34,6 +36,7 @@ for (const c of concerns) {
 const ingredientIds = new Set<string>();
 for (const ing of ingredients) {
   if (!ing.id) { errors.push("Ingredient missing id"); continue; }
+  if (ingredientIds.has(ing.id)) errors.push(`Duplicate ingredient id: ${ing.id}`);
   ingredientIds.add(ing.id);
   if (!ing.name?.inci) errors.push(`Ingredient ${ing.id}: missing inci name`);
   if (!ing.name?.vi) errors.push(`Ingredient ${ing.id}: missing vi name`);
@@ -65,8 +68,11 @@ for (const c of concerns) {
 }
 
 // --- Validate products ---
+const productIds = new Set<string>();
 for (const p of products) {
   if (!p.id) { errors.push("Product missing id"); continue; }
+  if (productIds.has(p.id)) errors.push(`Duplicate product id: ${p.id}`);
+  productIds.add(p.id);
   if (!p.slug) errors.push(`Product ${p.id}: missing slug`);
   if (!p.name?.vi) errors.push(`Product ${p.id}: missing vi name`);
   if (!p.name?.ko) errors.push(`Product ${p.id}: missing ko name`);
