@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="vi">
-      <body className={notoSans.className}>{children}</body>
+      <body className={`${notoSans.className} bg-black text-white min-h-screen`}>{children}</body>
     </html>
   );
 }
