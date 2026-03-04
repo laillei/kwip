@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { Noto_Sans } from "next/font/google";
 import { locales, type Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/i18n";
-import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
 
 const notoSans = Noto_Sans({
   subsets: ["latin", "vietnamese"],
@@ -41,9 +39,6 @@ export default async function LocaleLayout({
       <body
         className={`${notoSans.className} bg-black text-white min-h-screen`}
       >
-        <Suspense>
-          <LanguageSwitcher />
-        </Suspense>
         {children}
       </body>
     </html>

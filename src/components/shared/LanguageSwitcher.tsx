@@ -23,7 +23,7 @@ export default function LanguageSwitcher() {
   return (
     <Link
       href={targetHref}
-      className="fixed top-4 right-4 z-50 rounded-full border border-neutral-700 bg-neutral-900 px-3 py-1.5 text-xs font-medium text-neutral-300 transition-colors hover:bg-neutral-800 hover:text-white"
+      className="text-sm text-neutral-400 hover:text-white transition-colors"
     >
       {targetLocale === "en" ? "EN" : "VI"}
     </Link>
