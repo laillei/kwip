@@ -23,9 +23,11 @@ export default function LanguageSwitcher() {
   return (
     <Link
       href={targetHref}
-      className="text-sm text-neutral-400 hover:text-white transition-colors"
+      className="text-sm transition-colors"
     >
-      {targetLocale === "en" ? "EN" : "VI"}
+      <span className={currentLocale === "en" ? "text-white font-medium" : "text-neutral-500"}>EN</span>
+      <span className="text-neutral-600 mx-1">|</span>
+      <span className={currentLocale === "vi" ? "text-white font-medium" : "text-neutral-500"}>VI</span>
     </Link>
   );
 }
