@@ -3,7 +3,8 @@
     "id": "acne",
     "label": {
       "vi": "Mụn",
-      "ko": "여드름"
+      "ko": "여드름",
+      "en": "Acne"
     },
     "icon": "🧴",
     "keyIngredients": [
@@ -15,7 +16,8 @@
     "weatherTrigger": {
       "condition": "high_humidity",
       "message": {
-        "vi": "Độ ẩm cao hôm nay — da dễ bị bít tắc lỗ chân lông"
+        "vi": "Độ ẩm cao hôm nay — da dễ bị bít tắc lỗ chân lông",
+        "en": "High humidity today — pores may clog more easily"
       }
     }
   },
@@ -23,7 +25,8 @@
     "id": "moisturizing",
     "label": {
       "vi": "Cấp ẩm",
-      "ko": "보습"
+      "ko": "보습",
+      "en": "Moisturizing"
     },
     "icon": "💧",
     "keyIngredients": [
@@ -35,7 +38,8 @@
     "weatherTrigger": {
       "condition": "dry",
       "message": {
-        "vi": "Không khí khô hôm nay — da cần được cấp ẩm thêm"
+        "vi": "Không khí khô hôm nay — da cần được cấp ẩm thêm",
+        "en": "Dry air today — your skin needs extra moisture"
       }
     }
   },
@@ -43,7 +47,8 @@
     "id": "brightening",
     "label": {
       "vi": "Sáng da",
-      "ko": "미백"
+      "ko": "미백",
+      "en": "Brightening"
     },
     "icon": "✨",
     "keyIngredients": [
@@ -54,7 +59,8 @@
     "weatherTrigger": {
       "condition": "high_uv",
       "message": {
-        "vi": "Tia UV mạnh hôm nay — cần bảo vệ da khỏi nắng"
+        "vi": "Tia UV mạnh hôm nay — cần bảo vệ da khỏi nắng",
+        "en": "Strong UV today — protect your skin from the sun"
       }
     }
   },
@@ -62,7 +68,8 @@
     "id": "anti-aging",
     "label": {
       "vi": "Chống lão hóa",
-      "ko": "안티에이징"
+      "ko": "안티에이징",
+      "en": "Anti-aging"
     },
     "icon": "🌿",
     "keyIngredients": [
@@ -73,7 +80,8 @@
     "weatherTrigger": {
       "condition": "high_uv",
       "message": {
-        "vi": "Tia UV mạnh hôm nay — cần chống lão hóa do ánh nắng"
+        "vi": "Tia UV mạnh hôm nay — cần chống lão hóa do ánh nắng",
+        "en": "Strong UV today — protect against sun-induced aging"
       }
     }
   }

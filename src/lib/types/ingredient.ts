@@ -18,12 +18,14 @@ export interface Ingredient {
   };
   description: {
     vi: string;
+    en: string;
   };
   effects: {
     concern: Concern;
     type: "good" | "caution";
     reason: {
       vi: string;
+      en: string;
     };
   }[];
   ewgGrade?: string;

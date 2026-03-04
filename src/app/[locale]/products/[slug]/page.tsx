@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import products from "@/data/products.json";
 import ingredientsData from "@/data/ingredients.json";
 import type { Product, Ingredient } from "@/lib/types";
+import { getDictionary, type Locale } from "@/lib/i18n";
+import { t } from "@/lib/getLocalizedData";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -11,9 +13,10 @@ export function generateStaticParams() {
 export default async function ProductDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  const dict = await getDictionary(locale as Locale);
   const product = products.find((p) => p.slug === slug) as Product | undefined;
   if (!product) notFound();
 
@@ -35,22 +38,24 @@ export default async function ProductDetailPage({
     { platform: "Hasaki", url: product.purchase.hasaki },
   ].filter((l): l is { platform: string; url: string } => Boolean(l.url));
 
+  const loc = locale as Locale;
+
   return (
     <div className="min-h-screen pb-24">
       {/* Back button */}
       <header className="px-4 py-4">
         <Link
-          href={`/products?concern=${product.concerns[0]}`}
+          href={`/${locale}/products?concern=${product.concerns[0]}`}
           className="text-sm text-neutral-400 hover:text-white transition-colors"
         >
-          ← Quay lại
+          {dict.detail.back}
         </Link>
       </header>
 
       <main className="px-4">
         {/* Product info */}
         <h1 className="text-xl font-bold leading-tight">
-          {product.name.vi}
+          {product.name[loc] || product.name.vi}
         </h1>
         <p className="text-sm text-neutral-500 mt-1">
           {product.brand} · {product.category}
@@ -59,7 +64,7 @@ export default async function ProductDetailPage({
         {/* Key ingredients */}
         <section className="mt-8">
           <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-wider mb-3">
-            Thành phần chính
+            {dict.detail.keyIngredients}
           </h2>
           <div className="flex flex-col gap-2">
             {keyIngredients.map(({ detail }) => (
@@ -72,7 +77,7 @@ export default async function ProductDetailPage({
                   {detail.name.vi}
                 </p>
                 <p className="text-xs text-neutral-500 mt-2">
-                  {detail.description.vi}
+                  {t(detail.description, loc)}
                 </p>
                 {detail.effects.length > 0 && (
                   <div className="flex flex-col gap-1 mt-2">
@@ -85,7 +90,7 @@ export default async function ProductDetailPage({
                             : "text-amber-400"
                         }`}
                       >
-                        {effect.type === "good" ? "✓" : "⚠"} {effect.reason.vi}
+                        {effect.type === "good" ? "✓" : "⚠"} {t(effect.reason, loc)}
                       </span>
                     ))}
                   </div>
@@ -98,7 +103,7 @@ export default async function ProductDetailPage({
         {/* Full ingredient list */}
         <section className="mt-8">
           <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-wider mb-3">
-            Tất cả thành phần
+            {dict.detail.allIngredients}
           </h2>
           <div className="flex flex-col divide-y divide-neutral-800">
             {allIngredients.map(({ ingredientId, order, detail }) => (
@@ -108,7 +113,9 @@ export default async function ProductDetailPage({
                 </span>
                 <div className="min-w-0 flex-1">
                   <p className="text-sm">{detail.name.inci}</p>
-                  <p className="text-xs text-neutral-500">{detail.name.vi}</p>
+                  <p className="text-xs text-neutral-500">
+                    {detail.name.vi}
+                  </p>
                   {detail.effects.length > 0 && (
                     <div className="flex flex-col gap-0.5 mt-1">
                       {detail.effects.map((effect) => (
@@ -121,7 +128,7 @@ export default async function ProductDetailPage({
                           }`}
                         >
                           {effect.type === "good" ? "✓" : "⚠"}{" "}
-                          {effect.reason.vi}
+                          {t(effect.reason, loc)}
                         </span>
                       ))}
                     </div>

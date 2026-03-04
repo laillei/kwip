@@ -7,18 +7,25 @@
       "ko": "달팽이 분비 여과물"
     },
     "description": {
-      "vi": "Cung cấp độ ẩm sâu, giúp phục hồi và tái tạo da"
+      "vi": "Cung cấp độ ẩm sâu, giúp phục hồi và tái tạo da",
+      "en": "Provides deep moisture, helps repair and regenerate skin"
     },
     "effects": [
       {
         "concern": "moisturizing",
         "type": "good",
-        "reason": { "vi": "Giữ ẩm sâu, giúp da căng mọng" }
+        "reason": {
+          "vi": "Giữ ẩm sâu, giúp da căng mọng",
+          "en": "Deep hydration, keeps skin plump"
+        }
       },
       {
         "concern": "anti-aging",
         "type": "good",
-        "reason": { "vi": "Thúc đẩy tái tạo tế bào, giảm nếp nhăn" }
+        "reason": {
+          "vi": "Thúc đẩy tái tạo tế bào, giảm nếp nhăn",
+          "en": "Promotes cell regeneration, reduces wrinkles"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -32,13 +39,17 @@
       "ko": "베타인"
     },
     "description": {
-      "vi": "Amino acid tự nhiên giữ ẩm, giúp da mềm mại"
+      "vi": "Amino acid tự nhiên giữ ẩm, giúp da mềm mại",
+      "en": "Natural amino acid moisturizer, softens skin"
     },
     "effects": [
       {
         "concern": "moisturizing",
         "type": "good",
-        "reason": { "vi": "Giữ ẩm tự nhiên, không gây kích ứng" }
+        "reason": {
+          "vi": "Giữ ẩm tự nhiên, không gây kích ứng",
+          "en": "Natural hydration, non-irritating"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -52,18 +63,25 @@
       "ko": "히알루론산나트륨"
     },
     "description": {
-      "vi": "Dạng muối của hyaluronic acid, giữ ẩm gấp 1000 lần trọng lượng"
+      "vi": "Dạng muối của hyaluronic acid, giữ ẩm gấp 1000 lần trọng lượng",
+      "en": "Salt form of hyaluronic acid, holds 1000x its weight in moisture"
     },
     "effects": [
       {
         "concern": "moisturizing",
         "type": "good",
-        "reason": { "vi": "Giữ nước cực mạnh, da căng mọng tức thì" }
+        "reason": {
+          "vi": "Giữ nước cực mạnh, da căng mọng tức thì",
+          "en": "Powerful water retention, instantly plumps skin"
+        }
       },
       {
         "concern": "anti-aging",
         "type": "good",
-        "reason": { "vi": "Giảm nếp nhăn nhờ cấp ẩm sâu" }
+        "reason": {
+          "vi": "Giảm nếp nhăn nhờ cấp ẩm sâu",
+          "en": "Reduces wrinkles through deep hydration"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -77,18 +95,25 @@
       "ko": "판테놀"
     },
     "description": {
-      "vi": "Làm dịu da, phục hồi hàng rào bảo vệ da"
+      "vi": "Làm dịu da, phục hồi hàng rào bảo vệ da",
+      "en": "Soothes skin and restores the skin barrier"
     },
     "effects": [
       {
         "concern": "moisturizing",
         "type": "good",
-        "reason": { "vi": "Phục hồi hàng rào ẩm tự nhiên của da" }
+        "reason": {
+          "vi": "Phục hồi hàng rào ẩm tự nhiên của da",
+          "en": "Restores the skin's natural moisture barrier"
+        }
       },
       {
         "concern": "acne",
         "type": "good",
-        "reason": { "vi": "Làm dịu da kích ứng do mụn" }
+        "reason": {
+          "vi": "Làm dịu da kích ứng do mụn",
+          "en": "Calms acne-irritated skin"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -102,13 +127,17 @@
       "ko": "아르기닌"
     },
     "description": {
-      "vi": "Amino acid giúp phục hồi và bảo vệ da"
+      "vi": "Amino acid giúp phục hồi và bảo vệ da",
+      "en": "Amino acid that helps repair and protect skin"
     },
     "effects": [
       {
         "concern": "anti-aging",
         "type": "good",
-        "reason": { "vi": "Hỗ trợ sản xuất collagen, giữ da săn chắc" }
+        "reason": {
+          "vi": "Hỗ trợ sản xuất collagen, giữ da săn chắc",
+          "en": "Supports collagen production, keeps skin firm"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -122,18 +151,25 @@
       "ko": "알란토인"
     },
     "description": {
-      "vi": "Làm dịu da kích ứng, thúc đẩy tái tạo tế bào"
+      "vi": "Làm dịu da kích ứng, thúc đẩy tái tạo tế bào",
+      "en": "Soothes irritated skin and promotes cell regeneration"
     },
     "effects": [
       {
         "concern": "acne",
         "type": "good",
-        "reason": { "vi": "Làm dịu viêm, giúp da mụn hồi phục nhanh" }
+        "reason": {
+          "vi": "Làm dịu viêm, giúp da mụn hồi phục nhanh",
+          "en": "Calms inflammation, helps acne-prone skin recover faster"
+        }
       },
       {
         "concern": "moisturizing",
         "type": "good",
-        "reason": { "vi": "Giữ ẩm nhẹ, phù hợp da nhạy cảm" }
+        "reason": {
+          "vi": "Giữ ẩm nhẹ, phù hợp da nhạy cảm",
+          "en": "Gentle moisture, suitable for sensitive skin"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -147,7 +183,8 @@
       "ko": "카보머"
     },
     "description": {
-      "vi": "Chất tạo đặc, giúp sản phẩm có kết cấu phù hợp"
+      "vi": "Chất tạo đặc, giúp sản phẩm có kết cấu phù hợp",
+      "en": "Thickening agent, gives the product its texture"
     },
     "effects": [],
     "ewgGrade": "1",
@@ -161,13 +198,17 @@
       "ko": "페녹시에탄올"
     },
     "description": {
-      "vi": "Chất bảo quản phổ biến trong mỹ phẩm"
+      "vi": "Chất bảo quản phổ biến trong mỹ phẩm",
+      "en": "Common cosmetic preservative"
     },
     "effects": [
       {
         "concern": "acne",
         "type": "caution",
-        "reason": { "vi": "Chất bảo quản — một số da nhạy cảm có thể kích ứng nhẹ" }
+        "reason": {
+          "vi": "Chất bảo quản — một số da nhạy cảm có thể kích ứng nhẹ",
+          "en": "Preservative — may mildly irritate some sensitive skin"
+        }
       }
     ],
     "ewgGrade": "2",
@@ -181,13 +222,17 @@
       "ko": "어성초 추출물"
     },
     "description": {
-      "vi": "Kháng viêm mạnh, làm dịu da mụn, kiểm soát dầu thừa"
+      "vi": "Kháng viêm mạnh, làm dịu da mụn, kiểm soát dầu thừa",
+      "en": "Strong anti-inflammatory, soothes acne, controls excess oil"
     },
     "effects": [
       {
         "concern": "acne",
         "type": "good",
-        "reason": { "vi": "Kháng khuẩn tự nhiên, giảm viêm mụn hiệu quả" }
+        "reason": {
+          "vi": "Kháng khuẩn tự nhiên, giảm viêm mụn hiệu quả",
+          "en": "Natural antibacterial, effectively reduces acne inflammation"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -201,7 +246,8 @@
       "ko": "정제수"
     },
     "description": {
-      "vi": "Dung môi cơ bản trong mỹ phẩm"
+      "vi": "Dung môi cơ bản trong mỹ phẩm",
+      "en": "Base solvent in cosmetics"
     },
     "effects": [],
     "ewgGrade": "1",
@@ -215,13 +261,17 @@
       "ko": "프로판디올"
     },
     "description": {
-      "vi": "Chất giữ ẩm có nguồn gốc tự nhiên từ ngô"
+      "vi": "Chất giữ ẩm có nguồn gốc tự nhiên từ ngô",
+      "en": "Natural corn-derived moisturizing agent"
     },
     "effects": [
       {
         "concern": "moisturizing",
         "type": "good",
-        "reason": { "vi": "Giữ ẩm nhẹ, giúp các thành phần khác thẩm thấu" }
+        "reason": {
+          "vi": "Giữ ẩm nhẹ, giúp các thành phần khác thẩm thấu",
+          "en": "Light moisture, helps other ingredients penetrate"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -235,13 +285,17 @@
       "ko": "부틸렌글라이콜"
     },
     "description": {
-      "vi": "Chất giữ ẩm, giúp các thành phần khác thẩm thấu tốt hơn"
+      "vi": "Chất giữ ẩm, giúp các thành phần khác thẩm thấu tốt hơn",
+      "en": "Moisturizing agent, helps other ingredients absorb better"
     },
     "effects": [
       {
         "concern": "moisturizing",
         "type": "good",
-        "reason": { "vi": "Dưỡng ẩm nhẹ, tăng hiệu quả của sản phẩm" }
+        "reason": {
+          "vi": "Dưỡng ẩm nhẹ, tăng hiệu quả của sản phẩm",
+          "en": "Light moisture, enhances product effectiveness"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -255,13 +309,17 @@
       "ko": "쌀겨 추출물"
     },
     "description": {
-      "vi": "Giàu vitamin E và khoáng chất, dưỡng sáng da tự nhiên"
+      "vi": "Giàu vitamin E và khoáng chất, dưỡng sáng da tự nhiên",
+      "en": "Rich in vitamin E and minerals, naturally brightens skin"
     },
     "effects": [
       {
         "concern": "brightening",
         "type": "good",
-        "reason": { "vi": "Dưỡng sáng da tự nhiên nhờ vitamin E và khoáng chất" }
+        "reason": {
+          "vi": "Dưỡng sáng da tự nhiên nhờ vitamin E và khoáng chất",
+          "en": "Naturally brightens skin with vitamin E and minerals"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -275,18 +333,25 @@
       "ko": "나이아신아마이드"
     },
     "description": {
-      "vi": "Làm sáng da, thu nhỏ lỗ chân lông, kiểm soát dầu"
+      "vi": "Làm sáng da, thu nhỏ lỗ chân lông, kiểm soát dầu",
+      "en": "Brightens skin, minimizes pores, controls oil"
     },
     "effects": [
       {
         "concern": "brightening",
         "type": "good",
-        "reason": { "vi": "Ức chế melanin, giúp da sáng đều màu" }
+        "reason": {
+          "vi": "Ức chế melanin, giúp da sáng đều màu",
+          "en": "Inhibits melanin, evens out skin tone"
+        }
       },
       {
         "concern": "acne",
         "type": "good",
-        "reason": { "vi": "Kiểm soát dầu, thu nhỏ lỗ chân lông" }
+        "reason": {
+          "vi": "Kiểm soát dầu, thu nhỏ lỗ chân lông",
+          "en": "Controls oil, minimizes pores"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -300,13 +365,17 @@
       "ko": "에틸헥실트리아존"
     },
     "description": {
-      "vi": "Chất chống nắng hóa học, bảo vệ da khỏi tia UVB"
+      "vi": "Chất chống nắng hóa học, bảo vệ da khỏi tia UVB",
+      "en": "Chemical sunscreen filter, protects skin from UVB rays"
     },
     "effects": [
       {
         "concern": "brightening",
         "type": "good",
-        "reason": { "vi": "Chặn tia UVB, ngăn sạm nám do nắng" }
+        "reason": {
+          "vi": "Chặn tia UVB, ngăn sạm nám do nắng",
+          "en": "Blocks UVB rays, prevents sun-induced dark spots"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -320,18 +389,25 @@
       "ko": "유산균/쌀 발효 여과물"
     },
     "description": {
-      "vi": "Probiotic giúp sáng da và tăng cường hàng rào bảo vệ da"
+      "vi": "Probiotic giúp sáng da và tăng cường hàng rào bảo vệ da",
+      "en": "Probiotic that brightens skin and strengthens the skin barrier"
     },
     "effects": [
       {
         "concern": "brightening",
         "type": "good",
-        "reason": { "vi": "Sáng da nhờ quá trình lên men tự nhiên" }
+        "reason": {
+          "vi": "Sáng da nhờ quá trình lên men tự nhiên",
+          "en": "Brightens skin through natural fermentation"
+        }
       },
       {
         "concern": "moisturizing",
         "type": "good",
-        "reason": { "vi": "Tăng cường hàng rào bảo vệ, giữ ẩm tốt hơn" }
+        "reason": {
+          "vi": "Tăng cường hàng rào bảo vệ, giữ ẩm tốt hơn",
+          "en": "Strengthens skin barrier, improves moisture retention"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -345,13 +421,17 @@
       "ko": "코코-카프릴레이트/카프레이트"
     },
     "description": {
-      "vi": "Chất làm mềm có nguồn gốc từ dừa, giúp da mịn màng"
+      "vi": "Chất làm mềm có nguồn gốc từ dừa, giúp da mịn màng",
+      "en": "Coconut-derived emollient, smooths and softens skin"
     },
     "effects": [
       {
         "concern": "moisturizing",
         "type": "good",
-        "reason": { "vi": "Làm mềm da tự nhiên, không gây bít tắc" }
+        "reason": {
+          "vi": "Làm mềm da tự nhiên, không gây bít tắc",
+          "en": "Naturally softens skin, non-comedogenic"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -365,7 +445,8 @@
       "ko": "카프릴릴메치콘"
     },
     "description": {
-      "vi": "Silicone nhẹ, giúp sản phẩm dễ tán và mịn trên da"
+      "vi": "Silicone nhẹ, giúp sản phẩm dễ tán và mịn trên da",
+      "en": "Lightweight silicone, helps product spread smoothly on skin"
     },
     "effects": [],
     "ewgGrade": "1",

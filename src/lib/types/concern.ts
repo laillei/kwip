@@ -5,6 +5,7 @@ export interface ConcernMap {
   label: {
     vi: string;
     ko: string;
+    en: string;
   };
   icon: string;
   keyIngredients: string[];
@@ -12,6 +13,7 @@ export interface ConcernMap {
     condition: string;
     message: {
       vi: string;
+      en: string;
     };
   };
 }

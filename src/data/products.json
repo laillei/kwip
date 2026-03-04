@@ -9,7 +9,7 @@
     },
     "brand": "cosrx",
     "category": "serum",
-    "image": "/images/products/cosrx-snail-mucin-essence.webp",
+    "image": "/images/products/cosrx-snail-mucin-essence.jpg",
     "concerns": ["moisturizing", "anti-aging"],
     "ingredients": [
       { "ingredientId": "snail-secretion-filtrate", "order": 1, "isKey": true },
@@ -26,9 +26,8 @@
       "updatedAt": "2026-03-01"
     },
     "purchase": {
-      "shopee": "https://shopee.vn/cosrx-snail-mucin",
-      "tiktokShop": "https://www.tiktok.com/shop/cosrx-snail-mucin",
-      "hasaki": "https://hasaki.vn/cosrx-snail-mucin"
+      "shopee": "https://shopee.vn/Tinh-Ch%E1%BA%A5t-%E1%BB%90c-S%C3%AAn-D%C6%B0%E1%BB%A1ng-Da-Cosrx-Advanced-Snail-96-Mucin-Power-Essence-100ml-i.1484821861.26778654933",
+      "hasaki": "https://hasaki.vn/san-pham/serum-cosrx-oc-sen-cap-am-ho-tro-tai-tao-da-100ml-134609.html"
     },
     "tags": ["best-seller", "sensitive-safe"]
   },
@@ -42,7 +41,7 @@
     },
     "brand": "anua",
     "category": "toner",
-    "image": "/images/products/anua-heartleaf-toner.webp",
+    "image": "/images/products/anua-heartleaf-toner.png",
     "concerns": ["acne", "moisturizing"],
     "ingredients": [
       { "ingredientId": "houttuynia-cordata-extract", "order": 1, "isKey": true },
@@ -59,8 +58,8 @@
       "updatedAt": "2026-03-01"
     },
     "purchase": {
-      "shopee": "https://shopee.vn/anua-heartleaf-toner",
-      "hasaki": "https://hasaki.vn/anua-heartleaf-toner"
+      "shopee": "https://shopee.vn/-Anua-Heartleaf-77-Soothing-Toner-40ml-150ml-250ml-500ml-i.231252429.22723820267",
+      "hasaki": "https://hasaki.vn/thuong-hieu/anua.html"
     },
     "tags": ["best-seller"]
   },
@@ -74,7 +73,7 @@
     },
     "brand": "beauty-of-joseon",
     "category": "sunscreen",
-    "image": "/images/products/beauty-of-joseon-relief-sun.webp",
+    "image": "/images/products/beauty-of-joseon-relief-sun.jpg",
     "concerns": ["brightening"],
     "ingredients": [
       { "ingredientId": "oryza-sativa-bran-extract", "order": 1, "isKey": true },
@@ -91,8 +90,7 @@
       "updatedAt": "2026-03-01"
     },
     "purchase": {
-      "shopee": "https://shopee.vn/beauty-of-joseon-sun",
-      "tiktokShop": "https://www.tiktok.com/shop/beauty-of-joseon-sun"
+      "shopee": "https://shopee.vn/-Beauty-of-Joseon--Relief-Sun-Rice-+-Probiotics-SPF50+-PA++++-50ml-i.546036505.14324116111"
     },
     "tags": ["best-seller"]
   }

@@ -26,10 +26,12 @@ for (const c of concerns) {
   concernIds.add(c.id);
   if (!c.label?.vi) errors.push(`Concern ${c.id}: missing vi label`);
   if (!c.label?.ko) errors.push(`Concern ${c.id}: missing ko label`);
+  if (!c.label?.en) errors.push(`Concern ${c.id}: missing en label`);
   if (!c.icon) errors.push(`Concern ${c.id}: missing icon`);
   if (!Array.isArray(c.keyIngredients)) errors.push(`Concern ${c.id}: keyIngredients must be array`);
   if (!c.weatherTrigger?.condition) errors.push(`Concern ${c.id}: missing weatherTrigger.condition`);
   if (!c.weatherTrigger?.message?.vi) errors.push(`Concern ${c.id}: missing weatherTrigger.message.vi`);
+  if (!c.weatherTrigger?.message?.en) errors.push(`Concern ${c.id}: missing weatherTrigger.message.en`);
 }
 
 // --- Validate ingredients ---
@@ -42,6 +44,7 @@ for (const ing of ingredients) {
   if (!ing.name?.vi) errors.push(`Ingredient ${ing.id}: missing vi name`);
   if (!ing.name?.ko) errors.push(`Ingredient ${ing.id}: missing ko name`);
   if (!ing.description?.vi) errors.push(`Ingredient ${ing.id}: missing vi description`);
+  if (!ing.description?.en) errors.push(`Ingredient ${ing.id}: missing en description`);
   if (!validIngredientCategories.includes(ing.category)) {
     errors.push(`Ingredient ${ing.id}: invalid category "${ing.category}"`);
   }
@@ -54,6 +57,9 @@ for (const ing of ingredients) {
     }
     if (!effect.reason?.vi) {
       errors.push(`Ingredient ${ing.id}: missing effect reason.vi for ${effect.concern}`);
+    }
+    if (!effect.reason?.en) {
+      errors.push(`Ingredient ${ing.id}: missing effect reason.en for ${effect.concern}`);
     }
   }
 }

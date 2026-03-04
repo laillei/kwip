@@ -1,0 +1,51 @@
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { Noto_Sans } from "next/font/google";
+import { locales, type Locale } from "@/lib/i18n";
+import { getDictionary } from "@/lib/i18n";
+import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
+
+const notoSans = Noto_Sans({
+  subsets: ["latin", "vietnamese"],
+  display: "swap",
+});
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
+  return {
+    title: dict.site.title,
+    description: dict.site.description,
+  };
+}
+
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  return (
+    <html lang={locale}>
+      <body
+        className={`${notoSans.className} bg-black text-white min-h-screen`}
+      >
+        <Suspense>
+          <LanguageSwitcher />
+        </Suspense>
+        {children}
+      </body>
+    </html>
+  );
+}

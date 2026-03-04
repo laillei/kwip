@@ -1,0 +1,24 @@
+{
+  "site": {
+    "title": "Kwip - K-beauty Ingredient Checker",
+    "description": "Check Korean cosmetic ingredients — simple and clear",
+    "tagline": "Check K-beauty ingredients — simple and clear"
+  },
+  "home": {
+    "heading": "Kwip"
+  },
+  "products": {
+    "popularLabel": "Popular in Korea",
+    "emptyState": "We're adding more products"
+  },
+  "detail": {
+    "back": "← Back",
+    "keyIngredients": "Key ingredients",
+    "allIngredients": "All ingredients"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Page not found",
+    "backHome": "← Back to home"
+  }
+}
