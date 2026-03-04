@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import concerns from "@/data/concerns.json";
 import products from "@/data/products.json";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/getLocalizedData";
 import ProductCard from "@/components/products/ProductCard";
+import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
 
 export default async function ProductsPage({
   params,
@@ -23,27 +25,27 @@ export default async function ProductsPage({
 
   return (
     <div className="min-h-screen">
-      {/* Top bar */}
-      <header className="px-4 py-4">
-        <Link
-          href={`/${locale}`}
-          className="text-sm text-neutral-400 hover:text-white transition-colors"
-        >
-          {dict.detail.back}
+      {/* Header */}
+      <header className="flex items-center justify-between px-5 py-4">
+        <Link href={`/${locale}`} className="text-xl font-bold tracking-tight">
+          Kwip
         </Link>
+        <Suspense>
+          <LanguageSwitcher />
+        </Suspense>
       </header>
 
       {/* Concern filter tabs */}
-      <nav className="sticky top-0 z-10 bg-black/95 backdrop-blur-sm border-b border-neutral-800">
-        <div className="flex gap-1 px-4 overflow-x-auto">
+      <nav className="sticky top-0 z-10 bg-black/95 backdrop-blur-sm py-3">
+        <div className="flex gap-2 px-5 overflow-x-auto">
           {concerns.map((c) => (
             <Link
               key={c.id}
               href={`/${locale}/products?concern=${c.id}`}
-              className={`shrink-0 px-4 py-3 text-sm transition-colors ${
+              className={`shrink-0 rounded-full px-4 py-2 text-sm transition-colors ${
                 c.id === activeConcern
-                  ? "text-white border-b-2 border-white font-medium"
-                  : "text-neutral-500 hover:text-neutral-300"
+                  ? "bg-white text-black font-medium"
+                  : "bg-neutral-800 text-neutral-400 hover:bg-neutral-700"
               }`}
             >
               {c.icon} {t(c.label, locale as Locale)}
@@ -53,13 +55,13 @@ export default async function ProductsPage({
       </nav>
 
       {/* Product grid */}
-      <main className="px-4 py-4">
+      <main className="px-5 pt-5 pb-10">
         {filtered.length === 0 ? (
           <p className="text-center text-neutral-500 py-12">
             {dict.products.emptyState}
           </p>
         ) : (
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-4">
             {filtered.map((product) => (
               <ProductCard
                 key={product.id}
