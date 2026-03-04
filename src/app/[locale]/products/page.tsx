@@ -67,6 +67,7 @@ export default async function ProductsPage({
                 key={product.id}
                 slug={product.slug}
                 name={product.name[locale as Locale] || product.name.vi}
+                brand={product.brand}
                 category={product.category}
                 image={product.image}
                 locale={locale}

@@ -4,6 +4,7 @@ import Link from "next/link";
 interface ProductCardProps {
   slug: string;
   name: string;
+  brand: string;
   category: string;
   image: string;
   locale: string;
@@ -12,6 +13,7 @@ interface ProductCardProps {
 export default function ProductCard({
   slug,
   name,
+  brand,
   category,
   image,
   locale,
@@ -19,19 +21,20 @@ export default function ProductCard({
   return (
     <Link
       href={`/${locale}/products/${slug}`}
-      className="relative block aspect-[3/4] rounded-xl overflow-hidden group"
+      className="block rounded-2xl border border-neutral-200 bg-white overflow-hidden transition-shadow hover:shadow-md active:shadow-sm"
     >
-      <Image
-        src={image}
-        alt={name}
-        fill
-        className="object-cover transition-transform duration-300 group-hover:scale-105"
-        sizes="(max-width: 768px) 50vw, 33vw"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 p-4">
-        <p className="text-sm text-white/80 capitalize">{category}</p>
-        <p className="text-base font-semibold text-white leading-tight mt-0.5">
+      <div className="relative aspect-square bg-neutral-100">
+        <Image
+          src={image}
+          alt={name}
+          fill
+          className="object-contain p-4"
+          sizes="(max-width: 768px) 50vw, 33vw"
+        />
+      </div>
+      <div className="px-3.5 py-3">
+        <p className="text-xs text-neutral-400 capitalize">{brand}</p>
+        <p className="text-sm font-medium text-neutral-900 leading-snug mt-0.5 line-clamp-2">
           {name}
         </p>
       </div>
