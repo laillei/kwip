@@ -6,7 +6,13 @@ export type Brand =
   | "torriden"
   | "beauty-of-joseon"
   | "round-lab"
-  | "skin1004";
+  | "skin1004"
+  | "klairs"
+  | "some-by-mi"
+  | "innisfree"
+  | "laneige"
+  | "isntree"
+  | "purito";
 
 export type Category = "toner" | "serum" | "sunscreen" | "cream" | "pad";
 

@@ -451,5 +451,725 @@
     "effects": [],
     "ewgGrade": "1",
     "category": "emollient"
+  },
+  {
+    "id": "hyaluronic-acid",
+    "name": {
+      "inci": "Hyaluronic Acid",
+      "vi": "Axit Hyaluronic",
+      "ko": "히알루론산"
+    },
+    "description": {
+      "vi": "Giữ ẩm cực mạnh, giúp da căng bóng và mịn màng",
+      "en": "Powerful hydrator, keeps skin plump, dewy, and smooth"
+    },
+    "effects": [
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": {
+          "vi": "Giữ nước gấp 1000 lần, cấp ẩm tức thì",
+          "en": "Holds 1000x its weight in water, instant hydration"
+        }
+      },
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Làm đầy nếp nhăn, da căng mọng hơn",
+          "en": "Plumps fine lines, gives skin a youthful bounce"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "glycerin",
+    "name": {
+      "inci": "Glycerin",
+      "vi": "Glycerin",
+      "ko": "글리세린"
+    },
+    "description": {
+      "vi": "Chất giữ ẩm cơ bản, giúp da mềm mại và giữ nước",
+      "en": "Essential humectant, softens skin and retains moisture"
+    },
+    "effects": [
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": {
+          "vi": "Giữ ẩm hiệu quả, phù hợp mọi loại da",
+          "en": "Effective moisture retention, suitable for all skin types"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "moisturizer"
+  },
+  {
+    "id": "salicylic-acid",
+    "name": {
+      "inci": "Salicylic Acid",
+      "vi": "Axit Salicylic (BHA)",
+      "ko": "살리실산"
+    },
+    "description": {
+      "vi": "BHA tẩy tế bào chết sâu trong lỗ chân lông, trị mụn hiệu quả",
+      "en": "BHA that deeply exfoliates pores, effectively treats acne"
+    },
+    "effects": [
+      {
+        "concern": "acne",
+        "type": "good",
+        "reason": {
+          "vi": "Thông thoáng lỗ chân lông, giảm mụn đầu đen",
+          "en": "Unclogs pores, reduces blackheads"
+        }
+      },
+      {
+        "concern": "acne",
+        "type": "caution",
+        "reason": {
+          "vi": "Có thể gây khô nếu dùng quá nhiều, nên dùng 2-3 lần/tuần",
+          "en": "May cause dryness if overused, use 2-3 times per week"
+        }
+      }
+    ],
+    "ewgGrade": "3",
+    "category": "active"
+  },
+  {
+    "id": "centella-asiatica-extract",
+    "name": {
+      "inci": "Centella Asiatica Extract",
+      "vi": "Chiết xuất rau má",
+      "ko": "병풀 추출물"
+    },
+    "description": {
+      "vi": "Rau má làm dịu da, giảm viêm, phục hồi da tổn thương",
+      "en": "Centella soothes skin, reduces inflammation, heals damaged skin"
+    },
+    "effects": [
+      {
+        "concern": "acne",
+        "type": "good",
+        "reason": {
+          "vi": "Kháng viêm tự nhiên, giúp da mụn hồi phục",
+          "en": "Natural anti-inflammatory, helps acne-prone skin recover"
+        }
+      },
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Thúc đẩy sản sinh collagen, tăng độ đàn hồi",
+          "en": "Boosts collagen production, improves elasticity"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "madecassoside",
+    "name": {
+      "inci": "Madecassoside",
+      "vi": "Madecassoside",
+      "ko": "마데카소사이드"
+    },
+    "description": {
+      "vi": "Hoạt chất từ rau má, phục hồi và bảo vệ da mạnh mẽ",
+      "en": "Active from centella, powerful skin repair and protection"
+    },
+    "effects": [
+      {
+        "concern": "acne",
+        "type": "good",
+        "reason": {
+          "vi": "Phục hồi da sau mụn, giảm thâm nhanh",
+          "en": "Repairs post-acne skin, fades marks quickly"
+        }
+      },
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Bảo vệ collagen, chống lão hóa sớm",
+          "en": "Protects collagen, prevents premature aging"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "ascorbic-acid",
+    "name": {
+      "inci": "Ascorbic Acid",
+      "vi": "Vitamin C nguyên chất",
+      "ko": "아스코르브산"
+    },
+    "description": {
+      "vi": "Vitamin C dạng tinh khiết, chống oxy hóa mạnh nhất",
+      "en": "Pure vitamin C, the most potent antioxidant form"
+    },
+    "effects": [
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": {
+          "vi": "Ức chế melanin, làm mờ thâm nám hiệu quả",
+          "en": "Inhibits melanin, effectively fades dark spots"
+        }
+      },
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Chống oxy hóa, thúc đẩy sản sinh collagen",
+          "en": "Antioxidant, boosts collagen production"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "propolis-extract",
+    "name": {
+      "inci": "Propolis Extract",
+      "vi": "Chiết xuất keo ong",
+      "ko": "프로폴리스 추출물"
+    },
+    "description": {
+      "vi": "Keo ong kháng khuẩn tự nhiên, nuôi dưỡng và sáng da",
+      "en": "Natural antibacterial propolis, nourishes and brightens skin"
+    },
+    "effects": [
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": {
+          "vi": "Nuôi dưỡng da sáng khỏe từ bên trong",
+          "en": "Nourishes skin for a healthy glow from within"
+        }
+      },
+      {
+        "concern": "acne",
+        "type": "good",
+        "reason": {
+          "vi": "Kháng khuẩn tự nhiên, ngăn ngừa mụn",
+          "en": "Natural antibacterial, prevents acne"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "tea-tree-oil",
+    "name": {
+      "inci": "Melaleuca Alternifolia (Tea Tree) Leaf Oil",
+      "vi": "Tinh dầu tràm trà",
+      "ko": "티트리 잎 오일"
+    },
+    "description": {
+      "vi": "Kháng khuẩn mạnh, kiểm soát mụn và dầu thừa",
+      "en": "Strong antibacterial, controls acne and excess oil"
+    },
+    "effects": [
+      {
+        "concern": "acne",
+        "type": "good",
+        "reason": {
+          "vi": "Tiêu diệt vi khuẩn gây mụn, giảm viêm",
+          "en": "Kills acne-causing bacteria, reduces inflammation"
+        }
+      },
+      {
+        "concern": "acne",
+        "type": "caution",
+        "reason": {
+          "vi": "Có thể gây kích ứng nếu da nhạy cảm, nên thử trước",
+          "en": "May irritate sensitive skin, patch test first"
+        }
+      }
+    ],
+    "ewgGrade": "3",
+    "category": "active"
+  },
+  {
+    "id": "adenosine",
+    "name": {
+      "inci": "Adenosine",
+      "vi": "Adenosine",
+      "ko": "아데노신"
+    },
+    "description": {
+      "vi": "Chống nhăn được chứng minh lâm sàng, giúp da mịn màng",
+      "en": "Clinically proven anti-wrinkle, smooths skin texture"
+    },
+    "effects": [
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Giảm nếp nhăn, tăng độ đàn hồi cho da",
+          "en": "Reduces wrinkles, improves skin elasticity"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "ceramide-np",
+    "name": {
+      "inci": "Ceramide NP",
+      "vi": "Ceramide NP",
+      "ko": "세라마이드 NP"
+    },
+    "description": {
+      "vi": "Lipid tự nhiên của da, phục hồi và bảo vệ hàng rào da",
+      "en": "Natural skin lipid, restores and protects the skin barrier"
+    },
+    "effects": [
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": {
+          "vi": "Phục hồi hàng rào da, khóa ẩm hiệu quả",
+          "en": "Restores skin barrier, locks in moisture effectively"
+        }
+      },
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Giữ da khỏe mạnh, ngăn lão hóa do mất ẩm",
+          "en": "Keeps skin healthy, prevents aging from moisture loss"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "dokudami-extract",
+    "name": {
+      "inci": "Houttuynia Cordata Water",
+      "vi": "Nước chiết rau diếp cá",
+      "ko": "어성초수"
+    },
+    "description": {
+      "vi": "Nước chiết rau diếp cá, làm sạch và làm dịu da nhẹ nhàng",
+      "en": "Heartleaf water, gently cleanses and soothes skin"
+    },
+    "effects": [
+      {
+        "concern": "acne",
+        "type": "good",
+        "reason": {
+          "vi": "Làm sạch sâu nhẹ nhàng, giảm kích ứng",
+          "en": "Gentle deep cleansing, reduces irritation"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "retinal",
+    "name": {
+      "inci": "Retinal",
+      "vi": "Retinal (Vitamin A)",
+      "ko": "레티날"
+    },
+    "description": {
+      "vi": "Dạng retinoid mạnh hơn retinol 11 lần, chống lão hóa hiệu quả",
+      "en": "Retinoid form 11x stronger than retinol, effective anti-aging"
+    },
+    "effects": [
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Tăng tốc tái tạo tế bào, giảm nếp nhăn rõ rệt",
+          "en": "Accelerates cell turnover, visibly reduces wrinkles"
+        }
+      },
+      {
+        "concern": "anti-aging",
+        "type": "caution",
+        "reason": {
+          "vi": "Có thể gây bong tróc ban đầu, cần dùng từ từ",
+          "en": "May cause initial peeling, introduce gradually"
+        }
+      }
+    ],
+    "ewgGrade": "4",
+    "category": "active"
+  },
+  {
+    "id": "ginseng-root-extract",
+    "name": {
+      "inci": "Panax Ginseng Root Extract",
+      "vi": "Chiết xuất nhân sâm",
+      "ko": "인삼 뿌리 추출물"
+    },
+    "description": {
+      "vi": "Nhân sâm chống lão hóa, tăng cường tuần hoàn và tái tạo da",
+      "en": "Ginseng anti-aging, boosts circulation and skin regeneration"
+    },
+    "effects": [
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Chống oxy hóa mạnh, tăng đàn hồi da",
+          "en": "Powerful antioxidant, improves skin elasticity"
+        }
+      },
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": {
+          "vi": "Tăng tuần hoàn, giúp da sáng khỏe tự nhiên",
+          "en": "Boosts circulation, gives skin a natural healthy glow"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "birch-sap",
+    "name": {
+      "inci": "Betula Platyphylla Japonica Juice",
+      "vi": "Nhựa cây bạch dương",
+      "ko": "자작나무수액"
+    },
+    "description": {
+      "vi": "Nhựa bạch dương giàu khoáng chất, cấp ẩm và làm dịu da",
+      "en": "Mineral-rich birch sap, hydrates and soothes skin"
+    },
+    "effects": [
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": {
+          "vi": "Cấp ẩm tự nhiên nhờ khoáng chất và amino acid",
+          "en": "Natural hydration from minerals and amino acids"
+        }
+      },
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Chống oxy hóa, bảo vệ da khỏi lão hóa sớm",
+          "en": "Antioxidant, protects skin from premature aging"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "squalane",
+    "name": {
+      "inci": "Squalane",
+      "vi": "Squalane",
+      "ko": "스쿠알란"
+    },
+    "description": {
+      "vi": "Dầu tương tự bã nhờn tự nhiên, khóa ẩm mà không bít tắc",
+      "en": "Oil similar to natural sebum, locks moisture without clogging pores"
+    },
+    "effects": [
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": {
+          "vi": "Khóa ẩm hiệu quả, phù hợp mọi loại da kể cả da dầu",
+          "en": "Effective moisture lock, suitable for all skin types including oily"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "emollient"
+  },
+  {
+    "id": "shea-butter",
+    "name": {
+      "inci": "Butyrospermum Parkii (Shea) Butter",
+      "vi": "Bơ hạt mỡ",
+      "ko": "시어버터"
+    },
+    "description": {
+      "vi": "Dưỡng ẩm sâu, bảo vệ hàng rào da, giàu vitamin A và E",
+      "en": "Deep moisturizer, protects skin barrier, rich in vitamins A and E"
+    },
+    "effects": [
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": {
+          "vi": "Dưỡng ẩm sâu, phục hồi da khô nứt nẻ",
+          "en": "Deep moisture, repairs dry cracked skin"
+        }
+      },
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Giàu vitamin A và E, chống lão hóa tự nhiên",
+          "en": "Rich in vitamins A and E, natural anti-aging"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "emollient"
+  },
+  {
+    "id": "glycolic-acid",
+    "name": {
+      "inci": "Glycolic Acid",
+      "vi": "Axit Glycolic (AHA)",
+      "ko": "글리콜산"
+    },
+    "description": {
+      "vi": "AHA tẩy tế bào chết bề mặt, giúp da sáng mịn",
+      "en": "AHA surface exfoliant, reveals brighter smoother skin"
+    },
+    "effects": [
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": {
+          "vi": "Loại bỏ tế bào chết, da sáng mịn hơn",
+          "en": "Removes dead skin cells, brighter smoother skin"
+        }
+      },
+      {
+        "concern": "brightening",
+        "type": "caution",
+        "reason": {
+          "vi": "Tăng nhạy cảm với nắng, cần dùng kem chống nắng",
+          "en": "Increases sun sensitivity, must use sunscreen"
+        }
+      }
+    ],
+    "ewgGrade": "4",
+    "category": "active"
+  },
+  {
+    "id": "tranexamic-acid",
+    "name": {
+      "inci": "Tranexamic Acid",
+      "vi": "Axit Tranexamic",
+      "ko": "트라넥사믹애시드"
+    },
+    "description": {
+      "vi": "Giảm thâm nám hiệu quả, ức chế sản sinh melanin",
+      "en": "Effectively reduces hyperpigmentation, inhibits melanin production"
+    },
+    "effects": [
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": {
+          "vi": "Ức chế melanin, giảm thâm nám rõ rệt sau 4-8 tuần",
+          "en": "Inhibits melanin, visibly reduces dark spots in 4-8 weeks"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "alpha-arbutin",
+    "name": {
+      "inci": "Alpha-Arbutin",
+      "vi": "Alpha-Arbutin",
+      "ko": "알파알부틴"
+    },
+    "description": {
+      "vi": "Dẫn xuất vitamin C an toàn, làm sáng da và giảm thâm nám",
+      "en": "Safe vitamin C derivative, brightens skin and reduces dark spots"
+    },
+    "effects": [
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": {
+          "vi": "Ức chế tyrosinase, giảm thâm nám nhẹ nhàng và an toàn",
+          "en": "Inhibits tyrosinase, gently and safely reduces hyperpigmentation"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "aloe-vera-extract",
+    "name": {
+      "inci": "Aloe Barbadensis Leaf Extract",
+      "vi": "Chiết xuất lô hội",
+      "ko": "알로에 베라 추출물"
+    },
+    "description": {
+      "vi": "Lô hội làm dịu da, cấp ẩm và giảm kích ứng tức thì",
+      "en": "Aloe vera soothes skin, hydrates and instantly calms irritation"
+    },
+    "effects": [
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": {
+          "vi": "Cấp ẩm nhẹ nhàng, làm mát và dịu da nhanh chóng",
+          "en": "Gentle hydration, quickly cools and soothes skin"
+        }
+      },
+      {
+        "concern": "acne",
+        "type": "good",
+        "reason": {
+          "vi": "Kháng viêm tự nhiên, giúp da mụn hồi phục",
+          "en": "Natural anti-inflammatory, helps acne-prone skin recover"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "green-tea-extract",
+    "name": {
+      "inci": "Camellia Sinensis Leaf Extract",
+      "vi": "Chiết xuất trà xanh",
+      "ko": "녹차 추출물"
+    },
+    "description": {
+      "vi": "Chống oxy hóa mạnh, kiểm soát dầu thừa và làm dịu da",
+      "en": "Powerful antioxidant, controls oil and soothes skin"
+    },
+    "effects": [
+      {
+        "concern": "acne",
+        "type": "good",
+        "reason": {
+          "vi": "Kiểm soát dầu thừa, kháng khuẩn nhẹ",
+          "en": "Controls excess oil, mild antibacterial"
+        }
+      },
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Giàu polyphenol chống oxy hóa",
+          "en": "Rich in antioxidant polyphenols"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "galactomyces-ferment-filtrate",
+    "name": {
+      "inci": "Galactomyces Ferment Filtrate",
+      "vi": "Dịch lên men Galactomyces",
+      "ko": "갈락토미세스 발효 여과물"
+    },
+    "description": {
+      "vi": "Dịch lên men nấm men giúp sáng da, se khít lỗ chân lông",
+      "en": "Yeast ferment filtrate that brightens and tightens pores"
+    },
+    "effects": [
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": {
+          "vi": "Sáng da đều màu nhờ lên men tự nhiên",
+          "en": "Evens skin tone through natural fermentation"
+        }
+      },
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": {
+          "vi": "Cung cấp độ ẩm sâu, tăng cường hàng rào da",
+          "en": "Provides deep moisture, strengthens barrier"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "bifida-ferment-lysate",
+    "name": {
+      "inci": "Bifida Ferment Lysate",
+      "vi": "Dịch lên men Bifida",
+      "ko": "비피다 발효 용해물"
+    },
+    "description": {
+      "vi": "Probiotic lên men giúp phục hồi hàng rào da, chống lão hóa",
+      "en": "Fermented probiotic that restores skin barrier, anti-aging"
+    },
+    "effects": [
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Tăng tái tạo tế bào, giảm nếp nhăn",
+          "en": "Boosts cell regeneration, reduces wrinkles"
+        }
+      },
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": {
+          "vi": "Phục hồi hàng rào da, giữ ẩm lâu dài",
+          "en": "Restores skin barrier, long-lasting moisture"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "oat-extract",
+    "name": {
+      "inci": "Avena Sativa (Oat) Kernel Extract",
+      "vi": "Chiết xuất yến mạch",
+      "ko": "귀리 추출물"
+    },
+    "description": {
+      "vi": "Làm dịu da nhạy cảm, giảm kích ứng nhẹ nhàng",
+      "en": "Soothes sensitive skin, gently reduces irritation"
+    },
+    "effects": [
+      {
+        "concern": "acne",
+        "type": "good",
+        "reason": {
+          "vi": "Làm dịu da kích ứng do mụn, giảm viêm",
+          "en": "Soothes acne-irritated skin, reduces inflammation"
+        }
+      },
+      {
+        "concern": "moisturizing",
+        "type": "good",
+        "reason": {
+          "vi": "Cấp ẩm nhẹ nhàng, phù hợp da nhạy cảm",
+          "en": "Gentle moisture, suitable for sensitive skin"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
   }
 ]

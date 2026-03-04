@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
@@ -6,6 +7,7 @@ import ingredientsData from "@/data/ingredients.json";
 import type { Product, Ingredient } from "@/lib/types";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/getLocalizedData";
+import { getBrandName } from "@/lib/brands";
 import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
 
 export function generateStaticParams() {
@@ -43,65 +45,98 @@ export default async function ProductDetailPage({
   const loc = locale as Locale;
 
   return (
-    <div className="min-h-screen pb-24">
-      {/* Header */}
-      <header className="flex items-center justify-between px-5 py-4">
-        <Link href={`/${locale}`} className="text-xl font-bold tracking-tight">
-          Kwip
-        </Link>
-        <Suspense>
-          <LanguageSwitcher />
-        </Suspense>
-      </header>
+    <div className="min-h-screen bg-neutral-50 pb-28">
+      <div className="max-w-3xl mx-auto">
+        {/* Header */}
+        <header className="flex items-center justify-between px-6 md:px-8 py-4">
+          <Link
+            href={`/${locale}?concern=${product.concerns[0]}`}
+            className="flex items-center gap-1.5 text-sm text-neutral-500 hover:text-neutral-900 transition-colors -ml-1 px-1 py-1"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+            {dict.detail.back}
+          </Link>
+          <Suspense>
+            <LanguageSwitcher />
+          </Suspense>
+        </header>
 
-      <main className="px-5">
-        {/* Back link */}
-        <Link
-          href={`/${locale}?concern=${product.concerns[0]}`}
-          className="text-sm text-neutral-400 hover:text-neutral-900 transition-colors"
-        >
-          {dict.detail.back}
-        </Link>
-
-        {/* Product info */}
-        <h1 className="text-2xl font-bold leading-tight mt-6">
-          {product.name[loc] || product.name.vi}
-        </h1>
-        <p className="text-sm text-neutral-400 mt-1 capitalize">
-          {product.brand} · {product.category}
-        </p>
+        {/* Product hero */}
+        <div className="px-6 md:px-8">
+          <div className="bg-white rounded-3xl overflow-hidden" style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}>
+            <div className="relative aspect-[4/3] bg-white overflow-hidden">
+              <span className="absolute inset-0 flex items-center justify-center text-[120px] font-black text-neutral-100/50 select-none pointer-events-none leading-none">
+                {product.popularity.rank}
+              </span>
+              <Image
+                src={product.image}
+                alt={product.name[loc] || product.name.vi}
+                fill
+                className="object-contain p-6 relative z-[1]"
+                sizes="(max-width: 768px) 100vw, 672px"
+                priority
+              />
+            </div>
+            <div className="px-6 pt-5 pb-6">
+              <p className="text-xs font-medium tracking-wide text-neutral-400 uppercase">
+                {getBrandName(product.brand)}
+              </p>
+              <h1 className="text-xl md:text-2xl font-bold leading-tight mt-1.5 text-neutral-900">
+                {product.name[loc] || product.name.vi}
+              </h1>
+              <div className="flex items-center gap-2 mt-3">
+                <span className="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-600 capitalize">
+                  {product.category}
+                </span>
+                {product.tags.includes("best-seller") && (
+                  <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-700">
+                    Best Seller
+                  </span>
+                )}
+                {product.tags.includes("sensitive-safe") && (
+                  <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
+                    Sensitive Safe
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Key ingredients */}
-        <section className="mt-10">
-          <h2 className="text-sm font-medium text-neutral-400 mb-4">
+        <section className="px-6 md:px-8 mt-8">
+          <h2 className="text-xs font-semibold tracking-wide text-neutral-400 uppercase mb-3">
             {dict.detail.keyIngredients}
           </h2>
-          <div className="flex flex-col gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {keyIngredients.map(({ detail }) => (
               <div
                 key={detail.id}
-                className="rounded-2xl border border-neutral-200 bg-white p-5"
+                className="rounded-2xl bg-white p-5"
+                style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}
               >
                 <div className="flex items-center justify-between">
-                  <p className="text-base font-medium text-neutral-900">{detail.name.inci}</p>
+                  <p className="text-[15px] font-semibold text-neutral-900">{detail.name.inci}</p>
                   {detail.ewgGrade && (
-                    <span className="shrink-0 ml-3 text-xs font-medium text-neutral-400 border border-neutral-200 rounded-full px-2.5 py-0.5">
+                    <span className="shrink-0 ml-3 text-[11px] font-semibold text-neutral-400 bg-neutral-100 rounded-full px-2.5 py-0.5">
                       EWG {detail.ewgGrade}
                     </span>
                   )}
                 </div>
-                <p className="text-sm text-neutral-400 mt-1">
-                  {detail.name.vi}
-                </p>
-                <p className="text-sm text-neutral-500 mt-3 leading-relaxed">
+                {loc !== "en" && (
+                  <p className="text-[13px] text-neutral-400 mt-0.5">{detail.name.vi}</p>
+                )}
+                <p className="text-[13px] text-neutral-500 mt-2.5 leading-relaxed">
                   {t(detail.description, loc)}
                 </p>
                 {detail.effects.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mt-4">
+                  <div className="flex flex-wrap gap-1.5 mt-3">
                     {detail.effects.map((effect) => (
                       <span
                         key={effect.concern}
-                        className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium ${
+                        className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-medium ${
                           effect.type === "good"
                             ? "bg-emerald-50 text-emerald-700"
                             : "bg-amber-50 text-amber-700"
@@ -118,34 +153,34 @@ export default async function ProductDetailPage({
         </section>
 
         {/* Full ingredient list */}
-        <section className="mt-10">
-          <h2 className="text-sm font-medium text-neutral-400 mb-4">
+        <section className="px-6 md:px-8 mt-8">
+          <h2 className="text-xs font-semibold tracking-wide text-neutral-400 uppercase mb-3">
             {dict.detail.allIngredients}
           </h2>
-          <div className="rounded-2xl border border-neutral-200 bg-white divide-y divide-neutral-100">
+          <div className="rounded-2xl bg-white overflow-hidden divide-y divide-neutral-100" style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}>
             {allIngredients.map(({ ingredientId, order, detail }) => (
-              <div key={ingredientId} className="flex items-start gap-4 px-5 py-4">
-                <span className="text-sm text-neutral-300 w-5 shrink-0 pt-0.5 text-right tabular-nums">
+              <div key={ingredientId} className="flex items-start gap-3.5 px-5 py-3.5">
+                <span className="text-[13px] text-neutral-300 w-5 shrink-0 pt-px text-right tabular-nums font-medium">
                   {order}
                 </span>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
-                    <p className="text-sm font-medium text-neutral-900">{detail.name.inci}</p>
+                    <p className="text-[13px] font-semibold text-neutral-900">{detail.name.inci}</p>
                     {detail.ewgGrade && (
-                      <span className="shrink-0 text-xs text-neutral-400">
+                      <span className="shrink-0 text-[11px] font-medium text-neutral-400">
                         EWG {detail.ewgGrade}
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-neutral-400 mt-0.5">
-                    {detail.name.vi}
-                  </p>
+                  {loc !== "en" && (
+                    <p className="text-[12px] text-neutral-400 mt-0.5">{detail.name.vi}</p>
+                  )}
                   {detail.effects.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 mt-2">
+                    <div className="flex flex-wrap gap-1 mt-1.5">
                       {detail.effects.map((effect) => (
                         <span
                           key={effect.concern}
-                          className={`text-sm ${
+                          className={`text-[12px] font-medium ${
                             effect.type === "good"
                               ? "text-emerald-600"
                               : "text-amber-600"
@@ -161,23 +196,25 @@ export default async function ProductDetailPage({
             ))}
           </div>
         </section>
-      </main>
+      </div>
 
-      {/* Sticky purchase buttons */}
+      {/* Sticky purchase bar */}
       {purchaseLinks.length > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 bg-neutral-50/95 backdrop-blur-sm border-t border-neutral-200 px-5 py-4">
-          <div className="flex gap-2 max-w-lg mx-auto">
-            {purchaseLinks.map(({ platform, url }) => (
-              <a
-                key={platform}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 rounded-full bg-neutral-900 text-white text-center text-sm font-medium py-3.5 transition-opacity hover:opacity-90 active:opacity-80"
-              >
-                {platform}
-              </a>
-            ))}
+        <div className="fixed bottom-0 left-0 right-0 z-20">
+          <div className="bg-white/80 backdrop-blur-xl border-t border-neutral-200/60 px-6 md:px-8 py-4">
+            <div className="flex gap-3 max-w-3xl mx-auto">
+              {purchaseLinks.map(({ platform, url }) => (
+                <a
+                  key={platform}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 rounded-2xl bg-neutral-900 text-white text-center text-sm font-semibold py-3.5 transition-all duration-200 hover:bg-neutral-800 active:scale-[0.98]"
+                >
+                  {platform}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       )}

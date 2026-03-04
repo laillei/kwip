@@ -7,27 +7,30 @@ export default function LanguageSwitcher() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // Extract current locale from pathname (first segment)
   const segments = pathname.split("/");
-  const currentLocale = segments[1]; // "vi" or "en"
+  const currentLocale = segments[1];
   const targetLocale = currentLocale === "vi" ? "en" : "vi";
 
-  // Replace locale segment in path
   segments[1] = targetLocale;
   const targetPath = segments.join("/");
-
-  // Preserve query parameters
   const queryString = searchParams.toString();
   const targetHref = queryString ? `${targetPath}?${queryString}` : targetPath;
 
   return (
     <Link
       href={targetHref}
-      className="text-sm transition-colors"
+      className="inline-flex items-center rounded-full bg-neutral-100 p-0.5 text-xs font-medium transition-colors"
     >
-      <span className={currentLocale === "en" ? "text-neutral-900 font-medium" : "text-neutral-400"}>EN</span>
-      <span className="text-neutral-300 mx-1">|</span>
-      <span className={currentLocale === "vi" ? "text-neutral-900 font-medium" : "text-neutral-400"}>VI</span>
+      <span className={`rounded-full px-2.5 py-1.5 transition-all duration-200 ${
+        currentLocale === "en" ? "bg-white text-neutral-900 shadow-sm" : "text-neutral-400"
+      }`}>
+        EN
+      </span>
+      <span className={`rounded-full px-2.5 py-1.5 transition-all duration-200 ${
+        currentLocale === "vi" ? "bg-white text-neutral-900 shadow-sm" : "text-neutral-400"
+      }`}>
+        VI
+      </span>
     </Link>
   );
 }

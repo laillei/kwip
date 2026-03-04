@@ -2,80 +2,120 @@ import Link from "next/link";
 import { Suspense } from "react";
 import concerns from "@/data/concerns.json";
 import products from "@/data/products.json";
+import type { Product, Concern, Category } from "@/lib/types";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/getLocalizedData";
 import ProductCard from "@/components/products/ProductCard";
 import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
+
+const categories: { id: Category | "all"; label: Record<string, string> }[] = [
+  { id: "all", label: { en: "All", vi: "Tất cả" } },
+  { id: "serum", label: { en: "Serum", vi: "Serum" } },
+  { id: "cream", label: { en: "Cream", vi: "Kem" } },
+  { id: "toner", label: { en: "Toner", vi: "Toner" } },
+  { id: "sunscreen", label: { en: "Sunscreen", vi: "Chống nắng" } },
+  { id: "pad", label: { en: "Pad", vi: "Pad" } },
+];
+
+const allConcerns = [
+  { id: "all", label: { en: "All", vi: "Tất cả" } },
+  ...concerns.map((c) => ({ id: c.id, label: c.label })),
+];
 
 export default async function ProductsPage({
   params,
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ concern?: string }>;
+  searchParams: Promise<{ concern?: string; category?: string }>;
 }) {
   const { locale } = await params;
-  const { concern: concernParam } = await searchParams;
+  const { concern: concernParam, category: categoryParam } = await searchParams;
   const dict = await getDictionary(locale as Locale);
-  const activeConcern = concernParam || "acne";
+  const loc = locale as Locale;
+  const activeConcern = concernParam || "all";
+  const activeCategory = categoryParam || "all";
 
-  const filtered = products
-    .filter((p) => p.concerns.includes(activeConcern as never))
+  const filtered = (products as Product[])
+    .filter((p) => activeConcern === "all" || p.concerns.includes(activeConcern as Concern))
+    .filter((p) => activeCategory === "all" || p.category === activeCategory)
     .sort((a, b) => a.popularity.rank - b.popularity.rank);
 
   return (
-    <div className="min-h-screen">
-      {/* Header */}
-      <header className="flex items-center justify-between px-5 py-4">
-        <Link href={`/${locale}`} className="text-xl font-bold tracking-tight">
-          Kwip
-        </Link>
-        <Suspense>
-          <LanguageSwitcher />
-        </Suspense>
-      </header>
+    <div className="min-h-screen bg-neutral-50">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <header className="flex items-center justify-between px-6 md:px-8 pt-6 pb-4">
+          <Link href={`/${locale}`}>
+            <span className="text-2xl font-bold tracking-tight">Kwip</span>
+          </Link>
+          <Suspense>
+            <LanguageSwitcher />
+          </Suspense>
+        </header>
 
-      {/* Concern filter tabs */}
-      <nav className="sticky top-0 z-10 bg-neutral-50/95 backdrop-blur-sm py-3">
-        <div className="flex gap-2 px-5 overflow-x-auto">
-          {concerns.map((c) => (
-            <Link
-              key={c.id}
-              href={`/${locale}/products?concern=${c.id}`}
-              className={`shrink-0 rounded-full px-4 py-2 text-sm transition-colors ${
-                c.id === activeConcern
-                  ? "bg-neutral-900 text-white font-medium"
-                  : "bg-neutral-100 text-neutral-500 hover:bg-neutral-200"
-              }`}
-            >
-              {c.icon} {t(c.label, locale as Locale)}
-            </Link>
-          ))}
-        </div>
-      </nav>
-
-      {/* Product grid */}
-      <main className="px-5 pt-5 pb-10">
-        {filtered.length === 0 ? (
-          <p className="text-center text-neutral-400 py-12">
-            {dict.products.emptyState}
-          </p>
-        ) : (
-          <div className="grid grid-cols-2 gap-4">
-            {filtered.map((product) => (
-              <ProductCard
-                key={product.id}
-                slug={product.slug}
-                name={product.name[locale as Locale] || product.name.vi}
-                brand={product.brand}
-                category={product.category}
-                image={product.image}
-                locale={locale}
-              />
+        {/* Navigation */}
+        <nav className="sticky top-0 z-10 bg-neutral-50/80 backdrop-blur-xl pt-3 space-y-1">
+          {/* Primary: Concern pills */}
+          <div className="flex gap-2 px-6 md:px-8 overflow-x-auto no-scrollbar">
+            {allConcerns.map((c) => (
+              <Link
+                key={c.id}
+                href={`/${locale}/products${c.id !== "all" ? `?concern=${c.id}` : ""}${activeCategory !== "all" ? `${c.id !== "all" ? "&" : "?"}category=${activeCategory}` : ""}`}
+                className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors duration-150 ${
+                  c.id === activeConcern
+                    ? "bg-neutral-900 text-white"
+                    : "bg-neutral-200/70 text-neutral-600 active:bg-neutral-300"
+                }`}
+              >
+                {t(c.label, loc)}
+              </Link>
             ))}
           </div>
-        )}
-      </main>
+
+          {/* Secondary: MD3-style category tabs */}
+          <div className="flex px-6 md:px-8 overflow-x-auto no-scrollbar border-b border-neutral-200">
+            {categories.map((cat) => (
+              <Link
+                key={cat.id}
+                href={`/${locale}/products${activeConcern !== "all" ? `?concern=${activeConcern}` : ""}${cat.id !== "all" ? `${activeConcern !== "all" ? "&" : "?"}category=${cat.id}` : ""}`}
+                className={`shrink-0 flex items-center justify-center h-12 px-4 text-sm font-medium transition-colors duration-200 border-b-2 -mb-px ${
+                  cat.id === activeCategory
+                    ? "border-neutral-900 text-neutral-900"
+                    : "border-transparent text-neutral-400 hover:text-neutral-600"
+                }`}
+              >
+                {t(cat.label, loc)}
+              </Link>
+            ))}
+          </div>
+        </nav>
+
+        {/* Product grid */}
+        <main className="px-6 md:px-8 pt-6 pb-20">
+          {filtered.length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-20">
+              <p className="text-neutral-300 text-4xl mb-3">🔍</p>
+              <p className="text-sm text-neutral-400">{dict.products.emptyState}</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+              {filtered.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  slug={product.slug}
+                  name={product.name[loc] || product.name.vi}
+                  brand={product.brand}
+                  category={product.category}
+                  image={product.image}
+                  locale={locale}
+                  rank={product.popularity.rank}
+                />
+              ))}
+            </div>
+          )}
+        </main>
+      </div>
     </div>
   );
 }
