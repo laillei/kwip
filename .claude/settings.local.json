@@ -15,7 +15,8 @@
       "WebFetch(domain:play.google.com)",
       "Bash(npm install:*)",
       "Bash(npx tsc:*)",
-      "Bash(lsof:*)"
+      "Bash(lsof:*)",
+      "WebFetch(domain:m3.material.io)"
     ]
   }
 }
