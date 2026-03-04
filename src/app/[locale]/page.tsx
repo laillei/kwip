@@ -34,7 +34,7 @@ export default async function Home({
       </header>
 
       {/* Concern filter tabs */}
-      <nav className="sticky top-0 z-10 bg-black/95 backdrop-blur-sm py-3">
+      <nav className="sticky top-0 z-10 bg-neutral-50/95 backdrop-blur-sm py-3">
         <div className="flex gap-2 px-5 overflow-x-auto">
           {concerns.map((c) => (
             <Link
@@ -42,8 +42,8 @@ export default async function Home({
               href={`/${locale}?concern=${c.id}`}
               className={`shrink-0 rounded-full px-4 py-2 text-sm transition-colors ${
                 c.id === activeConcern
-                  ? "bg-white text-black font-medium"
-                  : "bg-neutral-800 text-neutral-400 hover:bg-neutral-700"
+                  ? "bg-neutral-900 text-white font-medium"
+                  : "bg-neutral-100 text-neutral-500 hover:bg-neutral-200"
               }`}
             >
               {c.icon} {t(c.label, locale as Locale)}
@@ -55,7 +55,7 @@ export default async function Home({
       {/* Product grid */}
       <main className="px-5 pt-5 pb-10">
         {filtered.length === 0 ? (
-          <p className="text-center text-neutral-500 py-12">
+          <p className="text-center text-neutral-400 py-12">
             {dict.products.emptyState}
           </p>
         ) : (

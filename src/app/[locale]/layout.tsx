@@ -37,7 +37,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${notoSans.className} bg-black text-white min-h-screen`}
+        className={`${notoSans.className} bg-neutral-50 text-neutral-900 min-h-screen`}
       >
         {children}
       </body>

@@ -58,7 +58,7 @@ export default async function ProductDetailPage({
         {/* Back link */}
         <Link
           href={`/${locale}?concern=${product.concerns[0]}`}
-          className="text-sm text-neutral-400 hover:text-white transition-colors"
+          className="text-sm text-neutral-400 hover:text-neutral-900 transition-colors"
         >
           {dict.detail.back}
         </Link>
@@ -80,12 +80,12 @@ export default async function ProductDetailPage({
             {keyIngredients.map(({ detail }) => (
               <div
                 key={detail.id}
-                className="rounded-2xl border border-neutral-800 bg-neutral-900 p-5"
+                className="rounded-2xl border border-neutral-200 bg-white p-5"
               >
                 <div className="flex items-center justify-between">
-                  <p className="text-base font-medium">{detail.name.inci}</p>
+                  <p className="text-base font-medium text-neutral-900">{detail.name.inci}</p>
                   {detail.ewgGrade && (
-                    <span className="shrink-0 ml-3 text-xs font-medium text-neutral-400 border border-neutral-700 rounded-full px-2.5 py-0.5">
+                    <span className="shrink-0 ml-3 text-xs font-medium text-neutral-400 border border-neutral-200 rounded-full px-2.5 py-0.5">
                       EWG {detail.ewgGrade}
                     </span>
                   )}
@@ -103,8 +103,8 @@ export default async function ProductDetailPage({
                         key={effect.concern}
                         className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium ${
                           effect.type === "good"
-                            ? "bg-emerald-400/10 text-emerald-400"
-                            : "bg-amber-400/10 text-amber-400"
+                            ? "bg-emerald-50 text-emerald-700"
+                            : "bg-amber-50 text-amber-700"
                         }`}
                       >
                         {effect.type === "good" ? "✓" : "⚠"} {t(effect.reason, loc)}
@@ -122,22 +122,22 @@ export default async function ProductDetailPage({
           <h2 className="text-sm font-medium text-neutral-400 mb-4">
             {dict.detail.allIngredients}
           </h2>
-          <div className="rounded-2xl border border-neutral-800 bg-neutral-900 divide-y divide-neutral-800">
+          <div className="rounded-2xl border border-neutral-200 bg-white divide-y divide-neutral-100">
             {allIngredients.map(({ ingredientId, order, detail }) => (
               <div key={ingredientId} className="flex items-start gap-4 px-5 py-4">
-                <span className="text-sm text-neutral-600 w-5 shrink-0 pt-0.5 text-right tabular-nums">
+                <span className="text-sm text-neutral-300 w-5 shrink-0 pt-0.5 text-right tabular-nums">
                   {order}
                 </span>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
-                    <p className="text-sm font-medium">{detail.name.inci}</p>
+                    <p className="text-sm font-medium text-neutral-900">{detail.name.inci}</p>
                     {detail.ewgGrade && (
-                      <span className="shrink-0 text-xs text-neutral-500">
+                      <span className="shrink-0 text-xs text-neutral-400">
                         EWG {detail.ewgGrade}
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-neutral-500 mt-0.5">
+                  <p className="text-sm text-neutral-400 mt-0.5">
                     {detail.name.vi}
                   </p>
                   {detail.effects.length > 0 && (
@@ -147,8 +147,8 @@ export default async function ProductDetailPage({
                           key={effect.concern}
                           className={`text-sm ${
                             effect.type === "good"
-                              ? "text-emerald-400"
-                              : "text-amber-400"
+                              ? "text-emerald-600"
+                              : "text-amber-600"
                           }`}
                         >
                           {effect.type === "good" ? "✓" : "⚠"} {t(effect.reason, loc)}
@@ -165,7 +165,7 @@ export default async function ProductDetailPage({
 
       {/* Sticky purchase buttons */}
       {purchaseLinks.length > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 bg-black/95 backdrop-blur-sm border-t border-neutral-800 px-5 py-4">
+        <div className="fixed bottom-0 left-0 right-0 bg-neutral-50/95 backdrop-blur-sm border-t border-neutral-200 px-5 py-4">
           <div className="flex gap-2 max-w-lg mx-auto">
             {purchaseLinks.map(({ platform, url }) => (
               <a
@@ -173,7 +173,7 @@ export default async function ProductDetailPage({
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 rounded-full bg-white text-black text-center text-sm font-medium py-3.5 transition-opacity hover:opacity-90 active:opacity-80"
+                className="flex-1 rounded-full bg-neutral-900 text-white text-center text-sm font-medium py-3.5 transition-opacity hover:opacity-90 active:opacity-80"
               >
                 {platform}
               </a>
