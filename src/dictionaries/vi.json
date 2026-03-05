@@ -5,14 +5,15 @@
     "tagline": "Kiểm tra thành phần K-beauty bằng tiếng Việt"
   },
   "home": {
-    "heading": "Kwip"
+    "heading": "Kwip",
+    "viewMore": "Xem thêm"
   },
   "products": {
     "popularLabel": "Phổ biến tại Hàn Quốc",
     "emptyState": "Chúng tôi đang cập nhật thêm sản phẩm"
   },
   "detail": {
-    "back": "← Quay lại",
+    "back": "Quay lại",
     "keyIngredients": "Thành phần chính",
     "allIngredients": "Tất cả thành phần"
   },

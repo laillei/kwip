@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { Noto_Sans } from "next/font/google";
+import { notFound } from "next/navigation";
 import { locales, type Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/i18n";
-import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
 
 const notoSans = Noto_Sans({
   subsets: ["latin", "vietnamese"],
@@ -20,6 +19,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  if (!locales.includes(locale as Locale)) return {};
   const dict = await getDictionary(locale as Locale);
   return {
     title: dict.site.title,
@@ -35,15 +35,13 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  if (!locales.includes(locale as Locale)) notFound();
 
   return (
     <html lang={locale}>
       <body
-        className={`${notoSans.className} bg-black text-white min-h-screen`}
+        className={`${notoSans.className} bg-neutral-50 text-neutral-900 min-h-screen antialiased`}
       >
-        <Suspense>
-          <LanguageSwitcher />
-        </Suspense>
         {children}
       </body>
     </html>

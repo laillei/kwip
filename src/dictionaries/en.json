@@ -5,14 +5,15 @@
     "tagline": "Check K-beauty ingredients — simple and clear"
   },
   "home": {
-    "heading": "Kwip"
+    "heading": "Kwip",
+    "viewMore": "View More"
   },
   "products": {
     "popularLabel": "Popular in Korea",
     "emptyState": "We're adding more products"
   },
   "detail": {
-    "back": "← Back",
+    "back": "Back",
     "keyIngredients": "Key ingredients",
     "allIngredients": "All ingredients"
   },
