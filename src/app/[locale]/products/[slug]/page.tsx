@@ -38,6 +38,8 @@ export default async function ProductDetailPage({
 
   const purchaseLinks = [
     { platform: "Shopee", url: product.purchase.shopee },
+    { platform: "Lazada", url: product.purchase.lazada },
+    { platform: "Oliveyoung", url: product.purchase.oliveyoung },
     { platform: "TikTok Shop", url: product.purchase.tiktokShop },
     { platform: "Hasaki", url: product.purchase.hasaki },
   ].filter((l): l is { platform: string; url: string } => Boolean(l.url));
@@ -50,7 +52,7 @@ export default async function ProductDetailPage({
         {/* Header */}
         <header className="flex items-center justify-between px-6 md:px-8 py-4">
           <Link
-            href={`/${locale}?concern=${product.concerns[0]}`}
+            href={`/${locale}/products?concern=${product.concerns[0]}`}
             className="flex items-center gap-1.5 text-sm text-neutral-500 hover:text-neutral-900 transition-colors -ml-1 px-1 py-1"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -61,8 +61,14 @@ export default async function ProductsPage({
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <header className="flex items-center justify-between px-6 md:px-8 pt-6 pb-4">
-          <Link href={`/${locale}`}>
-            <span className="text-2xl font-bold tracking-tight">Kwip</span>
+          <Link
+            href={`/${locale}`}
+            className="flex items-center gap-1.5 text-sm text-neutral-500 hover:text-neutral-900 transition-colors -ml-1 px-1 py-1 min-h-[44px]"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+            <span className="text-2xl font-bold tracking-tight text-neutral-900">Kwip</span>
           </Link>
           <div className="flex items-center gap-2">
             <Suspense>
