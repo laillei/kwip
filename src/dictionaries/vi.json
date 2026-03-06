@@ -17,6 +17,10 @@
     "keyIngredients": "Thành phần chính",
     "allIngredients": "Tất cả thành phần"
   },
+  "views": {
+    "grid": "Lưới",
+    "ranking": "Xếp hạng"
+  },
   "notFound": {
     "title": "404",
     "message": "Trang không tồn tại",

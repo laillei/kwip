@@ -17,6 +17,10 @@
     "keyIngredients": "Key ingredients",
     "allIngredients": "All ingredients"
   },
+  "views": {
+    "grid": "Grid",
+    "ranking": "Ranking"
+  },
   "notFound": {
     "title": "404",
     "message": "Page not found",

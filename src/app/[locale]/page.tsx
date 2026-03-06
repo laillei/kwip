@@ -6,7 +6,9 @@ import type { Product, Concern, Category } from "@/lib/types";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/getLocalizedData";
 import ProductCard from "@/components/products/ProductCard";
+import RankingList from "@/components/products/RankingList";
 import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
+import ViewToggle from "@/components/shared/ViewToggle";
 
 const categories: { id: Category | "all"; label: Record<string, string> }[] = [
   { id: "all", label: { en: "All", vi: "Tất cả" } },
@@ -27,14 +29,27 @@ export default async function Home({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ concern?: string; category?: string }>;
+  searchParams: Promise<{ concern?: string; category?: string; view?: string }>;
 }) {
   const { locale } = await params;
-  const { concern: concernParam, category: categoryParam } = await searchParams;
+  const { concern: concernParam, category: categoryParam, view } = await searchParams;
   const dict = await getDictionary(locale as Locale);
   const loc = locale as Locale;
   const activeConcern = concernParam || "all";
   const activeCategory = categoryParam || "all";
+  const isRankingView = view === "ranking";
+
+  function buildUrl(overrides: { concern?: string; category?: string; view?: string } = {}) {
+    const p = new URLSearchParams();
+    const c = overrides.concern ?? activeConcern;
+    const cat = overrides.category ?? activeCategory;
+    const v = overrides.view ?? (isRankingView ? "ranking" : undefined);
+    if (c !== "all") p.set("concern", c);
+    if (cat !== "all") p.set("category", cat);
+    if (v) p.set("view", v);
+    const qs = p.toString();
+    return `/${locale}${qs ? `?${qs}` : ""}`;
+  }
 
   const filtered = (products as Product[])
     .filter((p) => activeConcern === "all" || p.concerns.includes(activeConcern as Concern))
@@ -50,9 +65,12 @@ export default async function Home({
             <span className="text-2xl font-bold tracking-tight">Kwip</span>
             <p className="text-[13px] text-neutral-400 mt-0.5">{dict.site.tagline}</p>
           </div>
-          <Suspense>
-            <LanguageSwitcher />
-          </Suspense>
+          <div className="flex items-center gap-2">
+            <Suspense>
+              <ViewToggle />
+              <LanguageSwitcher />
+            </Suspense>
+          </div>
         </header>
 
         {/* Navigation */}
@@ -62,7 +80,7 @@ export default async function Home({
             {allConcerns.map((c) => (
               <Link
                 key={c.id}
-                href={`/${locale}${c.id !== "all" ? `?concern=${c.id}` : ""}${activeCategory !== "all" ? `${c.id !== "all" ? "&" : "?"}category=${activeCategory}` : ""}`}
+                href={buildUrl({ concern: c.id })}
                 className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors duration-150 ${
                   c.id === activeConcern
                     ? "bg-neutral-900 text-white"
@@ -79,7 +97,7 @@ export default async function Home({
             {categories.map((cat) => (
               <Link
                 key={cat.id}
-                href={`/${locale}${activeConcern !== "all" ? `?concern=${activeConcern}` : ""}${cat.id !== "all" ? `${activeConcern !== "all" ? "&" : "?"}category=${cat.id}` : ""}`}
+                href={buildUrl({ category: cat.id })}
                 className={`shrink-0 flex items-center justify-center h-12 px-4 text-sm font-medium transition-colors duration-200 border-b-2 -mb-px ${
                   cat.id === activeCategory
                     ? "border-neutral-900 text-neutral-900"
@@ -99,6 +117,8 @@ export default async function Home({
               <p className="text-neutral-300 text-4xl mb-3">🔍</p>
               <p className="text-sm text-neutral-400">{dict.products.emptyState}</p>
             </div>
+          ) : isRankingView ? (
+            <RankingList products={filtered} locale={loc} />
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
               {filtered.map((product) => (
