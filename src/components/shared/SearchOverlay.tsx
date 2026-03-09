@@ -13,12 +13,12 @@ interface SearchOverlayProps {
 }
 
 const POPULAR_KEYWORDS_VI = [
-  "COSRX", "Anua", "Torriden", "Serum", "Toner", "Kem chống nắng",
-  "Toner pad", "Mặt nạ", "Sữa rửa mặt", "Niacinamide",
+  "COSRX", "Anua", "Torriden", "Serum", "Nước hoa hồng", "Kem chống nắng",
+  "Pad", "Mặt nạ", "Sữa rửa mặt", "Niacinamide",
 ];
 const POPULAR_KEYWORDS_EN = [
   "COSRX", "Anua", "Torriden", "Serum", "Toner", "Sunscreen",
-  "Toner pad", "Mask", "Cleanser", "Niacinamide",
+  "Pad", "Mask", "Cleanser", "Niacinamide",
 ];
 
 const allProducts = (products as Product[]).sort(

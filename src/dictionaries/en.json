@@ -18,7 +18,21 @@
   "detail": {
     "back": "Back",
     "keyIngredients": "Key ingredients",
-    "allIngredients": "All ingredients"
+    "allIngredients": "All ingredients",
+    "bestSeller": "Best Seller",
+    "sensitiveSafe": "Sensitive Safe",
+    "buyNow": "Buy Now",
+    "categories": {
+      "serum": "Serum",
+      "cream": "Cream",
+      "toner": "Toner",
+      "sunscreen": "Sunscreen",
+      "cleanser": "Cleanser",
+      "mask": "Mask",
+      "pad": "Pad",
+      "ampoule": "Ampoule",
+      "essence": "Essence"
+    }
   },
   "views": {
     "grid": "Grid",

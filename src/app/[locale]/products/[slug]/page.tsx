@@ -89,17 +89,17 @@ export default async function ProductDetailPage({
                 {product.name[loc] || product.name.vi}
               </h1>
               <div className="flex items-center gap-2 mt-3">
-                <span className="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-500 capitalize">
-                  {product.category}
+                <span className="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-500">
+                  {dict.detail.categories[product.category as keyof typeof dict.detail.categories] || product.category}
                 </span>
                 {product.tags.includes("best-seller") && (
                   <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-600">
-                    Best Seller
+                    {dict.detail.bestSeller}
                   </span>
                 )}
                 {product.tags.includes("sensitive-safe") && (
                   <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-600">
-                    Sensitive Safe
+                    {dict.detail.sensitiveSafe}
                   </span>
                 )}
               </div>

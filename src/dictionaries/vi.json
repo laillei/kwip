@@ -18,7 +18,21 @@
   "detail": {
     "back": "Quay lại",
     "keyIngredients": "Thành phần chính",
-    "allIngredients": "Tất cả thành phần"
+    "allIngredients": "Tất cả thành phần",
+    "bestSeller": "Bán chạy nhất",
+    "sensitiveSafe": "An toàn cho da nhạy cảm",
+    "buyNow": "Mua ngay",
+    "categories": {
+      "serum": "Serum",
+      "cream": "Kem",
+      "toner": "Nước hoa hồng",
+      "sunscreen": "Chống nắng",
+      "cleanser": "Sữa rửa mặt",
+      "mask": "Mặt nạ",
+      "pad": "Pad",
+      "ampoule": "Tinh chất cô đặc",
+      "essence": "Tinh chất"
+    }
   },
   "views": {
     "grid": "Lưới",

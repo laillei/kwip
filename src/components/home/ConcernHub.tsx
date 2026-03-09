@@ -10,12 +10,12 @@ const categories: { id: Category | "all"; label: Record<string, string> }[] = [
   { id: "all", label: { en: "All", vi: "Tất cả" } },
   { id: "serum", label: { en: "Serum", vi: "Serum" } },
   { id: "cream", label: { en: "Cream", vi: "Kem" } },
-  { id: "toner", label: { en: "Toner", vi: "Toner" } },
+  { id: "toner", label: { en: "Toner", vi: "Nước hoa hồng" } },
   { id: "sunscreen", label: { en: "Sunscreen", vi: "Chống nắng" } },
   { id: "cleanser", label: { en: "Cleanser", vi: "Sữa rửa mặt" } },
   { id: "mask", label: { en: "Mask", vi: "Mặt nạ" } },
   { id: "pad", label: { en: "Pad", vi: "Pad" } },
-  { id: "ampoule", label: { en: "Ampoule", vi: "Ampoule" } },
+  { id: "ampoule", label: { en: "Ampoule", vi: "Tinh chất cô đặc" } },
   { id: "essence", label: { en: "Essence", vi: "Tinh chất" } },
 ];
 
