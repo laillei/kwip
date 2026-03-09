@@ -95,7 +95,7 @@ export default function ConcernHub({
                 category={product.category}
                 image={product.image}
                 locale={locale}
-                rank={product.popularity.rank}
+
               />
             ))}
           </div>

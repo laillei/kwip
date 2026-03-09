@@ -10,7 +10,6 @@ interface ProductCardProps {
   category: string;
   image: string;
   locale: string;
-  rank: number;
 }
 
 export default function ProductCard({
@@ -19,7 +18,6 @@ export default function ProductCard({
   brand,
   image,
   locale,
-  rank,
 }: ProductCardProps) {
   return (
     <Link
@@ -28,10 +26,6 @@ export default function ProductCard({
       style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}
     >
       <div className="relative aspect-square bg-neutral-50 overflow-hidden">
-        {/* Large watermark rank number */}
-        <span className="absolute inset-0 flex items-center justify-center text-[80px] font-black text-neutral-200/40 select-none pointer-events-none leading-none">
-          {rank}
-        </span>
         <Image
           src={image}
           alt={name}
