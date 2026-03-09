@@ -6,17 +6,17 @@ import ConcernSelector from "./ConcernSelector";
 import IngredientHighlight from "./IngredientHighlight";
 import ProductCard from "@/components/products/ProductCard";
 
-const categories: { id: Category | "all"; label: Record<string, string> }[] = [
-  { id: "all", label: { en: "All", vi: "Tất cả" } },
-  { id: "serum", label: { en: "Serum", vi: "Serum" } },
-  { id: "cream", label: { en: "Cream", vi: "Kem" } },
-  { id: "toner", label: { en: "Toner", vi: "Nước hoa hồng" } },
-  { id: "sunscreen", label: { en: "Sunscreen", vi: "Chống nắng" } },
-  { id: "cleanser", label: { en: "Cleanser", vi: "Sữa rửa mặt" } },
-  { id: "mask", label: { en: "Mask", vi: "Mặt nạ" } },
-  { id: "pad", label: { en: "Pad", vi: "Pad" } },
-  { id: "ampoule", label: { en: "Ampoule", vi: "Tinh chất cô đặc" } },
-  { id: "essence", label: { en: "Essence", vi: "Tinh chất" } },
+// Routine steps in correct Korean skincare order
+const routineSteps: { category: Category; label: Record<string, string>; step: number }[] = [
+  { category: "cleanser", step: 1, label: { en: "Cleanse", vi: "Làm sạch" } },
+  { category: "pad", step: 2, label: { en: "Exfoliate", vi: "Tẩy tế bào chết" } },
+  { category: "toner", step: 3, label: { en: "Toner", vi: "Nước hoa hồng" } },
+  { category: "essence", step: 4, label: { en: "Essence", vi: "Tinh chất" } },
+  { category: "serum", step: 5, label: { en: "Serum", vi: "Serum" } },
+  { category: "ampoule", step: 6, label: { en: "Ampoule", vi: "Tinh chất cô đặc" } },
+  { category: "mask", step: 7, label: { en: "Mask", vi: "Mặt nạ" } },
+  { category: "cream", step: 8, label: { en: "Moisturize", vi: "Dưỡng ẩm" } },
+  { category: "sunscreen", step: 9, label: { en: "Sun Protection", vi: "Chống nắng" } },
 ];
 
 interface ConcernData {
@@ -45,7 +45,6 @@ export default function ConcernHub({
   dict,
 }: ConcernHubProps) {
   const [selected, setSelected] = useState<Concern[]>([]);
-  const [activeCategory, setActiveCategory] = useState<Category | "all">("all");
   const loc = locale as "vi" | "en";
 
   function handleToggle(id: Concern) {
@@ -59,7 +58,6 @@ export default function ConcernHub({
   // Filter products matching ANY selected concern, sorted by relevance
   const filteredProducts = products
     .filter((p) => !hasSelection || selected.some((c) => p.concerns.includes(c)))
-    .filter((p) => activeCategory === "all" || p.category === activeCategory)
     .sort((a, b) => {
       if (hasSelection) {
         const aCount = selected.filter((c) => a.concerns.includes(c)).length;
@@ -84,6 +82,36 @@ export default function ConcernHub({
     .map((id) => ingredients.find((i) => i.id === id))
     .filter((i): i is Ingredient => i !== undefined);
 
+  // Find the "why" reason for a product — the key ingredient that matches selected concerns
+  function getProductReason(product: Product): string | undefined {
+    if (!hasSelection) return undefined;
+    for (const pi of product.ingredients) {
+      if (!pi.isKey) continue;
+      const ing = ingredients.find((i) => i.id === pi.ingredientId);
+      if (!ing) continue;
+      const matchingEffect = ing.effects.find(
+        (e) => selected.includes(e.concern) && e.type === "good"
+      );
+      if (matchingEffect) {
+        const name = loc === "vi" ? ing.name.vi : ing.name.inci;
+        return `${name} — ${matchingEffect.reason[loc] || matchingEffect.reason.vi}`;
+      }
+    }
+    return undefined;
+  }
+
+  // Group products by routine step when concern is selected
+  const routineGroups = hasSelection
+    ? routineSteps
+        .map((step) => ({
+          ...step,
+          products: filteredProducts
+            .filter((p) => p.category === step.category)
+            .slice(0, 4),
+        }))
+        .filter((group) => group.products.length > 0)
+    : [];
+
   return (
     <div className="space-y-5">
       <ConcernSelector
@@ -101,25 +129,42 @@ export default function ConcernHub({
         />
       )}
 
-      {/* Category tabs */}
-      <div className="flex overflow-x-auto -mx-6 px-6 border-b border-neutral-200 scrollbar-hide">
-        {categories.map((cat) => (
-          <button
-            key={cat.id}
-            onClick={() => setActiveCategory(cat.id)}
-            className={`shrink-0 flex items-center justify-center h-11 px-4 text-sm font-medium transition-colors duration-200 border-b-2 -mb-px ${
-              cat.id === activeCategory
-                ? "border-neutral-900 text-neutral-900"
-                : "border-transparent text-neutral-500 hover:text-neutral-900"
-            }`}
-          >
-            {cat.label[loc] || cat.label.vi}
-          </button>
-        ))}
-      </div>
-
-      {/* Product grid */}
-      {filteredProducts.length > 0 ? (
+      {/* Routine-grouped view when concerns selected, flat grid when not */}
+      {hasSelection ? (
+        routineGroups.length > 0 ? (
+          <div className="space-y-8">
+            {routineGroups.map((group) => (
+              <section key={group.category}>
+                <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400 mb-3">
+                  {loc === "vi" ? `Bước ${group.step}` : `Step ${group.step}`}
+                  <span className="text-neutral-900 ml-1.5 normal-case text-sm">
+                    {group.label[loc] || group.label.vi}
+                  </span>
+                </h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+                  {group.products.map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      slug={product.slug}
+                      name={product.name[loc] || product.name.vi}
+                      brand={product.brand}
+                      category={product.category}
+                      image={product.image}
+                      locale={locale}
+                      reason={getProductReason(product)}
+                    />
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center py-20">
+            <p className="text-neutral-400 text-2xl mb-3">🔍</p>
+            <p className="text-sm text-neutral-600">{dict.emptyState}</p>
+          </div>
+        )
+      ) : (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
           {filteredProducts.map((product) => (
             <ProductCard
@@ -132,11 +177,6 @@ export default function ConcernHub({
               locale={locale}
             />
           ))}
-        </div>
-      ) : (
-        <div className="flex flex-col items-center justify-center py-20">
-          <p className="text-neutral-400 text-2xl mb-3">🔍</p>
-          <p className="text-sm text-neutral-600">{dict.emptyState}</p>
         </div>
       )}
     </div>
