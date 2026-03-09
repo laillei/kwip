@@ -1,11 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import type { Product, Concern, Ingredient } from "@/lib/types";
+import type { Product, Concern, Ingredient, Category } from "@/lib/types";
 import ConcernSelector from "./ConcernSelector";
 import IngredientHighlight from "./IngredientHighlight";
 import ProductCard from "@/components/products/ProductCard";
+
+const categories: { id: Category | "all"; label: Record<string, string> }[] = [
+  { id: "all", label: { en: "All", vi: "Tất cả" } },
+  { id: "serum", label: { en: "Serum", vi: "Serum" } },
+  { id: "cream", label: { en: "Cream", vi: "Kem" } },
+  { id: "toner", label: { en: "Toner", vi: "Toner" } },
+  { id: "sunscreen", label: { en: "Sunscreen", vi: "Chống nắng" } },
+  { id: "cleanser", label: { en: "Cleanser", vi: "Sữa rửa mặt" } },
+  { id: "mask", label: { en: "Mask", vi: "Mặt nạ" } },
+  { id: "pad", label: { en: "Pad", vi: "Pad" } },
+  { id: "ampoule", label: { en: "Ampoule", vi: "Ampoule" } },
+  { id: "essence", label: { en: "Essence", vi: "Tinh chất" } },
+];
 
 interface ConcernData {
   id: Concern;
@@ -20,7 +32,6 @@ interface ConcernHubProps {
   ingredients: Ingredient[];
   locale: string;
   dict: {
-    viewMore: string;
     emptyState: string;
     helpfulIngredients: string;
   };
@@ -34,6 +45,7 @@ export default function ConcernHub({
   dict,
 }: ConcernHubProps) {
   const [selected, setSelected] = useState<Concern[]>([]);
+  const [activeCategory, setActiveCategory] = useState<Category | "all">("all");
   const loc = locale as "vi" | "en";
 
   function handleToggle(id: Concern) {
@@ -44,19 +56,18 @@ export default function ConcernHub({
 
   const hasSelection = selected.length > 0;
 
-  // Filter products matching ANY selected concern, sorted by relevance (match count)
-  const filteredProducts = hasSelection
-    ? products
-        .filter((p) => selected.some((c) => p.concerns.includes(c)))
-        .sort((a, b) => {
-          const aCount = selected.filter((c) => a.concerns.includes(c)).length;
-          const bCount = selected.filter((c) => b.concerns.includes(c)).length;
-          if (bCount !== aCount) return bCount - aCount;
-          return a.popularity.rank - b.popularity.rank;
-        })
-    : products;
-
-  const displayProducts = filteredProducts.slice(0, 12);
+  // Filter products matching ANY selected concern, sorted by relevance
+  const filteredProducts = products
+    .filter((p) => !hasSelection || selected.some((c) => p.concerns.includes(c)))
+    .filter((p) => activeCategory === "all" || p.category === activeCategory)
+    .sort((a, b) => {
+      if (hasSelection) {
+        const aCount = selected.filter((c) => a.concerns.includes(c)).length;
+        const bCount = selected.filter((c) => b.concerns.includes(c)).length;
+        if (bCount !== aCount) return bCount - aCount;
+      }
+      return a.popularity.rank - b.popularity.rank;
+    });
 
   // Get key ingredients for selected concerns
   const keyIngredientIds = hasSelection
@@ -73,10 +84,8 @@ export default function ConcernHub({
     .map((id) => ingredients.find((i) => i.id === id))
     .filter((i): i is Ingredient => i !== undefined);
 
-  const concernParam = hasSelection ? selected.join(",") : "all";
-
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <ConcernSelector
         concerns={concerns}
         selected={selected}
@@ -92,50 +101,43 @@ export default function ConcernHub({
         />
       )}
 
-      {displayProducts.length > 0 ? (
-        <>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-            {displayProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                slug={product.slug}
-                name={product.name[loc] || product.name.vi}
-                brand={product.brand}
-                category={product.category}
-                image={product.image}
-                locale={locale}
+      {/* Category tabs */}
+      <div className="flex overflow-x-auto -mx-6 px-6 border-b border-neutral-200 scrollbar-hide">
+        {categories.map((cat) => (
+          <button
+            key={cat.id}
+            onClick={() => setActiveCategory(cat.id)}
+            className={`shrink-0 flex items-center justify-center h-11 px-4 text-sm font-medium transition-colors duration-200 border-b-2 -mb-px ${
+              cat.id === activeCategory
+                ? "border-neutral-900 text-neutral-900"
+                : "border-transparent text-neutral-400 hover:text-neutral-600"
+            }`}
+          >
+            {cat.label[loc] || cat.label.vi}
+          </button>
+        ))}
+      </div>
 
-              />
-            ))}
-          </div>
-
-          {filteredProducts.length > 12 && (
-            <div className="flex justify-center">
-              <Link
-                href={`/${locale}/products?concern=${concernParam}`}
-                className="text-sm text-neutral-500 hover:text-neutral-700 active:text-neutral-900 transition-colors min-h-[44px] flex items-center gap-0.5"
-              >
-                {dict.viewMore}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
-              </Link>
-            </div>
-          )}
-        </>
+      {/* Product grid */}
+      {filteredProducts.length > 0 ? (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+          {filteredProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              slug={product.slug}
+              name={product.name[loc] || product.name.vi}
+              brand={product.brand}
+              category={product.category}
+              image={product.image}
+              locale={locale}
+            />
+          ))}
+        </div>
       ) : (
-        <p className="text-sm text-neutral-400 text-center py-8">
-          {dict.emptyState}
-        </p>
+        <div className="flex flex-col items-center justify-center py-20">
+          <p className="text-neutral-300 text-4xl mb-3">🔍</p>
+          <p className="text-sm text-neutral-400">{dict.emptyState}</p>
+        </div>
       )}
     </div>
   );

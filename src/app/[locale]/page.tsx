@@ -57,7 +57,6 @@ export default async function Home({
             ingredients={ingredients as Ingredient[]}
             locale={locale}
             dict={{
-              viewMore: dict.home.viewMore,
               emptyState: dict.products.emptyState,
               helpfulIngredients: dict.home.helpfulIngredients,
             }}
