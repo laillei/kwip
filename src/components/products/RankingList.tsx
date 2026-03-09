@@ -34,7 +34,7 @@ export default function RankingList({ products, locale }: RankingListProps) {
           className="flex items-center gap-4 rounded-2xl bg-white px-4 py-4 transition-all duration-200 hover:shadow-lg active:scale-[0.99]"
           style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}
         >
-          <span className={`text-3xl font-black ${medalColors[i]} shrink-0 w-9 text-center`}>
+          <span className={`text-2xl font-bold ${medalColors[i]} shrink-0 w-9 text-center`}>
             {i + 1}
           </span>
           <div className="relative w-16 h-16 shrink-0 rounded-xl bg-neutral-50 overflow-hidden">
@@ -47,20 +47,20 @@ export default function RankingList({ products, locale }: RankingListProps) {
             />
           </div>
           <div className="min-w-0 flex-1">
-            <p className="text-[11px] font-medium tracking-wide text-neutral-400 uppercase">
+            <p className="text-xs font-medium text-neutral-500 tracking-wide uppercase">
               {getBrandName(product.brand)}
             </p>
             <p className="text-sm font-semibold text-neutral-900 leading-snug mt-0.5 line-clamp-2">
               {product.name[locale] || product.name.vi}
             </p>
             <div className="flex flex-wrap gap-1.5 mt-1.5">
-              <span className="rounded-full bg-neutral-100 text-neutral-500 px-2 py-0.5 text-[11px]">
+              <span className="rounded-full bg-neutral-100 text-neutral-500 px-2 py-0.5 text-xs font-medium">
                 {product.category}
               </span>
               {product.concerns.slice(0, 2).map((c) => (
                 <span
                   key={c}
-                  className="rounded-full bg-emerald-50 text-emerald-700 px-2.5 py-0.5 text-[11px]"
+                  className="rounded-full bg-emerald-50 text-emerald-600 px-2.5 py-0.5 text-xs font-medium"
                 >
                   {concernLabelMap[c] ? t(concernLabelMap[c], locale) : c}
                 </span>
@@ -100,17 +100,17 @@ export default function RankingList({ products, locale }: RankingListProps) {
                   />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-[11px] font-medium tracking-wide text-neutral-400 uppercase">
+                  <p className="text-xs font-medium text-neutral-500 tracking-wide uppercase">
                     {getBrandName(product.brand)}
                   </p>
-                  <p className="text-[13px] font-medium text-neutral-900 leading-snug mt-0.5 line-clamp-1">
+                  <p className="text-sm font-semibold text-neutral-900 leading-snug mt-0.5 line-clamp-1">
                     {product.name[locale] || product.name.vi}
                   </p>
                   <div className="flex flex-wrap gap-1 mt-1">
                     {product.concerns.slice(0, 2).map((c) => (
                       <span
                         key={c}
-                        className="rounded-full bg-emerald-50 text-emerald-700 px-2.5 py-0.5 text-[11px]"
+                        className="rounded-full bg-emerald-50 text-emerald-600 px-2.5 py-0.5 text-xs font-medium"
                       >
                         {concernLabelMap[c] ? t(concernLabelMap[c], locale) : c}
                       </span>
@@ -118,7 +118,7 @@ export default function RankingList({ products, locale }: RankingListProps) {
                   </div>
                 </div>
                 {isNew && (
-                  <span className="shrink-0 rounded-full bg-rose-50 text-rose-600 px-2 py-0.5 text-[10px] font-semibold">
+                  <span className="shrink-0 rounded-full bg-rose-50 text-rose-600 px-2 py-0.5 text-xs font-medium">
                     NEW
                   </span>
                 )}

@@ -99,7 +99,7 @@ export default function SearchOverlay({ locale, onClose }: SearchOverlayProps) {
             <>
               {/* Popular search chips */}
               <section>
-                <h3 className="text-[13px] font-semibold text-neutral-500 uppercase tracking-wide mb-3">
+                <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400 mb-3">
                   {loc === "vi" ? "Tìm kiếm phổ biến" : "Popular Searches"}
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -107,7 +107,7 @@ export default function SearchOverlay({ locale, onClose }: SearchOverlayProps) {
                     <button
                       key={keyword}
                       onClick={() => setQuery(keyword)}
-                      className="px-3.5 py-2 rounded-full bg-white border border-neutral-200 text-sm text-neutral-700 hover:bg-neutral-100 active:bg-neutral-200 transition-colors"
+                      className="px-3.5 py-2 rounded-full bg-white border border-neutral-200 text-sm font-medium text-neutral-500 hover:bg-neutral-100 active:bg-neutral-200 transition-colors"
                     >
                       {keyword}
                     </button>
@@ -117,7 +117,7 @@ export default function SearchOverlay({ locale, onClose }: SearchOverlayProps) {
 
               {/* Trending products */}
               <section className="mt-8">
-                <h3 className="text-[13px] font-semibold text-neutral-500 uppercase tracking-wide mb-3">
+                <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400 mb-3">
                   {loc === "vi" ? "Xu hướng" : "Trending"}
                 </h3>
                 <div className="grid grid-cols-3 gap-3">
@@ -129,7 +129,7 @@ export default function SearchOverlay({ locale, onClose }: SearchOverlayProps) {
                       className="group rounded-2xl bg-white border border-neutral-100 p-3 hover:shadow-sm transition-shadow"
                     >
                       <div className="relative aspect-square rounded-xl bg-neutral-50 overflow-hidden mb-2">
-                        <span className="absolute top-1.5 left-1.5 z-10 text-[11px] font-bold text-neutral-400">
+                        <span className="absolute top-1.5 left-1.5 z-10 text-xs font-medium text-neutral-500">
                           {i + 1}
                         </span>
                         <Image
@@ -140,10 +140,10 @@ export default function SearchOverlay({ locale, onClose }: SearchOverlayProps) {
                           sizes="(max-width: 768px) 30vw, 200px"
                         />
                       </div>
-                      <p className="text-[10px] font-medium text-neutral-400 uppercase tracking-wide">
+                      <p className="text-xs font-medium text-neutral-500 uppercase tracking-wide">
                         {getBrandName(product.brand)}
                       </p>
-                      <p className="text-xs font-medium text-neutral-800 line-clamp-2 leading-snug mt-0.5">
+                      <p className="text-xs font-medium text-neutral-900 line-clamp-2 leading-snug mt-0.5">
                         {product.name[loc] || product.name.vi}
                       </p>
                     </Link>
@@ -155,7 +155,7 @@ export default function SearchOverlay({ locale, onClose }: SearchOverlayProps) {
 
           {/* Search results */}
           {isSearching && results.length === 0 && (
-            <p className="text-sm text-neutral-400 text-center py-10">
+            <p className="text-sm text-neutral-600 text-center py-10">
               {loc === "vi"
                 ? "Không tìm thấy sản phẩm"
                 : "No products found"}
@@ -180,10 +180,10 @@ export default function SearchOverlay({ locale, onClose }: SearchOverlayProps) {
                     />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[11px] font-medium tracking-wide text-neutral-400 uppercase">
+                    <p className="text-xs font-medium text-neutral-500 tracking-wide uppercase">
                       {getBrandName(product.brand)}
                     </p>
-                    <p className="text-sm font-medium text-neutral-900 truncate">
+                    <p className="text-sm font-semibold text-neutral-900 truncate">
                       {product.name[loc] || product.name.vi}
                     </p>
                   </div>

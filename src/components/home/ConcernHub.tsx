@@ -110,7 +110,7 @@ export default function ConcernHub({
             className={`shrink-0 flex items-center justify-center h-11 px-4 text-sm font-medium transition-colors duration-200 border-b-2 -mb-px ${
               cat.id === activeCategory
                 ? "border-neutral-900 text-neutral-900"
-                : "border-transparent text-neutral-400 hover:text-neutral-600"
+                : "border-transparent text-neutral-500 hover:text-neutral-900"
             }`}
           >
             {cat.label[loc] || cat.label.vi}
@@ -135,8 +135,8 @@ export default function ConcernHub({
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center py-20">
-          <p className="text-neutral-300 text-4xl mb-3">🔍</p>
-          <p className="text-sm text-neutral-400">{dict.emptyState}</p>
+          <p className="text-neutral-400 text-2xl mb-3">🔍</p>
+          <p className="text-sm text-neutral-600">{dict.emptyState}</p>
         </div>
       )}
     </div>

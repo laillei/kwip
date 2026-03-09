@@ -8,10 +8,10 @@ export default function Error({
 }) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen gap-4">
-      <h2 className="text-xl font-semibold">Đã xảy ra lỗi</h2>
+      <h2 className="text-lg font-semibold text-neutral-900">Đã xảy ra lỗi</h2>
       <button
         onClick={() => reset()}
-        className="px-4 py-2 bg-white text-black rounded"
+        className="px-4 py-2 bg-neutral-900 text-white text-sm font-medium rounded-full"
       >
         Thử lại
       </button>

@@ -35,10 +35,10 @@ export default function ProductCard({
         />
       </div>
       <div className="px-3.5 pt-3 pb-3.5">
-        <p className="text-[11px] font-medium tracking-wide text-neutral-400 uppercase">
+        <p className="text-xs font-medium text-neutral-500 tracking-wide uppercase">
           {getBrandName(brand)}
         </p>
-        <p className="text-[13px] font-medium text-neutral-900 leading-snug mt-1 line-clamp-2">
+        <p className="text-sm font-semibold text-neutral-900 leading-snug mt-1 line-clamp-2">
           {name}
         </p>
       </div>

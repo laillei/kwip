@@ -9,8 +9,8 @@ export default async function NotFound() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center px-6">
-      <p className="text-6xl font-bold text-neutral-200">404</p>
-      <p className="mt-3 text-sm text-neutral-400">
+      <p className="text-2xl font-bold text-neutral-900">404</p>
+      <p className="mt-3 text-sm text-neutral-600">
         {isEn ? "Page not found" : "Trang không tồn tại"}
       </p>
       <Link

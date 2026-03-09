@@ -28,7 +28,7 @@ export default function ConcernSelector({
             className={`flex items-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-medium transition-all min-h-[44px] ${
               isActive
                 ? "bg-neutral-900 text-white shadow-sm"
-                : "bg-white text-neutral-600 hover:bg-neutral-100 active:bg-neutral-200"
+                : "bg-white text-neutral-500 hover:bg-neutral-100 active:bg-neutral-200"
             }`}
             style={
               !isActive

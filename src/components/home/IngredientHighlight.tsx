@@ -19,7 +19,7 @@ export default function IngredientHighlight({
 
   return (
     <div className="space-y-2">
-      <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide">
+      <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
         {heading}
       </h3>
       <div className="flex gap-3 overflow-x-auto pb-2 -mx-6 px-6 scrollbar-hide">
@@ -41,12 +41,12 @@ export default function IngredientHighlight({
                 {displayName}
               </p>
               {loc === "vi" && (
-                <p className="text-xs text-neutral-500 mt-0.5">
+                <p className="text-xs font-medium text-neutral-500 mt-0.5">
                   {ing.name.inci}
                 </p>
               )}
               {relevantEffects.length > 0 && (
-                <p className="text-xs text-neutral-600 mt-2 leading-relaxed line-clamp-2">
+                <p className="text-sm text-neutral-600 mt-2 leading-relaxed line-clamp-2">
                   {relevantEffects[0].reason[loc] || relevantEffects[0].reason.vi}
                 </p>
               )}
