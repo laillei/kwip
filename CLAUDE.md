@@ -7,9 +7,15 @@
 
 ## Core Value
 **"I have a skin problem. Help me fix it."**
-Kwip is a skin-issue solver for Vietnamese K-beauty consumers. Not a product catalog, not a review platform, not an ingredient database — the shortest path from a skin concern to a trustworthy product recommendation.
+Kwip is a skin-issue solver for Vietnamese K-beauty consumers. The shortest path from a skin concern to a trustworthy product recommendation.
 
 **Differentiator:** Trust through understanding. Shows WHY a product works (ingredient logic) — not just what's popular.
+
+### What Kwip is NOT
+- Not a product catalog (Oliveyoung does that)
+- Not a review platform (Hwahae does that)
+- Not an ingredient database (CosDNA does that)
+- Not a marketplace (Shopee/Lazada do that)
 
 ## Tech Stack
 - Next.js 15 (App Router) + TypeScript + Tailwind CSS
@@ -17,9 +23,13 @@ Kwip is a skin-issue solver for Vietnamese K-beauty consumers. Not a product cat
 - Deploy: Vercel
 - No login, no database — localStorage only
 
+For full specification, data schemas, and architecture, see [README.md](./README.md).
+
 ## Key Commands
 - `npm run dev` — Start dev server (auto-clears .next cache)
 - `npm run build` — Build for production
+- `npm run pipeline:run` — Run product discovery pipeline
+- `npm run pipeline:promote` — Promote staged data to production
 
 ## Information Architecture
 
@@ -65,10 +75,10 @@ Kwip is a skin-issue solver for Vietnamese K-beauty consumers. Not a product cat
 
 ## Rules
 - All user-facing text must be localized (Vietnamese + English via dictionaries)
-- Mobile-first design (min touch target 44px)
-- Font: Noto Sans (Vietnamese diacritics support)
 - No hardcoded strings — use `src/dictionaries/vi.json` and `en.json`
 - Category names must be translated (e.g., toner → Nước hoa hồng)
+- Mobile-first design (min touch target 44px)
+- Font: Noto Sans (Vietnamese diacritics support)
 
 ## Key Files
 - `src/components/home/ConcernHub.tsx` — Main page orchestrator (concern filter + routine groups)
@@ -78,3 +88,14 @@ Kwip is a skin-issue solver for Vietnamese K-beauty consumers. Not a product cat
 - `src/app/[locale]/products/[slug]/page.tsx` — Product detail page
 - `src/data/` — products.json, ingredients.json, concerns.json
 - `docs/plans/2026-03-09-core-vision-design.md` — Core vision document
+
+## Roadmap
+### Next
+- [ ] URL-synced filters (concern/category in query params, shareable, back button works)
+- [ ] Product detail page refresh (emphasize "why" per concern, match trust-layer philosophy)
+- [ ] Better empty state (larger concern cards when nothing selected)
+
+### Later
+- [ ] SEO / Open Graph meta for shareable product detail pages (Zalo, Facebook)
+- [ ] Ingredient conflict warnings (good for one concern but caution for another)
+- [ ] Real product images audit
