@@ -1,101 +1,80 @@
 # Kwip — Claude Code Instructions
 
-## Repository
-- **Organization:** difisoft-kr
-- **Repository:** kwip
-- **URL:** https://github.com/difisoft-kr/kwip
+## Context
+- **Repo:** https://github.com/difisoft-kr/kwip
+- **Tech:** Next.js 15 (App Router) + TypeScript + Tailwind CSS
+- **Data:** Static JSON, no database, no auth
+- **Full spec:** See [README.md](./README.md) for data schemas and architecture
 
-## Core Value
+## Core Value — Always Keep This in Mind
 **"I have a skin problem. Help me fix it."**
-Kwip is a skin-issue solver for Vietnamese K-beauty consumers. The shortest path from a skin concern to a trustworthy product recommendation.
 
-**Differentiator:** Trust through understanding. Shows WHY a product works (ingredient logic) — not just what's popular.
+Kwip is a skin-issue solver. NOT a product catalog, NOT a review platform, NOT an ingredient database. Every feature should serve this: concern → understanding (ingredients) → action (buy).
 
-### What Kwip is NOT
-- Not a product catalog (Oliveyoung does that)
-- Not a review platform (Hwahae does that)
-- Not an ingredient database (CosDNA does that)
-- Not a marketplace (Shopee/Lazada do that)
-
-## Tech Stack
-- Next.js 15 (App Router) + TypeScript + Tailwind CSS
-- Data: Local JSON (~100 products, ~150 ingredients, 7 concerns)
-- Deploy: Vercel
-- No login, no database — localStorage only
-
-For full specification, data schemas, and architecture, see [README.md](./README.md).
-
-## Key Commands
+## Commands
 - `npm run dev` — Start dev server (auto-clears .next cache)
 - `npm run build` — Build for production
 - `npm run pipeline:run` — Run product discovery pipeline
 - `npm run pipeline:promote` — Promote staged data to production
 
-## Information Architecture
+## When Writing Code
+
+### Design System — Follow These Exactly
+**Type scale (7 roles only, no exceptions):**
+| Role | Classes |
+|------|---------|
+| Title | `text-2xl font-bold text-neutral-900` |
+| Headline | `text-lg font-semibold text-neutral-900` |
+| Subhead | `text-sm font-semibold text-neutral-900` |
+| Body | `text-sm text-neutral-600` |
+| Caption | `text-xs font-medium text-neutral-500` |
+| Overline | `text-xs font-semibold uppercase tracking-wide text-neutral-400` |
+| Label | `text-sm font-medium` |
+
+**Forbidden:**
+- NO arbitrary pixel sizes (`text-[11px]`, `text-[13px]`, etc.)
+- NO `text-neutral-300/700/800` for text
+- NO `font-black`
+
+**Colors:** neutral-900 (primary), neutral-500 (secondary), neutral-400 (tertiary), neutral-600 (body). Semantic: emerald-600 (good), amber-600 (caution) only.
+
+### Localization — No Exceptions
+- ALL user-facing text via `src/dictionaries/vi.json` and `en.json`
+- NO hardcoded strings in components
+- Category names must be translated (toner → Nước hoa hồng, ampoule → Tinh chất cô đặc)
+
+### Mobile-First
+- Min touch target: 44px
+- Font: Noto Sans (Vietnamese diacritics)
+- Test on mobile viewport first
+
+### Skincare Routine Order (when grouping products)
+1. Cleanser → 2. Pad (exfoliate) → 3. Toner → 4. Essence → 5. Serum → 6. Ampoule → 7. Mask → 8. Cream (moisturize) → 9. Sunscreen
+
+## Current Architecture
 
 ```
-/[locale]/                        ← Home (filter + browse)
-  ├── Concern pills (multi-select, OR with relevance sorting)
-  ├── Ingredient highlight cards (horizontal scroll, trust layer)
-  ├── Products grouped by skincare routine steps (when concern selected)
-  └── Flat product grid (when no concern selected)
+/[locale]/                        ← Home (single page: filter + browse)
+  ├── Concern pills (multi-select, OR with relevance)
+  ├── Ingredient highlight cards (trust layer)
+  ├── Routine-grouped products (when concern selected)
+  └── Flat grid (when nothing selected)
 
-/[locale]/products?...            ← Redirects to home (preserves params)
+/[locale]/products?...            ← Redirects to home
 /[locale]/products/[slug]         ← Product Detail (verify + buy)
 ```
 
-### Skincare Routine Order
-1. Cleanser → 2. Pad (exfoliate) → 3. Toner → 4. Essence → 5. Serum → 6. Ampoule → 7. Mask → 8. Cream (moisturize) → 9. Sunscreen
-
-### Filter Logic
-- Multi-select concerns: OR with relevance (products matching more concerns rank higher)
-- Each product card shows a "why" badge — the key ingredient + reason matching the selected concern
-
-## Design System
-
-### Type Scale (7 roles only)
-| Role | Classes | Used For |
-|------|---------|----------|
-| Title | `text-2xl font-bold text-neutral-900` | "Kwip" logo |
-| Headline | `text-lg font-semibold text-neutral-900` | Product name (detail) |
-| Subhead | `text-sm font-semibold text-neutral-900` | Ingredient names, card titles |
-| Body | `text-sm text-neutral-600` | Descriptions, reasons |
-| Caption | `text-xs font-medium text-neutral-500` | Brand, INCI, badges |
-| Overline | `text-xs font-semibold uppercase tracking-wide text-neutral-400` | Section headers |
-| Label | `text-sm font-medium` | Buttons, tabs, pills |
-
-### Color Rules
-- Primary text: neutral-900
-- Secondary text: neutral-500
-- Tertiary: neutral-400
-- Body: neutral-600
-- Semantic only: emerald-600 (good), amber-600 (caution)
-- NO arbitrary pixel sizes (text-[11px] etc.)
-- NO text-neutral-300/700/800
-
-## Rules
-- All user-facing text must be localized (Vietnamese + English via dictionaries)
-- No hardcoded strings — use `src/dictionaries/vi.json` and `en.json`
-- Category names must be translated (e.g., toner → Nước hoa hồng)
-- Mobile-first design (min touch target 44px)
-- Font: Noto Sans (Vietnamese diacritics support)
-
-## Key Files
-- `src/components/home/ConcernHub.tsx` — Main page orchestrator (concern filter + routine groups)
-- `src/components/home/ConcernSelector.tsx` — Multi-select concern pills
-- `src/components/home/IngredientHighlight.tsx` — Ingredient trust layer cards
-- `src/components/products/ProductCard.tsx` — Product card with optional "why" badge
-- `src/app/[locale]/products/[slug]/page.tsx` — Product detail page
+### Key Files
+- `src/components/home/ConcernHub.tsx` — Main orchestrator
+- `src/components/home/ConcernSelector.tsx` — Multi-select pills
+- `src/components/home/IngredientHighlight.tsx` — Trust layer cards
+- `src/components/products/ProductCard.tsx` — Card with "why" badge
+- `src/app/[locale]/products/[slug]/page.tsx` — Detail page
 - `src/data/` — products.json, ingredients.json, concerns.json
-- `docs/plans/2026-03-09-core-vision-design.md` — Core vision document
 
-## Roadmap
-### Next
-- [ ] URL-synced filters (concern/category in query params, shareable, back button works)
-- [ ] Product detail page refresh (emphasize "why" per concern, match trust-layer philosophy)
-- [ ] Better empty state (larger concern cards when nothing selected)
-
-### Later
-- [ ] SEO / Open Graph meta for shareable product detail pages (Zalo, Facebook)
-- [ ] Ingredient conflict warnings (good for one concern but caution for another)
-- [ ] Real product images audit
+## Roadmap (don't build unless asked)
+- [ ] URL-synced filters (shareable, back button)
+- [ ] Product detail refresh (emphasize "why" per concern)
+- [ ] Better empty state for no-concern selection
+- [ ] SEO / Open Graph meta
+- [ ] Ingredient conflict warnings across concerns
