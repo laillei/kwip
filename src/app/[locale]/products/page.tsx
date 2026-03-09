@@ -35,7 +35,8 @@ export default async function ProductsPage({
   const { concern: concernParam, category: categoryParam, view } = await searchParams;
   const dict = await getDictionary(locale as Locale);
   const loc = locale as Locale;
-  const activeConcern = concernParam || "all";
+  const concernList = concernParam ? concernParam.split(",") : [];
+  const activeConcern = concernList.length > 0 ? concernParam! : "all";
   const activeCategory = categoryParam || "all";
   const isRankingView = view === "ranking";
 
@@ -52,7 +53,10 @@ export default async function ProductsPage({
   }
 
   const filtered = (products as Product[])
-    .filter((p) => activeConcern === "all" || p.concerns.includes(activeConcern as Concern))
+    .filter((p) =>
+      concernList.length === 0 ||
+      concernList.every((c) => p.concerns.includes(c as Concern))
+    )
     .filter((p) => activeCategory === "all" || p.category === activeCategory)
     .sort((a, b) => a.popularity.rank - b.popularity.rank);
 
@@ -82,19 +86,24 @@ export default async function ProductsPage({
         <nav className="sticky top-0 z-10 bg-neutral-50/80 backdrop-blur-xl pt-3 space-y-1">
           {/* Primary: Concern pills */}
           <div className="flex gap-2 px-6 md:px-8 overflow-x-auto no-scrollbar">
-            {allConcerns.map((c) => (
-              <Link
-                key={c.id}
-                href={buildUrl({ concern: c.id })}
-                className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors duration-150 ${
-                  c.id === activeConcern
-                    ? "bg-neutral-900 text-white"
-                    : "bg-neutral-200/70 text-neutral-600 active:bg-neutral-300"
-                }`}
-              >
-                {t(c.label, loc)}
-              </Link>
-            ))}
+            {allConcerns.map((c) => {
+              const isActive =
+                (c.id === "all" && concernList.length === 0) ||
+                concernList.includes(c.id);
+              return (
+                <Link
+                  key={c.id}
+                  href={buildUrl({ concern: c.id })}
+                  className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors duration-150 ${
+                    isActive
+                      ? "bg-neutral-900 text-white"
+                      : "bg-neutral-200/70 text-neutral-600 active:bg-neutral-300"
+                  }`}
+                >
+                  {t(c.label, loc)}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Secondary: MD3-style category tabs */}
