@@ -12,7 +12,7 @@
     },
     "effects": [
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Giữ ẩm sâu, giúp da căng mọng",
@@ -44,7 +44,7 @@
     },
     "effects": [
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Giữ ẩm tự nhiên, không gây kích ứng",
@@ -68,7 +68,7 @@
     },
     "effects": [
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Giữ nước cực mạnh, da căng mọng tức thì",
@@ -100,7 +100,7 @@
     },
     "effects": [
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Phục hồi hàng rào ẩm tự nhiên của da",
@@ -164,7 +164,7 @@
         }
       },
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Giữ ẩm nhẹ, phù hợp da nhạy cảm",
@@ -266,7 +266,7 @@
     },
     "effects": [
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Giữ ẩm nhẹ, giúp các thành phần khác thẩm thấu",
@@ -290,7 +290,7 @@
     },
     "effects": [
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Dưỡng ẩm nhẹ, tăng hiệu quả của sản phẩm",
@@ -402,7 +402,7 @@
         }
       },
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Tăng cường hàng rào bảo vệ, giữ ẩm tốt hơn",
@@ -426,7 +426,7 @@
     },
     "effects": [
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Làm mềm da tự nhiên, không gây bít tắc",
@@ -465,7 +465,7 @@
     },
     "effects": [
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Giữ nước gấp 1000 lần, cấp ẩm tức thì",
@@ -497,7 +497,7 @@
     },
     "effects": [
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Giữ ẩm hiệu quả, phù hợp mọi loại da",
@@ -737,7 +737,7 @@
     },
     "effects": [
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Phục hồi hàng rào da, khóa ẩm hiệu quả",
@@ -857,7 +857,7 @@
     },
     "effects": [
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Cấp ẩm tự nhiên nhờ khoáng chất và amino acid",
@@ -889,7 +889,7 @@
     },
     "effects": [
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Khóa ẩm hiệu quả, phù hợp mọi loại da kể cả da dầu",
@@ -913,7 +913,7 @@
     },
     "effects": [
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Dưỡng ẩm sâu, phục hồi da khô nứt nẻ",
@@ -1025,7 +1025,7 @@
     },
     "effects": [
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Cấp ẩm nhẹ nhàng, làm mát và dịu da nhanh chóng",
@@ -1097,7 +1097,7 @@
         }
       },
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Cung cấp độ ẩm sâu, tăng cường hàng rào da",
@@ -1129,7 +1129,7 @@
         }
       },
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Phục hồi hàng rào da, giữ ẩm lâu dài",
@@ -1161,7 +1161,7 @@
         }
       },
       {
-        "concern": "moisturizing",
+        "concern": "hydration",
         "type": "good",
         "reason": {
           "vi": "Cấp ẩm nhẹ nhàng, phù hợp da nhạy cảm",
@@ -1171,5 +1171,533 @@
     ],
     "ewgGrade": "1",
     "category": "active"
+  },
+  {
+    "id": "jojoba-oil",
+    "name": {
+      "inci": "Simmondsia Chinensis (Jojoba) Seed Oil",
+      "vi": "Dầu Jojoba",
+      "ko": "호호바 오일"
+    },
+    "description": {
+      "vi": "Dầu tương tự bã nhờn tự nhiên, dưỡng ẩm không gây bít tắc",
+      "en": "Oil similar to natural sebum, moisturizes without clogging pores"
+    },
+    "effects": [
+      {
+        "concern": "hydration",
+        "type": "good",
+        "reason": {
+          "vi": "Dưỡng ẩm nhẹ, phù hợp da dầu",
+          "en": "Light moisture, suitable for oily skin"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "emollient"
+  },
+  {
+    "id": "bee-venom",
+    "name": {
+      "inci": "Bee Venom",
+      "vi": "Nọc ong",
+      "ko": "봉독"
+    },
+    "description": {
+      "vi": "Kích thích sản sinh collagen, làm săn chắc da",
+      "en": "Stimulates collagen production, firms skin"
+    },
+    "effects": [
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Tăng sản sinh collagen tự nhiên",
+          "en": "Boosts natural collagen production"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "collagen",
+    "name": {
+      "inci": "Hydrolyzed Collagen",
+      "vi": "Collagen thủy phân",
+      "ko": "가수분해 콜라겐"
+    },
+    "description": {
+      "vi": "Protein cấu trúc da, giúp da săn chắc và đàn hồi",
+      "en": "Structural skin protein, keeps skin firm and elastic"
+    },
+    "effects": [
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Tăng độ đàn hồi, giảm nếp nhăn",
+          "en": "Improves elasticity, reduces wrinkles"
+        }
+      },
+      {
+        "concern": "hydration",
+        "type": "good",
+        "reason": {
+          "vi": "Giữ ẩm, giúp da mềm mại",
+          "en": "Retains moisture, softens skin"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "peptide",
+    "name": {
+      "inci": "Acetyl Hexapeptide-8",
+      "vi": "Peptide",
+      "ko": "펩타이드"
+    },
+    "description": {
+      "vi": "Chuỗi amino acid ngắn kích thích tái tạo collagen",
+      "en": "Short amino acid chain that stimulates collagen regeneration"
+    },
+    "effects": [
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Giảm nếp nhăn, tăng đàn hồi da",
+          "en": "Reduces wrinkles, improves skin elasticity"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "mugwort-extract",
+    "name": {
+      "inci": "Artemisia Princeps Extract",
+      "vi": "Chiết xuất ngải cứu",
+      "ko": "쑥 추출물"
+    },
+    "description": {
+      "vi": "Làm dịu da nhạy cảm, kháng viêm tự nhiên",
+      "en": "Soothes sensitive skin, natural anti-inflammatory"
+    },
+    "effects": [
+      {
+        "concern": "soothing",
+        "type": "good",
+        "reason": {
+          "vi": "Làm dịu da kích ứng, giảm đỏ",
+          "en": "Calms irritated skin, reduces redness"
+        }
+      },
+      {
+        "concern": "acne",
+        "type": "good",
+        "reason": {
+          "vi": "Kháng viêm, giúp da mụn hồi phục",
+          "en": "Anti-inflammatory, helps acne-prone skin recover"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "beta-glucan",
+    "name": {
+      "inci": "Beta-Glucan",
+      "vi": "Beta-Glucan",
+      "ko": "베타글루칸"
+    },
+    "description": {
+      "vi": "Giữ ẩm mạnh, tăng cường hàng rào bảo vệ da",
+      "en": "Strong moisturizer, strengthens skin barrier"
+    },
+    "effects": [
+      {
+        "concern": "hydration",
+        "type": "good",
+        "reason": {
+          "vi": "Giữ ẩm sâu, phục hồi hàng rào da",
+          "en": "Deep hydration, restores skin barrier"
+        }
+      },
+      {
+        "concern": "soothing",
+        "type": "good",
+        "reason": {
+          "vi": "Làm dịu da nhạy cảm",
+          "en": "Soothes sensitive skin"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "volcanic-ash",
+    "name": {
+      "inci": "Volcanic Ash",
+      "vi": "Tro núi lửa Jeju",
+      "ko": "화산송이"
+    },
+    "description": {
+      "vi": "Hút dầu thừa, làm sạch sâu lỗ chân lông",
+      "en": "Absorbs excess oil, deeply cleanses pores"
+    },
+    "effects": [
+      {
+        "concern": "pores",
+        "type": "good",
+        "reason": {
+          "vi": "Hút dầu, thu nhỏ lỗ chân lông",
+          "en": "Absorbs oil, minimizes pores"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "kaolin",
+    "name": {
+      "inci": "Kaolin",
+      "vi": "Đất sét Kaolin",
+      "ko": "카올린"
+    },
+    "description": {
+      "vi": "Đất sét tự nhiên hút dầu và làm sạch da",
+      "en": "Natural clay that absorbs oil and cleanses skin"
+    },
+    "effects": [
+      {
+        "concern": "pores",
+        "type": "good",
+        "reason": {
+          "vi": "Hút dầu thừa, thu nhỏ lỗ chân lông",
+          "en": "Absorbs excess oil, minimizes pores"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "rice-extract",
+    "name": {
+      "inci": "Oryza Sativa (Rice) Extract",
+      "vi": "Chiết xuất gạo",
+      "ko": "쌀 추출물"
+    },
+    "description": {
+      "vi": "Dưỡng sáng da, giàu vitamin B và khoáng chất",
+      "en": "Brightens skin, rich in vitamin B and minerals"
+    },
+    "effects": [
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": {
+          "vi": "Làm sáng da tự nhiên",
+          "en": "Naturally brightens skin"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "soybean-ferment",
+    "name": {
+      "inci": "Lactobacillus/Soybean Ferment Extract",
+      "vi": "Chiết xuất đậu nành lên men",
+      "ko": "유산균/대두 발효 추출물"
+    },
+    "description": {
+      "vi": "Probiotic đậu nành giúp sáng da và tăng cường hàng rào da",
+      "en": "Soybean probiotic that brightens skin and strengthens barrier"
+    },
+    "effects": [
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": {
+          "vi": "Sáng da nhờ quá trình lên men",
+          "en": "Brightens skin through fermentation"
+        }
+      },
+      {
+        "concern": "hydration",
+        "type": "good",
+        "reason": {
+          "vi": "Tăng cường hàng rào ẩm",
+          "en": "Strengthens moisture barrier"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "pdrn",
+    "name": {
+      "inci": "Sodium DNA",
+      "vi": "PDRN (Polydeoxyribonucleotide)",
+      "ko": "PDRN"
+    },
+    "description": {
+      "vi": "Tái tạo tế bào da, chống lão hóa từ cấp độ DNA",
+      "en": "Regenerates skin cells, anti-aging at DNA level"
+    },
+    "effects": [
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Tái tạo tế bào, trẻ hóa da",
+          "en": "Regenerates cells, rejuvenates skin"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "glutathione",
+    "name": {
+      "inci": "Glutathione",
+      "vi": "Glutathione",
+      "ko": "글루타치온"
+    },
+    "description": {
+      "vi": "Chất chống oxy hóa mạnh, làm sáng da từ bên trong",
+      "en": "Powerful antioxidant, brightens skin from within"
+    },
+    "effects": [
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": {
+          "vi": "Ức chế melanin, sáng da toàn diện",
+          "en": "Inhibits melanin, comprehensive brightening"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "bakuchiol",
+    "name": {
+      "inci": "Bakuchiol",
+      "vi": "Bakuchiol",
+      "ko": "바쿠치올"
+    },
+    "description": {
+      "vi": "Thay thế retinol từ thực vật, chống lão hóa nhẹ nhàng",
+      "en": "Plant-based retinol alternative, gentle anti-aging"
+    },
+    "effects": [
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Chống lão hóa hiệu quả mà không gây kích ứng",
+          "en": "Effective anti-aging without irritation"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "black-rice-extract",
+    "name": {
+      "inci": "Oryza Sativa (Black Rice) Extract",
+      "vi": "Chiết xuất gạo đen",
+      "ko": "흑미 추출물"
+    },
+    "description": {
+      "vi": "Giàu anthocyanin chống oxy hóa, dưỡng sáng da",
+      "en": "Rich in antioxidant anthocyanins, brightens skin"
+    },
+    "effects": [
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": {
+          "vi": "Chống oxy hóa, sáng da đều màu",
+          "en": "Antioxidant, evens skin tone"
+        }
+      },
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Chống gốc tự do, ngăn lão hóa",
+          "en": "Fights free radicals, prevents aging"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "green-tangerine-extract",
+    "name": {
+      "inci": "Citrus Unshiu Peel Extract",
+      "vi": "Chiết xuất quýt xanh",
+      "ko": "청귤 추출물"
+    },
+    "description": {
+      "vi": "Giàu vitamin C tự nhiên, làm sáng và đều màu da",
+      "en": "Rich in natural vitamin C, brightens and evens skin tone"
+    },
+    "effects": [
+      {
+        "concern": "brightening",
+        "type": "good",
+        "reason": {
+          "vi": "Vitamin C tự nhiên giúp mờ thâm nám",
+          "en": "Natural vitamin C fades dark spots"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "spicule",
+    "name": {
+      "inci": "Spongilla Lacustris Spicule",
+      "vi": "Vi kim tảo biển (Spicule)",
+      "ko": "스피큘"
+    },
+    "description": {
+      "vi": "Vi kim sinh học kích thích tái tạo da, tăng hấp thu dưỡng chất",
+      "en": "Biological micro-needles stimulate skin renewal, enhance absorption"
+    },
+    "effects": [
+      {
+        "concern": "pores",
+        "type": "good",
+        "reason": {
+          "vi": "Kích thích tái tạo, thu nhỏ lỗ chân lông",
+          "en": "Stimulates renewal, minimizes pores"
+        }
+      },
+      {
+        "concern": "anti-aging",
+        "type": "good",
+        "reason": {
+          "vi": "Tăng tái tạo tế bào da",
+          "en": "Boosts skin cell regeneration"
+        }
+      }
+    ],
+    "ewgGrade": "2",
+    "category": "active"
+  },
+  {
+    "id": "honey-extract",
+    "name": {
+      "inci": "Mel (Honey) Extract",
+      "vi": "Chiết xuất mật ong",
+      "ko": "꿀 추출물"
+    },
+    "description": {
+      "vi": "Dưỡng ẩm tự nhiên, kháng khuẩn nhẹ",
+      "en": "Natural moisturizer, mild antibacterial"
+    },
+    "effects": [
+      {
+        "concern": "hydration",
+        "type": "good",
+        "reason": {
+          "vi": "Giữ ẩm tự nhiên, nuôi dưỡng da",
+          "en": "Natural moisture retention, nourishes skin"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "red-bean-extract",
+    "name": {
+      "inci": "Phaseolus Angularis Seed Extract",
+      "vi": "Chiết xuất đậu đỏ",
+      "ko": "팥 추출물"
+    },
+    "description": {
+      "vi": "Làm sạch lỗ chân lông, tẩy tế bào chết nhẹ nhàng",
+      "en": "Cleanses pores, gently exfoliates"
+    },
+    "effects": [
+      {
+        "concern": "pores",
+        "type": "good",
+        "reason": {
+          "vi": "Làm sạch lỗ chân lông, sáng da",
+          "en": "Cleanses pores, brightens skin"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "green-plum-extract",
+    "name": {
+      "inci": "Prunus Mume Fruit Extract",
+      "vi": "Chiết xuất mận xanh",
+      "ko": "매실 추출물"
+    },
+    "description": {
+      "vi": "AHA tự nhiên, tẩy tế bào chết nhẹ, se khít lỗ chân lông",
+      "en": "Natural AHA, gentle exfoliant, tightens pores"
+    },
+    "effects": [
+      {
+        "concern": "pores",
+        "type": "good",
+        "reason": {
+          "vi": "Thu nhỏ lỗ chân lông, da sáng mịn",
+          "en": "Minimizes pores, brighter smoother skin"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "active"
+  },
+  {
+    "id": "trehalose",
+    "name": {
+      "inci": "Trehalose",
+      "vi": "Trehalose",
+      "ko": "트레할로스"
+    },
+    "description": {
+      "vi": "Đường tự nhiên giữ ẩm, bảo vệ tế bào da",
+      "en": "Natural sugar moisturizer, protects skin cells"
+    },
+    "effects": [
+      {
+        "concern": "hydration",
+        "type": "good",
+        "reason": {
+          "vi": "Giữ ẩm hiệu quả, bảo vệ da",
+          "en": "Effective moisture retention, protects skin"
+        }
+      }
+    ],
+    "ewgGrade": "1",
+    "category": "moisturizer"
   }
 ]

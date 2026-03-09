@@ -55,10 +55,17 @@ export default async function ProductsPage({
   const filtered = (products as Product[])
     .filter((p) =>
       concernList.length === 0 ||
-      concernList.every((c) => p.concerns.includes(c as Concern))
+      concernList.some((c) => p.concerns.includes(c as Concern))
     )
     .filter((p) => activeCategory === "all" || p.category === activeCategory)
-    .sort((a, b) => a.popularity.rank - b.popularity.rank);
+    .sort((a, b) => {
+      if (concernList.length > 1) {
+        const aCount = concernList.filter((c) => a.concerns.includes(c as Concern)).length;
+        const bCount = concernList.filter((c) => b.concerns.includes(c as Concern)).length;
+        if (bCount !== aCount) return bCount - aCount;
+      }
+      return a.popularity.rank - b.popularity.rank;
+    });
 
   return (
     <div className="min-h-screen bg-neutral-50">

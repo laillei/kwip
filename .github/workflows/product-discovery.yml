@@ -1,0 +1,75 @@
+name: Product Discovery
+
+on:
+  schedule:
+    # Run weekly on Sundays at 03:00 UTC
+    - cron: "0 3 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run discovery pipeline
+        id: pipeline
+        run: npx tsx scripts/pipeline/run.ts
+
+      - name: Check for new products
+        id: check
+        run: |
+          if [ -d "src/data/staging" ] && ls src/data/staging/discovered-*.json 1>/dev/null 2>&1; then
+            echo "has_products=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_products=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Promote staged products
+        if: steps.check.outputs.has_products == 'true'
+        id: promote
+        run: npx tsx scripts/pipeline/promote.ts
+
+      - name: Validate data
+        if: steps.check.outputs.has_products == 'true'
+        run: npm run validate-data
+
+      - name: Read PR body
+        if: steps.check.outputs.has_products == 'true'
+        id: pr_body
+        run: |
+          if [ -f "src/data/staging/pr-body.md" ]; then
+            echo "body_file=src/data/staging/pr-body.md" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Clean staging files
+        if: steps.check.outputs.has_products == 'true'
+        run: rm -rf src/data/staging
+
+      - name: Create Pull Request
+        if: steps.check.outputs.has_products == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "feat: auto-discover new K-beauty products"
+          title: "feat: auto-discovered K-beauty products"
+          body-path: ${{ steps.pr_body.outputs.body_file }}
+          branch: auto/product-discovery
+          delete-branch: true
+          labels: auto-discovery

@@ -22,6 +22,7 @@ interface ConcernHubProps {
   dict: {
     viewMore: string;
     emptyState: string;
+    helpfulIngredients: string;
   };
 }
 
@@ -43,9 +44,16 @@ export default function ConcernHub({
 
   const hasSelection = selected.length > 0;
 
-  // Filter products that match ALL selected concerns
+  // Filter products matching ANY selected concern, sorted by relevance (match count)
   const filteredProducts = hasSelection
-    ? products.filter((p) => selected.every((c) => p.concerns.includes(c)))
+    ? products
+        .filter((p) => selected.some((c) => p.concerns.includes(c)))
+        .sort((a, b) => {
+          const aCount = selected.filter((c) => a.concerns.includes(c)).length;
+          const bCount = selected.filter((c) => b.concerns.includes(c)).length;
+          if (bCount !== aCount) return bCount - aCount;
+          return a.popularity.rank - b.popularity.rank;
+        })
     : products;
 
   const displayProducts = filteredProducts.slice(0, 12);
@@ -80,6 +88,7 @@ export default function ConcernHub({
           ingredients={keyIngredients}
           concerns={selected}
           locale={locale}
+          heading={dict.helpfulIngredients}
         />
       )}
 

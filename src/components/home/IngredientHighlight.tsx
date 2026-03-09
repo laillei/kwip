@@ -4,12 +4,14 @@ interface IngredientHighlightProps {
   ingredients: Ingredient[];
   concerns: Concern[];
   locale: string;
+  heading: string;
 }
 
 export default function IngredientHighlight({
   ingredients,
   concerns,
   locale,
+  heading,
 }: IngredientHighlightProps) {
   if (ingredients.length === 0) return null;
 
@@ -18,13 +20,14 @@ export default function IngredientHighlight({
   return (
     <div className="space-y-2">
       <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide">
-        {loc === "vi" ? "Thanh phan huu ich" : "Helpful Ingredients"}
+        {heading}
       </h3>
       <div className="flex gap-3 overflow-x-auto pb-2 -mx-6 px-6 scrollbar-hide">
         {ingredients.map((ing) => {
           const relevantEffects = ing.effects.filter(
             (e) => concerns.includes(e.concern) && e.type === "good"
           );
+          const displayName = loc === "vi" ? ing.name.vi : ing.name.inci;
           return (
             <div
               key={ing.id}
@@ -35,11 +38,13 @@ export default function IngredientHighlight({
               }}
             >
               <p className="text-sm font-semibold text-neutral-900">
-                {ing.name.vi}
+                {displayName}
               </p>
-              <p className="text-xs text-neutral-500 mt-0.5">
-                {ing.name.inci}
-              </p>
+              {loc === "vi" && (
+                <p className="text-xs text-neutral-500 mt-0.5">
+                  {ing.name.inci}
+                </p>
+              )}
               {relevantEffects.length > 0 && (
                 <p className="text-xs text-neutral-600 mt-2 leading-relaxed line-clamp-2">
                   {relevantEffects[0].reason[loc] || relevantEffects[0].reason.vi}

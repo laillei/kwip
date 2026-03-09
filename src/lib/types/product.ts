@@ -12,9 +12,31 @@ export type Brand =
   | "innisfree"
   | "laneige"
   | "isntree"
-  | "purito";
+  | "purito"
+  | "mixsoon"
+  | "medicube"
+  | "tirtir"
+  | "numbuzin"
+  | "biodance"
+  | "illiyoon"
+  | "dr-g"
+  | "benton"
+  | "heimish"
+  | "tocobo"
+  | "haruharu"
+  | "goodal"
+  | "dr-jart"
+  | "sulwhasoo"
+  | "mediheal"
+  | "etude"
+  | "nature-republic"
+  | "missha"
+  | "the-face-shop"
+  | "banila-co"
+  | "ahc"
+  | "vt-cosmetics";
 
-export type Category = "toner" | "serum" | "sunscreen" | "cream" | "pad";
+export type Category = "toner" | "serum" | "sunscreen" | "cream" | "pad" | "cleanser" | "mask" | "ampoule" | "essence";
 
 export interface ProductIngredient {
   ingredientId: string;
@@ -41,8 +63,10 @@ export interface Product {
   };
   purchase: {
     shopee?: string;
+    lazada?: string;
     tiktokShop?: string;
     hasaki?: string;
+    oliveyoung?: string;
   };
   tags: string[];
 }

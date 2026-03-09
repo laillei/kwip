@@ -16,7 +16,19 @@
       "Bash(npm install:*)",
       "Bash(npx tsc:*)",
       "Bash(lsof:*)",
-      "WebFetch(domain:m3.material.io)"
+      "WebFetch(domain:m3.material.io)",
+      "Bash(git commit:*)",
+      "Bash(python3:*)",
+      "Bash(node:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:api2cart.com)",
+      "WebFetch(domain:rollout.com)",
+      "WebFetch(domain:ginee.com)",
+      "WebFetch(domain:publicapis.io)",
+      "WebFetch(domain:affiliate.shopee.vn)",
+      "WebFetch(domain:world.openbeautyfacts.org)",
+      "WebFetch(domain:www.cosrx.com)",
+      "Bash(ls:*)"
     ]
   }
 }

@@ -8,10 +8,10 @@
     },
     "icon": "🧴",
     "keyIngredients": [
-      "houttuynia-cordata-extract",
+      "salicylic-acid",
+      "tea-tree-oil",
       "niacinamide",
-      "panthenol",
-      "allantoin"
+      "houttuynia-cordata-extract"
     ],
     "weatherTrigger": {
       "condition": "high_humidity",
@@ -22,18 +22,40 @@
     }
   },
   {
-    "id": "moisturizing",
+    "id": "pores",
+    "label": {
+      "vi": "Lỗ chân lông",
+      "ko": "모공",
+      "en": "Pores"
+    },
+    "icon": "🔬",
+    "keyIngredients": [
+      "niacinamide",
+      "glycolic-acid",
+      "green-tea-extract",
+      "salicylic-acid"
+    ],
+    "weatherTrigger": {
+      "condition": "high_humidity",
+      "message": {
+        "vi": "Độ ẩm cao — lỗ chân lông dễ bị giãn nở hơn",
+        "en": "High humidity — pores may appear larger"
+      }
+    }
+  },
+  {
+    "id": "hydration",
     "label": {
       "vi": "Cấp ẩm",
       "ko": "보습",
-      "en": "Moisturizing"
+      "en": "Hydration"
     },
     "icon": "💧",
     "keyIngredients": [
-      "snail-secretion-filtrate",
+      "hyaluronic-acid",
       "sodium-hyaluronate",
-      "panthenol",
-      "betaine"
+      "ceramide-np",
+      "squalane"
     ],
     "weatherTrigger": {
       "condition": "dry",
@@ -53,14 +75,37 @@
     "icon": "✨",
     "keyIngredients": [
       "niacinamide",
-      "oryza-sativa-bran-extract",
-      "lactobacillus-rice-ferment-filtrate"
+      "alpha-arbutin",
+      "tranexamic-acid",
+      "ascorbic-acid"
     ],
     "weatherTrigger": {
       "condition": "high_uv",
       "message": {
         "vi": "Tia UV mạnh hôm nay — cần bảo vệ da khỏi nắng",
         "en": "Strong UV today — protect your skin from the sun"
+      }
+    }
+  },
+  {
+    "id": "soothing",
+    "label": {
+      "vi": "Dịu da",
+      "ko": "진정",
+      "en": "Soothing"
+    },
+    "icon": "🍃",
+    "keyIngredients": [
+      "centella-asiatica-extract",
+      "madecassoside",
+      "panthenol",
+      "allantoin"
+    ],
+    "weatherTrigger": {
+      "condition": "high_uv",
+      "message": {
+        "vi": "Tia UV mạnh — da dễ bị kích ứng, cần dịu da",
+        "en": "Strong UV — skin may be irritated, soothing care needed"
       }
     }
   },
@@ -73,15 +118,33 @@
     },
     "icon": "🌿",
     "keyIngredients": [
-      "snail-secretion-filtrate",
-      "sodium-hyaluronate",
-      "arginine"
+      "retinal",
+      "adenosine",
+      "ginseng-root-extract",
+      "bifida-ferment-lysate"
     ],
     "weatherTrigger": {
       "condition": "high_uv",
       "message": {
         "vi": "Tia UV mạnh hôm nay — cần chống lão hóa do ánh nắng",
         "en": "Strong UV today — protect against sun-induced aging"
+      }
+    }
+  },
+  {
+    "id": "sun-protection",
+    "label": {
+      "vi": "Chống nắng",
+      "ko": "자외선차단",
+      "en": "Sun protection"
+    },
+    "icon": "☀️",
+    "keyIngredients": [],
+    "weatherTrigger": {
+      "condition": "high_uv",
+      "message": {
+        "vi": "Tia UV mạnh — đừng quên thoa kem chống nắng",
+        "en": "Strong UV — don't forget your sunscreen"
       }
     }
   }

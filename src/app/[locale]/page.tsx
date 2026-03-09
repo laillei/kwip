@@ -59,6 +59,7 @@ export default async function Home({
             dict={{
               viewMore: dict.home.viewMore,
               emptyState: dict.products.emptyState,
+              helpfulIngredients: dict.home.helpfulIngredients,
             }}
           />
         </main>

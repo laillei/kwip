@@ -13,9 +13,16 @@ const products = JSON.parse(readFileSync(join(dataDir, "products.json"), "utf-8"
 const errors: string[] = [];
 
 // --- Valid values (derived from types to stay in sync) ---
-const validConcerns: Concern[] = ["acne", "moisturizing", "brightening", "anti-aging"];
-const validBrands: Brand[] = ["cosrx", "anua", "torriden", "beauty-of-joseon", "round-lab", "skin1004"];
-const validCategories: Category[] = ["toner", "serum", "sunscreen", "cream", "pad"];
+const validConcerns: Concern[] = ["acne", "pores", "hydration", "brightening", "soothing", "anti-aging", "sun-protection"];
+const validBrands: Brand[] = [
+  "cosrx", "anua", "torriden", "beauty-of-joseon", "round-lab", "skin1004",
+  "klairs", "some-by-mi", "innisfree", "laneige", "isntree", "purito",
+  "mixsoon", "medicube", "tirtir", "numbuzin", "biodance", "illiyoon",
+  "dr-g", "benton", "heimish", "tocobo", "haruharu", "goodal",
+  "dr-jart", "sulwhasoo", "mediheal", "etude", "nature-republic", "missha",
+  "the-face-shop", "banila-co", "ahc", "vt-cosmetics",
+];
+const validCategories: Category[] = ["toner", "serum", "sunscreen", "cream", "pad", "cleanser", "mask", "ampoule", "essence"];
 const validIngredientCategories: IngredientCategory[] = ["active", "moisturizer", "emollient", "surfactant", "preservative", "fragrance", "other"];
 
 // --- Validate concerns ---
