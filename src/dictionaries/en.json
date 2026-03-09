@@ -6,7 +6,10 @@
   },
   "home": {
     "heading": "Kwip",
-    "viewMore": "View More"
+    "viewMore": "View More",
+    "helpfulIngredients": "Helpful Ingredients",
+    "selectConcern": "Select your skin concern",
+    "emptyState": "No matching products found"
   },
   "products": {
     "popularLabel": "Popular in Korea",

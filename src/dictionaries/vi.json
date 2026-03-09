@@ -6,7 +6,10 @@
   },
   "home": {
     "heading": "Kwip",
-    "viewMore": "Xem thêm"
+    "viewMore": "Xem thêm",
+    "helpfulIngredients": "Thành phần hữu ích",
+    "selectConcern": "Chọn vấn đề da của bạn",
+    "emptyState": "Không tìm thấy sản phẩm phù hợp"
   },
   "products": {
     "popularLabel": "Phổ biến tại Hàn Quốc",
