@@ -10,6 +10,7 @@ interface ProductCardProps {
   category: string;
   image: string;
   locale: string;
+  reason?: string;
 }
 
 export default function ProductCard({
@@ -18,6 +19,7 @@ export default function ProductCard({
   brand,
   image,
   locale,
+  reason,
 }: ProductCardProps) {
   return (
     <Link
@@ -41,6 +43,11 @@ export default function ProductCard({
         <p className="text-sm font-semibold text-neutral-900 leading-snug mt-1 line-clamp-2">
           {name}
         </p>
+        {reason && (
+          <p className="text-xs text-neutral-500 mt-1.5 line-clamp-1">
+            {reason}
+          </p>
+        )}
       </div>
     </Link>
   );
