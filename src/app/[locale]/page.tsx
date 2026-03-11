@@ -49,9 +49,6 @@ export default async function Home({
         </header>
 
         <main className="px-6 md:px-8 pt-2 pb-20">
-          <p className="text-sm text-neutral-500 mb-4">
-            {dict.home.selectConcern}
-          </p>
           <ConcernHub
             concerns={concernData}
             products={allProducts}
@@ -60,6 +57,7 @@ export default async function Home({
             dict={{
               emptyState: dict.products.emptyState,
               helpfulIngredients: dict.home.helpfulIngredients,
+              concernPrompt: dict.home.concernPrompt,
             }}
           />
         </main>

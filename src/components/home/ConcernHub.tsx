@@ -35,6 +35,7 @@ interface ConcernHubProps {
   dict: {
     emptyState: string;
     helpfulIngredients: string;
+    concernPrompt: string;
   };
 }
 
@@ -115,11 +116,16 @@ export default function ConcernHub({
 
   return (
     <div className="space-y-5">
-      <ConcernSelector
-        concerns={concerns}
-        selected={selected}
-        onToggle={handleToggle}
-      />
+      <div>
+        <p className="text-base font-medium text-neutral-900 mb-3">
+          {dict.concernPrompt}
+        </p>
+        <ConcernSelector
+          concerns={concerns}
+          selected={selected}
+          onToggle={handleToggle}
+        />
+      </div>
 
       {hasSelection && keyIngredients.length > 0 && (
         <IngredientHighlight
