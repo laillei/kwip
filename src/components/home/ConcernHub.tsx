@@ -23,6 +23,7 @@ interface ConcernData {
   id: Concern;
   label: string;
   icon: string;
+  symptom: string;
   keyIngredientIds: string[];
 }
 

@@ -26,6 +26,7 @@ export default async function Home({
     id: c.id as import("@/lib/types").Concern,
     label: t(c.label, loc),
     icon: c.icon,
+    symptom: t(c.symptom, loc),
     keyIngredientIds: c.keyIngredients,
   }));
 
