@@ -11,7 +11,7 @@
     "category": "serum",
     "image": "/images/products/cosrx-snail-mucin-essence.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -82,7 +82,7 @@
     "image": "/images/products/anua-heartleaf-toner.png",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -217,7 +217,7 @@
     "category": "serum",
     "image": "/images/products/torriden-dive-in-serum.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -347,7 +347,7 @@
     "category": "toner",
     "image": "/images/products/round-lab-dokdo-toner.png",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "acne"
     ],
     "ingredients": [
@@ -480,7 +480,7 @@
     "image": "/images/products/beauty-of-joseon-glow-serum.jpg",
     "concerns": [
       "brightening",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -678,7 +678,7 @@
     "category": "cream",
     "image": "/images/products/cosrx-snail-92-cream.png",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -748,7 +748,7 @@
     "image": "/images/products/torriden-dive-in-sunscreen.jpg",
     "concerns": [
       "brightening",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -816,7 +816,7 @@
     "image": "/images/products/torriden-balanceful-cica-cream.jpg",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -883,7 +883,7 @@
     "category": "cream",
     "image": "/images/products/round-lab-birch-juice-cream.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -950,7 +950,7 @@
     "image": "/images/products/skin1004-centella-cream.png",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -1018,7 +1018,7 @@
     "image": "/images/products/beauty-of-joseon-revive-serum.jpg",
     "concerns": [
       "anti-aging",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -1086,7 +1086,7 @@
     "image": "/images/products/anua-heartleaf-cream.png",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -1152,7 +1152,7 @@
     "image": "/images/products/cosrx-propolis-light-cream.jpg",
     "concerns": [
       "brightening",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -1284,7 +1284,7 @@
     "image": "/images/products/round-lab-dokdo-pad.png",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -1418,7 +1418,7 @@
     "image": "/images/products/beauty-of-joseon-dynasty-cream.jpg",
     "concerns": [
       "anti-aging",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -1485,7 +1485,7 @@
     "category": "toner",
     "image": "/images/products/torriden-dive-in-toner.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -1554,7 +1554,7 @@
     "image": "/images/products/skin1004-centella-toning-toner.png",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -1688,7 +1688,7 @@
     "category": "sunscreen",
     "image": "/images/products/round-lab-birch-juice-sun-cream.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -1754,7 +1754,7 @@
     "category": "sunscreen",
     "image": "/images/products/skin1004-centella-sun-serum.png",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "acne"
     ],
     "ingredients": [
@@ -1822,7 +1822,7 @@
     "category": "sunscreen",
     "image": "/images/products/cosrx-aloe-soothing-sun-cream.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -1946,71 +1946,6 @@
     ]
   },
   {
-    "id": "beauty-of-joseon-glow-serum-pad",
-    "slug": "beauty-of-joseon-glow-serum-pad",
-    "name": {
-      "ko": "조선미녀 글로우 세럼 패드",
-      "vi": "Pad dưỡng sáng Beauty of Joseon Glow Serum Pad",
-      "en": "Beauty of Joseon Glow Serum Pad"
-    },
-    "brand": "beauty-of-joseon",
-    "category": "pad",
-    "image": "/images/products/beauty-of-joseon-glow-serum-pad.jpg",
-    "concerns": [
-      "brightening"
-    ],
-    "ingredients": [
-      {
-        "ingredientId": "niacinamide",
-        "order": 1,
-        "isKey": true
-      },
-      {
-        "ingredientId": "alpha-arbutin",
-        "order": 2,
-        "isKey": true
-      },
-      {
-        "ingredientId": "water",
-        "order": 3,
-        "isKey": false
-      },
-      {
-        "ingredientId": "propolis-extract",
-        "order": 4,
-        "isKey": true
-      },
-      {
-        "ingredientId": "glycerin",
-        "order": 5,
-        "isKey": false
-      },
-      {
-        "ingredientId": "panthenol",
-        "order": 6,
-        "isKey": false
-      },
-      {
-        "ingredientId": "allantoin",
-        "order": 7,
-        "isKey": false
-      },
-      {
-        "ingredientId": "phenoxyethanol",
-        "order": 8,
-        "isKey": false
-      }
-    ],
-    "popularity": {
-      "rank": 30,
-      "updatedAt": "2026-03-01"
-    },
-    "purchase": {
-      "shopee": "https://shopee.vn/search?keyword=beauty%20of%20joseon%20glow%20serum%20pad"
-    },
-    "tags": []
-  },
-  {
     "id": "anua-niacinamide-dark-spot-serum",
     "slug": "anua-niacinamide-dark-spot-serum",
     "name": {
@@ -2072,72 +2007,6 @@
     },
     "purchase": {
       "shopee": "https://shopee.vn/search?keyword=anua%20niacinamide%20dark%20spot%20serum"
-    },
-    "tags": []
-  },
-  {
-    "id": "round-lab-dokdo-brightening-toner",
-    "slug": "round-lab-dokdo-brightening-toner",
-    "name": {
-      "ko": "라운드랩 독도 브라이트닝 토너",
-      "vi": "Nước hoa hồng sáng da Round Lab 1025 Dokdo Brightening Toner",
-      "en": "Round Lab 1025 Dokdo Brightening Toner"
-    },
-    "brand": "round-lab",
-    "category": "toner",
-    "image": "/images/products/round-lab-dokdo-brightening-toner.png",
-    "concerns": [
-      "brightening",
-      "moisturizing"
-    ],
-    "ingredients": [
-      {
-        "ingredientId": "niacinamide",
-        "order": 1,
-        "isKey": true
-      },
-      {
-        "ingredientId": "water",
-        "order": 2,
-        "isKey": false
-      },
-      {
-        "ingredientId": "glycerin",
-        "order": 3,
-        "isKey": true
-      },
-      {
-        "ingredientId": "alpha-arbutin",
-        "order": 4,
-        "isKey": true
-      },
-      {
-        "ingredientId": "panthenol",
-        "order": 5,
-        "isKey": false
-      },
-      {
-        "ingredientId": "sodium-hyaluronate",
-        "order": 6,
-        "isKey": false
-      },
-      {
-        "ingredientId": "allantoin",
-        "order": 7,
-        "isKey": false
-      },
-      {
-        "ingredientId": "phenoxyethanol",
-        "order": 8,
-        "isKey": false
-      }
-    ],
-    "popularity": {
-      "rank": 32,
-      "updatedAt": "2026-03-01"
-    },
-    "purchase": {
-      "shopee": "https://shopee.vn/search?keyword=round%20lab%20dokdo%20brightening%20toner"
     },
     "tags": []
   },
@@ -2213,7 +2082,7 @@
     "category": "cream",
     "image": "/images/products/cosrx-balancium-comfort-ceramide-cream.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -2336,7 +2205,7 @@
     "category": "cream",
     "image": "/images/products/cosrx-oil-free-ultra-moisturizing-lotion.png",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -2387,69 +2256,6 @@
     ]
   },
   {
-    "id": "anua-heartleaf-77-soothing-toner-pad",
-    "slug": "anua-heartleaf-77-soothing-toner-pad",
-    "name": {
-      "ko": "아누아 어성초 77 수딩 토너 패드",
-      "vi": "Pad dưỡng ẩm Anua Heartleaf 77% Soothing Toner Pad",
-      "en": "Anua Heartleaf 77% Soothing Toner Pad"
-    },
-    "brand": "anua",
-    "category": "pad",
-    "image": "/images/products/anua-heartleaf-77-soothing-toner-pad.png",
-    "concerns": [
-      "acne",
-      "moisturizing"
-    ],
-    "ingredients": [
-      {
-        "ingredientId": "houttuynia-cordata-extract",
-        "order": 1,
-        "isKey": true
-      },
-      {
-        "ingredientId": "panthenol",
-        "order": 2,
-        "isKey": true
-      },
-      {
-        "ingredientId": "sodium-hyaluronate",
-        "order": 3,
-        "isKey": true
-      },
-      {
-        "ingredientId": "betaine",
-        "order": 4,
-        "isKey": false
-      },
-      {
-        "ingredientId": "allantoin",
-        "order": 5,
-        "isKey": false
-      },
-      {
-        "ingredientId": "glycerin",
-        "order": 6,
-        "isKey": false
-      },
-      {
-        "ingredientId": "phenoxyethanol",
-        "order": 7,
-        "isKey": false
-      }
-    ],
-    "popularity": {
-      "rank": 37,
-      "updatedAt": "2026-03-01"
-    },
-    "purchase": {
-      "shopee": "https://shopee.vn/search?keyword=Anua%20Heartleaf%2077%25%20Soothing%20Toner%20Pad"
-    },
-    "tags": [
-      "sensitive-safe"
-    ]
-  },
-  {
     "id": "anua-birch-70-moisture-boosting-serum",
     "slug": "anua-birch-70-moisture-boosting-serum",
     "name": {
@@ -2461,7 +2267,7 @@
     "category": "serum",
     "image": "/images/products/anua-birch-70-moisture-boosting-serum.webp",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -2523,7 +2329,7 @@
     "image": "/images/products/anua-heartleaf-soothing-ampoule.png",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -2586,7 +2392,7 @@
     "image": "/images/products/beauty-of-joseon-calming-serum.webp",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -2766,7 +2572,7 @@
     "image": "/images/products/torriden-cellmazing-firming-cream.jpg",
     "concerns": [
       "anti-aging",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -2827,7 +2633,7 @@
     "image": "/images/products/torriden-balanceful-cica-serum.jpg",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -2889,7 +2695,7 @@
     "category": "pad",
     "image": "/images/products/torriden-dive-in-multi-pad.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -2952,7 +2758,7 @@
     "image": "/images/products/round-lab-soybean-nourishing-cream.png",
     "concerns": [
       "anti-aging",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -3074,7 +2880,7 @@
     "category": "cream",
     "image": "/images/products/round-lab-1025-dokdo-lotion.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -3137,7 +2943,7 @@
     "image": "/images/products/skin1004-centella-air-fit-suncream.jpg",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -3380,7 +3186,7 @@
     "category": "toner",
     "image": "/images/products/klairs-supple-preparation-toner.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -3442,7 +3248,7 @@
     "category": "toner",
     "image": "/images/products/klairs-supple-preparation-unscented-toner.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "acne"
     ],
     "ingredients": [
@@ -3630,7 +3436,7 @@
     "category": "serum",
     "image": "/images/products/klairs-rich-moist-soothing-serum.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -3752,7 +3558,7 @@
     "category": "sunscreen",
     "image": "/images/products/klairs-soft-airy-uv-essence.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -3814,7 +3620,7 @@
     "category": "cream",
     "image": "/images/products/klairs-fundamental-water-gel-cream.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -3999,7 +3805,7 @@
     "image": "/images/products/some-by-mi-aha-bha-pha-miracle-cream.jpg",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -4060,7 +3866,7 @@
     "image": "/images/products/some-by-mi-snail-truecica-miracle-repair-serum.jpg",
     "concerns": [
       "anti-aging",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -4182,7 +3988,7 @@
     "image": "/images/products/some-by-mi-yuja-niacin-brightening-gel-cream.jpg",
     "concerns": [
       "brightening",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -4305,7 +4111,7 @@
     "image": "/images/products/some-by-mi-real-cica-92-cool-calming-gel.jpg",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -4367,7 +4173,7 @@
     "category": "serum",
     "image": "/images/products/innisfree-green-tea-seed-serum.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -4429,7 +4235,7 @@
     "category": "cream",
     "image": "/images/products/innisfree-green-tea-seed-cream.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -4549,7 +4355,7 @@
     "category": "sunscreen",
     "image": "/images/products/innisfree-daily-uv-defense-sunscreen.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -4669,7 +4475,7 @@
     "category": "toner",
     "image": "/images/products/innisfree-green-tea-seed-toner.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -4849,7 +4655,7 @@
     "category": "cream",
     "image": "/images/products/laneige-water-sleeping-mask.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -4911,7 +4717,7 @@
     "category": "cream",
     "image": "/images/products/laneige-water-bank-blue-hyaluronic-cream.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -4974,7 +4780,7 @@
     "category": "toner",
     "image": "/images/products/laneige-cream-skin-toner.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -5034,7 +4840,7 @@
     "category": "serum",
     "image": "/images/products/laneige-water-bank-blue-hyaluronic-serum.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -5155,7 +4961,7 @@
     "category": "sunscreen",
     "image": "/images/products/laneige-water-bank-sun-cream.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -5275,7 +5081,7 @@
     "category": "toner",
     "image": "/images/products/laneige-cream-skin-cerapeptide-refiner.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -5336,7 +5142,7 @@
     "category": "toner",
     "image": "/images/products/isntree-hyaluronic-acid-toner.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -5398,7 +5204,7 @@
     "category": "cream",
     "image": "/images/products/isntree-hyaluronic-acid-moist-cream.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -5459,7 +5265,7 @@
     "image": "/images/products/isntree-tw-real-bifida-ampoule.jpg",
     "concerns": [
       "anti-aging",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -5700,7 +5506,7 @@
     "category": "sunscreen",
     "image": "/images/products/isntree-hyaluronic-acid-watery-sun-gel.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -5883,7 +5689,7 @@
     "image": "/images/products/purito-centella-unscented-serum.jpg",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -5945,7 +5751,7 @@
     "category": "sunscreen",
     "image": "/images/products/purito-daily-go-to-sunscreen.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -6008,7 +5814,7 @@
     "image": "/images/products/purito-centella-green-level-recovery-cream.jpg",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -6070,7 +5876,7 @@
     "category": "cream",
     "image": "/images/products/purito-dermide-cica-barrier-sleeping-pack.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -6132,7 +5938,7 @@
     "image": "/images/products/purito-galacto-niacin-97-power-essence.jpg",
     "concerns": [
       "brightening",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -6253,7 +6059,7 @@
     "image": "/images/products/purito-oat-in-calming-gel-cream.jpg",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -6316,7 +6122,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0573/3793/8117/files/250527_________09.jpg?v=1748507624",
     "concerns": [
       "brightening",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -6438,7 +6244,7 @@
     "category": "pad",
     "image": "https://cdn.shopify.com/s/files/1/0573/3793/8117/files/251030___________1.jpg?v=1762239168",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "brightening"
     ],
     "ingredients": [
@@ -6502,7 +6308,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0573/3793/8117/files/251030___________4_40fca335-119f-419c-855a-66025a6b853c.jpg?v=1762236701",
     "concerns": [
       "anti-aging",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -6563,7 +6369,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0573/3793/8117/files/250527_________18.jpg?v=1748507539",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -6626,7 +6432,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0573/3793/8117/files/250527_________08.jpg?v=1748507552",
     "concerns": [
       "brightening",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -6686,7 +6492,7 @@
     "category": "sunscreen",
     "image": "https://cdn.shopify.com/s/files/1/0573/3793/8117/files/Untitleddesign_20.png?v=1749599052",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -6868,7 +6674,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0573/3793/8117/files/Untitleddesign_20_d0592bfd-963a-4ad8-8616-35c425bdd99c.png?v=1749608383",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -7179,7 +6985,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0156/3905/2336/files/RedCream_69d0b722-a158-4afa-b848-a033c7eed8a4.jpg?v=1695207283",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -7241,7 +7047,7 @@
     "category": "serum",
     "image": "https://cdn.shopify.com/s/files/1/0156/3905/2336/files/00_5fc0b45e-9c89-4d7a-acdc-05fbca818482.jpg?v=1766557515",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -7303,7 +7109,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0156/3905/2336/files/00_12cf51a0-cf0c-42f3-931c-1cf9f88dd6c8.jpg?v=1766552675",
     "concerns": [
       "anti-aging",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -7545,7 +7351,7 @@
     "category": "cream",
     "image": "https://m.media-amazon.com/images/I/61rrthDTD8L._SL1500_.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -7608,7 +7414,7 @@
     "category": "toner",
     "image": "https://m.media-amazon.com/images/I/51I1AA-kZ-L._SL1500_.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -7671,7 +7477,7 @@
     "image": "https://m.media-amazon.com/images/I/51PuTt3j6mL._SL1398_.jpg",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -7796,7 +7602,7 @@
     "category": "cream",
     "image": "https://m.media-amazon.com/images/I/4191U9U5jWL._SL1024_.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -7856,7 +7662,7 @@
     "category": "serum",
     "image": "https://m.media-amazon.com/images/I/510nFKzHoKL._SL1500_.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -7917,7 +7723,7 @@
     "category": "sunscreen",
     "image": "https://m.media-amazon.com/images/I/51pW1CVjzCL._SL1500_.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -7980,7 +7786,7 @@
     "image": "https://m.media-amazon.com/images/I/61X4jYhGlbL._SL1500_.jpg",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -8042,7 +7848,7 @@
     "category": "toner",
     "image": "https://m.media-amazon.com/images/I/41AHPs804UL._SL1000_.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -8164,7 +7970,7 @@
     "category": "cream",
     "image": "https://m.media-amazon.com/images/I/51vDyKFyPtL._SL1500_.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -8227,7 +8033,7 @@
     "category": "cream",
     "image": "https://m.media-amazon.com/images/I/61LuxKl34FL._SL1500_.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -8289,7 +8095,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0340/5653/6199/products/ILLIYOON_ProbioticsSkinBarrierCicaBalm-Holiholic.jpg?v=1660050438",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -8350,7 +8156,7 @@
     "category": "cream",
     "image": "https://m.media-amazon.com/images/I/613mwtAaltL._SL1500_.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "acne"
     ],
     "ingredients": [
@@ -8413,7 +8219,7 @@
     "category": "sunscreen",
     "image": "https://cdn.shopify.com/s/files/1/0340/5653/6199/files/ILLIYOON_Mineral_Skin_Barrier_Sun_Cream-Holiholic.jpg?v=1750131993",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -8475,7 +8281,7 @@
     "category": "serum",
     "image": "https://cdn.shopify.com/s/files/1/0506/2121/8972/files/a76198caaeb2c0df39d0ebd6b8681015_a1cca4da-e7e8-4dd5-9b88-56d310efa320.jpg?v=1771913360",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -8537,7 +8343,7 @@
     "category": "toner",
     "image": "https://holiholic.com/cdn/shop/files/ILLIYOON_CeramideAtoGentleSkinToner-Holiholic.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -8599,7 +8405,7 @@
     "category": "cream",
     "image": "https://m.media-amazon.com/images/I/51eoyY+nAwL._SL1000_.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -8660,7 +8466,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0340/5653/6199/products/ILLIYOON_MDRed-itchyCureBalm-Holiholic.jpg?v=1660050438",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -8722,7 +8528,7 @@
     "category": "cream",
     "image": "https://holiholic.com/cdn/shop/files/ILLIYOON_CeramideAtoBubbleWashandShampoo400ml-Holiholic_de008c14-c008-43fb-b9f8-84cdfac7ca10.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -9030,7 +8836,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0526/9559/7243/files/artemisiacalmingessence.jpg?v=1705521920",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -9152,7 +8958,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0526/9559/7243/files/snailvitaccream.png?v=1722954786",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -9335,7 +9141,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0526/9559/7243/files/artemisiacalmingessence.jpg",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -9397,7 +9203,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0723/3775/2306/files/1_Atobarrier365-Cream_thumbnail_Product-80ml__1200x1200_961c8e7e-0afb-48bd-bea7-d47f285ab4d4.png?v=1734030421",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -9460,7 +9266,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0723/3775/2306/files/1_Atobarrier365-Lotion_thumbnail_Product-150ml__1200x1200_e661801c-e140-4f23-88b6-44e02e95da4c.png?v=1734030390",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -9522,7 +9328,7 @@
     "category": "serum",
     "image": "https://cdn.shopify.com/s/files/1/0723/3775/2306/files/1_Atobarrier365-Hydro_Essence_thumbnail_Product-200ml__1200x1200_5b44c8c6-f402-4c16-94ed-8a8df78a6ded.png?v=1734030285",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -9705,7 +9511,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0506/2121/8972/files/4_2ffba143-3ee6-4a2b-aea4-e030ca39384b.jpg?v=1765763272",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -9827,7 +9633,7 @@
     "category": "sunscreen",
     "image": "https://cdn.shopify.com/s/files/1/0723/3775/2306/files/1200x1200___UV365__JP_72dpi_dabb991d-a730-4b60-99e0-85f7ac7bc3b3.png?v=1742874043",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -9889,7 +9695,7 @@
     "category": "toner",
     "image": "https://cdn.shopify.com/s/files/1/0506/2121/8972/files/s-l1600_a7f5ae00-9614-4a0d-9813-41cb95c571f4.jpg?v=1709791106",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -9952,7 +9758,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0506/2121/8972/files/AESTURARegederm365RetinoidEyeSerum15ml-1.png?v=1728009028",
     "concerns": [
       "anti-aging",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -10012,7 +9818,7 @@
     "category": "serum",
     "image": "https://cdn-image.oliveyoung.com/prdtImg/1957/30ad3069-235b-451f-be34-e0fbf580b296.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "brightening"
     ],
     "ingredients": [
@@ -10198,7 +10004,7 @@
     "category": "pad",
     "image": "https://cdn.shopify.com/s/files/1/0340/5653/6199/products/CNP_PropolisEnergyAmpoulePad-Holiholic.jpg?v=1664699115",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "brightening"
     ],
     "ingredients": [
@@ -10259,7 +10065,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0340/5653/6199/products/CNP_HydroCeraIntenseCream-Holiholic.jpg?v=1664698577",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -10379,7 +10185,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0506/2121/8972/files/12_18a3ba9b-4211-4a2d-995b-ca80dacf5601.gif?v=1704680076",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -10499,7 +10305,7 @@
     "category": "toner",
     "image": "https://cdn.shopify.com/s/files/1/0506/2121/8972/files/CNPPropolisEnergyAmpouleMistPlus250ml-1.png?v=1754639679",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -10560,7 +10366,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0506/2121/8972/files/CNPLaboratoryPropolisEnergyAmpule15ml35ml-1.jpg?v=1720766095",
     "concerns": [
       "brightening",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -10744,7 +10550,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0053/9033/6034/files/80.jpg?v=1762926399",
     "concerns": [
       "anti-aging",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -10864,7 +10670,7 @@
     "category": "pad",
     "image": "https://cdn.shopify.com/s/files/1/0053/9033/6034/files/51Fok4w9h6L._SL1200.jpg?v=1762929194",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -10986,7 +10792,7 @@
     "category": "serum",
     "image": "https://cdn.shopify.com/s/files/1/0053/9033/6034/files/Untitled_design_6.png?v=1749759133",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -11109,7 +10915,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0340/5653/6199/products/Mediheal_WatermideTonerPad100Pads-Holiholic.jpg?v=1662442152",
     "concerns": [
       "anti-aging",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -11170,7 +10976,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0506/2121/8972/files/Square_Image_1_5a6b57ce-adf8-42f0-94b2-0f498e5f8a08.png?v=1718699217",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -11232,7 +11038,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0421/5871/9127/files/08552807631a9366c022a30b65dfbcc0.jpg?v=1724633037",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -11294,7 +11100,7 @@
     "category": "serum",
     "image": "https://m.media-amazon.com/images/I/319I9Zdiu6L._SL1024_.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "brightening"
     ],
     "ingredients": [
@@ -11356,7 +11162,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0421/5871/9127/products/8c72007e61e62bacc8d6d13771d141b4.jpg?v=1710745355",
     "concerns": [
       "anti-aging",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -11416,7 +11222,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0421/5871/9127/files/Untitled-1_1d23a233-235a-432c-894d-1eeab8f887f5.png?v=1689230217",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -11478,7 +11284,7 @@
     "category": "serum",
     "image": "https://m.media-amazon.com/images/I/61vGgr7hCWL._SL1500_.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -11540,7 +11346,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0421/5871/9127/files/1_d53a05d4-a9bd-472e-b81b-0939b3b8772a.jpg?v=1750211162",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "acne"
     ],
     "ingredients": [
@@ -11661,7 +11467,7 @@
     "category": "sunscreen",
     "image": "https://m.media-amazon.com/images/I/51IvnhR6qJL._SL1500_.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -11723,7 +11529,7 @@
     "category": "toner",
     "image": "https://m.media-amazon.com/images/I/41w-NPl8HOL._SL1500_.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -11785,7 +11591,7 @@
     "category": "toner",
     "image": "https://m.media-amazon.com/images/I/319I9Zdiu6L._SL1024_.jpg",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "brightening"
     ],
     "ingredients": [
@@ -11846,7 +11652,7 @@
     "category": "toner",
     "image": "https://cdn.shopify.com/s/files/1/0249/1218/files/Etude-House-SoonJung-pH-5-5-Relief-Toner-Skin-Care-Korean.jpg?v=1756220677",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "acne"
     ],
     "ingredients": [
@@ -11910,7 +11716,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0249/1218/files/Etude_Revamped_Soonjung_2x_Barrier_Intensive_Cream.jpg?v=1756220690",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -11973,7 +11779,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0249/1218/files/Etude-Revamped-Soonjung-10-Free-Moist-Emulsion.jpg?v=1756220254",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -12036,7 +11842,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0249/1218/files/Etude_SoonJung5-PanthensosideCicaBalm50ml.jpg?v=1756219298",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -12098,7 +11904,7 @@
     "category": "pad",
     "image": "https://m.media-amazon.com/images/I/31z1yfwrMBL.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -12160,7 +11966,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0249/1218/files/etudehousecream.jpg?v=1756221203",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -12221,7 +12027,7 @@
     "category": "sunscreen",
     "image": "https://m.media-amazon.com/images/I/412jwCtjCYL._SL1000_.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -12344,7 +12150,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0249/1218/files/Etude_Revamped_SoonJung_Hydro_Barrier_Cream.jpg?v=1752798407",
     "concerns": [
       "acne",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -12406,7 +12212,7 @@
     "category": "sunscreen",
     "image": "https://m.media-amazon.com/images/I/51Jpl1rJ7lL._SL1000_.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -12468,7 +12274,7 @@
     "category": "toner",
     "image": "https://cdn.shopify.com/s/files/1/0734/1830/9870/files/pdp_mig_2025-02-21-250221_final_KR_flora_glow_rosewater_toner_PDP_thumbnail01_1.jpg?v=1751595027",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -12530,7 +12336,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0734/1830/9870/files/pdp_mig_2024-03-18-240312_final_KR_probiotics-ceramide-intense-cream_pdp_thumbnail_01_1.jpg?v=1751594951",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -12593,7 +12399,7 @@
     "image": "https://cdn.shopify.com/s/files/1/0340/5653/6199/files/Mamonde_Red_Energy_Recovery_Serum-Holiholic_d4e3a5e4-665e-4611-9548-2431ae756144.jpg?v=1762261465",
     "concerns": [
       "anti-aging",
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -12653,7 +12459,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0734/1830/9870/files/pdp_mig_2024-03-26-240322_final_KR_flora-glow-rose-smoothing-cream_pdp_thumbnail_01_1.jpg?v=1751594932",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -12773,7 +12579,7 @@
     "category": "cream",
     "image": "https://cdn.shopify.com/s/files/1/0340/5653/6199/products/Mamonde_ProbioticsCeramideCream-Holiholic_ee611536-8e80-4f82-9acf-7cea5116e361.jpg?v=1681558465",
     "concerns": [
-      "moisturizing",
+      "hydration",
       "anti-aging"
     ],
     "ingredients": [
@@ -12894,7 +12700,7 @@
     "category": "pad",
     "image": "https://thankyouskin.com/web/product/big/201801/7303_shop2_642032.jpg",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {
@@ -12954,7 +12760,7 @@
     "category": "cream",
     "image": "https://www.masksheets.com/cdn/shop/products/mamonde-cream_grande.jpg?v=1762460738",
     "concerns": [
-      "moisturizing"
+      "hydration"
     ],
     "ingredients": [
       {

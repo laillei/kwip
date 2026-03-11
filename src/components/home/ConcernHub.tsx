@@ -23,6 +23,7 @@ interface ConcernData {
   id: Concern;
   label: string;
   icon: string;
+  symptom: string;
   keyIngredientIds: string[];
 }
 
@@ -34,6 +35,7 @@ interface ConcernHubProps {
   dict: {
     emptyState: string;
     helpfulIngredients: string;
+    concernPrompt: string;
   };
 }
 
@@ -44,38 +46,25 @@ export default function ConcernHub({
   locale,
   dict,
 }: ConcernHubProps) {
-  const [selected, setSelected] = useState<Concern[]>([]);
+  const [selected, setSelected] = useState<Concern | null>(null);
   const loc = locale as "vi" | "en";
 
   function handleToggle(id: Concern) {
-    setSelected((prev) =>
-      prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
-    );
+    setSelected((prev) => (prev === id ? null : id));
   }
 
-  const hasSelection = selected.length > 0;
+  const hasSelection = selected !== null;
 
-  // Filter products matching ANY selected concern, sorted by relevance
+  // Filter products matching selected concern, sorted by popularity rank
   const filteredProducts = products
-    .filter((p) => !hasSelection || selected.some((c) => p.concerns.includes(c)))
+    .filter((p) => !hasSelection || p.concerns.includes(selected!))
     .sort((a, b) => {
-      if (hasSelection) {
-        const aCount = selected.filter((c) => a.concerns.includes(c)).length;
-        const bCount = selected.filter((c) => b.concerns.includes(c)).length;
-        if (bCount !== aCount) return bCount - aCount;
-      }
       return a.popularity.rank - b.popularity.rank;
     });
 
-  // Get key ingredients for selected concerns
+  // Get key ingredients for selected concern
   const keyIngredientIds = hasSelection
-    ? [
-        ...new Set(
-          concerns
-            .filter((c) => selected.includes(c.id))
-            .flatMap((c) => c.keyIngredientIds)
-        ),
-      ]
+    ? concerns.find((c) => c.id === selected)?.keyIngredientIds ?? []
     : [];
 
   const keyIngredients = keyIngredientIds
@@ -90,7 +79,7 @@ export default function ConcernHub({
       const ing = ingredients.find((i) => i.id === pi.ingredientId);
       if (!ing) continue;
       const matchingEffect = ing.effects.find(
-        (e) => selected.includes(e.concern) && e.type === "good"
+        (e) => e.concern === selected && e.type === "good"
       );
       if (matchingEffect) {
         const name = loc === "vi" ? ing.name.vi : ing.name.inci;
@@ -100,30 +89,42 @@ export default function ConcernHub({
     return undefined;
   }
 
+  // Only show concerns that have at least one matching product
+  const activeConcerns = concerns.filter((c) =>
+    products.some((p) => p.concerns.includes(c.id))
+  );
+
   // Group products by routine step when concern is selected
+  const seenIds = new Set<string>();
   const routineGroups = hasSelection
     ? routineSteps
         .map((step) => ({
           ...step,
           products: filteredProducts
-            .filter((p) => p.category === step.category)
-            .slice(0, 4),
+            .filter((p) => p.category === step.category && !seenIds.has(p.id))
+            .slice(0, 4)
+            .map((p) => { seenIds.add(p.id); return p; }),
         }))
         .filter((group) => group.products.length > 0)
     : [];
 
   return (
     <div className="space-y-5">
-      <ConcernSelector
-        concerns={concerns}
-        selected={selected}
-        onToggle={handleToggle}
-      />
+      <div>
+        <p className="text-base font-medium text-neutral-900 mb-3">
+          {dict.concernPrompt}
+        </p>
+        <ConcernSelector
+          concerns={activeConcerns}
+          selected={selected}
+          onToggle={handleToggle}
+        />
+      </div>
 
       {hasSelection && keyIngredients.length > 0 && (
         <IngredientHighlight
           ingredients={keyIngredients}
-          concerns={selected}
+          concerns={selected ? [selected] : []}
           locale={locale}
           heading={dict.helpfulIngredients}
         />
@@ -136,10 +137,7 @@ export default function ConcernHub({
             {routineGroups.map((group) => (
               <section key={group.category}>
                 <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400 mb-3">
-                  {loc === "vi" ? `Bước ${group.step}` : `Step ${group.step}`}
-                  <span className="text-neutral-900 ml-1.5 normal-case text-sm">
-                    {group.label[loc] || group.label.vi}
-                  </span>
+                  {group.label[loc] || group.label.vi}
                 </h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
                   {group.products.map((product) => (

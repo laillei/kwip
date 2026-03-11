@@ -6,6 +6,10 @@
       "ko": "여드름",
       "en": "Acne"
     },
+    "symptom": {
+      "vi": "Mụn, bít lỗ chân lông",
+      "en": "Breakouts & clogged pores"
+    },
     "icon": "🧴",
     "keyIngredients": [
       "salicylic-acid",
@@ -27,6 +31,10 @@
       "vi": "Lỗ chân lông",
       "ko": "모공",
       "en": "Pores"
+    },
+    "symptom": {
+      "vi": "Da bóng, lỗ chân lông to",
+      "en": "Oily skin, large pores"
     },
     "icon": "🔬",
     "keyIngredients": [
@@ -50,6 +58,10 @@
       "ko": "보습",
       "en": "Hydration"
     },
+    "symptom": {
+      "vi": "Da khô, thiếu ẩm",
+      "en": "Dry & dehydrated skin"
+    },
     "icon": "💧",
     "keyIngredients": [
       "hyaluronic-acid",
@@ -71,6 +83,10 @@
       "vi": "Sáng da",
       "ko": "미백",
       "en": "Brightening"
+    },
+    "symptom": {
+      "vi": "Da xỉn, thâm nám",
+      "en": "Dull skin & dark spots"
     },
     "icon": "✨",
     "keyIngredients": [
@@ -94,6 +110,10 @@
       "ko": "진정",
       "en": "Soothing"
     },
+    "symptom": {
+      "vi": "Da kích ứng, đỏ",
+      "en": "Irritated & sensitive skin"
+    },
     "icon": "🍃",
     "keyIngredients": [
       "centella-asiatica-extract",
@@ -116,6 +136,10 @@
       "ko": "안티에이징",
       "en": "Anti-aging"
     },
+    "symptom": {
+      "vi": "Da lão hóa, nếp nhăn",
+      "en": "Fine lines & aging"
+    },
     "icon": "🌿",
     "keyIngredients": [
       "retinal",
@@ -136,6 +160,10 @@
     "label": {
       "vi": "Chống nắng",
       "ko": "자외선차단",
+      "en": "Sun protection"
+    },
+    "symptom": {
+      "vi": "Cần chống nắng",
       "en": "Sun protection"
     },
     "icon": "☀️",
