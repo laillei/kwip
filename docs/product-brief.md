@@ -191,6 +191,9 @@ Vietnamese urban woman, 28–40. Higher spending power. Concerned about dark spo
 
 **Success signal:** Users who select a concern click through to at least one product in the same session.
 
+**Retention mechanism — relevance nudge:**
+K-beauty routines are multi-step. A user who finds a serum for her acne concern still needs a cleanser, toner, and sunscreen. The return trigger is not a checklist ("your routine is incomplete") — it's a relevance signal. When a concern is active, routine sections she hasn't explored yet surface a soft contextual label: *"Pairs well with your acne concern"* or *"Most people with acne also use a gentle cleanser first."* She sees what's relevant next, not what she's missing. Same information, no pressure. This is built on the existing routine structure — no new data required.
+
 ---
 
 ### Q2 2026: Deepen the content, open the purchase path
