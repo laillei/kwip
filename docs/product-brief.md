@@ -11,6 +11,70 @@ Vietnamese women are already ingredient-literate — the most in Southeast Asia.
 
 ---
 
+## What Kwip Is
+
+### Direction
+
+Kwip is a **concern-first K-beauty discovery tool**. The user starts with their skin problem, not a product name or brand. The product surfaces the ingredient logic connecting their concern to the right products — in Vietnamese, organized as a daily routine.
+
+Most skincare tools start with the product and ask you to figure out if it fits your skin. Kwip starts with your skin and works forward to the product. This reversal is the entire product direction.
+
+### The Three Layers
+
+```
+LAYER 1 — CONCERN
+What problem do you have?
+
+  Acne · Pores · Hydration · Brightening
+  Soothing · Anti-aging · Sun Protection
+
+        ↓
+
+LAYER 2 — INGREDIENT LOGIC
+What actually fixes that problem, and why?
+
+  e.g. Acne → BHA (dissolves inside the pore)
+              Niacinamide (reduces sebum, fades marks)
+              Tea Tree (antibacterial)
+
+        ↓
+
+LAYER 3 — PRODUCTS IN ROUTINE ORDER
+Which products contain those ingredients?
+Where do they fit in a daily routine?
+
+  Cleanser → Toner → Serum → Moisturizer → Sunscreen
+  (each card shows WHY it fits the selected concern)
+```
+
+This three-layer structure — concern → ingredient → product — is the core IA. It does not change as the product grows. Everything added in future phases (ingredient detail pages, personalization, search) is built on top of this structure, not instead of it.
+
+### Key Functions
+
+**1. Concern Selector**
+Filter chips at the top of the home screen. User selects one concern. The entire page reconfigures — ingredient highlights and product list update instantly. Single-select by design: one problem at a time, one clear answer.
+
+**2. Ingredient Highlight**
+When a concern is active, the key ingredients for that concern appear as a card row — each with a name, icon, and one-line Vietnamese explanation of what it does for that skin problem. This is the "why" layer. Without this, Kwip is just a filtered catalog.
+
+**3. Routine-Grouped Product Grid**
+Products are grouped by routine step (cleanser, toner, serum, etc.) in the order they are applied. This answers not just "what product" but "where does it go in my routine." Each product card shows the ingredient reason it was surfaced for the selected concern.
+
+**4. Product Detail**
+Full ingredient breakdown. Purchase links to where the product is sold. Vietnamese + English.
+
+**5. Bilingual (vi / en)**
+All UI text, concern labels, ingredient explanations, and product descriptions are localized. Vietnamese is the primary locale.
+
+### What Kwip Is Not
+
+- Not an ingredient checker (you don't come here to paste an INCI list)
+- Not a product catalog (you don't browse by brand or category)
+- Not a review site (no user ratings or comments — trust comes from ingredient logic, not crowdsourcing)
+- Not a brand-sponsored recommendation engine
+
+---
+
 ## Why This Will Work — The Evidence Stack
 
 ### 1. The demand is real and quantified
@@ -117,43 +181,43 @@ Vietnamese urban woman, 28–40. Higher spending power. Concerned about dark spo
 
 ## What Kwip Builds — And Why In This Order
 
-### Now (by end of March 2026): Get the core loop right
+### Now — End of March 2026: Prove the core loop
 
-**What:** Concern filter → key ingredients → routine-grouped products, mobile web, Vietnamese + English.
+**What:** Home screen with concern selector → ingredient highlights → routine-grouped products. Product detail page. Mobile web. Vietnamese + English.
 
-**Why this first:** This is the hypothesis to prove — that a Vietnamese woman will select a concern, read the ingredient logic, and feel confident enough to consider a purchase. Everything else depends on this working. A catalog with 30 well-chosen, correctly mapped products that the user understands is more valuable than 300 products she can't navigate.
+**The hypothesis being tested:** A Vietnamese woman will select a concern, read the ingredient logic, and feel confident enough to click through to a product. If this doesn't happen, nothing else matters.
+
+**Quality over breadth:** 30 well-chosen, correctly mapped products that the user understands is more valuable than 300 she can't navigate. Catalog depth comes after the loop is proven.
 
 **Success signal:** Users who select a concern click through to at least one product in the same session.
 
 ---
 
-### Q2 2026: Deepen the content, add the purchase path
+### Q2 2026: Deepen the content, open the purchase path
 
-**What:** Ingredient detail pages (Vietnamese explanations for the top 20 actives). Affiliate purchase links to Hasaki.vn and Shopee. Catalog expansion to 60–80 products.
+**What:** Ingredient detail pages — Vietnamese explanations for the top 20 actives (niacinamide, BHA, centella, hyaluronic acid, retinol, vitamin C, etc.). Affiliate purchase links to Hasaki.vn and Shopee. Catalog grows to 60–80 products.
 
-**Why this second:** Ingredient pages are the content moat — they take time to do well, and they are what distinguishes Kwip from a simple filter on Shopee. Affiliate links activate the revenue model without introducing brand conflicts. Once users click to buy, we can measure real purchase intent, not just browsing intent.
+**Why ingredient pages are the content moat:** They take time to write well, they are what distinguishes Kwip from a Shopee filter, and they are the reason a user bookmarks Kwip rather than just visiting once. No competitor has this in Vietnamese.
 
-**Why affiliate over brand deals first:** Affiliate income is earned when users actually buy. This keeps Kwip's incentive aligned with user outcomes — we only earn if our recommendations are good enough to convert. Brand deals pay regardless of outcome, which corrupts the recommendation logic over time.
+**Why affiliate over brand deals first:** Affiliate income is earned only when users actually buy. This keeps Kwip's incentive aligned with user outcomes — recommendations must be good enough to convert, or there is no revenue.
 
 ---
 
-### Q3 2026: Distribution — enter through trust networks
+### Q3 2026: Distribution through existing trust networks
 
-**What:** 2–3 partnerships with Vietnamese ingredient-focused skincare creators (authentic users, not paid spokespersons). TikTok and Zalo as primary entry points.
+**What:** 2–3 partnerships with Vietnamese ingredient-focused skincare creators as authentic users. TikTok and Zalo as primary entry points.
 
-**Why this third:** The audience already exists in TikTok and Zalo skincare communities. The trust infrastructure already exists in the form of ingredient-literate creators. Kwip doesn't need to build the audience from scratch — it needs to become the tool the existing audience uses and recommends. The distribution strategy is to enter existing trust networks, not build a new one.
+**Why not paid ads:** The users acquired through creator endorsement are higher quality, more likely to return, and more likely to share. Paid acquisition for a trust-based product is expensive and attracts low-intent users.
 
-**Why not paid ads:** Paid acquisition for a trust-based product is expensive and counterproductive. The users acquired through creator endorsement are higher quality, more likely to return, and more likely to share.
+**The distribution model:** Creators send their audience to Kwip the way tech reviewers send their audience to Wirecutter — as the methodology behind the recommendation, not as a competitor.
 
 ---
 
 ### Q4 2026: Prove the revenue model
 
-**What:** Affiliate commission live across all products. Track conversion funnel: concern selected → product clicked → purchase completed.
+**What:** Affiliate commission live. Track full conversion funnel: concern selected → product clicked → purchase completed.
 
-**Why now:** By Q4 we will have real user behavior data — which concerns drive the most clicks, which product categories convert best, where users drop off. Revenue strategy should be data-driven. Starting earlier means optimizing for the wrong signals.
-
-**Revenue target:** First meaningful affiliate revenue. Not a specific number — the goal at this stage is to confirm the model works, not to scale it.
+**Goal:** Confirm the model works. Not a revenue number — confirmation that user trust converts to purchase intent at a meaningful rate.
 
 ---
 
@@ -161,40 +225,54 @@ Vietnamese urban woman, 28–40. Higher spending power. Concerned about dark spo
 
 **What:** User skin profiles. Saved routines. New product alerts based on concern + skin type history.
 
-**Why this is the moat:** Ingredient content can be copied. Product catalogs can be copied. Personalization data — what this specific user's skin responds to, what routine she's built over time — cannot be copied. This is what makes Kwip a habit, not a reference tool. And a habit is a business.
+**Why this is the moat:** Ingredient content can be copied. Product catalogs can be copied. A user's routine history and skin data cannot be copied. This is what makes Kwip a daily habit, not a reference lookup. And a habit is a business.
 
 ---
 
-## Business Model Summary
+## Business Model
 
-| Phase | Revenue | Logic |
+| Phase | Revenue | Why |
 |---|---|---|
-| Now–Q3 2026 | Zero | Build trust before monetizing |
+| Now–Q3 2026 | Zero | Build trust before monetizing. Editorial independence is the product. |
 | Q4 2026 | Affiliate commissions (3–8% per sale, Hasaki + Shopee) | Earn only when users buy — incentives stay aligned |
-| 2027 | Brand ingredient spotlights (editorial, not rankings) | Brands pay to explain their hero ingredients — never to change rankings |
-| 2027+ | Premium tier (personalized routine builder, skin tracking) | Only viable once users depend on it daily |
+| 2027 | Brand ingredient spotlights | Brands explain their hero ingredients — never change product rankings |
+| 2027+ | Premium tier | Personalized routine builder, skin tracking — only after retention is proven |
 
 ---
 
-## The Core Risk — And Why It's Manageable
+## Competitive Position
 
-**Risk:** Vietnamese consumers trust KOL recommendations more than tools. Kwip could remain a reference lookup rather than becoming a purchase starting point.
+| Tool | Vietnamese | Concern-first | Ingredient logic | Purchase path |
+|---|---|---|---|---|
+| CosDNA | ✗ | ✗ | Partial | ✗ |
+| SkinCarisma | ✗ | ✗ | ✓ | Affiliate |
+| INCIDecoder | ✗ | ✗ | ✓ (best in class) | ✗ |
+| Hwahae (Korea) | ✗ | ✓ | ✓ | ✓ |
+| Hasaki / Shopee | ✓ | ✗ | ✗ | ✓ |
+| TikTok KOLs | ✓ | Partial | ✗ | ✓ |
+| **Kwip** | **✓** | **✓** | **✓** | **✓** |
 
-**Why it's manageable:** The KOLs who convert most effectively are already doing ingredient education. The gap isn't between KOLs and tools — it's that KOL coverage is random (whatever they were paid to review) and not available at the moment a consumer is deciding. Kwip is always available, always concern-organized, never paid to push a specific product.
-
-The strategy is not to compete with KOLs. It's to become the tool KOLs recommend their followers use to verify and explore — the way tech reviewers send their audience to Wirecutter for the methodology behind the recommendation.
+**Closest global analog:** Hwahae — Korea's #1 beauty app (13M downloads). Concern + ingredient + community → commerce. Korean-only. Kwip is Hwahae for Vietnam.
 
 ---
 
-## What Makes This Defensible Long-Term
+## What Makes This Defensible
 
-1. **Vietnamese-language ingredient content** takes time to produce well. A global player localizing later starts from zero on content quality.
-2. **Concern-first information architecture** is not how any existing player is built. Rebuilding from the database up takes time.
-3. **User routine history and personalization data** compounds over time — the longer a user is on Kwip, the harder she is to replace.
-4. **First-mover trust** in a trust-based category is disproportionately valuable. The first tool Vietnamese ingredient researchers associate with reliable skincare advice will be very hard to displace.
+1. **Vietnamese-language ingredient content** — takes time to produce well. A late entrant starts from zero.
+2. **Concern-first IA** — not how any existing player is built. Rebuilding from scratch takes time.
+3. **User personalization data** — the longer a user is on Kwip, the harder she is to replace.
+4. **First-mover trust** — in a trust-based category, the first trusted tool is very hard to displace.
+
+---
+
+## The Core Risk
+
+**Risk:** Vietnamese consumers trust KOLs more than tools. Kwip stays a reference lookup, not a purchase starting point.
+
+**Why it's manageable:** The strategy is not to compete with KOLs. It's to become the tool KOLs recommend — the way Wirecutter sits behind a tech reviewer's recommendation. KOL coverage is random and agenda-driven. Kwip is always available, always concern-organized, never paid to push a specific product.
 
 ---
 
 ## One-Sentence Version
 
-**Kwip is the tool Vietnamese women use to understand what K-beauty ingredients actually do for their specific skin — and to find the right products for their routine, in Vietnamese, with no brand agenda.**
+**Kwip is the trusted skincare advisor Vietnamese women have never had — not a catalog, not a checker, not an influencer — a system that explains the ingredient science behind K-beauty and connects it directly to the purchase, in Vietnamese.**
