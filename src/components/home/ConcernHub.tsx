@@ -102,14 +102,21 @@ export default function ConcernHub({
     return undefined;
   }
 
+  // Only show concerns that have at least one matching product
+  const activeConcerns = concerns.filter((c) =>
+    products.some((p) => p.concerns.includes(c.id))
+  );
+
   // Group products by routine step when concern is selected
+  const seenIds = new Set<string>();
   const routineGroups = hasSelection
     ? routineSteps
         .map((step) => ({
           ...step,
           products: filteredProducts
-            .filter((p) => p.category === step.category)
-            .slice(0, 4),
+            .filter((p) => p.category === step.category && !seenIds.has(p.id))
+            .slice(0, 4)
+            .map((p) => { seenIds.add(p.id); return p; }),
         }))
         .filter((group) => group.products.length > 0)
     : [];
@@ -121,7 +128,7 @@ export default function ConcernHub({
           {dict.concernPrompt}
         </p>
         <ConcernSelector
-          concerns={concerns}
+          concerns={activeConcerns}
           selected={selected}
           onToggle={handleToggle}
         />
