@@ -150,10 +150,7 @@ export default function ConcernHub({
             {routineGroups.map((group) => (
               <section key={group.category}>
                 <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400 mb-3">
-                  {loc === "vi" ? `Bước ${group.step}` : `Step ${group.step}`}
-                  <span className="text-neutral-900 ml-1.5 normal-case text-sm">
-                    {group.label[loc] || group.label.vi}
-                  </span>
+                  {group.label[loc] || group.label.vi}
                 </h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
                   {group.products.map((product) => (
