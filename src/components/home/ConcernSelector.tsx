@@ -9,7 +9,7 @@ interface ConcernSelectorProps {
     icon: string;
     symptom: string;
   }[];
-  selected: Concern[];
+  selected: Concern | null;
   onToggle: (id: Concern) => void;
 }
 
@@ -21,7 +21,7 @@ export default function ConcernSelector({
   return (
     <div className="flex flex-wrap gap-2">
       {concerns.map((c) => {
-        const isActive = selected.includes(c.id);
+        const isActive = selected === c.id;
         return (
           <button
             key={c.id}

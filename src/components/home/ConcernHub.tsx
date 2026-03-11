@@ -46,38 +46,25 @@ export default function ConcernHub({
   locale,
   dict,
 }: ConcernHubProps) {
-  const [selected, setSelected] = useState<Concern[]>([]);
+  const [selected, setSelected] = useState<Concern | null>(null);
   const loc = locale as "vi" | "en";
 
   function handleToggle(id: Concern) {
-    setSelected((prev) =>
-      prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
-    );
+    setSelected((prev) => (prev === id ? null : id));
   }
 
-  const hasSelection = selected.length > 0;
+  const hasSelection = selected !== null;
 
-  // Filter products matching ANY selected concern, sorted by relevance
+  // Filter products matching selected concern, sorted by popularity rank
   const filteredProducts = products
-    .filter((p) => !hasSelection || selected.some((c) => p.concerns.includes(c)))
+    .filter((p) => !hasSelection || p.concerns.includes(selected!))
     .sort((a, b) => {
-      if (hasSelection) {
-        const aCount = selected.filter((c) => a.concerns.includes(c)).length;
-        const bCount = selected.filter((c) => b.concerns.includes(c)).length;
-        if (bCount !== aCount) return bCount - aCount;
-      }
       return a.popularity.rank - b.popularity.rank;
     });
 
-  // Get key ingredients for selected concerns
+  // Get key ingredients for selected concern
   const keyIngredientIds = hasSelection
-    ? [
-        ...new Set(
-          concerns
-            .filter((c) => selected.includes(c.id))
-            .flatMap((c) => c.keyIngredientIds)
-        ),
-      ]
+    ? concerns.find((c) => c.id === selected)?.keyIngredientIds ?? []
     : [];
 
   const keyIngredients = keyIngredientIds
@@ -92,7 +79,7 @@ export default function ConcernHub({
       const ing = ingredients.find((i) => i.id === pi.ingredientId);
       if (!ing) continue;
       const matchingEffect = ing.effects.find(
-        (e) => selected.includes(e.concern) && e.type === "good"
+        (e) => e.concern === selected && e.type === "good"
       );
       if (matchingEffect) {
         const name = loc === "vi" ? ing.name.vi : ing.name.inci;
@@ -137,7 +124,7 @@ export default function ConcernHub({
       {hasSelection && keyIngredients.length > 0 && (
         <IngredientHighlight
           ingredients={keyIngredients}
-          concerns={selected}
+          concerns={selected ? [selected] : []}
           locale={locale}
           heading={dict.helpfulIngredients}
         />
