@@ -237,9 +237,12 @@ K-beauty routines are multi-step. A user who finds a serum for her acne concern 
 | Phase | Revenue | Why |
 |---|---|---|
 | Now–Q3 2026 | Zero | Build trust before monetizing. Editorial independence is the product. |
-| Q4 2026 | Affiliate commissions (3–8% per sale, Hasaki + Shopee) | Earn only when users buy — incentives stay aligned |
-| 2027 | Brand ingredient spotlights | Brands explain their hero ingredients — never change product rankings |
+| Q4 2026 | Affiliate commissions (3–8% per sale, Hasaki + Shopee) | Proof of concept — not a salary, a signal that the model works |
+| 2027 | Brand ingredient spotlights | Where real revenue starts — brands pay to explain their hero ingredients, never to change rankings |
 | 2027+ | Premium tier | Personalized routine builder, skin tracking — only after retention is proven |
+
+**Why affiliate is a signal, not a salary:**
+A typical K-beauty product in Vietnam costs ~300,000–500,000 VND. At 5% commission, one purchase earns ~15,000–25,000 VND (~$1). To earn $500/month requires ~500–800 purchases — which requires ~15,000–50,000 monthly visitors at realistic conversion rates. That's not reachable at launch. The goal of affiliate in Q4 2026 is not income — it's confirmation that users trust Kwip's recommendations enough to act on them. That confirmation is what justifies investing in brand partnerships, where the real revenue is.
 
 ---
 
