@@ -7,6 +7,7 @@ interface ConcernSelectorProps {
     id: Concern;
     label: string;
     icon: string;
+    symptom: string;
   }[];
   selected: Concern[];
   onToggle: (id: Concern) => void;
@@ -18,29 +19,33 @@ export default function ConcernSelector({
   onToggle,
 }: ConcernSelectorProps) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="grid grid-cols-2 gap-3">
       {concerns.map((c) => {
         const isActive = selected.includes(c.id);
         return (
           <button
             key={c.id}
             onClick={() => onToggle(c.id)}
-            className={`flex items-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-medium transition-all min-h-[44px] ${
+            className={`flex items-center gap-3 px-4 py-3.5 rounded-2xl text-left transition-all min-h-[56px] ${
               isActive
-                ? "bg-neutral-900 text-white shadow-sm"
-                : "bg-white text-neutral-500 hover:bg-neutral-100 active:bg-neutral-200"
+                ? "bg-neutral-900 text-white"
+                : "bg-white text-neutral-900"
             }`}
             style={
               !isActive
-                ? {
-                    boxShadow:
-                      "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
-                  }
+                ? { boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }
                 : undefined
             }
           >
-            <span>{c.icon}</span>
-            <span>{c.label}</span>
+            <span className="text-xl shrink-0">{c.icon}</span>
+            <div className="min-w-0">
+              <p className={`text-sm font-semibold leading-tight ${isActive ? "text-white" : "text-neutral-900"}`}>
+                {c.label}
+              </p>
+              <p className={`text-xs mt-0.5 leading-tight truncate ${isActive ? "text-neutral-300" : "text-neutral-400"}`}>
+                {c.symptom}
+              </p>
+            </div>
           </button>
         );
       })}
