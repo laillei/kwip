@@ -13339,7 +13339,7 @@
     },
     "brand": "cosrx",
     "category": "pad",
-    "image": "/images/products/cosrx-cosrx-one-step-green-calming-pad.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0513/3775/6828/files/Green_Pad_0.jpg?v=1694078299",
     "concerns": [
       "acne",
       "hydration",
@@ -13414,7 +13414,7 @@
     },
     "brand": "cosrx",
     "category": "serum",
-    "image": "/images/products/cosrx-refresh-ahabha-vitamin-c-booster-serum.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0513/3775/6828/files/refresh-ahabha-vitamin-c-booster-serum-cosrx-official-1.jpg?v=1724836411",
     "concerns": [
       "acne",
       "pores",
@@ -13506,7 +13506,7 @@
     },
     "brand": "cosrx",
     "category": "mask",
-    "image": "/images/products/cosrx-poreless-clarifying-charcoal-mask-pink.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0513/3775/6828/files/poreless-clarifying-charcoal-mask-pink-cosrx-official-1.jpg?v=1724836344",
     "concerns": [
       "pores",
       "hydration",
@@ -13591,7 +13591,7 @@
     },
     "brand": "cosrx",
     "category": "cream",
-    "image": "/images/products/cosrx-ac-collection-lightweight-soothing-moisturizer.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0513/3775/6828/files/ac-collection-lightweight-soothing-moisturizer-cosrx-official-1.jpg?v=1724835868",
     "concerns": [
       "acne",
       "hydration",
@@ -13671,7 +13671,7 @@
     },
     "brand": "cosrx",
     "category": "cream",
-    "image": "/images/products/cosrx-ac-collection-ultimate-spot-cream.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0513/3775/6828/files/ac-collection-ultimate-spot-cream-cosrx-official-1.jpg?v=1724835771",
     "concerns": [
       "hydration",
       "sun-protection"
@@ -13724,7 +13724,7 @@
     },
     "brand": "cosrx",
     "category": "essence",
-    "image": "/images/products/cosrx-hyaluronic-acid-hydra-power-essence.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0513/3775/6828/files/hyaluronic-acid-hydra-power-essence-cosrx-official-1.jpg?v=1724835383",
     "concerns": [
       "hydration"
     ],
@@ -13776,7 +13776,7 @@
     },
     "brand": "cosrx",
     "category": "ampoule",
-    "image": "/images/products/cosrx-hydrium-centella-aqua-soothing-ampoule.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0513/3775/6828/files/hydrium-centella-aqua-soothing-ampoule-cosrx-official-1.jpg?v=1689840666",
     "concerns": [
       "acne",
       "hydration",
@@ -13841,7 +13841,7 @@
     },
     "brand": "cosrx",
     "category": "serum",
-    "image": "/images/products/cosrx-pure-fit-cica-serum.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0513/3775/6828/files/pure-fit-cica-serum-cosrx-official-1.jpg?v=1724835220",
     "concerns": [],
     "ingredients": [
       {
@@ -13876,7 +13876,7 @@
     },
     "brand": "beauty-of-joseon",
     "category": "cream",
-    "image": "/images/products/beauty-of-joseon-dynasty-cream-338-floz100ml.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0558/4135/7989/files/dynasty-cream-1-front.webp?v=1770618339",
     "concerns": [],
     "ingredients": [
       {
@@ -13911,7 +13911,7 @@
     },
     "brand": "round-lab",
     "category": "toner",
-    "image": "/images/products/round-lab-pine-cica-calming-scalp-tonic.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/Pine_Cica_Tonic_3.webp?v=1772852559",
     "concerns": [
       "acne",
       "hydration"
@@ -13969,7 +13969,7 @@
     },
     "brand": "round-lab",
     "category": "cleanser",
-    "image": "/images/products/round-lab-1025-dokdo-cleansing-balm-50ml.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/Dokdo_Cleansing_Balm_50ml.webp?v=1772852500",
     "concerns": [],
     "ingredients": [
       {
@@ -14004,7 +14004,7 @@
     },
     "brand": "round-lab",
     "category": "mask",
-    "image": "/images/products/round-lab-1025-dokdo-water-gel-mask-sheet.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/1025-dokdo-water-gel-mask-sheet-round-lab-1.jpg?v=1772849523",
     "concerns": [
       "hydration"
     ],
@@ -14046,7 +14046,7 @@
     },
     "brand": "round-lab",
     "category": "ampoule",
-    "image": "/images/products/round-lab-camellia-deep-collagen-firming-ampoule.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/CAMELLIA_AMPOULE_6_1.jpg?v=1772850956",
     "concerns": [
       "hydration",
       "anti-aging"
@@ -14084,7 +14084,7 @@
     },
     "brand": "round-lab",
     "category": "cream",
-    "image": "/images/products/round-lab-camellia-deep-collagen-firming-cream.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/CAMELLIACREAM_2.jpg?v=1772850991",
     "concerns": [],
     "ingredients": [
       {
@@ -14114,7 +14114,7 @@
     },
     "brand": "round-lab",
     "category": "mask",
-    "image": "/images/products/round-lab-vita-niacinamide-dark-spot-serum-mask.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/Vita_Mask_Square.jpg?v=1772851045",
     "concerns": [
       "brightening"
     ],
@@ -14156,7 +14156,7 @@
     },
     "brand": "round-lab",
     "category": "serum",
-    "image": "/images/products/round-lab-vita-niacinamide-dark-spot-serum.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/240328_roundlab_0182_re2.jpg?v=1772851005",
     "concerns": [],
     "ingredients": [
       {
@@ -14186,7 +14186,7 @@
     },
     "brand": "round-lab",
     "category": "cleanser",
-    "image": "/images/products/round-lab-deal-dokdo-cleanser-double-2-pack.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/image_41.png?v=1772851684",
     "concerns": [
       "acne",
       "hydration",
@@ -14261,7 +14261,7 @@
     },
     "brand": "round-lab",
     "category": "cleanser",
-    "image": "/images/products/round-lab-birch-moisturizing-cleanser.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/birch-moisturizing-cleanser-round-lab-1.png?v=1772849387",
     "concerns": [],
     "ingredients": [
       {
@@ -14291,7 +14291,7 @@
     },
     "brand": "round-lab",
     "category": "ampoule",
-    "image": "/images/products/round-lab-birch-juice-moisturizing-ampoule.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/4_03d82676-4c65-44f9-8c1b-4fab774ad589.png?v=1772850649",
     "concerns": [
       "hydration",
       "anti-aging"
@@ -14359,7 +14359,7 @@
     },
     "brand": "round-lab",
     "category": "cleanser",
-    "image": "/images/products/round-lab-dokdo-cleansing-water.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/Dokdo_Cleansing_Water.webp?v=1772852478",
     "concerns": [
       "acne",
       "hydration",
@@ -14434,7 +14434,7 @@
     },
     "brand": "round-lab",
     "category": "pad",
-    "image": "/images/products/round-lab-birch-juice-cleansing-pad.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/3_ed5badc4-8dde-4566-a06b-1f74044714d7.png?v=1772850575",
     "concerns": [
       "hydration"
     ],
@@ -14471,7 +14471,7 @@
     },
     "brand": "round-lab",
     "category": "toner",
-    "image": "/images/products/round-lab-simplest-2-step-routine-1025-dokdo-toner-birch-moisturizing-cream.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/image_34.png?v=1772851663",
     "concerns": [],
     "ingredients": [
       {
@@ -14501,7 +14501,7 @@
     },
     "brand": "round-lab",
     "category": "mask",
-    "image": "/images/products/round-lab-soybean-panthenol-sheet-mask.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/ROUND_LAB_SOYBEAN_PANTHENOL_MASK_2.jpg?v=1772852411",
     "concerns": [
       "hydration",
       "anti-aging"
@@ -14569,7 +14569,7 @@
     },
     "brand": "round-lab",
     "category": "toner",
-    "image": "/images/products/round-lab-pine-calming-cica-lotion.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/3_6c17196d-6319-4cee-a2b6-9c7d606ca995.png?v=1772850343",
     "concerns": [
       "hydration",
       "anti-aging"
@@ -14627,7 +14627,7 @@
     },
     "brand": "round-lab",
     "category": "cream",
-    "image": "/images/products/round-lab-soybean-panthenol-cream.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/12.png?v=1772850358",
     "concerns": [
       "hydration",
       "anti-aging"
@@ -14675,7 +14675,7 @@
     },
     "brand": "round-lab",
     "category": "ampoule",
-    "image": "/images/products/round-lab-soybean-panthenol-ampoule.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/5_1291eeac-cfd9-46c1-9b13-414350ca01c3.png?v=1772850347",
     "concerns": [
       "hydration",
       "anti-aging"
@@ -14728,7 +14728,7 @@
     },
     "brand": "round-lab",
     "category": "cleanser",
-    "image": "/images/products/round-lab-deal-1025-dokdo-cleanser.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/1025-dokdo-cleanser-round-lab-3_667c8548-20d9-49c1-9035-4beb0ccc90b3.jpg?v=1772850409",
     "concerns": [
       "acne",
       "hydration",
@@ -14803,7 +14803,7 @@
     },
     "brand": "round-lab",
     "category": "toner",
-    "image": "/images/products/round-lab-deal-1025-dokdo-toner.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/1025-dokdo-toner-round-lab-1_b70f78ac-e80f-4f05-b942-3ff25b4e049e.jpg?v=1772850423",
     "concerns": [],
     "ingredients": [
       {
@@ -14833,7 +14833,7 @@
     },
     "brand": "round-lab",
     "category": "cleanser",
-    "image": "/images/products/round-lab-deal-birch-moisturizing-cleanser.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/birch-moisturizing-cleanser-round-lab-1_4550fd52-3767-47ca-8b35-35aece5869fe.png?v=1772850435",
     "concerns": [],
     "ingredients": [
       {
@@ -14863,7 +14863,7 @@
     },
     "brand": "round-lab",
     "category": "cleanser",
-    "image": "/images/products/round-lab-soybean-nourishing-cleansing-oil.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/80.png?v=1772850195",
     "concerns": [
       "hydration"
     ],
@@ -14905,7 +14905,7 @@
     },
     "brand": "round-lab",
     "category": "cleanser",
-    "image": "/images/products/round-lab-dokdo-cleanser-double-bundle.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/image_41.png?v=1772851684",
     "concerns": [
       "acne",
       "hydration",
@@ -14985,7 +14985,7 @@
     },
     "brand": "round-lab",
     "category": "cream",
-    "image": "/images/products/round-lab-birch-moisturizing-soothing-gel.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/3_e61f5927-a3e2-4729-934a-4122a88ea091.png?v=1772850075",
     "concerns": [],
     "ingredients": [
       {
@@ -15015,7 +15015,7 @@
     },
     "brand": "round-lab",
     "category": "cleanser",
-    "image": "/images/products/round-lab-pine-calming-cica-cleanser.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/PCC4.png?v=1772849975",
     "concerns": [
       "acne",
       "anti-aging"
@@ -15058,7 +15058,7 @@
     },
     "brand": "round-lab",
     "category": "cleanser",
-    "image": "/images/products/round-lab-1025-dokdo-cleansing-gel.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/DCO1_4b49a819-ead0-4d77-8bdf-3fd4e8ab9fb5.png?v=1772849982",
     "concerns": [
       "hydration"
     ],
@@ -15100,7 +15100,7 @@
     },
     "brand": "round-lab",
     "category": "cleanser",
-    "image": "/images/products/round-lab-birch-moisturizing-wash-off-mask.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/birch-moisturizing-wash-off-mask-round-lab-1.png?v=1772849727",
     "concerns": [
       "acne",
       "hydration",
@@ -15180,7 +15180,7 @@
     },
     "brand": "round-lab",
     "category": "sunscreen",
-    "image": "/images/products/round-lab-birch-moisturizing-mild-up-sunscreen-spf-50-pa.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/birch-moisturizing-mild-up-sunscreen-spf-50-pa-round-lab-1.jpg?v=1772849700",
     "concerns": [
       "hydration",
       "anti-aging"
@@ -15223,7 +15223,7 @@
     },
     "brand": "round-lab",
     "category": "serum",
-    "image": "/images/products/round-lab-mugwort-calming-serum.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/mugwort-calming-serum-round-lab-1.png?v=1772849465",
     "concerns": [
       "acne",
       "hydration",
@@ -15278,7 +15278,7 @@
     },
     "brand": "round-lab",
     "category": "mask",
-    "image": "/images/products/round-lab-mugwort-calming-sheet-mask.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/mugwort-calming-sheet-mask-round-lab-1.png?v=1772849529",
     "concerns": [],
     "ingredients": [
       {
@@ -15313,7 +15313,7 @@
     },
     "brand": "round-lab",
     "category": "mask",
-    "image": "/images/products/round-lab-birch-moisturizing-sheet-mask.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/birch-moisturizing-sheet-mask-round-lab-1.png?v=1772849578",
     "concerns": [],
     "ingredients": [
       {
@@ -15343,7 +15343,7 @@
     },
     "brand": "round-lab",
     "category": "cream",
-    "image": "/images/products/round-lab-mugwort-calming-cream.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/mugwort-calming-moisturizer-round-lab-1.png?v=1772849461",
     "concerns": [
       "anti-aging"
     ],
@@ -15385,7 +15385,7 @@
     },
     "brand": "round-lab",
     "category": "cream",
-    "image": "/images/products/round-lab-pine-calming-cica-cream.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/pine-calming-cica-cream-round-lab-1.png?v=1772849583",
     "concerns": [],
     "ingredients": [
       {
@@ -15415,7 +15415,7 @@
     },
     "brand": "round-lab",
     "category": "serum",
-    "image": "/images/products/round-lab-birch-moisturizing-serum.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/birch-moisturizing-serum-round-lab-1.png?v=1772849392",
     "concerns": [
       "hydration",
       "anti-aging"
@@ -15463,7 +15463,7 @@
     },
     "brand": "round-lab",
     "category": "cleanser",
-    "image": "/images/products/round-lab-soybean-nourishing-cleanser.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/soybean-nourishing-cleanser-round-lab-1.png?v=1772849633",
     "concerns": [
       "hydration"
     ],
@@ -15500,7 +15500,7 @@
     },
     "brand": "round-lab",
     "category": "toner",
-    "image": "/images/products/round-lab-birch-moisturizing-toner.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/birch-moisturizing-toner-round-lab-1.png?v=1772849631",
     "concerns": [
       "hydration",
       "anti-aging"
@@ -15538,7 +15538,7 @@
     },
     "brand": "round-lab",
     "category": "toner",
-    "image": "/images/products/round-lab-mugwort-calming-toner.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/mugwort-calming-toner-round-lab-1.png?v=1772849391",
     "concerns": [
       "acne",
       "hydration",
@@ -15582,7 +15582,7 @@
     },
     "brand": "round-lab",
     "category": "mask",
-    "image": "/images/products/round-lab-pine-calming-cica-sheet-mask.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/pine-calming-cica-sheet-mask-round-lab-1.png?v=1772849582",
     "concerns": [],
     "ingredients": [
       {
@@ -15612,7 +15612,7 @@
     },
     "brand": "round-lab",
     "category": "serum",
-    "image": "/images/products/round-lab-soybean-nourishing-serum.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/soybean-nourishing-serum-round-lab-1.png?v=1772849527",
     "concerns": [
       "hydration"
     ],
@@ -15654,7 +15654,7 @@
     },
     "brand": "round-lab",
     "category": "mask",
-    "image": "/images/products/round-lab-soybean-nourishing-sheet-mask.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/soybean-nourishing-sheet-mask-round-lab-1.png?v=1772849525",
     "concerns": [],
     "ingredients": [
       {
@@ -15684,7 +15684,7 @@
     },
     "brand": "round-lab",
     "category": "toner",
-    "image": "/images/products/round-lab-soybean-nourishing-toner.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/soybean-nourishing-toner-round-lab-1.png?v=1772849462",
     "concerns": [],
     "ingredients": [
       {
@@ -15719,7 +15719,7 @@
     },
     "brand": "round-lab",
     "category": "cleanser",
-    "image": "/images/products/round-lab-mugwort-calming-cleanser.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/mugwort-calming-cleanser-round-lab-1.png?v=1772849459",
     "concerns": [
       "acne",
       "hydration",
@@ -15769,7 +15769,7 @@
     },
     "brand": "round-lab",
     "category": "pad",
-    "image": "/images/products/round-lab-birch-moisturizing-toner-pad.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/birch-moisturizing-pad-round-lab-1.png?v=1772849389",
     "concerns": [
       "hydration",
       "anti-aging"
@@ -15817,7 +15817,7 @@
     },
     "brand": "round-lab",
     "category": "cream",
-    "image": "/images/products/round-lab-birch-moisturizing-cream.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/birch-moisturizing-cream-round-lab-3.jpg?v=1772849411",
     "concerns": [
       "hydration",
       "anti-aging"
@@ -15860,7 +15860,7 @@
     },
     "brand": "round-lab",
     "category": "toner",
-    "image": "/images/products/round-lab-1025-dokdo-toner.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/Dokdo_Toner_2025.png?v=1772851199",
     "concerns": [],
     "ingredients": [
       {
@@ -15890,7 +15890,7 @@
     },
     "brand": "round-lab",
     "category": "cream",
-    "image": "/images/products/round-lab-1025-dokdo-cream.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/1025-dokdo-cream-round-lab-1_66b8271b-613f-4510-82e8-b15abb0f1e37.jpg?v=1772849283",
     "concerns": [],
     "ingredients": [
       {
@@ -15920,7 +15920,7 @@
     },
     "brand": "round-lab",
     "category": "cleanser",
-    "image": "/images/products/round-lab-1025-dokdo-cleansing-oil.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/1025-dokdo-cleansing-oil-round-lab-1_e3e7ee17-149e-4bcb-814d-88ce57e96d63.jpg?v=1772849281",
     "concerns": [],
     "ingredients": [
       {
@@ -15950,7 +15950,7 @@
     },
     "brand": "round-lab",
     "category": "cleanser",
-    "image": "/images/products/round-lab-1025-dokdo-cleanser.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0651/7656/8022/files/Dokdo_cleanser_renewed.webp?v=1772852868",
     "concerns": [
       "acne",
       "hydration",
@@ -16025,7 +16025,7 @@
     },
     "brand": "skin1004",
     "category": "toner",
-    "image": "/images/products/skin1004-hyalu-cica-brightening-toner.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0590/4538/0253/files/skin1004-toner-hyalu-cica-brightening-toner-40032065356022.png?v=1709704933",
     "concerns": [
       "hydration",
       "anti-aging"
@@ -16068,7 +16068,7 @@
     },
     "brand": "isntree",
     "category": "cleanser",
-    "image": "/images/products/isntree-isntree-miceller-melting-cleansing-oil.svg",
+    "image": "https://img.hwahae.co.kr/products/1814464/1814464_20220801000000.jpg",
     "concerns": [],
     "ingredients": [
       {
@@ -16098,7 +16098,7 @@
     },
     "brand": "purito",
     "category": "cream",
-    "image": "/images/products/purito-wonder-releaf-centella-cream-unscented.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/02/centella_cream_unscented-thumb-x2-1.png",
     "concerns": [
       "acne",
       "pores",
@@ -16284,7 +16284,7 @@
     },
     "brand": "purito",
     "category": "cream",
-    "image": "/images/products/purito-wonder-releaf-centella-eye-cream.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/02/centella_eyecream-thumb-x2.png",
     "concerns": [
       "acne",
       "hydration",
@@ -16449,7 +16449,7 @@
     },
     "brand": "purito",
     "category": "serum",
-    "image": "/images/products/purito-wonder-releaf-centella-serum.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/02/centella_serum-thumb-x2-1.png",
     "concerns": [
       "acne",
       "pores",
@@ -16661,7 +16661,7 @@
     },
     "brand": "purito",
     "category": "cream",
-    "image": "/images/products/purito-wonder-releaf-centella-cream.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/02/centella_cream-thumb-x2.png",
     "concerns": [
       "acne",
       "pores",
@@ -16858,7 +16858,7 @@
     },
     "brand": "purito",
     "category": "toner",
-    "image": "/images/products/purito-wonder-releaf-centella-toner-unscented.svg",
+    "image": "https://purito.com/wp-content/uploads/2025/08/%EC%96%B8%EC%84%BC%ED%86%A0%EB%84%88_thumb-1.png",
     "concerns": [
       "acne",
       "hydration",
@@ -17008,7 +17008,7 @@
     },
     "brand": "purito",
     "category": "cream",
-    "image": "/images/products/purito-wonder-releaf-centella-eye-cream-unscented.svg",
+    "image": "https://purito.com/wp-content/uploads/2025/08/%EC%96%B8%EC%84%BC%EC%95%84%EC%9D%B4%ED%81%AC%EB%A6%BC_thumb-1.png",
     "concerns": [
       "acne",
       "hydration",
@@ -17178,7 +17178,7 @@
     },
     "brand": "purito",
     "category": "toner",
-    "image": "/images/products/purito-wonder-releaf-centella-toner.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/02/centella_toner-thumb-x2-1.png",
     "concerns": [
       "acne",
       "hydration",
@@ -17328,7 +17328,7 @@
     },
     "brand": "purito",
     "category": "toner",
-    "image": "/images/products/purito-oat-pdrn-gentle-refining-toner.svg",
+    "image": "https://purito.com/wp-content/uploads/2026/02/oat_toner.jpg",
     "concerns": [
       "acne",
       "hydration",
@@ -17418,7 +17418,7 @@
     },
     "brand": "purito",
     "category": "cleanser",
-    "image": "/images/products/purito-oat-in-gentle-exfoliating-face-cleanser.svg",
+    "image": "https://purito.com/wp-content/uploads/2025/04/Oat_Cleanser_slide_01.jpg",
     "concerns": [
       "acne",
       "pores",
@@ -17539,7 +17539,7 @@
     },
     "brand": "purito",
     "category": "cleanser",
-    "image": "/images/products/purito-from-green-deep-foaming-cleanser.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/02/From-Green-Deep-Foaming-Cleanser-300x300.jpg",
     "concerns": [
       "hydration"
     ],
@@ -17586,7 +17586,7 @@
     },
     "brand": "purito",
     "category": "essence",
-    "image": "/images/products/purito-fermented-complex-94-boosting-essence.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/02/Fermented-Complex-94-Boosting-Essence-300x300.jpg",
     "concerns": [
       "acne",
       "hydration",
@@ -17655,7 +17655,7 @@
     },
     "brand": "purito",
     "category": "pad",
-    "image": "/images/products/purito-peel-shot-exfoliating-pad.svg",
+    "image": "https://purito.com/wp-content/uploads/2026/01/slide_01_en.jpg",
     "concerns": [
       "acne",
       "pores",
@@ -17710,7 +17710,7 @@
     },
     "brand": "purito",
     "category": "cream",
-    "image": "/images/products/purito-luminous-ceramide-moisturizer.svg",
+    "image": "https://purito.com/wp-content/uploads/2025/12/slide_01-2.jpg",
     "concerns": [
       "acne",
       "hydration",
@@ -17769,7 +17769,7 @@
     },
     "brand": "purito",
     "category": "serum",
-    "image": "/images/products/purito-txa-6-niacinamide-10-retinal-serum.svg",
+    "image": "https://purito.com/wp-content/uploads/2025/09/slide_01.jpg",
     "concerns": [
       "acne",
       "hydration",
@@ -17839,7 +17839,7 @@
     },
     "brand": "purito",
     "category": "serum",
-    "image": "/images/products/purito-azelaic-acid-10-kojic-tea-tree-serum.svg",
+    "image": "https://purito.com/wp-content/uploads/2025/09/slide_01-1.jpg",
     "concerns": [
       "hydration",
       "brightening",
@@ -17898,7 +17898,7 @@
     },
     "brand": "purito",
     "category": "serum",
-    "image": "/images/products/purito-wonder-releaf-centella-serum-unscented.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/02/centella_serum_unscented-thumb-x2.png",
     "concerns": [
       "acne",
       "pores",
@@ -18110,7 +18110,7 @@
     },
     "brand": "purito",
     "category": "cream",
-    "image": "/images/products/purito-mighty-bamboo-panthenol-cream.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/07/Panthenol-Cream-slide-01.jpg",
     "concerns": [
       "acne",
       "pores",
@@ -18217,7 +18217,7 @@
     },
     "brand": "purito",
     "category": "sunscreen",
-    "image": "/images/products/purito-sun-day-adventure-sunscreen-spf-50.svg",
+    "image": "https://purito.com/wp-content/uploads/2025/03/SAS-slide-01.jpg",
     "concerns": [
       "hydration"
     ],
@@ -18254,7 +18254,7 @@
     },
     "brand": "purito",
     "category": "sunscreen",
-    "image": "/images/products/purito-daily-soft-touch-sunscreen-stick-spf50-pa.svg",
+    "image": "https://purito.com/wp-content/uploads/2025/02/DailySuncsreenStick-slide-01.jpg",
     "concerns": [
       "acne",
       "hydration",
@@ -18406,7 +18406,7 @@
     },
     "brand": "purito",
     "category": "serum",
-    "image": "/images/products/purito-mighty-bamboo-panthenol-serum.svg",
+    "image": "https://purito.com/wp-content/uploads/2025/01/Panthenol-Serum-slide-01.jpg",
     "concerns": [
       "acne",
       "pores",
@@ -18558,7 +18558,7 @@
     },
     "brand": "purito",
     "category": "toner",
-    "image": "/images/products/purito-luminous-moisture-shea-butter-body-lotion.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/10/Body-lotion-slide-01-2.jpg",
     "concerns": [
       "hydration"
     ],
@@ -18720,7 +18720,7 @@
     },
     "brand": "purito",
     "category": "sunscreen",
-    "image": "/images/products/purito-wonder-releaf-centella-bb-cream-spf30-pa.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/02/Cica-Clearing-BB-Cream.jpg",
     "concerns": [
       "acne",
       "pores",
@@ -19473,7 +19473,7 @@
     },
     "brand": "purito",
     "category": "cleanser",
-    "image": "/images/products/purito-mighty-bamboo-panthenol-cleanser.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/08/Panthenol-Cleanser-slide-01.jpg",
     "concerns": [
       "acne",
       "hydration",
@@ -19547,7 +19547,7 @@
     },
     "brand": "purito",
     "category": "cream",
-    "image": "/images/products/purito-timeless-bloom-retinol-spot-cream.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/05/Retinol-Spot-Cream-slide-01.jpg",
     "concerns": [
       "acne",
       "hydration",
@@ -19727,7 +19727,7 @@
     },
     "brand": "purito",
     "category": "serum",
-    "image": "/images/products/purito-timeless-bloom-bakuchiol-serum.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/04/Bakuchiol-Serum-slide-01.jpg",
     "concerns": [
       "acne",
       "hydration",
@@ -19877,7 +19877,7 @@
     },
     "brand": "purito",
     "category": "sunscreen",
-    "image": "/images/products/purito-daily-soft-touch-sunscreen-spf50-pa.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/04/sunscreen-slide-01.jpg",
     "concerns": [
       "acne",
       "hydration",
@@ -19948,7 +19948,7 @@
     },
     "brand": "purito",
     "category": "sunscreen",
-    "image": "/images/products/purito-wonder-releaf-centella-daily-sun-lotion-spf50-pa.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/03/sunlotion-slide-01.jpg",
     "concerns": [
       "acne",
       "pores",
@@ -20146,7 +20146,7 @@
     },
     "brand": "purito",
     "category": "cleanser",
-    "image": "/images/products/purito-clear-code-superfruit-cleanser.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/04/Clear-Code-Superfruit-Cleanser_thumb_01.jpg",
     "concerns": [
       "acne",
       "hydration"
@@ -20194,7 +20194,7 @@
     },
     "brand": "purito",
     "category": "cream",
-    "image": "/images/products/purito-cica-clearing-bb-cream.svg",
+    "image": "https://purito.com/wp-content/uploads/2024/02/Cica-Clearing-BB-Cream.jpg",
     "concerns": [
       "acne",
       "pores",
@@ -20767,7 +20767,7 @@
     },
     "brand": "mixsoon",
     "category": "serum",
-    "image": "/images/products/mixsoon-mixsoon-black-rice-peeling-ampoule-100ml.svg",
+    "image": "https://img.hwahae.co.kr/products/2166861/2166861_20251010140649.jpg",
     "concerns": [],
     "ingredients": [
       {
@@ -20802,7 +20802,7 @@
     },
     "brand": "medicube",
     "category": "cleanser",
-    "image": "/images/products/medicube-cleansing-wipes.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0156/3905/2336/files/393f730529b559c515a5027eb4531b7c.jpg?v=1721379091",
     "concerns": [],
     "ingredients": [
       {
@@ -20837,7 +20837,7 @@
     },
     "brand": "haruharu",
     "category": "toner",
-    "image": "/images/products/haruharu-black-rice-hyaluronic-toner.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0707/0190/8217/files/150ml_11e70ee9-f850-4fe7-8e7e-a960590e938d.jpg?v=1751443548",
     "concerns": [
       "hydration",
       "brightening",
@@ -20906,7 +20906,7 @@
     },
     "brand": "haruharu",
     "category": "toner",
-    "image": "/images/products/haruharu-black-rice-hyaluronic-toner-free-of-alcohol-fragrance.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0707/0190/8217/files/BLACK_RICE_hyaluronic_toner_free_of_alcohol_fragrance_150ml_5e323adf-be3b-4390-97d4-f09aa862098d.jpg?v=1751443658",
     "concerns": [
       "hydration"
     ],
@@ -20963,7 +20963,7 @@
     },
     "brand": "haruharu",
     "category": "cream",
-    "image": "/images/products/haruharu-phyto-5-peptide-concentrate-cream.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0707/0190/8217/files/CENTELLA_phyto_5_peptide_concentrate_cream_30ml_15973552-70cc-46d4-b0be-1180cb18eef3.jpg?v=1751439590",
     "concerns": [
       "acne",
       "hydration",
@@ -21018,7 +21018,7 @@
     },
     "brand": "haruharu",
     "category": "cleanser",
-    "image": "/images/products/haruharu-moisture-cleansing-oil-unscented.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0707/0190/8217/files/b9c4dee892e3674485a2d498f9ce8446_92abb245-9ec7-42da-b6e6-55a79fed702b.jpg?v=1750049602",
     "concerns": [],
     "ingredients": [
       {
@@ -21048,7 +21048,7 @@
     },
     "brand": "haruharu",
     "category": "essence",
-    "image": "/images/products/haruharu-probiotics-barrier-essence-unscented.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0707/0190/8217/files/black_rice_probiotics_barrier_essence_120ml_f9ad0028-fb83-43bd-aa04-d890f5b4224c.jpg?v=1750048145",
     "concerns": [
       "hydration",
       "anti-aging"
@@ -21116,7 +21116,7 @@
     },
     "brand": "haruharu",
     "category": "essence",
-    "image": "/images/products/haruharu-the-glow-barrier-kit.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0707/0190/8217/files/1745283241502_8708cc7713a640acbd4cbed6d733ff87.jpg?v=1745299675",
     "concerns": [
       "hydration",
       "anti-aging"
@@ -21179,7 +21179,7 @@
     },
     "brand": "haruharu",
     "category": "serum",
-    "image": "/images/products/haruharu-vegan-well-aging-collection.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0707/0190/8217/files/1745283330399_2e6e30ad0e454d7286bb3cab030058c7.jpg?v=1745283483",
     "concerns": [
       "hydration",
       "brightening",
@@ -21248,7 +21248,7 @@
     },
     "brand": "haruharu",
     "category": "serum",
-    "image": "/images/products/haruharu-hyaluronic-anti-wrinkle-serum.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0707/0190/8217/files/black_rice_hyaluronic_anti-wrinkle_serum_50ml.jpg?v=1728322619",
     "concerns": [
       "hydration",
       "brightening",
@@ -21317,7 +21317,7 @@
     },
     "brand": "haruharu",
     "category": "serum",
-    "image": "/images/products/haruharu-4-txa-gel-serum-unscented.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0707/0190/8217/files/centella_4_TXA_gel_serum_30ml.jpg?v=1749021824",
     "concerns": [
       "hydration"
     ],
@@ -21359,7 +21359,7 @@
     },
     "brand": "haruharu",
     "category": "toner",
-    "image": "/images/products/haruharu-3-pha-gentle-liquid-exfoliating-serum.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0707/0190/8217/files/centella_3_PHA_gentle_liquid_exfoliating_serum_120ml.jpg?v=1728322342",
     "concerns": [
       "acne",
       "hydration",
@@ -21414,7 +21414,7 @@
     },
     "brand": "haruharu",
     "category": "cleanser",
-    "image": "/images/products/haruharu-sunflower-makeup-melting-cleansing-balm.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0707/0190/8217/files/centella_sunflower_makeup-melting_cleansing_balm_100g.jpg?v=1728321236",
     "concerns": [
       "hydration"
     ],
@@ -21476,7 +21476,7 @@
     },
     "brand": "haruharu",
     "category": "cleanser",
-    "image": "/images/products/haruharu-moisture-55-soft-cleansing-gel-unscented.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0707/0190/8217/files/black_rice_moisture_5.5_soft_cleansing_gel_100ml.jpg?v=1728321297",
     "concerns": [
       "hydration",
       "brightening"
@@ -21539,7 +21539,7 @@
     },
     "brand": "haruharu",
     "category": "sunscreen",
-    "image": "/images/products/haruharu-daily-soothing-sun-shield-spf50-pa.svg",
+    "image": "https://cdn.shopify.com/s/files/1/0707/0190/8217/files/black_bamboo_daily_soothing_sun_shield_SPF50_PA_20g.jpg?v=1728323103",
     "concerns": [
       "acne",
       "hydration",
