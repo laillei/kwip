@@ -114,6 +114,14 @@
           "vi": "Làm dịu da kích ứng do mụn",
           "en": "Calms acne-irritated skin"
         }
+      },
+      {
+        "concern": "soothing",
+        "type": "good",
+        "reason": {
+          "vi": "Làm dịu da nhạy cảm, giảm khó chịu và kích ứng",
+          "en": "Soothes sensitive skin, relieves discomfort and irritation"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -169,6 +177,14 @@
         "reason": {
           "vi": "Giữ ẩm nhẹ, phù hợp da nhạy cảm",
           "en": "Gentle moisture, suitable for sensitive skin"
+        }
+      },
+      {
+        "concern": "soothing",
+        "type": "good",
+        "reason": {
+          "vi": "Làm dịu da kích ứng, đỏ rát, phù hợp da nhạy cảm",
+          "en": "Soothes irritated, reactive skin — ideal for sensitive skin types"
         }
       }
     ],
@@ -352,6 +368,14 @@
           "vi": "Kiểm soát dầu, thu nhỏ lỗ chân lông",
           "en": "Controls oil, minimizes pores"
         }
+      },
+      {
+        "concern": "pores",
+        "type": "good",
+        "reason": {
+          "vi": "Thu nhỏ lỗ chân lông, kiềm dầu hiệu quả",
+          "en": "Minimizes pore appearance, controls excess oil"
+        }
       }
     ],
     "ewgGrade": "1",
@@ -375,6 +399,14 @@
         "reason": {
           "vi": "Chặn tia UVB, ngăn sạm nám do nắng",
           "en": "Blocks UVB rays, prevents sun-induced dark spots"
+        }
+      },
+      {
+        "concern": "sun-protection",
+        "type": "good",
+        "reason": {
+          "vi": "Lọc tia UVB hiệu quả, bảo vệ da khỏi cháy nắng",
+          "en": "Effectively filters UVB rays, protects skin from sunburn"
         }
       }
     ],
@@ -529,6 +561,14 @@
         }
       },
       {
+        "concern": "pores",
+        "type": "good",
+        "reason": {
+          "vi": "Hòa tan bã nhờn bên trong lỗ chân lông, làm sạch sâu",
+          "en": "Dissolves sebum inside pores for a deep clean"
+        }
+      },
+      {
         "concern": "acne",
         "type": "caution",
         "reason": {
@@ -561,6 +601,14 @@
         }
       },
       {
+        "concern": "soothing",
+        "type": "good",
+        "reason": {
+          "vi": "Làm dịu da kích ứng, đỏ, giảm viêm nhanh chóng",
+          "en": "Calms irritated, reddened skin and reduces inflammation"
+        }
+      },
+      {
         "concern": "anti-aging",
         "type": "good",
         "reason": {
@@ -590,6 +638,14 @@
         "reason": {
           "vi": "Phục hồi da sau mụn, giảm thâm nhanh",
           "en": "Repairs post-acne skin, fades marks quickly"
+        }
+      },
+      {
+        "concern": "soothing",
+        "type": "good",
+        "reason": {
+          "vi": "Làm dịu và phục hồi da nhạy cảm, giảm đỏ hiệu quả",
+          "en": "Soothes and repairs sensitive skin, effectively reduces redness"
         }
       },
       {
@@ -950,6 +1006,14 @@
         "reason": {
           "vi": "Loại bỏ tế bào chết, da sáng mịn hơn",
           "en": "Removes dead skin cells, brighter smoother skin"
+        }
+      },
+      {
+        "concern": "pores",
+        "type": "good",
+        "reason": {
+          "vi": "Tẩy tế bào chết, làm sạch lỗ chân lông, giảm bít tắc",
+          "en": "Exfoliates surface cells, clears pore congestion"
         }
       },
       {
@@ -1699,5 +1763,53 @@
     ],
     "ewgGrade": "1",
     "category": "moisturizer"
+  },
+  {
+    "id": "zinc-oxide",
+    "name": {
+      "inci": "Zinc Oxide",
+      "vi": "Kẽm Oxit",
+      "ko": "산화아연"
+    },
+    "description": {
+      "vi": "Chất chống nắng vật lý an toàn, bảo vệ da khỏi cả UVA và UVB",
+      "en": "Safe physical sunscreen that protects against both UVA and UVB"
+    },
+    "effects": [
+      {
+        "concern": "sun-protection",
+        "type": "good",
+        "reason": {
+          "vi": "Phản xạ tia UV vật lý, an toàn cho da nhạy cảm",
+          "en": "Physically reflects UV rays, safe for sensitive skin"
+        }
+      }
+    ],
+    "ewgGrade": "2",
+    "category": "active"
+  },
+  {
+    "id": "titanium-dioxide",
+    "name": {
+      "inci": "Titanium Dioxide",
+      "vi": "Titanium Dioxide",
+      "ko": "이산화티탄"
+    },
+    "description": {
+      "vi": "Chất chống nắng vật lý, bảo vệ da khỏi tia UVB và một phần UVA",
+      "en": "Physical sunscreen that protects against UVB and partial UVA"
+    },
+    "effects": [
+      {
+        "concern": "sun-protection",
+        "type": "good",
+        "reason": {
+          "vi": "Tạo lớp bảo vệ vật lý trước tia UV, không thấm vào da",
+          "en": "Creates a physical UV barrier, does not penetrate skin"
+        }
+      }
+    ],
+    "ewgGrade": "2",
+    "category": "active"
   }
 ]

@@ -36,8 +36,12 @@ const CONCERN_ORDER: Concern[] = [
  * Given a list of matched ingredient IDs, determine which concerns this product addresses.
  * Only ingredients with "good" effects contribute to concern assignment.
  * A concern needs at least 2 supporting ingredients to be assigned.
+ * Exception: sun-protection requires only 1 UV filter ingredient (UV filters are rarely duplicated).
  */
-export function mapConcerns(ingredientIds: string[]): Concern[] {
+export function mapConcerns(
+  ingredientIds: string[],
+  category?: string
+): Concern[] {
   const ingredients: IngredientData[] = JSON.parse(
     readFileSync(join(dataDir, "ingredients.json"), "utf-8")
   );
@@ -60,6 +64,18 @@ export function mapConcerns(ingredientIds: string[]): Concern[] {
     }
   }
 
-  // Assign concerns that have >= 2 supporting ingredients
-  return CONCERN_ORDER.filter((c) => (concernCounts.get(c) || 0) >= 2);
+  // sun-protection: threshold of 1 (UV filters are rarely duplicated per formula)
+  // All other concerns: threshold of 2
+  const concerns = CONCERN_ORDER.filter((c) => {
+    const count = concernCounts.get(c) || 0;
+    return c === "sun-protection" ? count >= 1 : count >= 2;
+  });
+
+  // Category override: sunscreen products always include sun-protection
+  if (category === "sunscreen" && !concerns.includes("sun-protection")) {
+    concerns.push("sun-protection");
+    concerns.sort((a, b) => CONCERN_ORDER.indexOf(a) - CONCERN_ORDER.indexOf(b));
+  }
+
+  return concerns;
 }
