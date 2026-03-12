@@ -5,6 +5,7 @@ import type { Product, Concern, Ingredient, Category } from "@/lib/types";
 import ConcernSelector from "./ConcernSelector";
 import IngredientHighlight from "./IngredientHighlight";
 import ProductCard from "@/components/products/ProductCard";
+import RoutineStepRow from "./RoutineStepRow";
 
 // Routine steps in correct Korean skincare order
 const routineSteps: { category: Category; label: Record<string, string>; step: number }[] = [
@@ -134,25 +135,15 @@ export default function ConcernHub({
         routineGroups.length > 0 ? (
           <div className="space-y-8">
             {routineGroups.map((group) => (
-              <section key={group.category}>
-                <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400 mb-3">
-                  {group.label[loc] || group.label.vi}
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-                  {group.products.map((product) => (
-                    <ProductCard
-                      key={product.id}
-                      slug={product.slug}
-                      name={product.name[loc] || product.name.vi}
-                      brand={product.brand}
-                      category={product.category}
-                      image={product.image}
-                      locale={locale}
-                      reason={getProductReason(product)}
-                    />
-                  ))}
-                </div>
-              </section>
+              <RoutineStepRow
+                key={group.category}
+                step={group.step}
+                label={group.label[loc] || group.label.vi}
+                category={group.category}
+                products={group.products}
+                locale={locale}
+                getProductReason={getProductReason}
+              />
             ))}
           </div>
         ) : (
