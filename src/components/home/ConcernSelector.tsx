@@ -19,17 +19,17 @@ export default function ConcernSelector({
   onToggle,
 }: ConcernSelectorProps) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="grid grid-cols-2 gap-3">
       {concerns.map((c) => {
         const isActive = selected === c.id;
         return (
           <button
             key={c.id}
             onClick={() => onToggle(c.id)}
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-all min-h-[44px] ${
+            className={`flex items-center gap-3 px-4 py-3.5 rounded-2xl text-left transition-all min-h-[56px] ${
               isActive
                 ? "bg-neutral-900 text-white"
-                : "bg-white text-neutral-500 hover:bg-neutral-50 active:bg-neutral-100"
+                : "bg-white text-neutral-900"
             }`}
             style={
               !isActive
@@ -37,13 +37,15 @@ export default function ConcernSelector({
                 : undefined
             }
           >
-            {isActive && (
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            )}
-            <span className="text-base leading-none">{c.icon}</span>
-            <span>{c.label}</span>
+            <span className="text-xl shrink-0">{c.icon}</span>
+            <div className="min-w-0">
+              <p className={`text-sm font-semibold leading-tight ${isActive ? "text-white" : "text-neutral-900"}`}>
+                {c.label}
+              </p>
+              <p className={`text-xs mt-0.5 leading-tight truncate ${isActive ? "text-neutral-300" : "text-neutral-400"}`}>
+                {c.symptom}
+              </p>
+            </div>
           </button>
         );
       })}
