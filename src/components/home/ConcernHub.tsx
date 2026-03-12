@@ -102,7 +102,6 @@ export default function ConcernHub({
           ...step,
           products: filteredProducts
             .filter((p) => p.category === step.category && !seenIds.has(p.id))
-            .slice(0, 4)
             .map((p) => { seenIds.add(p.id); return p; }),
         }))
         .filter((group) => group.products.length > 0)
