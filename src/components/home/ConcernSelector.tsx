@@ -30,8 +30,9 @@ export default function ConcernSelector({
               className={`shrink-0 snap-start px-4 py-3 rounded-2xl min-h-[56px] flex flex-col justify-center text-left transition-all ${
                 isActive
                   ? "bg-neutral-900 text-white"
-                  : "bg-neutral-100 text-neutral-900"
+                  : "bg-white text-neutral-900"
               }`}
+              style={!isActive ? { boxShadow: "0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06)" } : undefined}
             >
               <p className={`text-sm font-semibold leading-tight whitespace-nowrap ${isActive ? "text-white" : "text-neutral-900"}`}>
                 {c.label}

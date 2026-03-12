@@ -17,6 +17,12 @@
 - NO `text-neutral-300/700/800` for text
 - NO `font-black`
 
+## Surface Colors (Apple HIG)
+- **Page background:** neutral-50 — slightly gray base (set on `<body>`)
+- **Card / surface:** white + shadow — pops off the neutral-50 base
+- **Interactive unselected:** white + shadow — same as cards, clearly tappable
+- **Interactive selected:** neutral-900 background, white text
+
 ## Text Colors
 - **Primary:** neutral-900
 - **Secondary:** neutral-500
