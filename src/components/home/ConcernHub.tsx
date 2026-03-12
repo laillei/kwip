@@ -110,8 +110,8 @@ export default function ConcernHub({
 
   return (
     <div className="space-y-5">
-      <div>
-        <p className="text-base font-medium text-neutral-900 mb-3">
+      <div className="space-y-3">
+        <p className="text-base font-medium text-neutral-900">
           {dict.concernPrompt}
         </p>
         <ConcernSelector
@@ -119,16 +119,14 @@ export default function ConcernHub({
           selected={selected}
           onToggle={handleToggle}
         />
+        {hasSelection && keyIngredients.length > 0 && (
+          <IngredientHighlight
+            ingredients={keyIngredients}
+            concerns={selected ? [selected] : []}
+            locale={locale}
+          />
+        )}
       </div>
-
-      {hasSelection && keyIngredients.length > 0 && (
-        <IngredientHighlight
-          ingredients={keyIngredients}
-          concerns={selected ? [selected] : []}
-          locale={locale}
-          heading={dict.helpfulIngredients}
-        />
-      )}
 
       {/* Routine-grouped view when concerns selected, flat grid when not */}
       {hasSelection ? (

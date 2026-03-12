@@ -20,7 +20,7 @@ export default function ConcernSelector({
 }: ConcernSelectorProps) {
   return (
     <div className="-mx-4 px-4">
-      <div className="flex gap-2 overflow-x-auto snap-x snap-mandatory pb-1">
+      <div className="flex gap-2 overflow-x-auto snap-x snap-mandatory pb-1 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none' }}>
         {concerns.map((c) => {
           const isActive = selected === c.id;
           return (
@@ -30,13 +30,8 @@ export default function ConcernSelector({
               className={`shrink-0 snap-start px-4 py-3 rounded-2xl min-h-[56px] flex flex-col justify-center text-left transition-all ${
                 isActive
                   ? "bg-neutral-900 text-white"
-                  : "bg-white text-neutral-900"
+                  : "bg-neutral-100 text-neutral-900"
               }`}
-              style={
-                !isActive
-                  ? { boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }
-                  : undefined
-              }
             >
               <p className={`text-sm font-semibold leading-tight whitespace-nowrap ${isActive ? "text-white" : "text-neutral-900"}`}>
                 {c.label}

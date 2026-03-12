@@ -4,7 +4,7 @@ interface IngredientHighlightProps {
   ingredients: Ingredient[];
   concerns: Concern[];
   locale: string;
-  heading: string;
+  heading?: string;
 }
 
 export default function IngredientHighlight({
@@ -19,9 +19,11 @@ export default function IngredientHighlight({
 
   return (
     <div className="space-y-2">
-      <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
-        {heading}
-      </h3>
+      {heading && (
+        <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
+          {heading}
+        </h3>
+      )}
       <div className="flex gap-3 overflow-x-auto pb-2 -mx-6 px-6 scrollbar-hide">
         {ingredients.map((ing) => {
           const relevantEffects = ing.effects.filter(
