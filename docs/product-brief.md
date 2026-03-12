@@ -181,15 +181,28 @@ Vietnamese urban woman, 28–40. Higher spending power. Concerned about dark spo
 
 ## What Kwip Builds — And Why In This Order
 
-### Now — End of March 2026: Prove the core loop
+### Now — End of March 2026: Prove the core loop + seed organic growth
 
-**What:** Home screen with concern selector → ingredient highlights → routine-grouped products. Product detail page. Mobile web. Vietnamese + English.
+**What:** Home screen with concern selector → ingredient highlights → routine-grouped products. Product detail page. Mobile web. Vietnamese + English. 309 products across all 7 concerns with full routine coverage.
 
-**The hypothesis being tested:** A Vietnamese woman will select a concern, read the ingredient logic, and feel confident enough to click through to a product. If this doesn't happen, nothing else matters.
+**The hypothesis being tested:** A Vietnamese woman will select a concern, read the ingredient logic, feel confident enough to click through to a product — and share her routine. If the loop doesn't close with a share, paid acquisition stays a treadmill with no organic growth.
 
-**Quality over breadth:** 30 well-chosen, correctly mapped products that the user understands is more valuable than 300 she can't navigate. Catalog depth comes after the loop is proven.
+**Four things that ship at launch:**
 
-**Success signal:** Users who select a concern click through to at least one product in the same session.
+1. **Concern hero** — 2-column card grid replacing flat pills. Each card shows concern label + symptom text (e.g. "Mụn, bít lỗ chân lông"). Selects a concern and the page reconfigures instantly.
+
+2. **Ingredient logic layer** — key ingredients per concern surfaced as highlight cards with Vietnamese explanations of *why* they work for that specific problem. This is the trust layer that separates Kwip from a filtered catalog.
+
+3. **Routine-grouped products** — products organized by routine step (cleanser → toner → serum → cream → sunscreen) in application order, each showing the ingredient reason it was surfaced. No other Vietnamese tool does this.
+
+4. **Share Routine image card** — when a concern is active, a "Chia sẻ routine" button generates a shareable image card showing: concern label + 2–3 key ingredients with one-line Vietnamese reasons + routine steps with product names + Kwip URL. Designed for Facebook and Zalo stories. This turns every paid ad visitor into a potential organic acquisition.
+
+**Distribution at launch:** Facebook and YouTube ads targeting Vietnamese women 20–35 interested in K-beauty and specific brands (COSRX, Anua, Beauty of Joseon). Ads lead with the skin problem, not the product. Landing directly on the concern view.
+
+**Success signals:**
+- Users who select a concern click through to at least one product in the same session
+- Share card is generated at least once per 20 sessions
+- Return visits within 7 days (bookmarks, direct traffic)
 
 **Retention mechanism — relevance nudge:**
 K-beauty routines are multi-step. A user who finds a serum for her acne concern still needs a cleanser, toner, and sunscreen. The return trigger is not a checklist ("your routine is incomplete") — it's a relevance signal. When a concern is active, routine sections she hasn't explored yet surface a soft contextual label: *"Pairs well with your acne concern"* or *"Most people with acne also use a gentle cleanser first."* She sees what's relevant next, not what she's missing. Same information, no pressure. This is built on the existing routine structure — no new data required.
@@ -198,21 +211,23 @@ K-beauty routines are multi-step. A user who finds a serum for her acne concern 
 
 ### Q2 2026: Deepen the content, open the purchase path
 
-**What:** Ingredient detail pages — Vietnamese explanations for the top 20 actives (niacinamide, BHA, centella, hyaluronic acid, retinol, vitamin C, etc.). Affiliate purchase links to Hasaki.vn and Shopee. Catalog grows to 60–80 products.
+**What:** Ingredient detail pages — Vietnamese explanations for the top 20 actives (niacinamide, BHA, centella, hyaluronic acid, retinol, vitamin C, etc.). Affiliate purchase links to Hasaki.vn and Shopee. Catalog grows to 300+ products. Editorial starter routines — curated 3–5 product combinations per concern with explicit reasoning why these brands complement each other (e.g. "Torriden + Anua + Beauty of Joseon for acne"). These are Kwip's editorial voice, not algorithmic recommendations.
 
 **Why ingredient pages are the content moat:** They take time to write well, they are what distinguishes Kwip from a Shopee filter, and they are the reason a user bookmarks Kwip rather than just visiting once. No competitor has this in Vietnamese.
+
+**Why editorial starter routines matter:** Vietnamese users understand K-beauty products individually but struggle with the 10-step layering order and brand combinations. Curated routines solve this directly. Reviewty cannot do this — they cover all brands with no depth. Kwip covers K-beauty only, which makes the editorial credible.
 
 **Why affiliate over brand deals first:** Affiliate income is earned only when users actually buy. This keeps Kwip's incentive aligned with user outcomes — recommendations must be good enough to convert, or there is no revenue.
 
 ---
 
-### Q3 2026: Distribution through existing trust networks
+### Q3 2026: Shift from paid to earned distribution
 
-**What:** 2–3 partnerships with Vietnamese ingredient-focused skincare creators as authentic users. TikTok and Zalo as primary entry points.
+**What:** 2–3 partnerships with Vietnamese ingredient-focused skincare creators as authentic users. TikTok and Zalo as primary organic entry points. Paid ads (Facebook/YouTube) continue but reduce as share-card organic loop matures.
 
-**Why not paid ads:** The users acquired through creator endorsement are higher quality, more likely to return, and more likely to share. Paid acquisition for a trust-based product is expensive and attracts low-intent users.
+**The creator model:** Creators send their audience to Kwip the way tech reviewers send their audience to Wirecutter — as the methodology behind the recommendation, not as a competitor. @bbskincare1 (1.1M followers, ingredient-focused) is the prototype of this user. She already does what Kwip systematizes — Kwip becomes the tool she references.
 
-**The distribution model:** Creators send their audience to Kwip the way tech reviewers send their audience to Wirecutter — as the methodology behind the recommendation, not as a competitor.
+**Why organic matters by Q3:** Paid ads acquire users but don't compound. Share cards and creator endorsement compound — each user brings more users. The goal of Q3 is to have organic acquisition exceed paid acquisition, making growth sustainable without ad spend.
 
 ---
 
@@ -226,9 +241,9 @@ K-beauty routines are multi-step. A user who finds a serum for her acne concern 
 
 ### 2027: Personalization — the defensibility layer
 
-**What:** User skin profiles. Saved routines. New product alerts based on concern + skin type history.
+**What:** User skin profiles. Saved routines. K-Routine Builder — interactive drag-and-drop routine builder with skin type and climate adjustments. New product alerts based on concern + skin type history.
 
-**Why this is the moat:** Ingredient content can be copied. Product catalogs can be copied. A user's routine history and skin data cannot be copied. This is what makes Kwip a daily habit, not a reference lookup. And a habit is a business.
+**Why this is the moat:** Ingredient content can be copied. Product catalogs can be copied. A user's routine history and skin data cannot be copied. The K-Routine Builder only becomes valuable after real usage data shows how users actually build routines — build it from observed behavior, not assumption. This is what makes Kwip a daily habit, not a reference lookup. And a habit is a business.
 
 ---
 
@@ -248,17 +263,20 @@ A typical K-beauty product in Vietnam costs ~300,000–500,000 VND. At 5% commis
 
 ## Competitive Position
 
-| Tool | Vietnamese | Concern-first | Ingredient logic | Purchase path |
-|---|---|---|---|---|
-| CosDNA | ✗ | ✗ | Partial | ✗ |
-| SkinCarisma | ✗ | ✗ | ✓ | Affiliate |
-| INCIDecoder | ✗ | ✗ | ✓ (best in class) | ✗ |
-| Hwahae (Korea) | ✗ | ✓ | ✓ | ✓ |
-| Hasaki / Shopee | ✓ | ✗ | ✗ | ✓ |
-| TikTok KOLs | ✓ | Partial | ✗ | ✓ |
-| **Kwip** | **✓** | **✓** | **✓** | **✓** |
+| Tool | Vietnamese | Concern-first | Ingredient logic | Routine order | Purchase path |
+|---|---|---|---|---|---|
+| CosDNA | ✗ | ✗ | Partial | ✗ | ✗ |
+| SkinCarisma | ✗ | ✗ | ✓ | ✗ | Affiliate |
+| INCIDecoder | ✗ | ✗ | ✓ (best in class) | ✗ | ✗ |
+| Hwahae (Korea) | ✗ | ✓ | ✓ | ✗ | ✓ |
+| Reviewty (Vietnam) | ✓ | ✗ | Safety ratings only | ✗ | Partial |
+| Hasaki / Shopee | ✓ | ✗ | ✗ | ✗ | ✓ |
+| TikTok KOLs | ✓ | Partial | ✗ | ✗ | ✓ |
+| **Kwip** | **✓** | **✓** | **✓** | **✓** | **✓** |
 
 **Closest global analog:** Hwahae — Korea's #1 beauty app (13M downloads). Concern + ingredient + community → commerce. Korean-only. Kwip is Hwahae for Vietnam.
+
+**Relationship to Reviewty:** Not direct competition — different moments in the user journey. Reviewty is a verification tool (user comes with a product already in mind, checks safety and reads reviews). Kwip is a discovery tool (user comes with a skin problem, finds a complete routine with ingredient reasoning). A user naturally uses Kwip to discover → Reviewty or Shopee to verify → Shopee/Hasaki to purchase. Kwip owns the earliest and most influential step.
 
 ---
 

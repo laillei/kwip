@@ -30,7 +30,8 @@ Not a catalog, not a review site — the shortest path from concern → understa
 
 ## Key References
 - Full tech spec: `README.md`
-- **Product direction & strategy: `docs/product-brief.md` — read this before making any product decisions**
+- **Product direction & strategy: `docs/product-brief.md` — READ THIS before any product decisions**
+- **Tactical requirements & launch scope: `docs/prd.md` — READ THIS before building any feature**
 - Design system & type scale: `docs/design-system.md`
 - Core vision: `docs/plans/2026-03-09-core-vision-design.md`
 - Data: `src/data/products.json`, `ingredients.json`, `concerns.json`
