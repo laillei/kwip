@@ -37,6 +37,18 @@ const fontBold = readFileSync(
   join(process.cwd(), "public/fonts/NotoSans-Bold.ttf")
 );
 
+// Returns a src usable in Satori <img>: CDN URLs pass through, local paths are base64-encoded.
+function resolveImageSrc(imagePath: string): string {
+  if (imagePath.startsWith("http")) return imagePath;
+  try {
+    const buf = readFileSync(join(process.cwd(), "public", imagePath));
+    const mime = imagePath.endsWith(".png") ? "image/png" : "image/jpeg";
+    return `data:${mime};base64,${buf.toString("base64")}`;
+  } catch {
+    return "";
+  }
+}
+
 export async function GET(
   _req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -73,165 +85,159 @@ export async function GET(
         style={{
           width: "1080px",
           height: "1920px",
-          backgroundColor: "#171717",
+          backgroundColor: "#FAFAFA",
           display: "flex",
           flexDirection: "column",
-          padding: "80px 72px",
+          justifyContent: "space-between",
+          padding: "72px 64px",
           fontFamily: "Noto Sans",
         }}
       >
-        {/* Header: kwip wordmark + concern badge */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: "60px",
-          }}
-        >
-          <span
-            style={{ fontSize: 48, fontWeight: 700, color: "white" }}
-          >
-            kwip
+        {/* Top group: header + title + product cards */}
+        <div style={{ display: "flex", flexDirection: "column" }}>
+        {/* Header: kwip wordmark only */}
+        <div style={{ display: "flex", marginBottom: "52px" }}>
+          <span style={{ fontSize: 44, fontWeight: 700, color: "#171717" }}>
+            Kwip
           </span>
-          <div
-            style={{
-              backgroundColor: "rgba(255,255,255,0.15)",
-              borderRadius: 12,
-              padding: "8px 20px",
-              display: "flex",
-            }}
-          >
-            <span
-              style={{ fontSize: 28, fontWeight: 400, color: "white" }}
-            >
-              {CONCERN_LABELS[routine.concern] ?? routine.concern}
-            </span>
-          </div>
         </div>
 
-        {/* Routine name */}
-        <div style={{ display: "flex", marginBottom: "60px", flexWrap: "wrap" }}>
+        {/* Routine name + concern subtitle */}
+        <div
+          style={{ display: "flex", flexDirection: "column", marginBottom: "40px", gap: 12 }}
+        >
           <span
             style={{
-              fontSize: 72,
+              fontSize: 60,
               fontWeight: 700,
-              color: "white",
-              lineHeight: 1.1,
+              color: "#171717",
+              lineHeight: 1.15,
               wordBreak: "break-all",
             }}
           >
             {routine.name}
           </span>
+          <span style={{ fontSize: 28, fontWeight: 400, color: "#A3A3A3" }}>
+            {"Routine cho da " + (CONCERN_LABELS[routine.concern] ?? routine.concern).toLowerCase()}
+          </span>
         </div>
 
-        {/* Divider */}
-        <div
-          style={{
-            height: 1,
-            backgroundColor: "rgba(255,255,255,0.1)",
-            marginBottom: "40px",
-            display: "flex",
-          }}
-        />
-
-        {/* Routine steps */}
+        {/* Product cards */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            flex: 1,
+            backgroundColor: "white",
+            borderRadius: 24,
           }}
         >
-          {routineProducts.map((rp, index) => (
-            <div
-              key={rp.productId}
-              style={{ display: "flex", flexDirection: "column" }}
-            >
+          {routineProducts.map((rp, index) => {
+            const imgSrc = resolveImageSrc(rp.product.image);
+            return (
               <div
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: 32,
-                  paddingTop: 24,
-                  paddingBottom: 24,
-                }}
+                key={rp.productId}
+                style={{ display: "flex", flexDirection: "column" }}
               >
-                <span
-                  style={{
-                    fontSize: 32,
-                    fontWeight: 400,
-                    color: "#737373",
-                    width: 40,
-                    flexShrink: 0,
-                    paddingTop: 4,
-                    display: "flex",
-                  }}
-                >
-                  {rp.step}
-                </span>
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: "column",
-                    gap: 6,
+                    alignItems: "center",
+                    gap: 28,
+                    padding: "28px 36px",
                   }}
                 >
-                  <span
+                  {/* Product image */}
+                  {imgSrc ? (
+                    <img
+                      src={imgSrc}
+                      width={88}
+                      height={88}
+                      style={{
+                        borderRadius: 16,
+                        objectFit: "cover",
+                        flexShrink: 0,
+                      }}
+                    />
+                  ) : (
+                    <div
+                      style={{
+                        width: 88,
+                        height: 88,
+                        borderRadius: 16,
+                        backgroundColor: "#F5F5F5",
+                        flexShrink: 0,
+                        display: "flex",
+                      }}
+                    />
+                  )}
+                  {/* Text */}
+                  <div
                     style={{
-                      fontSize: 26,
-                      fontWeight: 400,
-                      color: "#737373",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 4,
+                      flex: 1,
                     }}
                   >
-                    {CATEGORY_NAMES[rp.category] ?? rp.category}
-                  </span>
-                  <span
-                    style={{
-                      fontSize: 34,
-                      fontWeight: 700,
-                      color: "white",
-                    }}
-                  >
-                    {rp.product.name.vi ?? rp.product.name.en}
-                  </span>
-                  <span
-                    style={{
-                      fontSize: 26,
-                      fontWeight: 400,
-                      color: "#737373",
-                    }}
-                  >
-                    {rp.product.brand}
-                  </span>
+                    <span
+                      style={{
+                        fontSize: 24,
+                        fontWeight: 400,
+                        color: "#A3A3A3",
+                      }}
+                    >
+                      {CATEGORY_NAMES[rp.category] ?? rp.category}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: 30,
+                        fontWeight: 700,
+                        color: "#171717",
+                      }}
+                    >
+                      {rp.product.name.vi ?? rp.product.name.en}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: 24,
+                        fontWeight: 400,
+                        color: "#A3A3A3",
+                      }}
+                    >
+                      {rp.product.brand}
+                    </span>
+                  </div>
                 </div>
+                {index < routineProducts.length - 1 && (
+                  <div
+                    style={{
+                      height: 1,
+                      backgroundColor: "#F5F5F5",
+                      marginLeft: 36,
+                      marginRight: 36,
+                      display: "flex",
+                    }}
+                  />
+                )}
               </div>
-              {index < routineProducts.length - 1 && (
-                <div
-                  style={{
-                    height: 1,
-                    backgroundColor: "rgba(255,255,255,0.08)",
-                    display: "flex",
-                  }}
-                />
-              )}
-            </div>
-          ))}
+            );
+          })}
         </div>
+
+        </div>{/* end top group */}
 
         {/* Footer */}
         <div
           style={{
-            marginTop: 48,
             display: "flex",
             flexDirection: "column",
-            gap: 8,
+            gap: 6,
           }}
         >
-          <span style={{ fontSize: 28, fontWeight: 700, color: "white" }}>
-            kwip.app
+          <span style={{ fontSize: 26, fontWeight: 700, color: "#171717" }}>
+            Kwip
           </span>
-          <span style={{ fontSize: 22, fontWeight: 400, color: "#737373" }}>
+          <span style={{ fontSize: 22, fontWeight: 400, color: "#A3A3A3" }}>
             Được xây dựng dựa trên thành phần, không phải quảng cáo.
           </span>
         </div>
