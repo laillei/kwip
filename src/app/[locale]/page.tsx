@@ -7,6 +7,7 @@ import { getDictionary, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/getLocalizedData";
 import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
 import SearchButton from "@/components/shared/SearchButton";
+import AuthButton from "@/components/shared/AuthButton";
 import ConcernHub from "@/components/home/ConcernHub";
 
 export default async function Home({
@@ -42,6 +43,7 @@ export default async function Home({
           </div>
           <div className="flex items-center gap-2">
             <SearchButton locale={locale} />
+            <AuthButton locale={locale} />
             <Suspense>
               <LanguageSwitcher />
             </Suspense>
