@@ -12,6 +12,24 @@
     "concernPrompt": "Bạn đang gặp vấn đề gì với da?",
     "emptyState": "Không tìm thấy sản phẩm phù hợp"
   },
+  "routine": {
+    "buildCta": "Xây dựng routine của bạn",
+    "builderTitle": "Xây dựng Routine",
+    "selectProducts": "Chọn sản phẩm cho mỗi bước",
+    "namePlaceholder": "Đặt tên cho routine của bạn...",
+    "saveButton": "Lưu Routine",
+    "saving": "Đang lưu...",
+    "loginRequired": "Đăng nhập để lưu routine",
+    "loginWithGoogle": "Đăng nhập với Google",
+    "myRoutines": "Routine của tôi",
+    "noRoutines": "Bạn chưa có routine nào. Hãy bắt đầu từ trang chủ!",
+    "shareButton": "Chia sẻ",
+    "deleteButton": "Xoá",
+    "backToHome": "← Trang chủ",
+    "createdAt": "Đã tạo",
+    "productsCount": "sản phẩm",
+    "shareCardTagline": "Routine của tôi — được xây dựng dựa trên thành phần, không phải quảng cáo."
+  },
   "products": {
     "popularLabel": "Phổ biến tại Hàn Quốc",
     "emptyState": "Chúng tôi đang cập nhật thêm sản phẩm"

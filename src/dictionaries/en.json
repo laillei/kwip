@@ -12,6 +12,24 @@
     "concernPrompt": "What's your skin concern?",
     "emptyState": "No matching products found"
   },
+  "routine": {
+    "buildCta": "Build My Routine",
+    "builderTitle": "Build Your Routine",
+    "selectProducts": "Select products for each step",
+    "namePlaceholder": "Name your routine...",
+    "saveButton": "Save Routine",
+    "saving": "Saving...",
+    "loginRequired": "Sign in to save your routine",
+    "loginWithGoogle": "Sign in with Google",
+    "myRoutines": "My Routines",
+    "noRoutines": "You don't have any routines yet. Start from the home page!",
+    "shareButton": "Share",
+    "deleteButton": "Delete",
+    "backToHome": "← Home",
+    "createdAt": "Created",
+    "productsCount": "products",
+    "shareCardTagline": "My routine — built on ingredient science, not ads."
+  },
   "products": {
     "popularLabel": "Popular in Korea",
     "emptyState": "We're adding more products"
