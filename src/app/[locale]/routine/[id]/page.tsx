@@ -2,9 +2,12 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { createServerSupabaseClient } from "@/lib/supabase";
+import { getDictionary } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 import products from "@/data/products.json";
 import type { Product } from "@/lib/types";
 import type { Routine, RoutineProduct } from "@/lib/types";
+import ShareButton from "@/components/routine/ShareButton";
 
 export default async function RoutineDetailPage({
   params,
@@ -24,6 +27,7 @@ export default async function RoutineDetailPage({
 
   const routine = data as unknown as Routine;
   const loc = locale as "vi" | "en";
+  const dict = await getDictionary(locale as Locale);
   const allProducts = products as Product[];
 
   const routineProducts = (routine.products as RoutineProduct[])
@@ -47,7 +51,19 @@ export default async function RoutineDetailPage({
         <h1 className="text-2xl font-bold text-neutral-900 mb-1">
           {routine.name}
         </h1>
-        <p className="text-sm text-neutral-500 mb-8">{routine.concern}</p>
+        <p className="text-sm text-neutral-500 mb-6">{routine.concern}</p>
+
+        {/* Share button */}
+        <div className="flex gap-2 mb-8">
+          <ShareButton
+            routineId={id}
+            routineName={routine.name}
+            dict={{
+              shareButton: dict.routine.shareButton,
+              sharing: dict.routine.sharing,
+            }}
+          />
+        </div>
 
         <div className="space-y-6">
           {routineProducts.map((rp) => (
