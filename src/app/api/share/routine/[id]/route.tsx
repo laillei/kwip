@@ -118,7 +118,7 @@ export async function GET(
               fontWeight: 700,
               color: "white",
               lineHeight: 1.1,
-              wordBreak: "break-word",
+              wordBreak: "break-all",
             }}
           >
             {routine.name}
