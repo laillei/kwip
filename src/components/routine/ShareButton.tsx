@@ -40,7 +40,7 @@ export default function ShareButton({
         a.href = url;
         a.download = "routine-kwip.png";
         a.click();
-        URL.revokeObjectURL(url);
+        setTimeout(() => URL.revokeObjectURL(url), 100);
       }
     } catch (err) {
       // Share cancelled by user (AbortError) or failed — silently ignore
@@ -56,7 +56,7 @@ export default function ShareButton({
     <button
       onClick={handleShare}
       disabled={loading}
-      className="flex-1 text-center py-2 text-sm font-medium text-neutral-900 border border-neutral-200 rounded-xl hover:bg-neutral-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+      className="flex-1 text-center py-3 text-sm font-medium text-neutral-900 border border-neutral-200 rounded-xl hover:bg-neutral-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
     >
       {loading ? dict.sharing : dict.shareButton}
     </button>
