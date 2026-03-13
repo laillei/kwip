@@ -40,6 +40,7 @@ export default function ShareButton({
         a.href = url;
         a.download = "routine-kwip.png";
         a.click();
+        // Defer revoke to allow Safari to initiate the download before the URL is invalidated
         setTimeout(() => URL.revokeObjectURL(url), 100);
       }
     } catch (err) {
