@@ -1,5 +1,6 @@
 "use client";
 
+import { use } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -10,9 +11,9 @@ import RoutineCard from "@/components/routine/RoutineCard";
 export default function MePage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = params;
+  const { locale } = use(params);
   const { data: session, status } = useSession();
   const router = useRouter();
   const [routines, setRoutines] = useState<Routine[]>([]);

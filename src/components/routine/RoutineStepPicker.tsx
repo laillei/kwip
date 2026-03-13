@@ -1,12 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import type { Product, Category } from "@/lib/types";
+import type { Product } from "@/lib/types";
 
 interface RoutineStepPickerProps {
   step: number;
   label: string;
-  category: Category;
   products: Product[];
   selectedIds: string[];
   locale: string;
@@ -16,7 +15,6 @@ interface RoutineStepPickerProps {
 export default function RoutineStepPicker({
   step,
   label,
-  category,
   products,
   selectedIds,
   locale,

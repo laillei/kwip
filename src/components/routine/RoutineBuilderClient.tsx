@@ -130,7 +130,6 @@ export default function RoutineBuilderClient({
               key={step.category}
               step={step.step}
               label={step.label[loc] ?? step.label.vi}
-              category={step.category}
               products={products.filter((p) => p.category === step.category)}
               selectedIds={selectedByCategory[step.category] ?? []}
               locale={locale}
