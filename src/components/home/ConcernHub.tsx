@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { Product, Concern, Ingredient, Category } from "@/lib/types";
 import ConcernSelector from "./ConcernSelector";
 import IngredientHighlight from "./IngredientHighlight";
+import BuildRoutineButton from "./BuildRoutineButton";
 import ProductCard from "@/components/products/ProductCard";
 import RoutineStepRow from "./RoutineStepRow";
 
@@ -37,6 +38,7 @@ interface ConcernHubProps {
     emptyState: string;
     helpfulIngredients: string;
     concernPrompt: string;
+    buildCta: string;
   };
 }
 
@@ -120,11 +122,18 @@ export default function ConcernHub({
           onToggle={handleToggle}
         />
         {hasSelection && keyIngredients.length > 0 && (
-          <IngredientHighlight
-            ingredients={keyIngredients}
-            concerns={selected ? [selected] : []}
-            locale={locale}
-          />
+          <>
+            <IngredientHighlight
+              ingredients={keyIngredients}
+              concerns={selected ? [selected] : []}
+              locale={locale}
+            />
+            <BuildRoutineButton
+              locale={locale}
+              concern={selected!}
+              label={dict.buildCta}
+            />
+          </>
         )}
       </div>
 

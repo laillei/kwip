@@ -60,6 +60,7 @@ export default async function Home({
               emptyState: dict.products.emptyState,
               helpfulIngredients: dict.home.helpfulIngredients,
               concernPrompt: dict.home.concernPrompt,
+              buildCta: dict.routine.buildCta,
             }}
           />
         </main>
