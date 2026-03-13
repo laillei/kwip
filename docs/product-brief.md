@@ -1,5 +1,5 @@
 # Kwip — Product Brief
-**Last updated:** March 2026
+**Last updated:** March 13, 2026
 
 ---
 
@@ -8,6 +8,8 @@
 Vietnamese women are already ingredient-literate — the most in Southeast Asia. But every tool built to serve that literacy is in English or Korean. Vietnamese e-commerce sells K-beauty as a black box. The gap between what consumers want to know and what the market gives them is the exact space Kwip occupies.
 
 **The bet:** If you explain the ingredient logic behind a product in Vietnamese — in the context of a specific skin concern — you become the trusted step before the purchase. That trust is the business.
+
+**The character:** Kwip is the friend who studied cosmetic science and actually read the studies. Not the influencer, not the algorithm, not the brand. The one you text when you're standing in a Watsons aisle, confused. KOLs convert not because they're accurate but because they feel human. Kwip systematizes that — available at any time, for any concern, without a brand agenda.
 
 ---
 
@@ -72,6 +74,32 @@ All UI text, concern labels, ingredient explanations, and product descriptions a
 - Not a product catalog (you don't browse by brand or category)
 - Not a review site (no user ratings or comments — trust comes from ingredient logic, not crowdsourcing)
 - Not a brand-sponsored recommendation engine
+
+---
+
+## Product Voice
+
+Kwip's voice is a knowledgeable friend explaining, not a textbook stating facts.
+
+**What this means in practice:**
+
+| Instead of | Write like |
+|---|---|
+| "BHA dissolves sebum inside pores." | "If your pores look enlarged — that's usually sebum buildup stretching them. BHA goes directly inside and breaks it down." |
+| "Results: none" | "Still adding products for this concern." |
+| "#1 in Vietnam" | "Popular in Vietnam" |
+
+**Where voice matters most:** ingredient explanation copy, empty states, editorial routine notes, onboarding.
+
+**Where efficiency must win:** ingredient list browsing, purchase links, search. Zero friction, no personality.
+
+**Voice investment timing:** Do not attempt to rewrite all ingredient copy before launch. This is a talent decision — it requires a Vietnamese writer who knows cosmetic science AND has the right conversational tone. Mistimed or under-resourced, it produces "translated English with informal ending particles" — worse than the current state.
+
+Correct sequence:
+1. Launch with current copy (functional, factual — acceptable)
+2. After first 500 users: measure `ingredient_expand` event rate to confirm users actually read explanations
+3. Q2: Rewrite top 5 most-viewed ingredients (BHA, niacinamide, centella, hyaluronic acid, vitamin C) as a voice test
+4. If engagement increases: invest in full copy rewrite with a Vietnamese cosmetic science writer
 
 ---
 
@@ -183,19 +211,21 @@ Vietnamese urban woman, 28–40. Higher spending power. Concerned about dark spo
 
 ### Now — End of March 2026: Prove the core loop + seed organic growth
 
-**What:** Home screen with concern selector → ingredient highlights → routine-grouped products. Product detail page. Mobile web. Vietnamese + English. 309 products across all 7 concerns with full routine coverage.
+**What:** Home screen with concern selector → ingredient highlights → routine-grouped products → routine builder. Product detail page. Mobile web. Vietnamese + English. 309 products across all 7 concerns with full routine coverage. Google auth. User accounts with saved routines.
 
-**The hypothesis being tested:** A Vietnamese woman will select a concern, read the ingredient logic, feel confident enough to click through to a product — and share her routine. If the loop doesn't close with a share, paid acquisition stays a treadmill with no organic growth.
+**The hypothesis being tested:** A Vietnamese woman will select a concern, read the ingredient logic, feel confident enough to build and save a routine — and share it. If the loop doesn't close with a share, paid acquisition stays a treadmill with no organic growth.
 
-**Four things that ship at launch:**
+**Five things that ship at launch:**
 
-1. **Concern hero** — 2-column card grid replacing flat pills. Each card shows concern label + symptom text (e.g. "Mụn, bít lỗ chân lông"). Selects a concern and the page reconfigures instantly.
+1. **Concern hero** — 2-column card grid. Each card shows concern label + symptom text. Selects a concern and the page reconfigures instantly. ✓ Done
 
-2. **Ingredient logic layer** — key ingredients per concern surfaced as highlight cards with Vietnamese explanations of *why* they work for that specific problem. This is the trust layer that separates Kwip from a filtered catalog.
+2. **Ingredient logic layer** — key ingredients per concern surfaced as highlight cards with Vietnamese explanations of *why* they work for that specific problem. The trust layer that separates Kwip from a filtered catalog. ✓ Done
 
-3. **Routine-grouped products** — products organized by routine step (cleanser → toner → serum → cream → sunscreen) in application order, each showing the ingredient reason it was surfaced. No other Vietnamese tool does this.
+3. **Routine-grouped products** — products organized by routine step in application order, each showing the ingredient reason it was surfaced. ✓ Done
 
-4. **Share Routine image card** — when a concern is active, a "Chia sẻ routine" button generates a shareable image card showing: concern label + 2–3 key ingredients with one-line Vietnamese reasons + routine steps with product names + Kwip URL. Designed for Facebook and Zalo stories. This turns every paid ad visitor into a potential organic acquisition.
+4. **Routine Builder + Accounts** — users sign in with Google, build a personal routine (multiple products per step), save it to `/me`, view shareable detail at `/routine/[id]`. This turns "browsing" into "ownership." ✓ Done
+
+5. **Share Routine image card** — "Chia sẻ routine" generates a shareable image card for Facebook/Zalo stories. Turns every paid ad visitor into a potential organic acquisition. ⬜ Remaining
 
 **Distribution at launch:** Facebook and YouTube ads targeting Vietnamese women 20–35 interested in K-beauty and specific brands (COSRX, Anua, Beauty of Joseon). Ads lead with the skin problem, not the product. Landing directly on the concern view.
 
@@ -300,3 +330,15 @@ A typical K-beauty product in Vietnam costs ~300,000–500,000 VND. At 5% commis
 ## One-Sentence Version
 
 **Kwip is the trusted skincare advisor Vietnamese women have never had — not a catalog, not a checker, not an influencer — a system that explains the ingredient science behind K-beauty and connects it directly to the purchase, in Vietnamese.**
+
+---
+
+## What Survives Competition
+
+Reviewty can add a concern filter in a sprint. No competitor can replicate:
+
+1. **Editorial depth at K-beauty scale** — 309 curated products with ingredient logic. 35,000-product platforms cannot go this deep per product.
+2. **Saved routine data** — once a user's routine history lives in Kwip, switching is painful. This is the personalization moat seed.
+3. **Voice** — the "knowledgeable friend" tone, once established through great Vietnamese copy, cannot be copied by an algorithm or a platform that covers all beauty at shallow depth.
+
+The sequence matters: editorial depth → saved routines → voice. Each layer makes the previous one harder to copy.
