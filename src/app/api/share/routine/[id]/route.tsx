@@ -4,8 +4,7 @@ import { join } from "path";
 import { NextRequest } from "next/server";
 import { createServerSupabaseClient } from "@/lib/supabase";
 import allProducts from "@/data/products.json";
-import type { Routine, RoutineProduct } from "@/lib/types";
-import type { Product } from "@/lib/types";
+import type { Routine, RoutineProduct, Product } from "@/lib/types";
 
 export const runtime = "nodejs";
 
@@ -30,6 +29,13 @@ const CONCERN_LABELS: Record<string, string> = {
   "anti-aging": "Chống lão hóa",
   "sun-protection": "Chống nắng",
 };
+
+const fontRegular = readFileSync(
+  join(process.cwd(), "public/fonts/NotoSans-Regular.ttf")
+);
+const fontBold = readFileSync(
+  join(process.cwd(), "public/fonts/NotoSans-Bold.ttf")
+);
 
 export async function GET(
   _req: NextRequest,
@@ -60,13 +66,6 @@ export async function GET(
     .filter(
       (rp): rp is typeof rp & { product: Product } => !!rp.product
     );
-
-  const fontRegular = readFileSync(
-    join(process.cwd(), "public/fonts/NotoSans-Regular.ttf")
-  );
-  const fontBold = readFileSync(
-    join(process.cwd(), "public/fonts/NotoSans-Bold.ttf")
-  );
 
   return new ImageResponse(
     (
@@ -112,7 +111,7 @@ export async function GET(
         </div>
 
         {/* Routine name */}
-        <div style={{ display: "flex", marginBottom: "60px" }}>
+        <div style={{ display: "flex", marginBottom: "60px", flexWrap: "wrap" }}>
           <span
             style={{
               fontSize: 72,
