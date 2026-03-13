@@ -1,31 +1,68 @@
-# Kwip — Project Specification
+# Kwip — Technical Specification
 
-**K-beauty ingredient verification web service for Vietnamese Gen Z**
+**K-beauty skin-issue solver for Vietnamese users.**
+Core value: "I have a skin problem. Help me fix it." — not a catalog, not a review site.
 
 ---
 
 ## Overview
 
-Vietnamese Gen Z discovers K-beauty on TikTok but has no way to verify ingredients in Vietnamese. Kwip fills that gap: check ingredients, see what's popular, and buy — all in Vietnamese.
+Vietnamese women discover K-beauty on TikTok but have no way to understand ingredients in Vietnamese. Kwip shows the shortest path from skin concern → ingredient logic (why it works) → purchase. Concern-first, not product-first.
 
-**Target user:** 18–28 year-old Vietnamese women. They discover K-beauty on TikTok, can read English but prefer Vietnamese, and buy through Shopee, TikTok Shop, or Hasaki. Their need is not discovery — it's **verification** ("Is this actually good for my skin?").
+**Target user:** Vietnamese women 20–35, K-beauty interested, buying on Shopee/TikTok Shop/Hasaki.
 
-**Core flow:** Skin concern → Popularity ranking → Ingredient card → Purchase link
+**Core flow:** Select concern → See ingredient highlights → Browse routine-grouped products → View product detail → Buy
 
 ---
 
 ## Tech Stack
 
-| Area | Choice | Notes |
-|---|---|---|
-| Framework | Next.js 14 (App Router) | SSG for 100 products, SEO |
-| Language | TypeScript | Type safety for ingredient data |
-| Styling | Tailwind CSS | Mobile-first |
-| Data | Local JSON (Phase 1) | 100 products, no server needed |
-| Storage | localStorage (Phase 1) | No login |
-| Deploy | Vercel | Global CDN via Cloudflare |
-| Weather API | OpenWeatherMap (Free) | Daily context feature |
-| Analytics | Vercel Analytics + GA4 | KPI tracking |
+| Area | Choice |
+|---|---|
+| Framework | Next.js 15 (App Router, Turbopack dev) |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Auth | NextAuth v4 (Google OAuth) |
+| Database | Supabase (routine storage) |
+| Data | Static JSON (309 products, ingredients, concerns) |
+| Share card | `next/og` (Satori/ImageResponse) |
+| i18n | Vietnamese + English (dictionaries in `src/dictionaries/`) |
+| Font | Noto Sans |
+| Deploy | Vercel |
+
+---
+
+## Commands
+
+```bash
+npm run dev              # Dev server with Turbopack (clears .next cache)
+npm run build            # Production build — source of truth for errors
+npm run pipeline:run     # Product discovery pipeline
+npm run pipeline:promote # Promote staged product data
+```
+
+---
+
+## Architecture
+
+Single-page browsing model — all product discovery happens on the home page.
+
+```
+/[locale]/                      ← Home: concern filter → ingredient cards → routine-grouped products
+/[locale]/products/[slug]       ← Product detail: ingredient breakdown + purchase links
+/[locale]/me                    ← User profile: saved routines list
+/[locale]/routine/new           ← Routine builder (requires auth)
+/[locale]/routine/[id]          ← Routine detail + share card
+```
+
+### API Routes
+
+```
+GET/POST  /api/routines                  Routine CRUD
+GET/DELETE /api/routines/[id]            Single routine
+GET       /api/share/routine/[id]        Returns 1080×1920 PNG share card
+GET/POST  /api/auth/[...nextauth]        NextAuth handlers
+```
 
 ---
 
@@ -34,58 +71,44 @@ Vietnamese Gen Z discovers K-beauty on TikTok but has no way to verify ingredien
 ```
 kwip/
 ├── public/
-│   ├── images/products/          # Product images (100)
-│   ├── og-image.png
-│   └── favicon.ico
+│   ├── fonts/                    # NotoSans-Regular.ttf, NotoSans-Bold.ttf (for share card)
+│   └── images/products/          # Local product images (CDN URLs preferred)
 ├── src/
 │   ├── app/
-│   │   ├── layout.tsx            # Root layout (fonts, meta, analytics)
-│   │   ├── page.tsx              # Home: concern selection
-│   │   ├── products/
-│   │   │   ├── page.tsx          # Popularity ranking list
-│   │   │   └── [slug]/
-│   │   │       └── page.tsx      # Ingredient card detail
-│   │   └── not-found.tsx
+│   │   ├── [locale]/
+│   │   │   ├── page.tsx          # Home
+│   │   │   ├── products/[slug]/  # Product detail
+│   │   │   ├── me/               # User profile
+│   │   │   └── routine/
+│   │   │       ├── new/          # Routine builder
+│   │   │       └── [id]/         # Routine detail
+│   │   └── api/
+│   │       ├── routines/         # Routine CRUD
+│   │       ├── share/routine/    # Share card image generation
+│   │       └── auth/             # NextAuth
 │   ├── components/
-│   │   ├── layout/
-│   │   │   ├── Header.tsx
-│   │   │   ├── Footer.tsx
-│   │   │   └── MobileNav.tsx
-│   │   ├── home/
-│   │   │   ├── ConcernSelector.tsx     # 4 concern cards
-│   │   │   └── DailyContext.tsx         # Weather-based context
-│   │   ├── products/
-│   │   │   ├── ProductCard.tsx          # Ranking list item
-│   │   │   ├── ProductList.tsx          # Ranked list container
-│   │   │   ├── RankBadge.tsx            # Rank badge (top 3 highlighted)
-│   │   │   └── ConcernFilter.tsx        # Concern filter tabs (sticky)
-│   │   ├── detail/
-│   │   │   ├── IngredientCard.tsx       # Main ingredient card
-│   │   │   ├── IngredientItem.tsx       # Single ingredient row
-│   │   │   ├── SkinMatchBadge.tsx       # "Good for / Caution" badge
-│   │   │   └── PurchaseLinks.tsx        # Shopee/TikTok Shop/Hasaki
-│   │   └── shared/
-│   │       ├── ZaloShareButton.tsx
-│   │       ├── BackButton.tsx
-│   │       └── LoadingSpinner.tsx
+│   │   ├── home/                 # ConcernHub, ingredient cards, product groups
+│   │   ├── routine/              # RoutineBuilderClient, ShareButton, etc.
+│   │   └── shared/               # AuthButton, LanguageSwitcher, SearchButton
 │   ├── data/
-│   │   ├── products.json               # 100 product master data
-│   │   ├── ingredients.json            # Ingredient dictionary (Vietnamese)
-│   │   └── concerns.json              # Concern-to-ingredient mapping
-│   ├── lib/
-│   │   ├── types.ts                    # All type definitions
-│   │   ├── storage.ts                  # localStorage wrapper
-│   │   ├── weather.ts                  # Weather API call
-│   │   ├── products.ts                # Product filter/sort utils
-│   │   └── tracking.ts                # Event tracking helper
-│   └── styles/
-│       └── globals.css                 # Tailwind base + custom vars
-├── scripts/
-│   └── validate-data.ts               # JSON schema validation
-├── tailwind.config.ts
-├── next.config.js
-├── tsconfig.json
-└── package.json
+│   │   ├── products.json         # 309 products
+│   │   ├── ingredients.json      # Ingredient dictionary (vi + inci + ko)
+│   │   └── concerns.json         # 7 concerns with key ingredients
+│   ├── dictionaries/
+│   │   ├── vi.json               # Vietnamese strings
+│   │   └── en.json               # English strings
+│   └── lib/
+│       ├── types.ts              # All type definitions
+│       ├── supabase.ts           # Supabase client
+│       ├── i18n.ts               # getDictionary, Locale type
+│       └── brands.ts             # Brand display name lookup
+├── docs/
+│   ├── product-brief.md          # Product direction & strategy — READ BEFORE product decisions
+│   ├── prd.md                    # Tactical requirements & launch scope
+│   ├── design-system.md          # Type scale, colors, spacing rules
+│   └── plans/                    # Feature design docs & implementation plans
+└── scripts/
+    └── pipeline/                 # Product data ingestion pipeline
 ```
 
 ---
@@ -96,34 +119,23 @@ kwip/
 
 ```typescript
 interface Product {
-  id: string;                    // "anua-heartleaf-toner"
-  slug: string;                  // URL slug
-  name: {
-    ko: string;                  // Korean name
-    vi: string;                  // Vietnamese name
-    en: string;                  // English/original name
-  };
-  brand: Brand;
-  category: Category;
-  image: string;                 // "/images/products/anua-toner.webp"
-  concerns: Concern[];           // ["acne", "moisturizing"]
+  id: string;
+  slug: string;
+  name: { ko: string; vi: string; en: string };
+  brand: string;
+  category: Category;             // "cleanser" | "pad" | "toner" | "essence" | "serum" | "ampoule" | "mask" | "cream" | "sunscreen"
+  image: string;                  // CDN URL or "/images/products/..."
+  concerns: Concern[];            // ["acne", "hydration", ...]
   ingredients: ProductIngredient[];
-  popularity: {
-    rank: number;                // Shopee Vietnam ranking
-    updatedAt: string;           // "2026-03-01" (weekly update)
-  };
+  popularity: { rank: number; updatedAt: string };
   purchase: {
     shopee?: string;
+    lazada?: string;
+    oliveyoung?: string;
     tiktokShop?: string;
     hasaki?: string;
   };
-  tags: string[];                // ["best-seller", "sensitive-safe"]
-}
-
-interface ProductIngredient {
-  ingredientId: string;          // Reference to ingredients.json
-  order: number;                 // INCI order (by concentration)
-  isKey: boolean;                // Key ingredient (shown at top)
+  tags: string[];                 // ["best-seller", "sensitive-safe"]
 }
 ```
 
@@ -131,189 +143,65 @@ interface ProductIngredient {
 
 ```typescript
 interface Ingredient {
-  id: string;                    // "niacinamide"
-  name: {
-    inci: string;                // "Niacinamide" (international standard)
-    vi: string;                  // Vietnamese
-    ko: string;                  // Korean
-  };
-  description: {
-    vi: string;                  // Simple Vietnamese explanation (1-2 lines)
-  };
-  effects: {
-    concern: Concern;
-    type: "good" | "caution";
-    reason: {
-      vi: string;                // Vietnamese explanation
-    };
-  }[];
+  id: string;
+  name: { inci: string; vi: string; ko: string };  // no "en" — use "inci" for English
+  description: { vi: string; en: string };
+  effects: { concern: Concern; type: "good" | "caution"; reason: { vi: string; en: string } }[];
   ewgGrade?: string;
-  category: IngredientCategory;
+  category: string;
 }
 ```
 
-### Concern Map (`concerns.json`)
+### Routine (Supabase `routines` table)
 
 ```typescript
-interface ConcernMap {
-  id: Concern;
-  label: {
-    vi: string;                  // "Mụn"
-    ko: string;                  // "여드름"
-  };
-  icon: string;
-  keyIngredients: string[];      // Key ingredient IDs for this concern
-  weatherTrigger: {
-    condition: string;           // "high_humidity" | "high_uv" | "dry"
-    message: {
-      vi: string;               // Weather-based context message
-    };
-  };
+interface Routine {
+  id: string;
+  user_id: string;
+  name: string;
+  concern: string;
+  products: RoutineProduct[];     // sorted by step
+  created_at: string;
+}
+
+interface RoutineProduct {
+  productId: string;
+  category: Category;
+  step: number;                   // 1=cleanser → 9=sunscreen
 }
 ```
 
-### Shared Types
+---
 
-```typescript
-type Brand = "cosrx" | "anua" | "torriden" | "beauty-of-joseon" | "round-lab" | "skin1004";
-type Category = "toner" | "serum" | "sunscreen" | "cream" | "pad";
-type Concern = "acne" | "moisturizing" | "brightening" | "anti-aging";
-type IngredientCategory = "active" | "moisturizer" | "emollient" | "surfactant" | "preservative" | "fragrance" | "other";
-```
+## Concerns
+
+7 concerns: `acne` | `pores` | `hydration` | `brightening` | `soothing` | `anti-aging` | `sun-protection`
+
+## Routine Step Order
+
+1. Cleanser → 2. Pad → 3. Toner → 4. Essence → 5. Serum → 6. Ampoule → 7. Mask → 8. Cream → 9. Sunscreen
 
 ---
 
-## Pages
+## Key Rules
 
-### Home (`/`)
+- All UI text via `src/dictionaries/vi.json` and `en.json` — no hardcoded strings
+- Follow design system: `docs/design-system.md`
+- Mobile-first, min 44px touch targets
+- Ingredient `name` has no `en` field — use `inci` for English locale
+- Bundle/deal products (names containing `[deal]`, `bundle`, `2-pack`, `3-pack`, ` kit`) are filtered from display
+- `/[locale]/products` redirects to home — all browsing is on `/[locale]/`
+- `.next` cache can corrupt — `npm run dev` auto-clears it; restart if you see webpack errors
 
-- **Purpose:** Select skin concern to begin exploration
-- **Layout:** Daily context (1-line weather banner, top) + 4 concern cards (2x2 grid)
-- **Daily context effect:** Weather condition highlights the matching concern card (e.g., high UV → sunscreen/brightening card gets a subtle "Recommended today" badge). This creates a daily reason to revisit.
-- **Concern persistence:** If `selectedConcern` exists in localStorage, show a "Continue with [concern]" shortcut above the grid for returning users.
-- **Action:** Selecting a concern stores it in localStorage and navigates to `/products?concern=acne`
-- **Weather fallback:** If weather API fails, hide the daily context banner entirely. Do not show an error.
-- **Data:** Weather API (client-side), concerns.json (static)
+---
 
-### Ranking (`/products?concern=acne`)
-
-- **Purpose:** Browse products by popularity for selected concern
-- **Layout:** Concern filter tabs (sticky top) + product card list
-- **Sort:** `popularity.rank` ascending (global Shopee rank, filtered by concern — ranks may be non-contiguous, this is intentional)
-- **Ranking label:** Display as "Phổ biến tại Việt Nam" (Popular in Vietnam). Do NOT claim exact sales ranking.
-- **Sub-filter:** Category tabs (toner/serum/sunscreen/cream/pad)
-- **Concern tab behavior:** Switching concern tabs updates URL query param and stores selection in localStorage. Default tab on page load = `selectedConcern` from localStorage, or "acne" if none.
-- **Empty state:** If no products match concern + category combo, show message: "Chúng tôi đang cập nhật thêm sản phẩm" (We're adding more products)
-- **Action:** Tapping a product navigates to `/products/[slug]`
-
-### Ingredient Detail (`/products/[slug]`)
-
-- **Purpose:** Final ingredient verification before purchase
-- **Layout:** Product image + key ingredient summary + full ingredient list + purchase links
-- **Key ingredients:** `isKey=true` items shown as cards at top
-- **Full list:** INCI order, each with good/caution badge
-- **Purchase:** Shopee/TikTok Shop/Hasaki buttons (show only available ones). If ALL links are missing, show a "Search on Shopee" button that links to a Shopee search query with the product name.
-- **Share:** Zalo share button (sticky bottom, next to purchase button)
-- **OG meta:** Each product page must have dynamic OG tags (title=product Vietnamese name, description=key ingredient summary in Vietnamese, image=product image). Critical for Zalo link previews.
-- **Data:** SSG (statically generated at build time)
-
-### API Route
+## Environment Variables
 
 ```
-GET /api/weather?city=hochiminh
+NEXTAUTH_URL=
+NEXTAUTH_SECRET=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+NEXT_PUBLIC_SUPABASE_URL=
+SUPABASE_SERVICE_ROLE_KEY=
 ```
-
-OpenWeatherMap free tier, 1-hour cache via Next.js revalidate. Only API route in Phase 1.
-
----
-
-## Event Tracking
-
-```typescript
-type TrackingEvent =
-  | { event: "concern_select"; concern: Concern }
-  | { event: "product_view"; productId: string; rank: number }
-  | { event: "ingredient_expand"; productId: string }
-  | { event: "purchase_click"; productId: string; platform: "shopee" | "tiktok" | "hasaki" }
-  | { event: "zalo_share"; productId: string }
-  | { event: "daily_context_view"; weatherCondition: string }
-  | { event: "category_filter"; category: Category };
-```
-
-| KPI | Target | Tracking |
-|---|---|---|
-| Monthly visitors | 3,000 | GA4 pageviews |
-| 7-day retention | 15% | GA4 retention |
-| Purchase click rate | 10% | `purchase_click` / total visits |
-| Zalo share rate | 0.05/visit | `zalo_share` / total visits |
-| Ingredient card depth | avg 2+ | `product_view` per session |
-| Ranking → detail rate | 30% | `product_view` / `concern_select` |
-
----
-
-## localStorage
-
-```typescript
-interface KwipStorage {
-  selectedConcern: Concern | null;  // Persists across sessions, used as default filter
-  recentProducts: string[];         // Last viewed slugs (max 20)
-  lastVisit: string;                // ISO date
-}
-
-const STORAGE_KEY = "kwip_v1";
-```
-
----
-
-## Mobile UI Rules
-
-- Min touch target: 44px
-- Concern selector: 2x2 grid, card height min 120px
-- Ranking list: Card-based, vertical scroll (no swipe)
-- Ingredient card: Accordion expand/collapse for key ingredients
-- Purchase button: Sticky bottom
-- Zalo share: Next to purchase button
-- Font: **Noto Sans** (full Vietnamese diacritics support guaranteed)
-- All user-facing text in Vietnamese
-
----
-
-## Development Phases
-
-### Phase 1 — Project Setup
-1. Initialize Next.js 14 + TypeScript + Tailwind
-2. Create directory structure
-3. Define types (`lib/types.ts`)
-4. Write sample data (3 products in products.json, ingredients.json, concerns.json)
-5. Data validation script
-
-### Phase 2 — Core Pages
-1. Home → ConcernSelector (4 concern cards)
-2. Product list → ProductList + ConcernFilter + RankBadge
-3. Ingredient detail → IngredientCard + IngredientItem + SkinMatchBadge
-4. Purchase links → PurchaseLinks
-5. Page navigation
-
-### Phase 3 — Supporting Features
-1. DailyContext (weather API integration)
-2. ZaloShareButton
-3. localStorage save/load
-4. Event tracking integration
-
-### Phase 4 — Polish
-1. Mobile responsive optimization
-2. OG image / SEO meta tags
-3. Performance (webp images, font subsetting)
-4. Vercel deployment config
-
----
-
-## What We Don't Build
-
-- No native app (web only)
-- No monetization (validate traffic first)
-- No multi-language (Vietnamese only)
-- No AI ingredient analysis (human-curated data is more trustworthy)
-- No user reviews (content moderation cost > value)
-- No community, comparison, or wishlist features
-- No login in Phase 1 (localStorage only; Zalo login at 3,000 MAU)

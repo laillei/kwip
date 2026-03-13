@@ -19,9 +19,18 @@ export default async function Home({
   const dict = await getDictionary(locale as Locale);
   const loc = locale as Locale;
 
-  const allProducts = (products as Product[]).sort(
-    (a, b) => a.popularity.rank - b.popularity.rank
-  );
+  const allProducts = (products as Product[])
+    .filter((p) => {
+      const name = (p.name.en || p.name.vi || "").toLowerCase();
+      return (
+        !name.includes("[deal]") &&
+        !name.includes("bundle") &&
+        !name.includes("2-pack") &&
+        !name.includes("3-pack") &&
+        !name.includes(" kit")
+      );
+    })
+    .sort((a, b) => a.popularity.rank - b.popularity.rank);
 
   const concernData = concerns.map((c) => ({
     id: c.id as import("@/lib/types").Concern,
@@ -41,12 +50,12 @@ export default async function Home({
               {dict.site.tagline}
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <SearchButton locale={locale} />
-            <AuthButton locale={locale} />
             <Suspense>
               <LanguageSwitcher />
             </Suspense>
+            <AuthButton locale={locale} />
           </div>
         </header>
 

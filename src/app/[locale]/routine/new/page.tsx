@@ -4,7 +4,6 @@ import { getDictionary, type Locale } from "@/lib/i18n";
 import products from "@/data/products.json";
 import concerns from "@/data/concerns.json";
 import type { Product } from "@/lib/types";
-import type { Concern } from "@/lib/types";
 import RoutineBuilderClient from "@/components/routine/RoutineBuilderClient";
 
 export default async function RoutineNewPage({
@@ -27,11 +26,16 @@ export default async function RoutineNewPage({
   }
 
   const dict = await getDictionary(locale as Locale);
-  const allProducts = products as Product[];
-
-  const concernProducts = allProducts.filter((p) =>
-    p.concerns.includes(concern as Concern)
-  );
+  const allProducts = (products as Product[]).filter((p) => {
+    const name = (p.name.en || p.name.vi || "").toLowerCase();
+    return (
+      !name.includes("[deal]") &&
+      !name.includes("bundle") &&
+      !name.includes("2-pack") &&
+      !name.includes("3-pack") &&
+      !name.includes(" kit")
+    );
+  });
 
   const concernData = concerns.find((c) => c.id === concern);
   const concernLabel =
@@ -44,7 +48,7 @@ export default async function RoutineNewPage({
       locale={locale}
       concern={concern}
       concernLabel={concernLabel}
-      products={concernProducts}
+      products={allProducts}
       dict={dict.routine}
     />
   );
