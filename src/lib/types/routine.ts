@@ -9,13 +9,8 @@ export interface RoutineProduct {
 
 export interface Routine {
   id: string;
-  userId: string;
-  userEmail: string;
   name: string;
   concern: Concern;
   products: RoutineProduct[];
   createdAt: string;
-  updatedAt: string;
 }
-
-export type CreateRoutineInput = Omit<Routine, "id" | "createdAt" | "updatedAt">;
