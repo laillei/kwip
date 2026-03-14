@@ -1,11 +1,9 @@
 "use client";
 
-import { use } from "react";
-import { useSession, signOut } from "next-auth/react";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { use, useEffect, useState } from "react";
 import Link from "next/link";
 import type { Routine } from "@/lib/types";
+import { getRoutines, deleteRoutine } from "@/lib/localRoutines";
 import RoutineCard from "@/components/routine/RoutineCard";
 
 export default function MePage({
@@ -14,72 +12,56 @@ export default function MePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = use(params);
-  const { data: session, status } = useSession();
-  const router = useRouter();
   const [routines, setRoutines] = useState<Routine[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    if (status === "unauthenticated") {
-      router.push(`/${locale}`);
-      return;
-    }
-    if (status === "authenticated") {
-      fetch("/api/routines")
-        .then((r) => r.json())
-        .then((data) => {
-          setRoutines(data);
-          setLoading(false);
-        });
-    }
-  }, [status, locale, router]);
+    setRoutines(getRoutines());
+    setLoaded(true);
+  }, []);
 
-  async function handleDelete(id: string) {
-    if (!confirm("Delete this routine?")) return;
-    await fetch(`/api/routines/${id}`, { method: "DELETE" });
+  function handleDelete(id: string) {
+    if (!confirm(locale === "vi" ? "Xoá routine này?" : "Delete this routine?"))
+      return;
+    deleteRoutine(id);
     setRoutines((prev) => prev.filter((r) => r.id !== id));
   }
 
-  if (status === "loading" || loading) {
+  if (!loaded) {
     return (
       <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
-        <div className="text-sm text-neutral-400">Loading...</div>
+        <div className="text-sm text-neutral-400">...</div>
       </div>
     );
   }
+
+  const emptyTitle =
+    locale === "vi"
+      ? "Routine của bạn sẽ được lưu tại đây."
+      : "Your routines will be saved here.";
+  const emptyBody =
+    locale === "vi"
+      ? "Bắt đầu từ trang chủ — chọn vấn đề da của bạn."
+      : "Start from home — pick your skin concern.";
+  const emptyAction = locale === "vi" ? "← Trang chủ" : "← Home";
+  const heading = locale === "vi" ? "Routine của tôi" : "My Routines";
 
   return (
     <div className="min-h-screen bg-neutral-50">
       <div className="max-w-2xl mx-auto px-6 py-8">
         <div className="flex items-center justify-between mb-8">
-          <div>
-            <h1 className="text-2xl font-bold text-neutral-900">
-              {locale === "vi" ? "Routine của tôi" : "My Routines"}
-            </h1>
-            <p className="text-sm text-neutral-500 mt-0.5">
-              {session?.user?.name}
-            </p>
-          </div>
-          <button
-            onClick={() => signOut({ callbackUrl: `/${locale}` })}
-            className="text-sm text-neutral-400 hover:text-neutral-600"
-          >
-            Sign out
-          </button>
+          <h1 className="text-2xl font-bold text-neutral-900">{heading}</h1>
         </div>
 
         {routines.length === 0 ? (
           <div className="text-center py-20">
-            <p className="text-neutral-400 mb-4">
-              {locale === "vi"
-                ? "Bạn chưa có routine nào."
-                : "No routines yet."}
-            </p>
+            <p className="text-neutral-900 font-medium mb-2">{emptyTitle}</p>
+            <p className="text-neutral-500 text-sm mb-6">{emptyBody}</p>
             <Link
               href={`/${locale}`}
               className="text-sm font-medium text-neutral-900 underline"
             >
-              {locale === "vi" ? "← Trang chủ" : "← Home"}
+              {emptyAction}
             </Link>
           </div>
         ) : (
