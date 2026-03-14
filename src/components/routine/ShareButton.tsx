@@ -1,50 +1,51 @@
 "use client";
 
 import { useState } from "react";
+import type { Routine } from "@/lib/types";
 
 interface ShareButtonProps {
-  routineId: string;
-  routineName: string;
+  routine: Routine;
   dict: {
     shareButton: string;
     sharing: string;
   };
 }
 
-export default function ShareButton({
-  routineId,
-  routineName,
-  dict,
-}: ShareButtonProps) {
+export default function ShareButton({ routine, dict }: ShareButtonProps) {
   const [loading, setLoading] = useState(false);
 
   const handleShare = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/share/routine/${routineId}`);
+      const payload = {
+        name: routine.name,
+        concern: routine.concern,
+        products: routine.products,
+      };
+      const data = btoa(
+        unescape(encodeURIComponent(JSON.stringify(payload)))
+      ).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
+
+      const response = await fetch(`/api/share?data=${data}`);
       if (!response.ok) throw new Error("Failed to generate share card");
       const blob = await response.blob();
-      const file = new File([blob], "routine-kwip.png", {
-        type: "image/png",
-      });
+      const file = new File([blob], "routine-kwip.png", { type: "image/png" });
 
       if (
         typeof navigator.share === "function" &&
         navigator.canShare &&
         navigator.canShare({ files: [file] })
       ) {
-        await navigator.share({ files: [file], title: routineName });
+        await navigator.share({ files: [file], title: routine.name });
       } else {
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
         a.download = "routine-kwip.png";
         a.click();
-        // Defer revoke to allow Safari to initiate the download before the URL is invalidated
         setTimeout(() => URL.revokeObjectURL(url), 100);
       }
     } catch (err) {
-      // Share cancelled by user (AbortError) or failed — silently ignore
       if (err instanceof Error && err.name !== "AbortError") {
         console.error("Share failed:", err);
       }
