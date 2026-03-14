@@ -1,5 +1,4 @@
 import { redirect } from "next/navigation";
-import { getServerSession } from "next-auth";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import products from "@/data/products.json";
 import concerns from "@/data/concerns.json";
@@ -15,11 +14,6 @@ export default async function RoutineNewPage({
 }) {
   const { locale } = await params;
   const { concern } = await searchParams;
-  const session = await getServerSession();
-
-  if (!session?.user) {
-    redirect(`/${locale}`);
-  }
 
   if (!concern) {
     redirect(`/${locale}`);
@@ -39,9 +33,7 @@ export default async function RoutineNewPage({
 
   const concernData = concerns.find((c) => c.id === concern);
   const concernLabel =
-    locale === "vi"
-      ? concernData?.label?.vi
-      : concernData?.label?.en;
+    locale === "vi" ? concernData?.label?.vi : concernData?.label?.en;
 
   return (
     <RoutineBuilderClient
