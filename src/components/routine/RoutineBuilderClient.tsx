@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Product, Category } from "@/lib/types";
 import type { RoutineProduct } from "@/lib/types";
+import { saveRoutine } from "@/lib/localRoutines";
 import RoutineStepPicker from "./RoutineStepPicker";
 
 const ROUTINE_STEPS: { category: Category; step: number; label: Record<string, string> }[] = [
@@ -62,7 +63,7 @@ export default function RoutineBuilderClient({
 
   const totalSelected = Object.values(selectedByCategory).flat().length;
 
-  async function handleSave() {
+  function handleSave() {
     if (!routineName.trim() || totalSelected === 0) return;
     setSaving(true);
 
@@ -74,30 +75,20 @@ export default function RoutineBuilderClient({
       }))
     );
 
-    try {
-      const res = await fetch("/api/routines", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: routineName.trim(),
-          concern,
-          products: routineProducts,
-        }),
-      });
+    saveRoutine({
+      name: routineName.trim(),
+      concern,
+      products: routineProducts,
+    });
 
-      if (!res.ok) throw new Error("Failed to save");
-      router.push(`/${locale}/me`);
-    } catch {
-      setSaving(false);
-      alert("Failed to save routine. Please try again.");
-    }
+    router.push(`/${locale}/me`);
   }
 
   const stepsWithProducts = ROUTINE_STEPS.filter((step) =>
     products.some((p) => p.category === step.category)
   );
 
-  void loc; // used in child component via locale prop
+  void loc;
 
   return (
     <div className="min-h-screen bg-neutral-50">
