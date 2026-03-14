@@ -1,35 +1,45 @@
-import { notFound } from "next/navigation";
+"use client";
+
+import { use, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { createServerSupabaseClient } from "@/lib/supabase";
-import { getDictionary } from "@/lib/i18n";
-import type { Locale } from "@/lib/i18n";
+import { getRoutineById } from "@/lib/localRoutines";
 import products from "@/data/products.json";
 import type { Product } from "@/lib/types";
 import type { Routine, RoutineProduct } from "@/lib/types";
 import ShareButton from "@/components/routine/ShareButton";
 
-export default async function RoutineDetailPage({
+export default function RoutineDetailPage({
   params,
 }: {
   params: Promise<{ locale: string; id: string }>;
 }) {
-  const { locale, id } = await params;
-
-  const supabase = createServerSupabaseClient();
-  const { data, error } = await supabase
-    .from("routines")
-    .select("*")
-    .eq("id", id)
-    .single();
-
-  if (error || !data) notFound();
-
-  const routine = data as unknown as Routine;
+  const { locale, id } = use(params);
+  const router = useRouter();
+  const [routine, setRoutine] = useState<Routine | null>(null);
+  const [loaded, setLoaded] = useState(false);
   const loc = locale as "vi" | "en";
-  const dict = await getDictionary(locale as Locale);
-  const allProducts = products as Product[];
 
+  useEffect(() => {
+    const found = getRoutineById(id);
+    if (!found) {
+      router.replace(`/${locale}/me`);
+      return;
+    }
+    setRoutine(found);
+    setLoaded(true);
+  }, [id, locale, router]);
+
+  if (!loaded || !routine) {
+    return (
+      <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
+        <div className="text-sm text-neutral-400">...</div>
+      </div>
+    );
+  }
+
+  const allProducts = products as Product[];
   const routineProducts = (routine.products as RoutineProduct[])
     .sort((a, b) => a.step - b.step)
     .map((rp) => ({
@@ -38,6 +48,14 @@ export default async function RoutineDetailPage({
     }))
     .filter((rp): rp is typeof rp & { product: Product } => !!rp.product);
 
+  const shareDict =
+    loc === "vi"
+      ? { shareButton: "Chia sẻ", sharing: "Đang tạo ảnh..." }
+      : { shareButton: "Share", sharing: "Generating..." };
+
+  const backLabel =
+    loc === "vi" ? "← Routine của tôi" : "← My Routines";
+
   return (
     <div className="min-h-screen bg-neutral-50">
       <div className="max-w-2xl mx-auto px-6 py-8">
@@ -45,7 +63,7 @@ export default async function RoutineDetailPage({
           href={`/${locale}/me`}
           className="text-sm text-neutral-500 hover:text-neutral-900 mb-6 block"
         >
-          {loc === "vi" ? "← Routine của tôi" : "← My Routines"}
+          {backLabel}
         </Link>
 
         <h1 className="text-2xl font-bold text-neutral-900 mb-1">
@@ -53,15 +71,10 @@ export default async function RoutineDetailPage({
         </h1>
         <p className="text-sm text-neutral-500 mb-6">{routine.concern}</p>
 
-        {/* Share button */}
         <div className="flex gap-2 mb-8">
           <ShareButton
-            routineId={id}
-            routineName={routine.name}
-            dict={{
-              shareButton: dict.routine.shareButton,
-              sharing: dict.routine.sharing,
-            }}
+            routine={routine}
+            dict={shareDict}
           />
         </div>
 
