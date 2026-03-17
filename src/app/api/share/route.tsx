@@ -2,8 +2,8 @@ import { ImageResponse } from "next/og";
 import { readFileSync } from "fs";
 import { join } from "path";
 import { NextRequest } from "next/server";
-import allProducts from "@/data/products.json";
 import type { RoutineProduct, Product } from "@/lib/types";
+import { createServerSupabaseClient } from "@/lib/supabase";
 
 export const runtime = "nodejs";
 
@@ -60,7 +60,10 @@ export async function GET(req: NextRequest) {
     return new Response("Invalid data param", { status: 400 });
   }
 
-  const products = allProducts as Product[];
+  const supabase = createServerSupabaseClient();
+  const { data: productsData } = await supabase.from("products").select("*");
+  const products = (productsData ?? []) as Product[];
+
   const routineProducts = payload.products
     .sort((a, b) => a.step - b.step)
     .map((rp) => ({

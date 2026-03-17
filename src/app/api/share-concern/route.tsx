@@ -2,10 +2,8 @@ import { ImageResponse } from "next/og";
 import { readFileSync } from "fs";
 import { join } from "path";
 import { NextRequest } from "next/server";
-import allProducts from "@/data/products.json";
-import allIngredients from "@/data/ingredients.json";
-import allConcerns from "@/data/concerns.json";
 import type { Product, Ingredient } from "@/lib/types";
+import { createServerSupabaseClient } from "@/lib/supabase";
 
 export const runtime = "nodejs";
 
@@ -35,11 +33,21 @@ export async function GET(req: NextRequest) {
 
   const locale = req.nextUrl.searchParams.get("locale") ?? "vi";
 
-  const concern = allConcerns.find((c) => c.id === concernId);
-  if (!concern) return new Response("Concern not found", { status: 404 });
+  const supabase = createServerSupabaseClient();
+  const [productsRes, ingredientsRes, concernRes] = await Promise.all([
+    supabase.from("products").select("*"),
+    supabase.from("ingredients").select("*"),
+    supabase.from("concerns").select("*").eq("id", concernId).single(),
+  ]);
 
-  const ingredients = allIngredients as Ingredient[];
-  const products = (allProducts as Product[])
+  if (!concernRes.data) return new Response("Concern not found", { status: 404 });
+
+  const allProducts = (productsRes.data ?? []) as Product[];
+  const allIngredients = (ingredientsRes.data ?? []) as Ingredient[];
+  const concern = concernRes.data;
+
+  const ingredients = allIngredients;
+  const products = allProducts
     .filter((p) => {
       const name = (p.name.en || p.name.vi || "").toLowerCase();
       return (
@@ -54,9 +62,9 @@ export async function GET(req: NextRequest) {
     .sort((a, b) => a.popularity.rank - b.popularity.rank);
 
   // Get up to 3 key ingredients with their reason for this concern
-  const keyIngredients = concern.keyIngredients
+  const keyIngredients: { name: string; reason: string }[] = concern.key_ingredients
     .slice(0, 3)
-    .map((id) => {
+    .map((id: string) => {
       const ing = ingredients.find((i) => i.id === id);
       if (!ing) return null;
       const effect = ing.effects.find(
@@ -68,7 +76,7 @@ export async function GET(req: NextRequest) {
         reason: effect.reason[locale as "vi" | "en"] ?? effect.reason.vi,
       };
     })
-    .filter((i): i is { name: string; reason: string } => i !== null)
+    .filter((i: { name: string; reason: string } | null): i is { name: string; reason: string } => i !== null)
     .slice(0, 3);
 
   // Get top 2 products per routine step
