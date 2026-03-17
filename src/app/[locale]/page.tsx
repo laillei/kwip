@@ -9,6 +9,7 @@ import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
 import SearchButton from "@/components/shared/SearchButton";
 import AuthButton from "@/components/shared/AuthButton";
 import ConcernHub from "@/components/home/ConcernHub";
+import MobileShell from "@/components/shell/MobileShell";
 
 export default async function Home({
   params,
@@ -42,24 +43,39 @@ export default async function Home({
 
   return (
     <div className="min-h-screen bg-neutral-50">
-      <div className="max-w-6xl mx-auto">
-        <header className="flex items-center justify-between px-6 md:px-8 pt-[max(1.5rem,env(safe-area-inset-top))] pb-4">
-          <div>
-            <span className="text-2xl font-bold tracking-tight">Kwip</span>
-            <p className="text-sm text-neutral-600 mt-0.5">
-              {dict.site.tagline}
-            </p>
-          </div>
-          <div className="flex items-center gap-3">
+      <MobileShell
+        locale={locale}
+        headerRight={
+          <div className="flex items-center gap-2">
             <SearchButton locale={locale} />
             <Suspense>
               <LanguageSwitcher />
             </Suspense>
             <AuthButton locale={locale} />
           </div>
-        </header>
+        }
+      >
+        {/* Desktop header — only visible at md+ */}
+        <div className="hidden md:block max-w-6xl mx-auto">
+          <header className="flex items-center justify-between px-8 pt-6 pb-4">
+            <div>
+              <span className="text-2xl font-bold tracking-tight">Kwip</span>
+              <p className="text-sm text-neutral-600 mt-0.5">
+                {dict.site.tagline}
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <SearchButton locale={locale} />
+              <Suspense>
+                <LanguageSwitcher />
+              </Suspense>
+              <AuthButton locale={locale} />
+            </div>
+          </header>
+        </div>
 
-        <main className="px-6 md:px-8 pt-2 pb-20">
+        {/* Content */}
+        <div className="max-w-6xl mx-auto px-4 md:px-8 pt-4 md:pt-2">
           <ConcernHub
             concerns={concernData}
             products={allProducts}
@@ -72,8 +88,8 @@ export default async function Home({
               buildCta: dict.routine.buildCta,
             }}
           />
-        </main>
-      </div>
+        </div>
+      </MobileShell>
     </div>
   );
 }
