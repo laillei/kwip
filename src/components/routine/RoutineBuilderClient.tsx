@@ -104,7 +104,7 @@ export default function RoutineBuilderClient({
           {dict.builderTitle}
         </h1>
         {concernLabel && (
-          <p className="text-sm text-neutral-500 mb-6">{concernLabel}</p>
+          <p className="text-[15px] text-neutral-500 mb-6">{concernLabel}</p>
         )}
 
         <input

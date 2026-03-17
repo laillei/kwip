@@ -54,7 +54,7 @@ export default function MePageClient({ locale, dict }: Props) {
         {routines.length === 0 ? (
           <div className="text-center py-20">
             <p className="text-neutral-900 font-medium mb-2">{dict.emptyTitle}</p>
-            <p className="text-neutral-500 text-sm mb-6">{dict.emptyBody}</p>
+            <p className="text-neutral-500 text-[15px] mb-6">{dict.emptyBody}</p>
             <Link
               href={`/${locale}`}
               className="text-[15px] font-medium text-neutral-900 underline min-h-[44px] inline-flex items-center"

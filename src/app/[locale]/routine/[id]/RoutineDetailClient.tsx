@@ -66,7 +66,7 @@ export default function RoutineDetailClient({ locale, id, dict }: Props) {
         <h1 className="text-2xl font-bold text-neutral-900 mb-1">
           {routine.name}
         </h1>
-        <p className="text-sm text-neutral-500 mb-6">{routine.concern}</p>
+        <p className="text-[15px] text-neutral-500 mb-6">{routine.concern}</p>
 
         <div className="flex gap-2 mb-8">
           <ShareButton routine={routine} dict={shareDict} />
@@ -86,7 +86,7 @@ export default function RoutineDetailClient({ locale, id, dict }: Props) {
                 className="rounded-xl object-cover"
               />
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold text-neutral-900 truncate">
+                <p className="text-[15px] font-semibold text-neutral-900 truncate">
                   {rp.product.name[loc] ?? rp.product.name.vi}
                 </p>
                 <p className="text-[13px] text-neutral-500">{rp.product.brand}</p>
