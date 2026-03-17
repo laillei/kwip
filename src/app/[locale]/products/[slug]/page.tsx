@@ -2,17 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
-import products from "@/data/products.json";
-import ingredientsData from "@/data/ingredients.json";
-import type { Product, Ingredient } from "@/lib/types";
+import type { Ingredient } from "@/lib/types";
+import { getProductBySlug, getAllProductSlugs, getAllIngredients } from "@/lib/db";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/getLocalizedData";
 import { getBrandName } from "@/lib/brands";
 import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
 import MobileShell from "@/components/shell/MobileShell";
 
-export function generateStaticParams() {
-  return products.map((p) => ({ slug: p.slug }));
+export async function generateStaticParams() {
+  const slugs = await getAllProductSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export default async function ProductDetailPage({
@@ -22,11 +22,15 @@ export default async function ProductDetailPage({
 }) {
   const { locale, slug } = await params;
   const dict = await getDictionary(locale as Locale);
-  const product = products.find((p) => p.slug === slug) as Product | undefined;
+
+  const [product, ingredientsList] = await Promise.all([
+    getProductBySlug(slug),
+    getAllIngredients(),
+  ]);
   if (!product) notFound();
 
   const ingredientMap = new Map(
-    ingredientsData.map((i) => [i.id, i as Ingredient])
+    ingredientsList.map((i) => [i.id, i as Ingredient])
   );
 
   const keyIngredients = product.ingredients
