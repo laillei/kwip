@@ -24,7 +24,6 @@ export default async function MobileShell({
   const navLabels = {
     explore: dict.nav.explore,
     routine: dict.nav.routine,
-    me: dict.nav.me,
   };
 
   return (

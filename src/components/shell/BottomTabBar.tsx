@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 interface NavLabels {
   explore: string;
   routine: string;
-  me: string;
 }
 
 interface Props {
@@ -35,16 +34,6 @@ export default function BottomTabBar({ locale, navLabels }: Props) {
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <rect x="3" y="3" width="18" height="18" rx="3" />
           <path d="M8 8h8M8 12h8M8 16h5" />
-        </svg>
-      ),
-    },
-    {
-      href: `/${locale}/me`,
-      label: navLabels.me,
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="8" r="4" />
-          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
         </svg>
       ),
     },
