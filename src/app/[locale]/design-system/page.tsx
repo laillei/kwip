@@ -26,38 +26,38 @@ export default function DesignSystemPage() {
         </SectionHeader>
         <div className="space-y-4">
           <div>
-            <p className="text-xs text-neutral-400 mb-1">Title — 22px / font-bold</p>
+            <p className="text-[12px] text-neutral-400 mb-1">Title 2 — 22px / font-bold / neutral-900</p>
             <p className="text-[22px] font-bold text-neutral-900">The skin problem solver</p>
           </div>
           <div>
-            <p className="text-xs text-neutral-400 mb-1">Headline — 17px / font-semibold</p>
+            <p className="text-[12px] text-neutral-400 mb-1">Headline — 17px / font-semibold / neutral-900</p>
             <p className="text-[17px] font-semibold text-neutral-900">BHA · Salicylic Acid</p>
           </div>
           <div>
-            <p className="text-xs text-neutral-400 mb-1">Body — 17px / font-normal</p>
+            <p className="text-[12px] text-neutral-400 mb-1">Body — 17px / font-normal / neutral-600</p>
             <p className="text-[17px] text-neutral-600">
               Exfoliates inside pores to reduce blackheads and prevent breakouts.
             </p>
           </div>
           <div>
-            <p className="text-xs text-neutral-400 mb-1">Subhead — 15px / font-normal</p>
+            <p className="text-[12px] text-neutral-400 mb-1">Subhead — 15px / font-normal / neutral-500</p>
             <p className="text-[15px] text-neutral-500">
               Best used in the evening routine after cleansing.
             </p>
           </div>
           <div>
-            <p className="text-xs text-neutral-400 mb-1">Caption — 13px / font-normal</p>
+            <p className="text-[12px] text-neutral-400 mb-1">Footnote — 13px / font-normal / neutral-500</p>
             <p className="text-[13px] text-neutral-500">309 products · 7 concerns covered</p>
           </div>
           <div>
-            <p className="text-xs text-neutral-400 mb-1">Overline — 12px / uppercase / tracking-wide</p>
+            <p className="text-[12px] text-neutral-400 mb-1">Caption — 12px / font-normal / neutral-400</p>
+            <p className="text-[12px] text-neutral-400">4.8 · 2.3k reviews</p>
+          </div>
+          <div>
+            <p className="text-[12px] text-neutral-400 mb-1">Overline — 12px / font-semibold / uppercase / tracking-wide / neutral-400</p>
             <p className="text-[12px] font-semibold uppercase tracking-wide text-neutral-400">
               Routine Step
             </p>
-          </div>
-          <div>
-            <p className="text-xs text-neutral-400 mb-1">Label — 12px / font-medium</p>
-            <p className="text-[12px] font-medium text-neutral-500">4.8 · 2.3k reviews</p>
           </div>
         </div>
       </section>
