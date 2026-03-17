@@ -95,7 +95,7 @@ export default function RoutineBuilderClient({
       <div className="max-w-2xl mx-auto px-6 py-8">
         <button
           onClick={() => router.push(`/${locale}`)}
-          className="text-sm text-neutral-500 hover:text-neutral-900 mb-6 block"
+          className="text-[15px] text-neutral-500 hover:text-neutral-900 mb-6 min-h-[44px] flex items-center"
         >
           {dict.backToHome}
         </button>
@@ -112,7 +112,7 @@ export default function RoutineBuilderClient({
           value={routineName}
           onChange={(e) => setRoutineName(e.target.value)}
           placeholder={dict.namePlaceholder}
-          className="w-full px-4 py-3 rounded-xl border border-neutral-200 text-neutral-900 text-base font-medium focus:outline-none focus:ring-2 focus:ring-neutral-900 mb-8"
+          className="w-full px-4 py-3 rounded-xl border border-neutral-200 text-neutral-900 text-base font-medium focus:outline-none focus:ring-2 focus:ring-neutral-900 mb-8 min-h-[44px]"
         />
 
         <div className="space-y-8">

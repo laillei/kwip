@@ -25,7 +25,7 @@ export default function RoutineCard({
         <h3 className="text-base font-semibold text-neutral-900">
           {routine.name}
         </h3>
-        <p className="text-sm text-neutral-500 mt-0.5">
+        <p className="text-[15px] text-neutral-500 mt-0.5">
           {routine.concern} · {routine.products.length} {dict.productsCount}
         </p>
       </div>
@@ -33,13 +33,13 @@ export default function RoutineCard({
       <div className="flex gap-2">
         <Link
           href={`/${locale}/routine/${routine.id}`}
-          className="flex-1 text-center py-2 text-sm font-medium text-neutral-900 border border-neutral-200 rounded-xl hover:bg-neutral-50 transition-colors"
+          className="flex-1 text-center py-2 text-[15px] font-medium text-neutral-900 border border-neutral-200 rounded-xl hover:bg-neutral-50 transition-colors min-h-[44px] flex items-center justify-center"
         >
           View
         </Link>
         <button
           onClick={() => onDelete(routine.id)}
-          className="px-4 py-2 text-sm font-medium text-red-600 border border-red-100 rounded-xl hover:bg-red-50 transition-colors"
+          className="px-4 py-2 text-[15px] font-medium text-red-600 border border-red-100 rounded-xl hover:bg-red-50 transition-colors min-h-[44px] flex items-center justify-center"
         >
           {dict.deleteButton}
         </button>

@@ -57,7 +57,7 @@ export default function MePageClient({ locale, dict }: Props) {
             <p className="text-neutral-500 text-sm mb-6">{dict.emptyBody}</p>
             <Link
               href={`/${locale}`}
-              className="text-sm font-medium text-neutral-900 underline"
+              className="text-[15px] font-medium text-neutral-900 underline min-h-[44px] inline-flex items-center"
             >
               {dict.emptyAction}
             </Link>
@@ -82,7 +82,7 @@ export default function MePageClient({ locale, dict }: Props) {
         <div className="mt-8">
           <Link
             href={`/${locale}`}
-            className="text-sm text-neutral-500 hover:text-neutral-900"
+            className="text-[15px] text-neutral-500 hover:text-neutral-900 min-h-[44px] flex items-center"
           >
             {dict.backToHome}
           </Link>

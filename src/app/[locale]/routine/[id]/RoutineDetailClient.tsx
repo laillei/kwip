@@ -89,11 +89,11 @@ export default function RoutineDetailClient({ locale, id, dict }: Props) {
                 <p className="text-sm font-semibold text-neutral-900 truncate">
                   {rp.product.name[loc] ?? rp.product.name.vi}
                 </p>
-                <p className="text-xs text-neutral-500">{rp.product.brand}</p>
+                <p className="text-[13px] text-neutral-500">{rp.product.brand}</p>
               </div>
               <Link
                 href={`/${locale}/products/${rp.product.slug}`}
-                className="text-xs text-neutral-400 hover:text-neutral-900 flex-shrink-0"
+                className="text-[13px] text-neutral-400 hover:text-neutral-900 flex-shrink-0 min-h-[44px] w-[44px] flex items-center justify-center"
               >
                 →
               </Link>

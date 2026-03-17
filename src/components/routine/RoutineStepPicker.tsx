@@ -42,7 +42,7 @@ export default function RoutineStepPicker({
             <button
               key={product.id}
               onClick={() => onToggle(product.id)}
-              className={`flex-shrink-0 w-24 rounded-xl border-2 p-2 text-left transition-all ${
+              className={`flex-shrink-0 w-24 rounded-xl border-2 p-2 text-left transition-all min-h-[44px] ${
                 isSelected
                   ? "border-neutral-900 bg-neutral-900"
                   : "border-neutral-200 bg-white hover:border-neutral-400"
@@ -56,7 +56,7 @@ export default function RoutineStepPicker({
                 className="rounded-lg object-cover w-full aspect-square"
               />
               <p
-                className={`text-xs mt-1 line-clamp-2 ${
+                className={`text-[13px] mt-1 line-clamp-2 ${
                   isSelected ? "text-white" : "text-neutral-700"
                 }`}
               >
