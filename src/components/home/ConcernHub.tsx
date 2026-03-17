@@ -163,7 +163,7 @@ export default function ConcernHub({
         ) : (
           <div className="flex flex-col items-center justify-center py-20">
             <p className="text-neutral-400 text-2xl mb-3">🔍</p>
-            <p className="text-sm text-neutral-600">{dict.emptyState}</p>
+            <p className="text-[17px] text-neutral-600">{dict.emptyState}</p>
           </div>
         )
       ) : (

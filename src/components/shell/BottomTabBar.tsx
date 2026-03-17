@@ -29,7 +29,7 @@ export default function BottomTabBar({ locale, navLabels }: Props) {
       ),
     },
     {
-      href: `/${locale}/routine/new`,
+      href: `/${locale}/me`,
       label: navLabels.routine,
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -74,7 +74,7 @@ export default function BottomTabBar({ locale, navLabels }: Props) {
               }`}
             >
               {tab.icon}
-              <span className="text-[10px] font-medium leading-none">{tab.label}</span>
+              <span className="text-xs font-medium leading-none">{tab.label}</span>
             </Link>
           );
         })}

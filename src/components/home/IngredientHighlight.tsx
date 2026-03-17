@@ -24,7 +24,7 @@ export default function IngredientHighlight({
           {heading}
         </h3>
       )}
-      <div className="flex gap-3 overflow-x-auto pb-2 -mx-6 px-6 scrollbar-hide">
+      <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-hide">
         {ingredients.map((ing) => {
           const relevantEffects = ing.effects.filter(
             (e) => concerns.includes(e.concern) && e.type === "good"
