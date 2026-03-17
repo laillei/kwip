@@ -10,7 +10,8 @@
     "helpfulIngredients": "Helpful Ingredients",
     "selectConcern": "Select your skin concern",
     "concernPrompt": "What's your skin concern?",
-    "emptyState": "No matching products found"
+    "emptyState": "No matching products found",
+    "shareConcern": "Share your routine"
   },
   "routine": {
     "buildCta": "Build My Routine",
