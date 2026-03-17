@@ -6,6 +6,7 @@
 import { readFileSync, readdirSync, writeFileSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
+import { createClient } from "@supabase/supabase-js";
 import type { StagedProduct } from "./run.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -95,6 +96,37 @@ async function main() {
   console.log(
     `products.json updated: ${existing.length} → ${merged.length} products`
   );
+
+  // Upsert to Supabase
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (supabaseUrl && supabaseKey) {
+    const supabase = createClient(supabaseUrl, supabaseKey);
+    const rows = cleanProducts.map((p) => ({
+      id: p.id,
+      slug: p.slug,
+      name: p.name,
+      brand: p.brand,
+      category: p.category,
+      image: p.image ?? null,
+      concerns: p.concerns ?? [],
+      ingredients: p.ingredients ?? [],
+      popularity: p.popularity,
+      purchase: p.purchase ?? {},
+      tags: p.tags ?? [],
+    }));
+
+    const { error } = await supabase.from("products").upsert(rows);
+    if (error) {
+      console.error("Supabase upsert failed:", error.message);
+      // Don't exit — products.json was already written successfully
+    } else {
+      console.log(`Supabase updated: ${rows.length} products upserted`);
+    }
+  } else {
+    console.log("Supabase env vars not set — skipping DB upsert");
+  }
 
   // Write PR body to file for GitHub Actions
   const prBody = generatePrBody(promoted);
