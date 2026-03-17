@@ -3,7 +3,7 @@ import type { ButtonHTMLAttributes } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const iconButtonVariants = cva(
-  "inline-flex items-center justify-center min-h-[44px] min-w-[44px] transition-[colors,transform] rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-900",
+  "inline-flex items-center justify-center min-h-[44px] min-w-[44px] transition-all duration-150 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-900",
   {
     variants: {
       variant: {
