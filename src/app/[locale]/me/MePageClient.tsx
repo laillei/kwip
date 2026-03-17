@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { Routine } from "@/lib/types";
 import { getRoutines, deleteRoutine } from "@/lib/localRoutines";
 import RoutineCard from "@/components/routine/RoutineCard";
-import { EmptyState } from "@/components/ui";
+import { EmptyState, buttonVariants } from "@/components/ui";
 
 interface Dict {
   myRoutines: string;
@@ -82,7 +82,7 @@ export default function MePageClient({ locale, dict }: Props) {
         <div className="mt-8">
           <Link
             href={`/${locale}`}
-            className="text-[15px] text-neutral-500 hover:text-neutral-900 min-h-[44px] flex items-center"
+            className={buttonVariants({ variant: "ghost" })}
           >
             {dict.backToHome}
           </Link>
