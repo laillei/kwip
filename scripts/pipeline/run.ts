@@ -128,7 +128,7 @@ async function main() {
       },
       brand: product.brand.id,
       category,
-      image: `/images/products/${product.slug}.svg`,
+      image: product.imageUrl ?? `/images/products/${product.slug}.svg`,
       concerns,
       ingredients: matchedIngredients,
       popularity: { rank: 999, updatedAt: today() },

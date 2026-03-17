@@ -1,6 +1,6 @@
 /**
- * Promote staged products into products.json.
- * Reads the latest staging file, filters by confidence, and merges.
+ * Promote staged products to Supabase.
+ * Reads the latest staging file, filters by confidence, deduplicates, and upserts.
  */
 
 import { readFileSync, readdirSync, writeFileSync } from "fs";
@@ -56,6 +56,9 @@ function generatePrBody(promoted: StagedProduct[]): string {
   body += `- [ ] Key ingredients are correctly identified\n`;
   body += `- [ ] Concern mappings make sense\n`;
   body += `- [ ] No duplicate products\n`;
+  body += `- [ ] Product exists on Shopee VN (check shopee.vn before approving)\n`;
+  body += `- [ ] Images are from official brand website (no Shopee/OliveYoung/Amazon)\n`;
+  body += `- [ ] Single product only (no bundles/sets/multi-product shots)\n`;
 
   return body;
 }
@@ -72,10 +75,29 @@ async function main() {
     readFileSync(stagingFile, "utf-8")
   );
 
-  // Filter: only promote products with confidence > "none"
-  const promoted = staged.filter((p) => p._meta.confidence !== "none");
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  // Dedup: load existing slugs from Supabase
+  const existingSlugs = new Set<string>();
+  if (supabaseUrl && supabaseKey) {
+    const supabase = createClient(supabaseUrl, supabaseKey);
+    const { data: existingRows } = await supabase.from("products").select("slug");
+    for (const row of existingRows ?? []) existingSlugs.add(row.slug);
+    console.log(`Loaded ${existingSlugs.size} existing slugs for dedup check`);
+  }
+
+  // Filter: only promote products with confidence > "none" and not already in DB
+  const promoted = staged.filter((p) => {
+    if (p._meta.confidence === "none") return false;
+    if (existingSlugs.has(p.slug)) {
+      console.log(`  [SKIP] Duplicate: ${p.slug}`);
+      return false;
+    }
+    return true;
+  });
   console.log(
-    `Promoting ${promoted.length} of ${staged.length} products (filtered out ${staged.length - promoted.length} with no confidence)`
+    `Promoting ${promoted.length} of ${staged.length} products (filtered out ${staged.length - promoted.length})`
   );
 
   if (promoted.length === 0) {
@@ -83,24 +105,10 @@ async function main() {
     process.exit(0);
   }
 
-  // Load existing products
-  const productsPath = join(dataDir, "products.json");
-  const existing = JSON.parse(readFileSync(productsPath, "utf-8"));
-
-  // Strip _meta before merging into products.json
+  // Strip _meta before upserting
   const cleanProducts = promoted.map(({ _meta, ...product }) => product);
 
-  // Merge
-  const merged = [...existing, ...cleanProducts];
-  writeFileSync(productsPath, JSON.stringify(merged, null, 2));
-  console.log(
-    `products.json updated: ${existing.length} → ${merged.length} products`
-  );
-
   // Upsert to Supabase
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
   if (supabaseUrl && supabaseKey) {
     const supabase = createClient(supabaseUrl, supabaseKey);
     const rows = cleanProducts.map((p) => ({
@@ -120,7 +128,7 @@ async function main() {
     const { error } = await supabase.from("products").upsert(rows);
     if (error) {
       console.error("Supabase upsert failed:", error.message);
-      // Don't exit — products.json was already written successfully
+      process.exit(1);
     } else {
       console.log(`Supabase updated: ${rows.length} products upserted`);
     }
