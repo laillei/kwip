@@ -5,7 +5,6 @@ import type { Product, Concern, Ingredient, Category } from "@/lib/types";
 import ConcernSelector from "./ConcernSelector";
 import IngredientHighlight from "./IngredientHighlight";
 import BuildRoutineButton from "./BuildRoutineButton";
-import ShareConcernButton from "./ShareConcernButton";
 import ProductCard from "@/components/products/ProductCard";
 import RoutineStepRow from "./RoutineStepRow";
 import { EmptyState } from "@/components/ui";
@@ -41,7 +40,6 @@ interface ConcernHubProps {
     helpfulIngredients: string;
     concernPrompt: string;
     buildCta: string;
-    shareConcern: string;
   };
 }
 
@@ -135,11 +133,6 @@ export default function ConcernHub({
               locale={locale}
               concern={selected!}
               label={dict.buildCta}
-            />
-            <ShareConcernButton
-              concern={selected!}
-              locale={locale}
-              label={dict.shareConcern}
             />
           </>
         )}

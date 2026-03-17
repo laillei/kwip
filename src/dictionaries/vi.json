@@ -10,8 +10,7 @@
     "helpfulIngredients": "Thành phần hữu ích",
     "selectConcern": "Chọn vấn đề da của bạn",
     "concernPrompt": "Bạn đang gặp vấn đề gì với da?",
-    "emptyState": "Không tìm thấy sản phẩm phù hợp",
-    "shareConcern": "Chia sẻ routine của bạn"
+    "emptyState": "Không tìm thấy sản phẩm phù hợp"
   },
   "routine": {
     "buildCta": "Xây dựng routine của bạn",

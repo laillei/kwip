@@ -90,7 +90,6 @@ export default async function Home({
               helpfulIngredients: dict.home.helpfulIngredients,
               concernPrompt: dict.home.concernPrompt,
               buildCta: dict.routine.buildCta,
-              shareConcern: dict.home.shareConcern,
             }}
           />
         </div>
