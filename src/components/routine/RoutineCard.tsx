@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { Routine } from "@/lib/types";
-import { Card, buttonVariants } from "@/components/ui";
+import { Card, Button, buttonVariants } from "@/components/ui";
 
 interface RoutineCardProps {
   routine: Routine;
@@ -39,12 +39,13 @@ export default function RoutineCard({
         >
           {dict.viewButton}
         </Link>
-        <button
+        <Button
+          variant="destructive"
+          fullWidth
           onClick={() => onDelete(routine.id)}
-          className="px-4 py-2 text-[15px] font-medium text-red-600 border border-red-100 rounded-xl hover:bg-red-50 transition-colors min-h-[44px] flex items-center justify-center"
         >
           {dict.deleteButton}
-        </button>
+        </Button>
       </div>
     </Card>
   );
