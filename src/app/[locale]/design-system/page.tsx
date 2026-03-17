@@ -15,7 +15,7 @@ import {
 export default function DesignSystemPage() {
   return (
     <main className="max-w-2xl mx-auto px-6 py-12">
-      <SectionHeader as="h1" className="mb-10 text-sm">
+      <SectionHeader as="h1" className="mb-10">
         Design System
       </SectionHeader>
 
