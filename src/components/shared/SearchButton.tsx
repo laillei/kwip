@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import SearchOverlay from "./SearchOverlay";
+import type { Product } from "@/lib/types";
 
-export default function SearchButton({ locale }: { locale: string }) {
+export default function SearchButton({ locale, products }: { locale: string; products: Product[] }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -27,7 +28,7 @@ export default function SearchButton({ locale }: { locale: string }) {
           <path d="m21 21-4.35-4.35" />
         </svg>
       </button>
-      {open && <SearchOverlay locale={locale} onClose={() => setOpen(false)} />}
+      {open && <SearchOverlay locale={locale} onClose={() => setOpen(false)} products={products} />}
     </>
   );
 }

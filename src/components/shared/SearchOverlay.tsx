@@ -3,13 +3,13 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import products from "@/data/products.json";
 import type { Product } from "@/lib/types";
 import { getBrandName } from "@/lib/brands";
 
 interface SearchOverlayProps {
   locale: string;
   onClose: () => void;
+  products: Product[];
 }
 
 const POPULAR_KEYWORDS_VI = [
@@ -21,12 +21,11 @@ const POPULAR_KEYWORDS_EN = [
   "Pad", "Mask", "Cleanser", "Niacinamide",
 ];
 
-const allProducts = (products as Product[]).sort(
-  (a, b) => a.popularity.rank - b.popularity.rank
-);
-const trendingProducts = allProducts.slice(0, 6);
-
-export default function SearchOverlay({ locale, onClose }: SearchOverlayProps) {
+export default function SearchOverlay({ locale, onClose, products }: SearchOverlayProps) {
+  const allProducts = [...products].sort(
+    (a, b) => a.popularity.rank - b.popularity.rank
+  );
+  const trendingProducts = allProducts.slice(0, 6);
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const loc = locale as "vi" | "en";
@@ -42,7 +41,7 @@ export default function SearchOverlay({ locale, onClose }: SearchOverlayProps) {
   const isSearching = query.length >= 2;
 
   const results = isSearching
-    ? (products as Product[]).filter((p) => {
+    ? products.filter((p) => {
         const q = query.toLowerCase();
         const name = (p.name[loc] || p.name.vi).toLowerCase();
         const brand = getBrandName(p.brand).toLowerCase();

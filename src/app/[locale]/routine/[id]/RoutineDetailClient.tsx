@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { getRoutineById } from "@/lib/localRoutines";
-import products from "@/data/products.json";
 import type { Product } from "@/lib/types";
 import type { Routine, RoutineProduct } from "@/lib/types";
 import ShareButton from "@/components/routine/ShareButton";
@@ -20,9 +19,10 @@ interface Props {
   locale: string;
   id: string;
   dict: Dict;
+  products: Product[];
 }
 
-export default function RoutineDetailClient({ locale, id, dict }: Props) {
+export default function RoutineDetailClient({ locale, id, dict, products }: Props) {
   const router = useRouter();
   const [routine, setRoutine] = useState<Routine | null>(null);
   const [loaded, setLoaded] = useState(false);
@@ -46,7 +46,7 @@ export default function RoutineDetailClient({ locale, id, dict }: Props) {
     );
   }
 
-  const allProducts = products as Product[];
+  const allProducts = products;
   const routineProducts = (routine.products as RoutineProduct[])
     .sort((a, b) => a.step - b.step)
     .map((rp) => ({
