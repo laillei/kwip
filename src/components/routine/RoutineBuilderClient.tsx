@@ -88,8 +88,6 @@ export default function RoutineBuilderClient({
     products.some((p) => p.category === step.category)
   );
 
-  void loc;
-
   return (
     <div className="min-h-screen bg-neutral-50">
       <div className="max-w-2xl mx-auto px-6 py-8">
@@ -129,7 +127,7 @@ export default function RoutineBuilderClient({
           ))}
         </div>
 
-        <div className="sticky bottom-6 mt-8">
+        <div className="sticky bottom-20 md:bottom-6 mt-8">
           <button
             onClick={handleSave}
             disabled={saving || totalSelected === 0 || !routineName.trim()}

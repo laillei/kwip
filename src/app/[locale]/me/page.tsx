@@ -42,6 +42,7 @@ export default async function MePage({
           emptyTitle: dict.routine.emptyTitle,
           emptyBody: dict.routine.emptyBody,
           emptyAction: dict.routine.emptyAction,
+          viewButton: dict.routine.viewButton,
           deleteButton: dict.routine.deleteButton,
           productsCount: dict.routine.productsCount,
           backToHome: dict.routine.backToHome,

@@ -137,6 +137,7 @@ export default function ConcernHub({
             />
             <ShareConcernButton
               concern={selected!}
+              locale={locale}
               label={dict.shareConcern}
             />
           </>

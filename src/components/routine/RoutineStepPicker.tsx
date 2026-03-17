@@ -28,10 +28,10 @@ export default function RoutineStepPicker({
         <span className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">
           {step}
         </span>
-        <h3 className="text-sm font-semibold text-neutral-900">{label}</h3>
+        <h3 className="text-[17px] font-semibold text-neutral-900">{label}</h3>
         {selectedIds.length > 0 && (
           <span className="text-xs text-emerald-600 font-medium">
-            {selectedIds.length} selected
+            {selectedIds.length} {locale === "vi" ? "đã chọn" : "selected"}
           </span>
         )}
       </div>

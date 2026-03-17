@@ -11,6 +11,7 @@ interface Dict {
   emptyTitle: string;
   emptyBody: string;
   emptyAction: string;
+  viewButton: string;
   deleteButton: string;
   productsCount: string;
   backToHome: string;
@@ -71,6 +72,7 @@ export default function MePageClient({ locale, dict }: Props) {
                 locale={locale}
                 onDelete={handleDelete}
                 dict={{
+                  viewButton: dict.viewButton,
                   deleteButton: dict.deleteButton,
                   productsCount: dict.productsCount,
                 }}

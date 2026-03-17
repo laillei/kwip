@@ -33,6 +33,8 @@ export async function GET(req: NextRequest) {
   const concernId = req.nextUrl.searchParams.get("concern");
   if (!concernId) return new Response("Missing concern param", { status: 400 });
 
+  const locale = req.nextUrl.searchParams.get("locale") ?? "vi";
+
   const concern = allConcerns.find((c) => c.id === concernId);
   if (!concern) return new Response("Concern not found", { status: 404 });
 
@@ -62,8 +64,8 @@ export async function GET(req: NextRequest) {
       );
       if (!effect) return null;
       return {
-        name: ing.name.vi,
-        reason: effect.reason.vi,
+        name: locale === "vi" ? ing.name.vi : ing.name.inci,
+        reason: effect.reason[locale as "vi" | "en"] ?? effect.reason.vi,
       };
     })
     .filter((i): i is { name: string; reason: string } => i !== null)
@@ -75,10 +77,10 @@ export async function GET(req: NextRequest) {
     products: products
       .filter((p) => p.category === step.category)
       .slice(0, 2)
-      .map((p) => p.name.vi || p.name.en || ""),
+      .map((p) => locale === "en" ? (p.name.en || p.name.vi || "") : (p.name.vi || p.name.en || "")),
   })).filter((g) => g.products.length > 0);
 
-  const concernLabel = concern.label.vi;
+  const concernLabel = concern.label[locale as "vi" | "en"] ?? concern.label.vi;
 
   return new ImageResponse(
     (
@@ -117,7 +119,7 @@ export async function GET(req: NextRequest) {
               marginBottom: "12px",
             }}
           >
-            Routine cho da
+            {locale === "vi" ? "Routine cho da" : "Routine for"}
           </span>
           <span
             style={{
@@ -153,7 +155,7 @@ export async function GET(req: NextRequest) {
                 textTransform: "uppercase",
               }}
             >
-              Thành phần chính
+              {locale === "vi" ? "Thành phần chính" : "Key Ingredients"}
             </span>
             {keyIngredients.map((ing, i) => (
               <div
@@ -246,7 +248,7 @@ export async function GET(req: NextRequest) {
             kwip.app
           </span>
           <span style={{ fontSize: 18, fontWeight: 400, color: "#A3A3A3" }}>
-            Được xây dựng dựa trên thành phần, không phải quảng cáo.
+            {locale === "vi" ? "Được xây dựng dựa trên thành phần, không phải quảng cáo." : "Built on ingredient science, not ads."}
           </span>
         </div>
       </div>

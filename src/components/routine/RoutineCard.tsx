@@ -10,6 +10,7 @@ interface RoutineCardProps {
   dict: {
     deleteButton: string;
     productsCount: string;
+    viewButton: string;
   };
 }
 
@@ -35,7 +36,7 @@ export default function RoutineCard({
           href={`/${locale}/routine/${routine.id}`}
           className="flex-1 text-center py-2 text-[15px] font-medium text-neutral-900 border border-neutral-200 rounded-xl hover:bg-neutral-50 transition-colors min-h-[44px] flex items-center justify-center"
         >
-          View
+          {dict.viewButton}
         </Link>
         <button
           onClick={() => onDelete(routine.id)}

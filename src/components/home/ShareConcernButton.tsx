@@ -4,10 +4,11 @@ import { useState } from "react";
 
 interface Props {
   concern: string;
+  locale: string;
   label: string; // from dict.home.shareConcern
 }
 
-export default function ShareConcernButton({ concern, label }: Props) {
+export default function ShareConcernButton({ concern, locale, label }: Props) {
   const [loading, setLoading] = useState(false);
   const sharingLabel = loading ? "..." : label;
 
@@ -15,7 +16,7 @@ export default function ShareConcernButton({ concern, label }: Props) {
     setLoading(true);
     try {
       const response = await fetch(
-        `/api/share-concern?concern=${encodeURIComponent(concern)}`
+        `/api/share-concern?concern=${encodeURIComponent(concern)}&locale=${encodeURIComponent(locale)}`
       );
       if (!response.ok) throw new Error("Failed to generate share card");
       const blob = await response.blob();

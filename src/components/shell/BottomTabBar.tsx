@@ -68,6 +68,7 @@ export default function BottomTabBar({ locale, navLabels }: Props) {
             <Link
               key={tab.href}
               href={tab.href}
+              aria-current={active ? "page" : undefined}
               className={`flex-1 flex flex-col items-center justify-center gap-0.5 min-h-[44px] transition-colors ${
                 active ? "text-neutral-900" : "text-neutral-400"
               }`}

@@ -191,7 +191,7 @@ export default async function ProductDetailPage({
                   </span>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
-                      <p className="text-sm font-semibold text-neutral-900">{detail.name.inci}</p>
+                      <p className="text-[13px] font-semibold text-neutral-900">{detail.name.inci}</p>
                       {detail.ewgGrade && (
                         <span className="shrink-0 text-xs font-medium text-neutral-500">
                           EWG {detail.ewgGrade}
