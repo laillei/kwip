@@ -72,7 +72,7 @@ export default function RoutineStepRow({
         {hasMore && !expanded && (
           <button
             onClick={() => setExpanded(true)}
-            className="mt-3 text-sm text-neutral-500 hover:text-neutral-900 transition-colors"
+            className="mt-3 text-[13px] text-neutral-500 hover:text-neutral-900 transition-colors"
           >
             + {products.length - DESKTOP_INITIAL} more
           </button>

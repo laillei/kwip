@@ -57,7 +57,7 @@ export default function RoutineStepPicker({
               />
               <p
                 className={`text-[13px] mt-1 line-clamp-2 ${
-                  isSelected ? "text-white" : "text-neutral-700"
+                  isSelected ? "text-white" : "text-neutral-900"
                 }`}
               >
                 {product.name[loc] || product.name.vi}

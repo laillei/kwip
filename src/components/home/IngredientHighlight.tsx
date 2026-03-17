@@ -43,7 +43,7 @@ export default function IngredientHighlight({
                 {displayName}
               </p>
               {loc === "vi" && (
-                <p className="text-xs font-medium text-neutral-500 mt-0.5">
+                <p className="text-[13px] font-medium text-neutral-500 mt-0.5">
                   {ing.name.inci}
                 </p>
               )}

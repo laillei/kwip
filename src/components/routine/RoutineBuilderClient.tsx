@@ -91,7 +91,7 @@ export default function RoutineBuilderClient({
 
   return (
     <div className="min-h-screen bg-neutral-50">
-      <div className="max-w-2xl mx-auto px-6 py-8">
+      <div className="max-w-2xl mx-auto px-4 py-8">
         <Button
           variant="ghost"
           onClick={() => router.push(`/${locale}`)}
@@ -131,7 +131,7 @@ export default function RoutineBuilderClient({
           ))}
         </div>
 
-        <div className="sticky bottom-20 md:bottom-6 mt-8">
+        <div className="sticky mt-8" style={{ bottom: "calc(49px + env(safe-area-inset-bottom) + 16px)" }}>
           <Button
             fullWidth
             size="lg"

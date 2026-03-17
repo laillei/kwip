@@ -41,7 +41,7 @@ export default function RoutineDetailClient({ locale, id, dict, products }: Prop
   if (!loaded || !routine) {
     return (
       <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
-        <div className="text-sm text-neutral-400">...</div>
+        <div className="text-[13px] text-neutral-400">...</div>
       </div>
     );
   }
@@ -63,7 +63,7 @@ export default function RoutineDetailClient({ locale, id, dict, products }: Prop
   return (
     <div className="min-h-screen bg-neutral-50">
       <div className="max-w-2xl mx-auto px-6 py-8">
-        <h1 className="text-2xl font-bold text-neutral-900 mb-1">
+        <h1 className="text-[22px] font-bold text-neutral-900 mb-1">
           {routine.name}
         </h1>
         <p className="text-[15px] text-neutral-500 mb-6">{routine.concern}</p>

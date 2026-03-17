@@ -48,7 +48,7 @@ export default function MePageClient({ locale, dict }: Props) {
 
   return (
     <div className="min-h-screen bg-neutral-50">
-      <div className="max-w-2xl mx-auto px-6 py-8">
+      <div className="max-w-2xl mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-[22px] font-bold text-neutral-900">{dict.myRoutines}</h1>
         </div>
