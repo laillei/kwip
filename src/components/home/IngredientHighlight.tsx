@@ -33,13 +33,13 @@ export default function IngredientHighlight({
           return (
             <div
               key={ing.id}
-              className="flex-shrink-0 w-[200px] bg-white rounded-xl p-3.5"
+              className="flex-shrink-0 w-[180px] bg-white rounded-xl p-3.5"
               style={{
                 boxShadow:
                   "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
               }}
             >
-              <p className="text-sm font-semibold text-neutral-900">
+              <p className="text-[15px] font-semibold text-neutral-900">
                 {displayName}
               </p>
               {loc === "vi" && (
@@ -48,7 +48,7 @@ export default function IngredientHighlight({
                 </p>
               )}
               {relevantEffects.length > 0 && (
-                <p className="text-sm text-neutral-600 mt-2 leading-relaxed line-clamp-2">
+                <p className="text-[13px] text-neutral-600 mt-2 leading-relaxed line-clamp-2">
                   {relevantEffects[0].reason[loc] || relevantEffects[0].reason.vi}
                 </p>
               )}
