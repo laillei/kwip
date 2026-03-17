@@ -13,6 +13,24 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const dataDir = join(__dirname, "../../src/data");
 const stagingDir = join(dataDir, "staging");
 
+/** Image sources that are NOT official brand websites. */
+const UNOFFICIAL_IMAGE_PATTERNS = [
+  "oliveyoung.com",
+  "hwahae.co.kr",
+  "amazon.com",
+  "holiholic.com",
+  "thankyouskin.com",
+  "masksheets.com",
+  "cloudfront.net",
+  "shopee",
+  "lazada",
+];
+
+function hasOfficialImage(image: string | null | undefined): boolean {
+  if (!image) return false;
+  return !UNOFFICIAL_IMAGE_PATTERNS.some((p) => image.includes(p));
+}
+
 function findLatestStagingFile(): string | null {
   try {
     const files = readdirSync(stagingDir)
@@ -87,11 +105,15 @@ async function main() {
     console.log(`Loaded ${existingSlugs.size} existing slugs for dedup check`);
   }
 
-  // Filter: only promote products with confidence > "none" and not already in DB
+  // Filter: only promote products that pass all checks
   const promoted = staged.filter((p) => {
     if (p._meta.confidence === "none") return false;
     if (existingSlugs.has(p.slug)) {
       console.log(`  [SKIP] Duplicate: ${p.slug}`);
+      return false;
+    }
+    if (!hasOfficialImage(p.image)) {
+      console.log(`  [SKIP] Unofficial image: ${p.slug} (${p.image})`);
       return false;
     }
     return true;
