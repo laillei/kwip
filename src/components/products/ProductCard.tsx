@@ -37,14 +37,14 @@ export default function ProductCard({
         />
       </div>
       <div className="px-3.5 pt-3 pb-3.5">
-        <p className="text-xs font-medium text-neutral-500 tracking-wide uppercase">
+        <p className="text-[13px] font-medium text-neutral-500 tracking-wide uppercase">
           {getBrandName(brand)}
         </p>
-        <p className="text-sm font-semibold text-neutral-900 leading-snug mt-1 line-clamp-2">
+        <p className="text-[15px] font-semibold text-neutral-900 leading-snug mt-1 line-clamp-2">
           {name}
         </p>
         {reason && (
-          <p className="text-xs text-neutral-500 mt-1.5 line-clamp-1">
+          <p className="text-[13px] text-neutral-500 mt-1.5 line-clamp-1">
             {reason}
           </p>
         )}

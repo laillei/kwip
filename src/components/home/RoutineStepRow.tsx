@@ -29,8 +29,9 @@ export default function RoutineStepRow({
 
   return (
     <section>
-      <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400 mb-3">
-        {step} · {label}
+      <h3 className="mb-3 flex items-center gap-2">
+        <span className="text-xs font-semibold uppercase tracking-wide text-neutral-400">{step}</span>
+        <span className="text-[17px] font-semibold text-neutral-900">{label}</span>
       </h3>
 
       {/* Mobile: horizontal scroll row */}
