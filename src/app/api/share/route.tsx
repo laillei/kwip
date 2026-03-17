@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFileSync } from "fs";
 import { join } from "path";
 import { NextRequest } from "next/server";
-import type { RoutineProduct, Product } from "@/lib/types";
+import type { RoutineProduct, Product, Concern } from "@/lib/types";
 import { createServerSupabaseClient } from "@/lib/supabase";
 
 export const runtime = "nodejs";
@@ -53,7 +53,7 @@ export async function GET(req: NextRequest) {
     return new Response("Missing data param", { status: 400 });
   }
 
-  let payload: { name: string; concern: string; products: RoutineProduct[] };
+  let payload: { name: string; concern: Concern; products: RoutineProduct[] };
   try {
     payload = JSON.parse(Buffer.from(raw, "base64url").toString("utf8"));
   } catch {
