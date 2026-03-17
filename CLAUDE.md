@@ -28,10 +28,28 @@ Not a catalog, not a review site — the shortest path from concern → understa
 /[locale]/products/[slug]     ← Detail: ingredient breakdown → purchase links
 ```
 
+## Execution Style
+- Always use **subagent-driven-development** for multi-step tasks — never ask which execution mode to use
+- Do NOT offer "parallel session" or other execution options — subagents only
+
+## Development Standard
+- Write code as a **senior Next.js/TypeScript developer**: type safety, performance, accessibility, security
+- No `any` types unless absolutely unavoidable (add eslint-disable comment with reason)
+- Server components by default — only use `"use client"` when interactivity requires it
+- Always verify with `npm run build` before calling work done — dev server is not the source of truth
+- Prefer editing existing files over creating new ones; no unnecessary abstractions
+
+## Design Standard
+- Act as a **senior UX/UI designer** applying Apple HIG (primary) + Material Design 3 (fallback)
+- Every UI change must respect the design system in `docs/design-system.md`
+- 44px minimum touch targets on all interactive elements — non-negotiable
+- Typography must follow the HIG scale defined in `docs/plans/2026-03-17-mobile-first-hig-design.md`
+- Run `/design-review` after any significant UI work to audit aesthetic + UX quality
+
 ## Key References
 - Full tech spec: `README.md`
 - **Product direction & strategy: `docs/product-brief.md` — READ THIS before any product decisions**
 - **Tactical requirements & launch scope: `docs/prd.md` — READ THIS before building any feature**
 - Design system & type scale: `docs/design-system.md`
 - Core vision: `docs/plans/2026-03-09-core-vision-design.md`
-- Data: `src/data/products.json`, `ingredients.json`, `concerns.json`
+- Data: Supabase PostgreSQL (concerns, ingredients, products tables) — see `src/lib/db.ts`
