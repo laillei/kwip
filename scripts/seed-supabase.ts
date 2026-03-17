@@ -8,7 +8,10 @@ import { createClient } from "@supabase/supabase-js";
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import "dotenv/config";
+import dotenv from "dotenv";
+
+// Load .env.local (Next.js convention)
+dotenv.config({ path: ".env.local" });
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const dataDir = join(__dirname, "../src/data");
