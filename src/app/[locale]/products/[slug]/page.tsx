@@ -87,7 +87,7 @@ export default async function ProductDetailPage({
       </div>
 
       <div className="min-h-screen bg-neutral-50">
-        <div className="max-w-3xl mx-auto pb-28">
+        <div className="max-w-3xl mx-auto md:pb-28">
 
           {/* Product hero */}
           <div className="px-6 md:px-8">
