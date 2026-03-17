@@ -1,8 +1,6 @@
 import { Suspense } from "react";
-import concerns from "@/data/concerns.json";
-import products from "@/data/products.json";
-import ingredients from "@/data/ingredients.json";
 import type { Product, Ingredient } from "@/lib/types";
+import { getAllProducts, getAllIngredients, getAllConcerns } from "@/lib/db";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/getLocalizedData";
 import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
@@ -20,7 +18,13 @@ export default async function Home({
   const dict = await getDictionary(locale as Locale);
   const loc = locale as Locale;
 
-  const allProducts = (products as Product[])
+  const [rawProducts, rawIngredients, rawConcerns] = await Promise.all([
+    getAllProducts(),
+    getAllIngredients(),
+    getAllConcerns(),
+  ]);
+
+  const allProducts = (rawProducts as Product[])
     .filter((p) => {
       const name = (p.name.en || p.name.vi || "").toLowerCase();
       return (
@@ -33,12 +37,12 @@ export default async function Home({
     })
     .sort((a, b) => a.popularity.rank - b.popularity.rank);
 
-  const concernData = concerns.map((c) => ({
+  const concernData = rawConcerns.map((c) => ({
     id: c.id as import("@/lib/types").Concern,
     label: t(c.label, loc),
     icon: c.icon,
     symptom: t(c.symptom, loc),
-    keyIngredientIds: c.keyIngredients,
+    keyIngredientIds: c.key_ingredients,
   }));
 
   return (
@@ -79,7 +83,7 @@ export default async function Home({
           <ConcernHub
             concerns={concernData}
             products={allProducts}
-            ingredients={ingredients as Ingredient[]}
+            ingredients={rawIngredients as Ingredient[]}
             locale={locale}
             dict={{
               emptyState: dict.products.emptyState,
