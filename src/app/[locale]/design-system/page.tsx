@@ -26,8 +26,16 @@ export default function DesignSystemPage() {
         </SectionHeader>
         <div className="space-y-4">
           <div>
+            <p className="text-[12px] text-neutral-400 mb-1">Large Title — 34px / font-bold / neutral-900</p>
+            <p className="text-[34px] font-bold text-neutral-900 leading-tight">Kwip</p>
+          </div>
+          <div>
             <p className="text-[12px] text-neutral-400 mb-1">Title 2 — 22px / font-bold / neutral-900</p>
             <p className="text-[22px] font-bold text-neutral-900">The skin problem solver</p>
+          </div>
+          <div>
+            <p className="text-[12px] text-neutral-400 mb-1">Title 3 — 20px / font-semibold / neutral-900</p>
+            <p className="text-[20px] font-semibold text-neutral-900">My Skincare Routine</p>
           </div>
           <div>
             <p className="text-[12px] text-neutral-400 mb-1">Headline — 17px / font-semibold / neutral-900</p>
@@ -38,6 +46,10 @@ export default function DesignSystemPage() {
             <p className="text-[17px] text-neutral-600">
               Exfoliates inside pores to reduce blackheads and prevent breakouts.
             </p>
+          </div>
+          <div>
+            <p className="text-[12px] text-neutral-400 mb-1">Callout — 16px / font-normal / neutral-600</p>
+            <p className="text-[16px] text-neutral-600">Helps with acne, pores, and uneven texture.</p>
           </div>
           <div>
             <p className="text-[12px] text-neutral-400 mb-1">Subhead — 15px / font-normal / neutral-500</p>
