@@ -6,11 +6,22 @@ import type { Routine } from "@/lib/types";
 import { getRoutines, deleteRoutine } from "@/lib/localRoutines";
 import RoutineCard from "@/components/routine/RoutineCard";
 
-interface Props {
-  locale: string;
+interface Dict {
+  myRoutines: string;
+  emptyTitle: string;
+  emptyBody: string;
+  emptyAction: string;
+  deleteButton: string;
+  productsCount: string;
+  backToHome: string;
 }
 
-export default function MePageClient({ locale }: Props) {
+interface Props {
+  locale: string;
+  dict: Dict;
+}
+
+export default function MePageClient({ locale, dict }: Props) {
   const [routines, setRoutines] = useState<Routine[]>([]);
   const [loaded, setLoaded] = useState(false);
 
@@ -20,8 +31,7 @@ export default function MePageClient({ locale }: Props) {
   }, []);
 
   function handleDelete(id: string) {
-    if (!confirm(locale === "vi" ? "Xoá routine này?" : "Delete this routine?"))
-      return;
+    if (!confirm(dict.deleteButton + "?")) return;
     deleteRoutine(id);
     setRoutines((prev) => prev.filter((r) => r.id !== id));
   }
@@ -34,33 +44,22 @@ export default function MePageClient({ locale }: Props) {
     );
   }
 
-  const emptyTitle =
-    locale === "vi"
-      ? "Routine của bạn sẽ được lưu tại đây."
-      : "Your routines will be saved here.";
-  const emptyBody =
-    locale === "vi"
-      ? "Bắt đầu từ trang chủ — chọn vấn đề da của bạn."
-      : "Start from home — pick your skin concern.";
-  const emptyAction = locale === "vi" ? "← Trang chủ" : "← Home";
-  const heading = locale === "vi" ? "Routine của tôi" : "My Routines";
-
   return (
     <div className="min-h-screen bg-neutral-50">
       <div className="max-w-2xl mx-auto px-6 py-8">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-2xl font-bold text-neutral-900">{heading}</h1>
+          <h1 className="text-2xl font-bold text-neutral-900">{dict.myRoutines}</h1>
         </div>
 
         {routines.length === 0 ? (
           <div className="text-center py-20">
-            <p className="text-neutral-900 font-medium mb-2">{emptyTitle}</p>
-            <p className="text-neutral-500 text-sm mb-6">{emptyBody}</p>
+            <p className="text-neutral-900 font-medium mb-2">{dict.emptyTitle}</p>
+            <p className="text-neutral-500 text-sm mb-6">{dict.emptyBody}</p>
             <Link
               href={`/${locale}`}
               className="text-sm font-medium text-neutral-900 underline"
             >
-              {emptyAction}
+              {dict.emptyAction}
             </Link>
           </div>
         ) : (
@@ -72,8 +71,8 @@ export default function MePageClient({ locale }: Props) {
                 locale={locale}
                 onDelete={handleDelete}
                 dict={{
-                  deleteButton: locale === "vi" ? "Xoá" : "Delete",
-                  productsCount: locale === "vi" ? "sản phẩm" : "products",
+                  deleteButton: dict.deleteButton,
+                  productsCount: dict.productsCount,
                 }}
               />
             ))}
@@ -85,7 +84,7 @@ export default function MePageClient({ locale }: Props) {
             href={`/${locale}`}
             className="text-sm text-neutral-500 hover:text-neutral-900"
           >
-            {locale === "vi" ? "← Trang chủ" : "← Home"}
+            {dict.backToHome}
           </Link>
         </div>
       </div>

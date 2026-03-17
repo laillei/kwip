@@ -31,11 +31,22 @@ export default async function MePage({
           >
             <path d="M15 18l-6-6 6-6" />
           </svg>
-          <span className="text-sm font-medium">{dict.routine.myRoutines}</span>
+          <span className="text-sm font-medium">{dict.routine.backToHome}</span>
         </Link>
       }
     >
-      <MePageClient locale={locale} />
+      <MePageClient
+        locale={locale}
+        dict={{
+          myRoutines: dict.routine.myRoutines,
+          emptyTitle: dict.routine.emptyTitle,
+          emptyBody: dict.routine.emptyBody,
+          emptyAction: dict.routine.emptyAction,
+          deleteButton: dict.routine.deleteButton,
+          productsCount: dict.routine.productsCount,
+          backToHome: dict.routine.backToHome,
+        }}
+      />
     </MobileShell>
   );
 }

@@ -37,7 +37,15 @@ export default async function RoutineDetailPage({
         </Link>
       }
     >
-      <RoutineDetailClient locale={locale} id={id} />
+      <RoutineDetailClient
+        locale={locale}
+        id={id}
+        dict={{
+          shareButton: dict.routine.shareButton,
+          sharing: dict.routine.sharing,
+          shareCardTagline: dict.routine.shareCardTagline,
+        }}
+      />
     </MobileShell>
   );
 }

@@ -10,12 +10,19 @@ import type { Product } from "@/lib/types";
 import type { Routine, RoutineProduct } from "@/lib/types";
 import ShareButton from "@/components/routine/ShareButton";
 
+interface Dict {
+  shareButton: string;
+  sharing: string;
+  shareCardTagline: string;
+}
+
 interface Props {
   locale: string;
   id: string;
+  dict: Dict;
 }
 
-export default function RoutineDetailClient({ locale, id }: Props) {
+export default function RoutineDetailClient({ locale, id, dict }: Props) {
   const router = useRouter();
   const [routine, setRoutine] = useState<Routine | null>(null);
   const [loaded, setLoaded] = useState(false);
@@ -48,10 +55,10 @@ export default function RoutineDetailClient({ locale, id }: Props) {
     }))
     .filter((rp): rp is typeof rp & { product: Product } => !!rp.product);
 
-  const shareDict =
-    loc === "vi"
-      ? { shareButton: "Chia sẻ", sharing: "Đang tạo ảnh..." }
-      : { shareButton: "Share", sharing: "Generating..." };
+  const shareDict = {
+    shareButton: dict.shareButton,
+    sharing: dict.sharing,
+  };
 
   return (
     <div className="min-h-screen bg-neutral-50">
@@ -95,9 +102,7 @@ export default function RoutineDetailClient({ locale, id }: Props) {
         </div>
 
         <p className="text-xs text-neutral-400 text-center mt-12">
-          {loc === "vi"
-            ? "Routine của tôi — được xây dựng dựa trên thành phần, không phải quảng cáo."
-            : "My routine — built on ingredient science, not ads."}
+          {dict.shareCardTagline}
         </p>
         <p className="text-xs text-neutral-400 text-center mt-1 font-medium">
           kwip.app
