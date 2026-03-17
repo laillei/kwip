@@ -64,6 +64,29 @@ export async function GET(req: NextRequest) {
   const { data: productsData } = await supabase.from("products").select("*");
   const products = (productsData ?? []) as Product[];
 
+  // Fetch concern's key ingredient IDs
+  const { data: concernData } = await supabase
+    .from("concerns")
+    .select("key_ingredients")
+    .eq("id", payload.concern)
+    .single();
+
+  const keyIngredientIds: string[] = concernData?.key_ingredients ?? [];
+
+  // Fetch INCI names for up to 3 key ingredients
+  let ingredientsLine = "";
+  if (keyIngredientIds.length > 0) {
+    const { data: ingredientData } = await supabase
+      .from("ingredients")
+      .select("name")
+      .in("id", keyIngredientIds.slice(0, 3));
+    if (ingredientData && ingredientData.length > 0) {
+      ingredientsLine = (ingredientData as { name: { inci: string } }[])
+        .map((i) => i.name.inci)
+        .join(" · ");
+    }
+  }
+
   const routineProducts = payload.products
     .sort((a, b) => a.step - b.step)
     .map((rp) => ({
@@ -88,38 +111,53 @@ export async function GET(req: NextRequest) {
           fontFamily: "Noto Sans",
         }}
       >
+        {/* Top: header + product list */}
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", marginBottom: "52px" }}>
-            <span style={{ fontSize: 44, fontWeight: 700, color: "#171717" }}>
+          {/* Kwip overline */}
+          <div style={{ display: "flex", marginBottom: "40px" }}>
+            <span style={{ fontSize: 28, fontWeight: 400, color: "#A3A3A3" }}>
               Kwip
             </span>
           </div>
 
+          {/* Hero: routine name + concern + ingredients */}
           <div
-            style={{ display: "flex", flexDirection: "column", marginBottom: "40px", gap: 12 }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              marginBottom: "48px",
+              gap: 16,
+            }}
           >
             <span
               style={{
-                fontSize: 60,
+                fontSize: 72,
                 fontWeight: 700,
                 color: "#171717",
-                lineHeight: 1.15,
+                lineHeight: 1.1,
                 wordBreak: "break-all",
               }}
             >
               {payload.name}
             </span>
             <span style={{ fontSize: 28, fontWeight: 400, color: "#A3A3A3" }}>
-              {"Routine cho da " + (CONCERN_LABELS[payload.concern] ?? payload.concern).toLowerCase()}
+              {"Routine cho da " +
+                (CONCERN_LABELS[payload.concern] ?? payload.concern).toLowerCase()}
             </span>
+            {ingredientsLine ? (
+              <span style={{ fontSize: 26, fontWeight: 400, color: "#A3A3A3" }}>
+                {ingredientsLine}
+              </span>
+            ) : null}
           </div>
 
+          {/* Product list */}
           <div
             style={{
               display: "flex",
               flexDirection: "column",
               backgroundColor: "white",
-              borderRadius: 24,
+              borderRadius: 28,
             }}
           >
             {routineProducts.map((rp, index) => {
@@ -133,17 +171,17 @@ export async function GET(req: NextRequest) {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: 28,
-                      padding: "28px 36px",
+                      gap: 32,
+                      padding: "36px 40px",
                     }}
                   >
                     {imgSrc ? (
                       <img
                         src={imgSrc}
-                        width={88}
-                        height={88}
+                        width={112}
+                        height={112}
                         style={{
-                          borderRadius: 16,
+                          borderRadius: 20,
                           objectFit: "cover",
                           flexShrink: 0,
                         }}
@@ -151,9 +189,9 @@ export async function GET(req: NextRequest) {
                     ) : (
                       <div
                         style={{
-                          width: 88,
-                          height: 88,
-                          borderRadius: 16,
+                          width: 112,
+                          height: 112,
+                          borderRadius: 20,
                           backgroundColor: "#F5F5F5",
                           flexShrink: 0,
                           display: "flex",
@@ -164,44 +202,54 @@ export async function GET(req: NextRequest) {
                       style={{
                         display: "flex",
                         flexDirection: "column",
-                        gap: 4,
+                        gap: 6,
                         flex: 1,
                       }}
                     >
-                      <span style={{ fontSize: 24, fontWeight: 400, color: "#A3A3A3" }}>
+                      <span
+                        style={{ fontSize: 24, fontWeight: 400, color: "#A3A3A3" }}
+                      >
                         {CATEGORY_NAMES[rp.category] ?? rp.category}
                       </span>
-                      <span style={{ fontSize: 30, fontWeight: 700, color: "#171717" }}>
+                      <span
+                        style={{ fontSize: 32, fontWeight: 700, color: "#171717" }}
+                      >
                         {rp.product.name.vi ?? rp.product.name.en}
                       </span>
-                      <span style={{ fontSize: 24, fontWeight: 400, color: "#A3A3A3" }}>
+                      <span
+                        style={{ fontSize: 24, fontWeight: 400, color: "#A3A3A3" }}
+                      >
                         {rp.product.brand}
                       </span>
                     </div>
                   </div>
-                  {index < routineProducts.length - 1 && (
+                  {index < routineProducts.length - 1 ? (
                     <div
                       style={{
                         height: 1,
                         backgroundColor: "#F5F5F5",
-                        marginLeft: 36,
-                        marginRight: 36,
+                        marginLeft: 40,
+                        marginRight: 40,
                         display: "flex",
                       }}
                     />
-                  )}
+                  ) : null}
                 </div>
               );
             })}
           </div>
         </div>
 
+        {/* Footer */}
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           <span style={{ fontSize: 26, fontWeight: 700, color: "#171717" }}>
             Kwip
           </span>
           <span style={{ fontSize: 22, fontWeight: 400, color: "#A3A3A3" }}>
             Được xây dựng dựa trên thành phần, không phải quảng cáo.
+          </span>
+          <span style={{ fontSize: 22, fontWeight: 400, color: "#A3A3A3" }}>
+            kwip.app
           </span>
         </div>
       </div>
