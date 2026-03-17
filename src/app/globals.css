@@ -11,6 +11,14 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* Reset mobile shell padding on desktop — inline styles cannot be overridden by Tailwind */
+  @media (min-width: 768px) {
+    .mobile-shell-main {
+      padding-bottom: 0 !important;
+      padding-top: 0 !important;
+    }
+  }
+
   /* Hide scrollbar for horizontal scroll containers */
   .no-scrollbar::-webkit-scrollbar {
     display: none;

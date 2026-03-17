@@ -59,6 +59,11 @@
     "grid": "Lưới",
     "ranking": "Xếp hạng"
   },
+  "nav": {
+    "explore": "Khám phá",
+    "routine": "Quy trình",
+    "me": "Của tôi"
+  },
   "notFound": {
     "title": "404",
     "message": "Trang không tồn tại",

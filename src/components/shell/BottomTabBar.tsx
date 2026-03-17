@@ -3,17 +3,24 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-interface Props {
-  locale: string;
+interface NavLabels {
+  explore: string;
+  routine: string;
+  me: string;
 }
 
-export default function BottomTabBar({ locale }: Props) {
+interface Props {
+  locale: string;
+  navLabels: NavLabels;
+}
+
+export default function BottomTabBar({ locale, navLabels }: Props) {
   const pathname = usePathname();
 
   const tabs = [
     {
       href: `/${locale}`,
-      label: "Explore",
+      label: navLabels.explore,
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
@@ -23,7 +30,7 @@ export default function BottomTabBar({ locale }: Props) {
     },
     {
       href: `/${locale}/routine/new`,
-      label: "Routine",
+      label: navLabels.routine,
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <rect x="3" y="3" width="18" height="18" rx="3" />
@@ -33,7 +40,7 @@ export default function BottomTabBar({ locale }: Props) {
     },
     {
       href: `/${locale}/me`,
-      label: "Me",
+      label: navLabels.me,
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="8" r="4" />

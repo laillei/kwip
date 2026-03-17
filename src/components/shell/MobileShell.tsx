@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import BottomTabBar from "./BottomTabBar";
 import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
 import AuthButton from "@/components/shared/AuthButton";
+import { getDictionary } from "@/lib/i18n";
+import { type Locale } from "@/lib/i18n";
 
 interface Props {
   children: React.ReactNode;
@@ -11,13 +13,20 @@ interface Props {
   hideHeader?: boolean;
 }
 
-export default function MobileShell({
+export default async function MobileShell({
   children,
   locale,
   headerRight,
   headerLeft,
   hideHeader = false,
 }: Props) {
+  const dict = await getDictionary(locale as Locale);
+  const navLabels = {
+    explore: dict.nav.explore,
+    routine: dict.nav.routine,
+    me: dict.nav.me,
+  };
+
   return (
     <>
       {/* Compact fixed header — mobile */}
@@ -49,8 +58,9 @@ export default function MobileShell({
       )}
 
       {/* Content area — padded for header + tab bar on mobile */}
-      <main
-        className="md:pt-0"
+      <div
+        role="main"
+        className="mobile-shell-main"
         style={{
           paddingTop: hideHeader
             ? "env(safe-area-inset-top)"
@@ -59,9 +69,9 @@ export default function MobileShell({
         }}
       >
         {children}
-      </main>
+      </div>
 
-      <BottomTabBar locale={locale} />
+      <BottomTabBar locale={locale} navLabels={navLabels} />
     </>
   );
 }

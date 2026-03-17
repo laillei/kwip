@@ -59,6 +59,11 @@
     "grid": "Grid",
     "ranking": "Ranking"
   },
+  "nav": {
+    "explore": "Explore",
+    "routine": "Routine",
+    "me": "Me"
+  },
   "notFound": {
     "title": "404",
     "message": "Page not found",
