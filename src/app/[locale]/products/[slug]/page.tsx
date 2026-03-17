@@ -106,10 +106,10 @@ export default async function ProductDetailPage({
                 />
               </div>
               <div className="px-6 pt-5 pb-6">
-                <p className="text-xs font-medium tracking-wide text-neutral-400 uppercase">
+                <p className="text-[13px] font-medium tracking-wide text-neutral-400 uppercase">
                   {getBrandName(product.brand)}
                 </p>
-                <h1 className="text-lg font-semibold leading-tight mt-1.5 text-neutral-900">
+                <h1 className="text-[22px] font-bold leading-tight mt-1.5 text-neutral-900">
                   {product.name[loc] || product.name.vi}
                 </h1>
                 <div className="flex items-center gap-2 mt-3">
@@ -144,7 +144,7 @@ export default async function ProductDetailPage({
                   style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}
                 >
                   <div className="flex items-center justify-between">
-                    <p className="text-sm font-semibold text-neutral-900">{detail.name.inci}</p>
+                    <p className="text-[15px] font-semibold text-neutral-900">{detail.name.inci}</p>
                     {detail.ewgGrade && (
                       <span className="shrink-0 ml-3 text-xs font-medium text-neutral-500 bg-neutral-100 rounded-full px-2.5 py-0.5">
                         EWG {detail.ewgGrade}
@@ -154,7 +154,7 @@ export default async function ProductDetailPage({
                   {loc !== "en" && (
                     <p className="text-xs font-medium text-neutral-500 mt-0.5">{detail.name.vi}</p>
                   )}
-                  <p className="text-sm text-neutral-600 mt-2.5 leading-relaxed">
+                  <p className="text-[15px] text-neutral-600 mt-2.5 leading-relaxed">
                     {t(detail.description, loc)}
                   </p>
                   {detail.effects.length > 0 && (
@@ -185,7 +185,7 @@ export default async function ProductDetailPage({
             </h2>
             <div className="rounded-2xl bg-white overflow-hidden divide-y divide-neutral-100" style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}>
               {allIngredients.map(({ ingredientId, order, detail }) => (
-                <div key={ingredientId} className="flex items-start gap-3.5 px-5 py-3.5">
+                <div key={ingredientId} className="flex items-start gap-3.5 px-5 py-3.5 min-h-[44px]">
                   <span className="text-xs font-medium text-neutral-400 w-5 shrink-0 pt-px text-right tabular-nums">
                     {order}
                   </span>
@@ -240,7 +240,7 @@ export default async function ProductDetailPage({
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 rounded-2xl bg-neutral-900 text-white text-center text-sm font-medium py-3.5 transition-all duration-200 hover:bg-neutral-800 active:scale-[0.98]"
+                  className="flex-1 rounded-2xl bg-neutral-900 text-white text-center text-[15px] font-semibold py-3.5 transition-all duration-200 hover:bg-neutral-800 active:scale-[0.98]"
                 >
                   {platform}
                 </a>
