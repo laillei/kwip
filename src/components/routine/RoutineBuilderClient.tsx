@@ -6,6 +6,7 @@ import type { Product, Category } from "@/lib/types";
 import type { RoutineProduct } from "@/lib/types";
 import { saveRoutine } from "@/lib/localRoutines";
 import RoutineStepPicker from "./RoutineStepPicker";
+import { Button, Input } from "@/components/ui";
 
 const ROUTINE_STEPS: { category: Category; step: number; label: Record<string, string> }[] = [
   { category: "cleanser", step: 1, label: { en: "Cleanse", vi: "Làm sạch" } },
@@ -108,12 +109,11 @@ export default function RoutineBuilderClient({
           <p className="text-[15px] text-neutral-500 mb-6">{concernLabel}</p>
         )}
 
-        <input
-          type="text"
+        <Input
           value={routineName}
           onChange={(e) => setRoutineName(e.target.value)}
           placeholder={dict.namePlaceholder}
-          className="w-full px-4 py-3 rounded-xl border border-neutral-200 text-neutral-900 text-base font-medium focus:outline-none focus:ring-2 focus:ring-neutral-900 mb-8 min-h-[44px]"
+          className="mb-8"
         />
 
         <div className="space-y-8">
@@ -131,13 +131,14 @@ export default function RoutineBuilderClient({
         </div>
 
         <div className="sticky bottom-20 md:bottom-6 mt-8">
-          <button
+          <Button
+            fullWidth
+            size="lg"
             onClick={handleSave}
             disabled={saving || totalSelected === 0 || !routineName.trim()}
-            className="w-full py-4 bg-neutral-900 text-white text-base font-semibold rounded-xl disabled:opacity-40 disabled:cursor-not-allowed hover:bg-neutral-700 transition-colors"
           >
             {saving ? dict.saving : `${dict.saveButton} (${totalSelected})`}
-          </button>
+          </Button>
         </div>
       </div>
     </div>

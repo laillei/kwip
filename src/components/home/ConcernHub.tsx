@@ -8,6 +8,7 @@ import BuildRoutineButton from "./BuildRoutineButton";
 import ShareConcernButton from "./ShareConcernButton";
 import ProductCard from "@/components/products/ProductCard";
 import RoutineStepRow from "./RoutineStepRow";
+import { EmptyState } from "@/components/ui";
 
 // Routine steps in correct Korean skincare order
 const routineSteps: { category: Category; label: Record<string, string>; step: number }[] = [
@@ -161,10 +162,7 @@ export default function ConcernHub({
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center py-20">
-            <p className="text-neutral-400 text-2xl mb-3">🔍</p>
-            <p className="text-[17px] text-neutral-600">{dict.emptyState}</p>
-          </div>
+          <EmptyState icon="🔍" title={dict.emptyState} />
         )
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { Routine } from "@/lib/types";
+import { Button } from "@/components/ui";
 
 interface ShareButtonProps {
   routine: Routine;
@@ -55,12 +56,13 @@ export default function ShareButton({ routine, dict }: ShareButtonProps) {
   };
 
   return (
-    <button
+    <Button
+      variant="secondary"
+      fullWidth
       onClick={handleShare}
       disabled={loading}
-      className="flex-1 text-center py-3 text-[15px] font-medium text-neutral-900 border border-neutral-200 rounded-xl hover:bg-neutral-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] flex items-center justify-center"
     >
       {loading ? dict.sharing : dict.shareButton}
-    </button>
+    </Button>
   );
 }

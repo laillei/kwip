@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui";
 
 interface BuildRoutineButtonProps {
   locale: string;
@@ -8,19 +9,15 @@ interface BuildRoutineButtonProps {
   label: string;
 }
 
-export default function BuildRoutineButton({
-  locale,
-  concern,
-  label,
-}: BuildRoutineButtonProps) {
+export default function BuildRoutineButton({ locale, concern, label }: BuildRoutineButtonProps) {
   const router = useRouter();
-
   return (
-    <button
+    <Button
+      fullWidth
+      className="mt-4"
       onClick={() => router.push(`/${locale}/routine/new?concern=${concern}`)}
-      className="w-full mt-4 py-3 px-4 bg-neutral-900 text-white text-sm font-medium rounded-xl hover:bg-neutral-700 transition-colors"
     >
       {label}
-    </button>
+    </Button>
   );
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Routine } from "@/lib/types";
 import { getRoutines, deleteRoutine } from "@/lib/localRoutines";
 import RoutineCard from "@/components/routine/RoutineCard";
+import { EmptyState } from "@/components/ui";
 
 interface Dict {
   myRoutines: string;
@@ -53,16 +54,13 @@ export default function MePageClient({ locale, dict }: Props) {
         </div>
 
         {routines.length === 0 ? (
-          <div className="text-center py-20">
-            <p className="text-neutral-900 font-medium mb-2">{dict.emptyTitle}</p>
-            <p className="text-neutral-500 text-[15px] mb-6">{dict.emptyBody}</p>
-            <Link
-              href={`/${locale}`}
-              className="text-[15px] font-medium text-neutral-900 underline min-h-[44px] inline-flex items-center"
-            >
-              {dict.emptyAction}
-            </Link>
-          </div>
+          <EmptyState
+            icon="🌿"
+            title={dict.emptyTitle}
+            body={dict.emptyBody}
+            actionLabel={dict.emptyAction}
+            actionHref={`/${locale}`}
+          />
         ) : (
           <div className="space-y-4">
             {routines.map((routine) => (

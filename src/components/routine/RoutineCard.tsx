@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import type { Routine } from "@/lib/types";
+import { Card, buttonVariants } from "@/components/ui";
 
 interface RoutineCardProps {
   routine: Routine;
@@ -21,7 +22,7 @@ export default function RoutineCard({
   dict,
 }: RoutineCardProps) {
   return (
-    <div className="bg-white rounded-2xl border border-neutral-100 p-5 space-y-3">
+    <Card padding="md" className="space-y-3">
       <div>
         <h3 className="text-base font-semibold text-neutral-900">
           {routine.name}
@@ -34,7 +35,7 @@ export default function RoutineCard({
       <div className="flex gap-2">
         <Link
           href={`/${locale}/routine/${routine.id}`}
-          className="flex-1 text-center py-2 text-[15px] font-medium text-neutral-900 border border-neutral-200 rounded-xl hover:bg-neutral-50 transition-colors min-h-[44px] flex items-center justify-center"
+          className={buttonVariants({ variant: "secondary", fullWidth: true })}
         >
           {dict.viewButton}
         </Link>
@@ -45,6 +46,6 @@ export default function RoutineCard({
           {dict.deleteButton}
         </button>
       </div>
-    </div>
+    </Card>
   );
 }

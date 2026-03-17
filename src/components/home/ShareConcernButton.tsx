@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Button } from "@/components/ui";
 
 interface Props {
   concern: string;
@@ -48,10 +49,11 @@ export default function ShareConcernButton({ concern, locale, label }: Props) {
   };
 
   return (
-    <button
+    <Button
+      variant="secondary"
+      fullWidth
       onClick={handleShare}
       disabled={loading}
-      className="w-full py-3 text-[15px] font-medium text-neutral-500 border border-neutral-200 rounded-xl hover:bg-neutral-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] flex items-center justify-center gap-2"
     >
       <svg
         width="16"
@@ -66,6 +68,6 @@ export default function ShareConcernButton({ concern, locale, label }: Props) {
         <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13" />
       </svg>
       {sharingLabel}
-    </button>
+    </Button>
   );
 }
