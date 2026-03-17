@@ -1,9 +1,8 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getDictionary, type Locale } from "@/lib/i18n";
-import products from "@/data/products.json";
-import concerns from "@/data/concerns.json";
 import type { Product } from "@/lib/types";
+import { getAllProducts, getAllConcerns } from "@/lib/db";
 import RoutineBuilderClient from "@/components/routine/RoutineBuilderClient";
 import MobileShell from "@/components/shell/MobileShell";
 
@@ -22,7 +21,13 @@ export default async function RoutineNewPage({
   }
 
   const dict = await getDictionary(locale as Locale);
-  const allProducts = (products as Product[]).filter((p) => {
+
+  const [allProductsRaw, allConcernsRaw] = await Promise.all([
+    getAllProducts(),
+    getAllConcerns(),
+  ]);
+
+  const allProducts = (allProductsRaw as Product[]).filter((p) => {
     const name = (p.name.en || p.name.vi || "").toLowerCase();
     return (
       !name.includes("[deal]") &&
@@ -33,7 +38,7 @@ export default async function RoutineNewPage({
     );
   });
 
-  const concernData = concerns.find((c) => c.id === concern);
+  const concernData = allConcernsRaw.find((c) => c.id === concern);
   const concernLabel =
     locale === "vi" ? concernData?.label?.vi : concernData?.label?.en;
 
