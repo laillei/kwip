@@ -34,10 +34,10 @@ export default function ConcernSelector({
               }`}
               style={!isActive ? { boxShadow: "0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06)" } : undefined}
             >
-              <p className={`text-sm font-semibold leading-tight whitespace-nowrap ${isActive ? "text-white" : "text-neutral-900"}`}>
+              <p className={`text-[15px] font-semibold leading-tight whitespace-nowrap ${isActive ? "text-white" : "text-neutral-900"}`}>
                 {c.label}
               </p>
-              <p className={`text-xs mt-0.5 leading-tight whitespace-nowrap ${isActive ? "text-neutral-300" : "text-neutral-400"}`}>
+              <p className={`text-[13px] mt-0.5 leading-tight whitespace-nowrap ${isActive ? "text-neutral-300" : "text-neutral-400"}`}>
                 {c.symptom}
               </p>
             </button>

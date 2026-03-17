@@ -113,7 +113,7 @@ export default function ConcernHub({
   return (
     <div className="space-y-5">
       <div className="space-y-3">
-        <p className="text-base font-medium text-neutral-900">
+        <p className="text-[17px] font-medium text-neutral-900">
           {dict.concernPrompt}
         </p>
         <ConcernSelector
