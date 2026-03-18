@@ -86,7 +86,6 @@ export default async function Home({
             locale={locale}
             dict={{
               emptyState: dict.products.emptyState,
-              helpfulIngredients: dict.home.helpfulIngredients,
               concernPrompt: dict.home.concernPrompt,
               buildCta: dict.routine.buildCta,
               pickConcernPrompt: dict.home.pickConcernPrompt,

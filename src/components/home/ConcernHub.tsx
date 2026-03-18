@@ -36,7 +36,6 @@ interface ConcernHubProps {
   locale: string;
   dict: {
     emptyState: string;
-    helpfulIngredients: string;
     concernPrompt: string;
     buildCta: string;
     pickConcernPrompt: string;
