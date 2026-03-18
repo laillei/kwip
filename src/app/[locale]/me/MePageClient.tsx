@@ -48,7 +48,7 @@ export default function MePageClient({ locale, dict }: Props) {
   return (
     <div className="min-h-screen bg-neutral-50 flex flex-col">
       {routines.length === 0 ? (
-        <div className="flex-1 flex items-center justify-center px-4 pb-0 pt-10">
+        <div className="flex-1 flex items-center justify-center px-4 pb-0 pt-16">
           <EmptyState
             icon="🌿"
             title={dict.emptyTitle}
