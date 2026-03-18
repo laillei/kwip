@@ -6,7 +6,7 @@ import { t } from "@/lib/getLocalizedData";
 import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
 import SearchButton from "@/components/shared/SearchButton";
 import AuthButton from "@/components/shared/AuthButton";
-import ConcernHub from "@/components/home/ConcernHub";
+import DiscoveryHub from "@/components/home/DiscoveryHub";
 import MobileShell from "@/components/shell/MobileShell";
 
 export default async function Home({
@@ -79,17 +79,16 @@ export default async function Home({
 
         {/* Content */}
         <div className="max-w-6xl mx-auto px-4 md:px-8 pt-4 md:pt-2">
-          <ConcernHub
+          <DiscoveryHub
             concerns={concernData}
             products={allProducts}
             ingredients={rawIngredients as Ingredient[]}
             locale={locale}
             dict={{
+              allItems: dict.home.allItems,
               emptyState: dict.products.emptyState,
-              concernPrompt: dict.home.concernPrompt,
-              buildCta: dict.routine.buildCta,
-              pickConcernPrompt: dict.home.pickConcernPrompt,
-              allSteps: dict.home.allSteps,
+              savedToast: dict.home.savedToast,
+              productsCount: dict.home.productsCount,
             }}
           />
         </div>
