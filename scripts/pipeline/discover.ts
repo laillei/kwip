@@ -43,7 +43,7 @@ const FETCH_HEADERS = {
 
 // ─── Shopify Discovery ───────────────────────────────────────────────
 
-async function fetchShopifyProducts(
+export async function fetchShopifyProducts(
   domain: string
 ): Promise<ShopifyProduct[]> {
   const all: ShopifyProduct[] = [];

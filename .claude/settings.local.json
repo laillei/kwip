@@ -62,7 +62,68 @@
       "mcp__claude_ai_Excalidraw__read_me",
       "Read(//Users/seongyeonhwang/.claude/**)",
       "Read(//Users/seongyeonhwang/.claude/plugins/**)",
-      "Bash(npx skills:*)"
+      "Bash(npx skills:*)",
+      "mcp__ide__getDiagnostics",
+      "WebFetch(domain:www.drjart.com)",
+      "WebFetch(domain:us.drjart.com)",
+      "WebFetch(domain:heimish.com)",
+      "WebFetch(domain:misshaus.com)",
+      "WebFetch(domain:int.mamonde.com)",
+      "WebFetch(domain:www.etudehouse.com)",
+      "WebFetch(domain:en.missha.eu)",
+      "WebFetch(domain:nudieglow.com)",
+      "WebFetch(domain:cnpcosmetic.com)",
+      "WebFetch(domain:global.amoremall.com)",
+      "WebFetch(domain:missha.com)",
+      "Bash(grep -r \"cicapair-intensive-soothing-pad\\\\|cicapair-cream\\\\|cicapair-serum\\\\|cicapair-toner\\\\|every-sun-day\\\\|vital-hydra\" /Users/seongyeonhwang/Projects/Kwip/src --include=*.json -l)",
+      "WebFetch(domain:heimish.us)",
+      "Bash(grep -ri \"dr-jart\\\\|drjart\\\\|ceramidin\\\\|cicapair\" /Users/seongyeonhwang/Projects/Kwip/src --include=*.ts --include=*.tsx --include=*.json -l)",
+      "WebFetch(domain:www.hookskorea.com)",
+      "WebFetch(domain:smkoreabeauty.com)",
+      "WebFetch(domain:www.etude.com)",
+      "WebFetch(domain:www.mamonde.com)",
+      "WebFetch(domain:int.etude.com)",
+      "WebFetch(domain:www.mastersbeautystore.com)",
+      "WebFetch(domain:web.archive.org)",
+      "WebFetch(domain:luxebykan.com)",
+      "WebFetch(domain:www.glowhour.com)",
+      "WebFetch(domain:theilliyoon.com)",
+      "WebFetch(domain:sokoskins.shop)",
+      "Bash(grep -ri \"cicapair.*pad\\\\|pad.*cicapair\\\\|every.sun.day\\\\|every-sun-day\" /Users/seongyeonhwang/Projects/Kwip/src --include=*.ts --include=*.tsx --include=*.json)",
+      "Bash(grep -r heimish /Users/seongyeonhwang/Projects/Kwip/src --include=*.json -l)",
+      "WebFetch(domain:sokoglam.com)",
+      "WebFetch(domain:www.shopmissa.com)",
+      "WebFetch(domain:us.koreanskincare.com)",
+      "WebFetch(domain:sweetsparkle.com)",
+      "WebFetch(domain:shopcrushboutique.com)",
+      "WebFetch(domain:www.illiyoon.co.kr)",
+      "WebFetch(domain:cosmeticsobsession.com)",
+      "WebFetch(domain:archive.org)",
+      "WebFetch(domain:timetravel.mementoweb.org)",
+      "Bash(nslookup heimish.com)",
+      "WebFetch(domain:theisntree.com)",
+      "WebFetch(domain:www.cnpcosmetic.com)",
+      "WebFetch(domain:cnp-laboratory.com)",
+      "WebFetch(domain:bestkoreanskincare.kr)",
+      "WebFetch(domain:thecnplaboratory.com)",
+      "WebFetch(domain:incidecoder.com)",
+      "Bash(source .env.local)",
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL SUPABASE_SERVICE_ROLE_KEY=$SUPABASE_SERVICE_ROLE_KEY npx tsx scripts/pipeline/apply-image-fixes.ts)",
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL SUPABASE_SERVICE_ROLE_KEY=$SUPABASE_SERVICE_ROLE_KEY npx tsx scripts/pipeline/audit-images.ts)",
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL SUPABASE_SERVICE_ROLE_KEY=$SUPABASE_SERVICE_ROLE_KEY npx tsx scripts/pipeline/remove-unofficial-images.ts)"
+    ]
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/notify-vn-additions.sh"
+          }
+        ]
+      }
     ]
   }
 }
