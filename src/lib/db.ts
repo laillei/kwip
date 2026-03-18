@@ -21,6 +21,7 @@ export const getAllProducts = unstable_cache(
     const { data, error } = await supabase
       .from("products")
       .select("*")
+      .eq("is_active", true)
       .order("popularity->rank", { ascending: true });
     if (error) throw new Error(`Failed to fetch products: ${error.message}`);
     return (data ?? []).map(dbProductToProduct);
@@ -47,7 +48,10 @@ export const getProductBySlug = unstable_cache(
 export const getAllProductSlugs = unstable_cache(
   async (): Promise<string[]> => {
     const supabase = createServerSupabaseClient();
-    const { data, error } = await supabase.from("products").select("slug");
+    const { data, error } = await supabase
+      .from("products")
+      .select("slug")
+      .eq("is_active", true);
     if (error) throw new Error(`Failed to fetch slugs: ${error.message}`);
     return (data ?? []).map((r: { slug: string }) => r.slug);
   },

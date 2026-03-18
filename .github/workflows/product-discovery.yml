@@ -2,8 +2,8 @@ name: Product Discovery
 
 on:
   schedule:
-    # Run weekly on Sundays at 03:00 UTC
-    - cron: "0 3 * * 0"
+    # Run nightly at 15:00 UTC (22:00 Vietnam time / ICT)
+    - cron: "0 15 * * *"
   workflow_dispatch:
 
 permissions:
@@ -11,26 +11,27 @@ permissions:
   pull-requests: write
 
 jobs:
-  discover:
+  # ── Job 1: Shopify brand store discovery (existing pipeline) ──────────
+  discover-shopify:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
 
-      - name: Run discovery pipeline
+      - name: Run Shopify discovery pipeline
         id: pipeline
         run: npx tsx scripts/pipeline/run.ts
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 
       - name: Check for new products
         id: check
@@ -43,8 +44,10 @@ jobs:
 
       - name: Promote staged products
         if: steps.check.outputs.has_products == 'true'
-        id: promote
         run: npx tsx scripts/pipeline/promote.ts
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 
       - name: Validate data
         if: steps.check.outputs.has_products == 'true'
@@ -73,3 +76,56 @@ jobs:
           branch: auto/product-discovery
           delete-branch: true
           labels: auto-discovery
+
+  # ── Job 2: VN marketplace discovery (Shopee + Lazada) ────────────────
+  discover-vn:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: discover-shopify
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Run VN discovery
+        run: npx tsx scripts/pipeline/discover-vn.ts
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+      - name: Commit updated VN additions log
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update VN additions log [skip ci]"
+          file_pattern: src/data/vn-additions-log.json
+
+  # ── Job 3: Nightly availability verification ──────────────────────────
+  verify-availability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: discover-shopify
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Run availability verification
+        run: npx tsx scripts/pipeline/verify-products.ts
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
