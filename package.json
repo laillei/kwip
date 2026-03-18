@@ -10,7 +10,8 @@
     "validate-data": "tsx scripts/validate-data.ts",
     "pipeline:run": "tsx scripts/pipeline/run.ts",
     "pipeline:promote": "tsx scripts/pipeline/promote.ts",
-    "pipeline:discover-vn": "npx tsx scripts/pipeline/discover-vn.ts"
+    "pipeline:discover-vn": "npx tsx scripts/pipeline/discover-vn.ts",
+    "pipeline:verify": "npx tsx scripts/pipeline/verify-products.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.99.1",
