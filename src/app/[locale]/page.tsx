@@ -46,7 +46,7 @@ export default async function Home({
   }));
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen bg-neutral-100">
       <MobileShell
         locale={locale}
         headerRight={

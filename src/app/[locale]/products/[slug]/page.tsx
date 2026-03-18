@@ -90,7 +90,7 @@ export default async function ProductDetailPage({
         </header>
       </div>
 
-      <div className="min-h-screen bg-neutral-50">
+      <div className="min-h-screen bg-neutral-100">
         <div className="max-w-3xl mx-auto pb-24 md:pb-28">
 
           {/* Product hero */}

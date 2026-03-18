@@ -39,14 +39,14 @@ export default function MePageClient({ locale, dict }: Props) {
 
   if (!loaded) {
     return (
-      <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
+      <div className="min-h-screen bg-neutral-100 flex items-center justify-center">
         <div className="text-[17px] text-neutral-400">...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-neutral-50 flex flex-col">
+    <div className="min-h-screen bg-neutral-100 flex flex-col">
       {routines.length === 0 ? (
         <div className="flex-1 flex items-center justify-center px-4 pb-0 pt-16">
           <EmptyState
