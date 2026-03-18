@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
+import { getSavedCount } from "@/lib/localSaved";
 
 interface NavLabels {
   explore: string;
@@ -15,6 +17,19 @@ interface Props {
 
 export default function BottomTabBar({ locale, navLabels }: Props) {
   const pathname = usePathname();
+
+  const [savedCount, setSavedCount] = useState(0);
+
+  useEffect(() => {
+    const update = () => setSavedCount(getSavedCount());
+    update();
+    window.addEventListener("kwip_saved_updated", update);
+    window.addEventListener("storage", update);
+    return () => {
+      window.removeEventListener("kwip_saved_updated", update);
+      window.removeEventListener("storage", update);
+    };
+  }, []);
 
   const tabs = [
     {
@@ -31,10 +46,17 @@ export default function BottomTabBar({ locale, navLabels }: Props) {
       href: `/${locale}/me`,
       label: navLabels.routine,
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="3" />
-          <path d="M8 8h8M8 12h8M8 16h5" />
-        </svg>
+        <div className="relative">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="3" />
+            <path d="M8 8h8M8 12h8M8 16h5" />
+          </svg>
+          {savedCount > 0 && (
+            <span className="absolute -top-1 -right-1 min-w-[16px] h-4 bg-neutral-900 text-white text-[10px] font-bold rounded-full flex items-center justify-center px-0.5">
+              {savedCount > 9 ? "9+" : savedCount}
+            </span>
+          )}
+        </div>
       ),
     },
   ];
