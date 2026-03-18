@@ -20,7 +20,6 @@ export default function ProductListItem({
   slug,
   name,
   brand,
-  category,
   image,
   locale,
   reason,
