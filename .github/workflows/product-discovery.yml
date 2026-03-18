@@ -129,3 +129,36 @@ jobs:
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+  # ── Job 4: Product quality audit (image, vision, ingredients, links) ──
+  audit-products:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: discover-shopify
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Run product audit
+        id: audit
+        run: npx tsx scripts/pipeline/audit-products.ts
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Commit updated audit log
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update product audit log [skip ci]"
+          file_pattern: src/data/audit-log.json
