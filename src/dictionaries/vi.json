@@ -10,6 +10,8 @@
     "helpfulIngredients": "Thành phần hữu ích",
     "selectConcern": "Chọn vấn đề da của bạn",
     "concernPrompt": "Bạn đang gặp vấn đề gì với da?",
+    "pickConcernPrompt": "Chọn một vấn đề da để xem sản phẩm phù hợp",
+    "allSteps": "Tất cả bước",
     "emptyState": "Không tìm thấy sản phẩm phù hợp"
   },
   "routine": {

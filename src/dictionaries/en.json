@@ -10,6 +10,8 @@
     "helpfulIngredients": "Helpful Ingredients",
     "selectConcern": "Select your skin concern",
     "concernPrompt": "What's your skin concern?",
+    "pickConcernPrompt": "Pick a skin concern to see matching products",
+    "allSteps": "All Steps",
     "emptyState": "No matching products found"
   },
   "routine": {
