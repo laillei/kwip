@@ -21,7 +21,7 @@ export default function IngredientChips({ ingredients, concern, locale }: Ingred
               key={ing.id}
               className="shrink-0 flex items-center gap-1.5 bg-emerald-50 border border-emerald-100 rounded-full px-3 h-8"
             >
-              <span className="text-xs font-semibold text-emerald-700">{name}</span>
+              <span className="text-xs font-semibold text-emerald-600">{name}</span>
               {effect && (
                 <span className="text-xs text-emerald-600">
                   — {effect.reason[loc] || effect.reason.vi}

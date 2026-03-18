@@ -21,7 +21,7 @@ export default function RoutineStepSection({
   const loc = locale as "vi" | "en";
 
   return (
-    <section>
+    <section aria-label={label}>
       <div className="flex items-center gap-2 mb-3">
         <span className="text-xs font-semibold uppercase tracking-wide text-neutral-400">{step}</span>
         <span className="text-[15px] font-semibold text-neutral-900">{label}</span>
