@@ -12,3 +12,7 @@ next-env.d.ts
 .worktrees/
 src/data/staging/
 .claude/settings.local.json
+
+# Agent/skill plugin directories (auto-generated from skills-lock.json)
+.agent/
+.agents/
