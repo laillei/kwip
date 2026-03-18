@@ -11,14 +11,7 @@ export default async function MePage({
   const dict = await getDictionary(locale as Locale);
 
   return (
-    <MobileShell
-      locale={locale}
-      headerLeft={
-        <span className="text-base font-semibold tracking-tight text-neutral-900">
-          {dict.routine.myRoutines}
-        </span>
-      }
-    >
+    <MobileShell locale={locale}>
       <MePageClient
         locale={locale}
         dict={{
