@@ -22,13 +22,13 @@
     "myRoutines": "Routine của tôi",
     "emptyTitle": "Routine của bạn sẽ được lưu tại đây.",
     "emptyBody": "Bắt đầu từ trang chủ — chọn vấn đề da của bạn.",
-    "emptyAction": "← Trang chủ",
+    "emptyAction": "Trang chủ",
     "shareButton": "Chia sẻ",
     "sharing": "Đang tạo ảnh...",
     "viewButton": "Xem",
     "deleteButton": "Xoá",
-    "backToHome": "← Trang chủ",
-    "backToRoutines": "← Routine của tôi",
+    "backToHome": "Trang chủ",
+    "backToRoutines": "Routine của tôi",
     "createdAt": "Đã tạo",
     "productsCount": "sản phẩm",
     "shareCardTagline": "Routine của tôi — được xây dựng dựa trên thành phần, không phải quảng cáo."
@@ -68,6 +68,6 @@
   "notFound": {
     "title": "404",
     "message": "Trang không tồn tại",
-    "backHome": "← Về trang chủ"
+    "backHome": "Về trang chủ"
   }
 }

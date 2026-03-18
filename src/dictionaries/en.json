@@ -22,13 +22,13 @@
     "myRoutines": "My Routines",
     "emptyTitle": "Your routines will be saved here.",
     "emptyBody": "Start from home — pick your skin concern.",
-    "emptyAction": "← Home",
+    "emptyAction": "Home",
     "shareButton": "Share",
     "sharing": "Generating...",
     "viewButton": "View",
     "deleteButton": "Delete",
-    "backToHome": "← Home",
-    "backToRoutines": "← My Routines",
+    "backToHome": "Home",
+    "backToRoutines": "My Routines",
     "createdAt": "Created",
     "productsCount": "products",
     "shareCardTagline": "My routine — built on ingredient science, not ads."
@@ -68,6 +68,6 @@
   "notFound": {
     "title": "404",
     "message": "Page not found",
-    "backHome": "← Back to home"
+    "backHome": "Back to home"
   }
 }

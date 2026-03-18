@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "rm -rf .next; next dev --turbo",
+    "dev": "bash scripts/dev.sh",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
