@@ -44,6 +44,8 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/],
+    shopeeStoreSlug: "cosrx_flagshipstore",
+    lazadaStoreSlug: "cosrx-vn",
   },
   {
     id: "anua",
@@ -54,6 +56,7 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/, /mini/],
+    shopeeStoreSlug: "anua_official.vn",
   },
   {
     id: "beauty-of-joseon",
@@ -64,6 +67,7 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/],
+    shopeeStoreSlug: "beautyofjoseon.vn",
   },
   {
     id: "torriden",
@@ -74,6 +78,7 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/],
+    shopeeStoreSlug: "torridenofficial.vn",
   },
   {
     id: "round-lab",
@@ -84,6 +89,7 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/, /body/],
+    shopeeStoreSlug: "roundlab_officialstore",
   },
   {
     id: "skin1004",
@@ -94,6 +100,8 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/],
+    shopeeStoreSlug: "skin1004_official",
+    lazadaStoreSlug: "skin1004official-store",
   },
   {
     id: "klairs",
@@ -104,6 +112,8 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/],
+    shopeeStoreSlug: "dearklairs_officialstore",
+    lazadaStoreSlug: "dear-klairs",
   },
   {
     id: "some-by-mi",
@@ -114,6 +124,8 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/, /body/],
+    shopeeStoreSlug: "somebymi.vn",
+    lazadaStoreSlug: "somebymi-official-store",
   },
   {
     id: "innisfree",
@@ -124,6 +136,8 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/, /body/, /hair/, /lip/],
+    shopeeStoreSlug: "innisfreevietnam_officialstore",
+    lazadaStoreSlug: "innisfree",
   },
   {
     id: "laneige",
@@ -134,6 +148,8 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/, /body/, /hair/, /lip/],
+    shopeeStoreSlug: "laneigevn_officialstore",
+    lazadaStoreSlug: "laneige-official-store",
   },
   {
     id: "isntree",
@@ -147,6 +163,8 @@ export const BRANDS: BrandConfig[] = [
     listingPath: "/category/products/",
     listingLinkSelector: 'a[href*="/isntree-"]',
     productUrlPattern: /\/isntree-[\w-]+\/?$/,
+    shopeeStoreSlug: "isntree_officialstore",
+    lazadaStoreSlug: "isntree",
   },
   {
     id: "purito",
@@ -160,6 +178,7 @@ export const BRANDS: BrandConfig[] = [
     listingPath: "/product/",
     listingLinkSelector: 'a[href*="/product/"]',
     productUrlPattern: /\/product\/[\w-]+\/?/,
+    shopeeStoreSlug: "purito_vietnam",
   },
   {
     id: "mixsoon",
@@ -170,6 +189,7 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/],
+    shopeeStoreSlug: "mixsoon.vn",
   },
   {
     id: "medicube",
@@ -180,6 +200,8 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/, /device/],
+    shopeeStoreSlug: "medicube_vietnam",
+    lazadaStoreSlug: "medicube",
   },
   {
     id: "tirtir",
@@ -190,6 +212,7 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/, /cushion/, /makeup/],
+    shopeeStoreSlug: "tirtirofficialar.vn",
   },
   {
     id: "numbuzin",
@@ -200,6 +223,7 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/],
+    shopeeStoreSlug: "numbuzinofficial.vn",
   },
   {
     id: "biodance",
@@ -210,6 +234,7 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/],
+    shopeeStoreSlug: "biodance_vietnam",
   },
   {
     id: "illiyoon",
@@ -260,6 +285,7 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/],
+    shopeeStoreSlug: "tocobovietnam",
   },
   {
     id: "haruharu",
@@ -270,6 +296,7 @@ export const BRANDS: BrandConfig[] = [
     ingredientSource: "body_html",
     ingredientSelector: "",
     excludeHandlePatterns: [/bundle/, /set$/, /gift/, /kit$/],
+    shopeeStoreSlug: "haruharuwonderofficial",
   },
   {
     id: "aestura",
