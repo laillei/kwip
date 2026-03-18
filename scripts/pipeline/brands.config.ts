@@ -28,6 +28,10 @@ export interface BrandConfig {
   listingLinkSelector?: string;
   /** URL path pattern to filter product links from listing page */
   productUrlPattern?: RegExp;
+  /** Shopee VN official store URL slug (e.g. "torriden_official" from shopee.vn/torriden_official) */
+  shopeeStoreSlug?: string;
+  /** Lazada VN LazMall store URL slug (e.g. "torriden-vn" from lazada.vn/shop/torriden-vn/) */
+  lazadaStoreSlug?: string;
 }
 
 export const BRANDS: BrandConfig[] = [
