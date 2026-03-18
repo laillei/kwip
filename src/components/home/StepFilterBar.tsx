@@ -22,6 +22,8 @@ export default function StepFilterBar({ steps, selected, onSelect }: StepFilterB
           return (
             <button
               key={step.category}
+              type="button"
+              aria-pressed={active}
               onClick={() => onSelect(step.category)}
               className={`shrink-0 px-4 h-9 rounded-full text-[13px] font-medium transition-all ${
                 active
