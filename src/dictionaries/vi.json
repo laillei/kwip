@@ -12,7 +12,10 @@
     "concernPrompt": "Bạn đang gặp vấn đề gì với da?",
     "pickConcernPrompt": "Chọn một vấn đề da để xem sản phẩm phù hợp",
     "allSteps": "Tất cả bước",
-    "emptyState": "Không tìm thấy sản phẩm phù hợp"
+    "emptyState": "Không tìm thấy sản phẩm phù hợp",
+    "allItems": "Tất cả",
+    "savedToast": "Đã lưu. Xem trong Của tôi",
+    "productsCount": "{{count}} sản phẩm"
   },
   "routine": {
     "buildCta": "Xây dựng routine của bạn",
@@ -66,6 +69,11 @@
     "explore": "Khám phá",
     "routine": "Quy trình",
     "me": "Của tôi"
+  },
+  "me": {
+    "savedProducts": "Đã lưu",
+    "createRoutineFromSaved": "Tạo routine từ sản phẩm đã lưu",
+    "noSavedProducts": "Chưa lưu sản phẩm nào"
   },
   "notFound": {
     "title": "404",
