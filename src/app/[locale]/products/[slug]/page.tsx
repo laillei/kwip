@@ -8,6 +8,7 @@ import { getDictionary, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/getLocalizedData";
 import { getBrandName } from "@/lib/brands";
 import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
+import BookmarkButton from "@/components/shared/BookmarkButton";
 import MobileShell from "@/components/shell/MobileShell";
 
 export async function generateStaticParams() {
@@ -67,9 +68,12 @@ export default async function ProductDetailPage({
         </Link>
       }
       headerRight={
-        <Suspense>
-          <LanguageSwitcher />
-        </Suspense>
+        <div className="flex items-center gap-1">
+          <BookmarkButton productId={product.id} />
+          <Suspense>
+            <LanguageSwitcher />
+          </Suspense>
+        </div>
       }
     >
       {/* Desktop header — visible md+ only */}
