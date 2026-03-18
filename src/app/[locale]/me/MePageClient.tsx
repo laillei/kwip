@@ -46,11 +46,9 @@ export default function MePageClient({ locale, dict }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-neutral-50">
-      <div className="max-w-2xl mx-auto px-4 pt-4 pb-8">
-        <h1 className="text-[22px] font-bold text-neutral-900 mb-6">{dict.myRoutines}</h1>
-
-        {routines.length === 0 ? (
+    <div className="min-h-screen bg-neutral-50 flex flex-col">
+      {routines.length === 0 ? (
+        <div className="flex-1 flex items-center justify-center px-4">
           <EmptyState
             icon="🌿"
             title={dict.emptyTitle}
@@ -58,7 +56,10 @@ export default function MePageClient({ locale, dict }: Props) {
             actionLabel={dict.emptyAction}
             actionHref={`/${locale}`}
           />
-        ) : (
+        </div>
+      ) : (
+        <div className="max-w-2xl mx-auto w-full px-4 pt-4 pb-8">
+          <h1 className="text-[22px] font-bold text-neutral-900 mb-6">{dict.myRoutines}</h1>
           <div className="space-y-4">
             {routines.map((routine) => (
               <RoutineCard
@@ -74,9 +75,8 @@ export default function MePageClient({ locale, dict }: Props) {
               />
             ))}
           </div>
-        )}
-
-      </div>
+        </div>
+      )}
     </div>
   );
 }
