@@ -91,7 +91,8 @@ export default function RoutineBuilderClient({
 
   return (
     <div className="min-h-screen bg-neutral-50">
-      <div className="max-w-2xl mx-auto px-4 py-8">
+      {/* Scrollable content — extra bottom padding clears the fixed action bar */}
+      <div className="max-w-2xl mx-auto px-4 pt-6 pb-32">
         <h1 className="text-[22px] font-bold text-neutral-900 mb-1">
           {dict.builderTitle}
         </h1>
@@ -119,17 +120,21 @@ export default function RoutineBuilderClient({
             />
           ))}
         </div>
+      </div>
 
-        <div className="sticky mt-8" style={{ bottom: "calc(49px + env(safe-area-inset-bottom) + 16px)" }}>
-          <Button
-            fullWidth
-            size="lg"
-            onClick={handleSave}
-            disabled={saving || totalSelected === 0 || !routineName.trim()}
-          >
-            {saving ? dict.saving : `${dict.saveButton} (${totalSelected})`}
-          </Button>
-        </div>
+      {/* Fixed action bar — solid surface above tab bar, never overlaps content */}
+      <div
+        className="fixed left-0 right-0 bg-white/95 backdrop-blur-md border-t border-neutral-100 px-4 pt-3"
+        style={{ bottom: "calc(49px + env(safe-area-inset-bottom))", paddingBottom: "calc(12px + env(safe-area-inset-bottom, 0px))" }}
+      >
+        <Button
+          fullWidth
+          size="lg"
+          onClick={handleSave}
+          disabled={saving || totalSelected === 0 || !routineName.trim()}
+        >
+          {saving ? dict.saving : `${dict.saveButton} (${totalSelected})`}
+        </Button>
       </div>
     </div>
   );
