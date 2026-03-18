@@ -55,7 +55,6 @@ export default async function Home({
             <Suspense>
               <LanguageSwitcher />
             </Suspense>
-            <AuthButton locale={locale} />
           </div>
         }
       >
