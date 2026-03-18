@@ -1,6 +1,7 @@
 import MobileShell from "@/components/shell/MobileShell";
 import MePageClient from "./MePageClient";
 import { getDictionary, type Locale } from "@/lib/i18n";
+import { getAllProducts } from "@/lib/db";
 
 export default async function MePage({
   params,
@@ -8,12 +9,16 @@ export default async function MePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const dict = await getDictionary(locale as Locale);
+  const [dict, products] = await Promise.all([
+    getDictionary(locale as Locale),
+    getAllProducts(),
+  ]);
 
   return (
     <MobileShell locale={locale}>
       <MePageClient
         locale={locale}
+        products={products}
         dict={{
           myRoutines: dict.routine.myRoutines,
           emptyTitle: dict.routine.emptyTitle,
@@ -23,6 +28,9 @@ export default async function MePage({
           deleteButton: dict.routine.deleteButton,
           productsCount: dict.routine.productsCount,
           backToHome: dict.routine.backToHome,
+          savedProducts: dict.me.savedProducts,
+          createRoutineFromSaved: dict.me.createRoutineFromSaved,
+          noSavedProducts: dict.me.noSavedProducts,
         }}
       />
     </MobileShell>
