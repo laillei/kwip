@@ -15,8 +15,8 @@ interface ConcernFilterBarProps {
 
 export default function ConcernFilterBar({ options, selected, onSelect }: ConcernFilterBarProps) {
   return (
-    <div className="-mx-4 px-4">
-      <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+    <div className="-mx-4 px-4 border-b border-neutral-100">
+      <div className="flex gap-0 overflow-x-auto no-scrollbar">
         {options.map((option) => {
           const active = selected === option.id;
           return (
@@ -25,10 +25,10 @@ export default function ConcernFilterBar({ options, selected, onSelect }: Concer
               type="button"
               aria-pressed={active}
               onClick={() => onSelect(option.id)}
-              className={`shrink-0 px-4 h-9 rounded-full text-[13px] font-medium transition-all ${
+              className={`shrink-0 px-4 py-3 text-[13px] font-medium transition-all border-b-2 -mb-px whitespace-nowrap ${
                 active
-                  ? "bg-neutral-900 text-white"
-                  : "bg-white text-neutral-600 border border-neutral-200"
+                  ? "border-neutral-900 text-neutral-900"
+                  : "border-transparent text-neutral-400"
               }`}
             >
               {option.label}

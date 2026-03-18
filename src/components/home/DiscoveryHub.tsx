@@ -125,19 +125,22 @@ export default function DiscoveryHub({
   const countLabel = dict.productsCount.replace("{{count}}", String(filtered.length));
 
   return (
-    <div className="space-y-3">
-      <ConcernFilterBar
-        options={concernOptions}
-        selected={selectedConcern}
-        onSelect={handleConcernSelect}
-      />
-      <StepFilterBar
-        steps={categoryOptions}
-        selected={selectedCategory}
-        onSelect={setSelectedCategory}
-      />
-      <p className="text-xs text-neutral-500 px-1">{countLabel}</p>
-      <div className="space-y-2">
+    <div>
+      {/* Sticky filter bar — white, flush with header */}
+      <div className="sticky top-[56px] z-30 bg-white md:static md:bg-neutral-50 md:z-auto -mx-4 px-4">
+        <ConcernFilterBar
+          options={concernOptions}
+          selected={selectedConcern}
+          onSelect={handleConcernSelect}
+        />
+        <StepFilterBar
+          steps={categoryOptions}
+          selected={selectedCategory}
+          onSelect={setSelectedCategory}
+        />
+      </div>
+      <p className="text-[13px] text-neutral-500 px-1 pt-4 pb-2">{countLabel}</p>
+      <div className="space-y-3">
         {filtered.length === 0 ? (
           <p className="text-[15px] text-neutral-400 text-center py-12">{dict.emptyState}</p>
         ) : (
@@ -158,7 +161,7 @@ export default function DiscoveryHub({
         )}
       </div>
       {showToast && (
-        <div className="fixed bottom-20 left-4 right-4 z-50 bg-neutral-900 text-white text-[14px] font-medium px-4 py-3 rounded-2xl text-center shadow-lg">
+        <div className="fixed bottom-20 left-4 right-4 z-50 bg-neutral-900 text-white text-[15px] font-medium px-4 py-3 rounded-2xl text-center shadow-lg">
           {dict.savedToast}
         </div>
       )}

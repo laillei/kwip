@@ -15,8 +15,8 @@ interface StepFilterBarProps {
 
 export default function StepFilterBar({ steps, selected, onSelect }: StepFilterBarProps) {
   return (
-    <div className="-mx-4 px-4">
-      <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+    <div className="-mx-4 px-3 py-2 border-b border-neutral-100">
+      <div className="flex gap-2 overflow-x-auto no-scrollbar">
         {steps.map((step) => {
           const active = selected === step.category;
           return (
@@ -25,10 +25,10 @@ export default function StepFilterBar({ steps, selected, onSelect }: StepFilterB
               type="button"
               aria-pressed={active}
               onClick={() => onSelect(step.category)}
-              className={`shrink-0 px-4 h-9 rounded-full text-[13px] font-medium transition-all ${
+              className={`shrink-0 px-3 h-8 rounded-full text-[13px] font-medium transition-all whitespace-nowrap ${
                 active
                   ? "bg-neutral-900 text-white"
-                  : "bg-white text-neutral-600 border border-neutral-200"
+                  : "bg-neutral-100 text-neutral-500"
               }`}
             >
               {step.label}

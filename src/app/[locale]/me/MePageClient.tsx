@@ -52,7 +52,7 @@ export default function MePageClient({ locale, products, dict }: Props) {
 
   if (!loaded) {
     return (
-      <div className="min-h-screen bg-neutral-100 flex items-center justify-center">
+      <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
         <div className="text-[17px] text-neutral-400">...</div>
       </div>
     );
@@ -64,7 +64,7 @@ export default function MePageClient({ locale, products, dict }: Props) {
   const savedSection =
     savedProducts.length > 0 ? (
       <div className="mb-8">
-        <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center justify-between mb-4">
           <h2 className="text-[17px] font-semibold text-neutral-900">
             {dict.savedProducts} ({savedProducts.length})
           </h2>
@@ -75,7 +75,7 @@ export default function MePageClient({ locale, products, dict }: Props) {
             {dict.createRoutineFromSaved}
           </Link>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-3">
           {savedProducts.map((product) => (
             <ProductListItem
               key={product.id}
@@ -92,7 +92,7 @@ export default function MePageClient({ locale, products, dict }: Props) {
     ) : null;
 
   return (
-    <div className="min-h-screen bg-neutral-100 flex flex-col">
+    <div className="min-h-screen bg-neutral-50 flex flex-col">
       {routines.length === 0 ? (
         <div className="max-w-2xl mx-auto w-full px-4 pt-4 pb-8 flex flex-col flex-1">
           {savedSection}

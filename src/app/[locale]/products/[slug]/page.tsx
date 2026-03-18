@@ -94,83 +94,83 @@ export default async function ProductDetailPage({
         </header>
       </div>
 
-      <div className="min-h-screen bg-neutral-100">
+      <div className="min-h-screen bg-neutral-50">
         <div className="max-w-3xl mx-auto pb-24 md:pb-28">
 
-          {/* Product hero */}
-          <div className="px-6 md:px-8">
-            <div className="bg-white rounded-3xl overflow-hidden" style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}>
-              <div className="relative aspect-[4/3] bg-white overflow-hidden">
-                <span className="absolute inset-0 flex items-center justify-center text-[120px] font-bold text-neutral-100/50 select-none pointer-events-none leading-none">
-                  {product.popularity.rank}
+          {/* Full-bleed product image */}
+          <div className="relative h-[280px] bg-white w-full overflow-hidden">
+            <span className="absolute inset-0 flex items-center justify-center text-[140px] font-bold text-neutral-100/40 select-none pointer-events-none leading-none">
+              {product.popularity.rank}
+            </span>
+            <Image
+              src={product.image}
+              alt={product.name[loc] || product.name.vi}
+              fill
+              className="object-contain p-6 relative z-[1]"
+              sizes="(max-width: 768px) 100vw, 672px"
+              priority
+            />
+          </div>
+
+          {/* Product info */}
+          <div className="px-5 pt-5 pb-5">
+            <p className="text-[13px] font-medium tracking-wide text-neutral-400 uppercase">
+              {getBrandName(product.brand)}
+            </p>
+            <h1 className="text-[22px] font-bold leading-tight mt-1 text-neutral-900">
+              {product.name[loc] || product.name.vi}
+            </h1>
+            <div className="flex flex-wrap items-center gap-2 mt-4">
+              <span className="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-[13px] font-medium text-neutral-500">
+                {dict.detail.categories[product.category as keyof typeof dict.detail.categories] || product.category}
+              </span>
+              {product.tags.includes("best-seller") && (
+                <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-1 text-[13px] font-medium text-amber-600">
+                  {dict.detail.bestSeller}
                 </span>
-                <Image
-                  src={product.image}
-                  alt={product.name[loc] || product.name.vi}
-                  fill
-                  className="object-contain p-6 relative z-[1]"
-                  sizes="(max-width: 768px) 100vw, 672px"
-                  priority
-                />
-              </div>
-              <div className="px-6 pt-5 pb-6">
-                <p className="text-[13px] font-medium tracking-wide text-neutral-400 uppercase">
-                  {getBrandName(product.brand)}
-                </p>
-                <h1 className="text-[22px] font-bold leading-tight mt-1.5 text-neutral-900">
-                  {product.name[loc] || product.name.vi}
-                </h1>
-                <div className="flex items-center gap-2 mt-3">
-                  <span className="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-500">
-                    {dict.detail.categories[product.category as keyof typeof dict.detail.categories] || product.category}
-                  </span>
-                  {product.tags.includes("best-seller") && (
-                    <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-600">
-                      {dict.detail.bestSeller}
-                    </span>
-                  )}
-                  {product.tags.includes("sensitive-safe") && (
-                    <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-600">
-                      {dict.detail.sensitiveSafe}
-                    </span>
-                  )}
-                </div>
-              </div>
+              )}
+              {product.tags.includes("sensitive-safe") && (
+                <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-[13px] font-medium text-emerald-600">
+                  {dict.detail.sensitiveSafe}
+                </span>
+              )}
             </div>
           </div>
 
+          <div className="h-px bg-neutral-100" />
+
           {/* Key ingredients */}
-          <section className="px-6 md:px-8 mt-8">
-            <h2 className="text-xs font-semibold tracking-wide text-neutral-400 uppercase mb-3">
+          <section className="px-5 md:px-8 mt-6">
+            <h2 className="text-xs font-semibold tracking-wide text-neutral-500 uppercase mb-4">
               {dict.detail.keyIngredients}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {keyIngredients.map(({ detail }) => (
                 <div
                   key={detail.id}
-                  className="rounded-2xl bg-white p-5"
+                  className="rounded-2xl bg-white p-4"
                   style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}
                 >
                   <div className="flex items-center justify-between">
                     <p className="text-[15px] font-semibold text-neutral-900">{detail.name.inci}</p>
                     {detail.ewgGrade && (
-                      <span className="shrink-0 ml-3 text-xs font-medium text-neutral-500 bg-neutral-100 rounded-full px-2.5 py-0.5">
+                      <span className="shrink-0 ml-3 text-[13px] font-medium text-neutral-500 bg-neutral-100 rounded-full px-2.5 py-0.5">
                         EWG {detail.ewgGrade}
                       </span>
                     )}
                   </div>
                   {loc !== "en" && (
-                    <p className="text-xs font-medium text-neutral-500 mt-0.5">{detail.name.vi}</p>
+                    <p className="text-[13px] text-neutral-400 mt-0.5">{detail.name.vi}</p>
                   )}
-                  <p className="text-[15px] text-neutral-600 mt-2.5 leading-relaxed">
+                  <p className="text-[15px] text-neutral-600 mt-3 leading-relaxed">
                     {t(detail.description, loc)}
                   </p>
                   {detail.effects.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 mt-3">
+                    <div className="flex flex-wrap gap-2 mt-4">
                       {detail.effects.map((effect) => (
                         <span
                           key={effect.concern}
-                          className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium ${
+                          className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-[13px] font-medium ${
                             effect.type === "good"
                               ? "bg-emerald-50 text-emerald-600"
                               : "bg-amber-50 text-amber-600"
@@ -187,34 +187,34 @@ export default async function ProductDetailPage({
           </section>
 
           {/* Full ingredient list */}
-          <section className="px-6 md:px-8 mt-8">
-            <h2 className="text-xs font-semibold tracking-wide text-neutral-400 uppercase mb-3">
+          <section className="px-5 md:px-8 mt-6">
+            <h2 className="text-xs font-semibold tracking-wide text-neutral-500 uppercase mb-4">
               {dict.detail.allIngredients}
             </h2>
             <div className="rounded-2xl bg-white overflow-hidden divide-y divide-neutral-100" style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}>
               {allIngredients.map(({ ingredientId, order, detail }) => (
-                <div key={ingredientId} className="flex items-start gap-3.5 px-5 py-3.5 min-h-[44px]">
-                  <span className="text-xs font-medium text-neutral-400 w-5 shrink-0 pt-px text-right tabular-nums">
+                <div key={ingredientId} className="flex items-start gap-4 px-4 py-3 min-h-[44px]">
+                  <span className="text-[13px] font-medium text-neutral-400 w-5 shrink-0 pt-px text-right tabular-nums">
                     {order}
                   </span>
                   <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <p className="text-[13px] font-semibold text-neutral-900">{detail.name.inci}</p>
                       {detail.ewgGrade && (
-                        <span className="shrink-0 text-xs font-medium text-neutral-500">
+                        <span className="shrink-0 text-[13px] font-medium text-neutral-400">
                           EWG {detail.ewgGrade}
                         </span>
                       )}
                     </div>
                     {loc !== "en" && (
-                      <p className="text-xs font-medium text-neutral-500 mt-0.5">{detail.name.vi}</p>
+                      <p className="text-[13px] text-neutral-400 mt-0.5">{detail.name.vi}</p>
                     )}
                     {detail.effects.length > 0 && (
-                      <div className="flex flex-wrap gap-1 mt-1.5">
+                      <div className="flex flex-wrap gap-1 mt-2">
                         {detail.effects.map((effect) => (
                           <span
                             key={effect.concern}
-                            className={`text-xs font-medium ${
+                            className={`text-[13px] font-medium ${
                               effect.type === "good"
                                 ? "text-emerald-600"
                                 : "text-amber-600"

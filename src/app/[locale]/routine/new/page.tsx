@@ -62,7 +62,7 @@ export default async function RoutineNewPage({
           >
             <path d="M15 18l-6-6 6-6" />
           </svg>
-          <span className="text-sm font-medium">{dict.routine.backToHome}</span>
+          <span className="text-[15px] font-medium">{dict.routine.backToHome}</span>
         </Link>
       }
     >

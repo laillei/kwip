@@ -29,7 +29,7 @@ export default function ProductListItem({
   return (
     <Link
       href={`/${locale}/products/${slug}`}
-      className="flex items-center gap-3 bg-white rounded-2xl px-4 py-3 min-h-[80px] active:scale-[0.99] transition-transform"
+      className="flex items-center gap-4 bg-white rounded-2xl px-4 py-3 min-h-[80px] active:scale-[0.99] transition-transform"
       style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}
     >
       <div className="shrink-0 w-[72px] h-[72px] rounded-xl bg-neutral-50 overflow-hidden">
@@ -46,10 +46,10 @@ export default function ProductListItem({
         )}
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-xs text-neutral-500 mb-0.5">{brand}</p>
+        <p className="text-[13px] text-neutral-500 mb-0.5">{brand}</p>
         <p className="text-[15px] font-semibold text-neutral-900 leading-tight line-clamp-2">{name}</p>
         {reason && (
-          <p className="text-xs text-emerald-600 mt-1 line-clamp-1">{reason}</p>
+          <p className="text-[13px] text-emerald-600 mt-1 line-clamp-1">{reason}</p>
         )}
       </div>
       {onBookmark && (
@@ -83,7 +83,7 @@ export default function ProductListItem({
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="2.5"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >

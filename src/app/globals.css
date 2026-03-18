@@ -9,6 +9,7 @@
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #fafafa; /* neutral-50 — Apple system grouped background */
   }
 
   /* Reset mobile shell padding on desktop — inline styles cannot be overridden by Tailwind */

@@ -46,7 +46,7 @@ export default async function Home({
   }));
 
   return (
-    <div className="min-h-screen bg-neutral-100">
+    <div className="min-h-screen bg-neutral-50">
       <MobileShell
         locale={locale}
         headerRight={
@@ -78,7 +78,7 @@ export default async function Home({
         </div>
 
         {/* Content */}
-        <div className="max-w-6xl mx-auto px-4 md:px-8 pt-4 md:pt-2">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 pt-0 md:pt-2">
           <DiscoveryHub
             concerns={concernData}
             products={allProducts}
