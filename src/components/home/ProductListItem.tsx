@@ -32,25 +32,23 @@ export default function ProductListItem({
         {image ? (
           <Image
             src={image}
-            alt={name}
+            alt={`${brand} ${name}`}
             width={72}
             height={72}
             className="w-full h-full object-cover"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-neutral-300 text-xs uppercase tracking-wide">
-            {category}
-          </div>
+          <div className="w-full h-full bg-neutral-50" />
         )}
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-[12px] text-neutral-500 mb-0.5">{brand}</p>
+        <p className="text-xs text-neutral-500 mb-0.5">{brand}</p>
         <p className="text-[15px] font-semibold text-neutral-900 leading-tight line-clamp-2">{name}</p>
         {reason && (
-          <p className="text-[12px] text-emerald-600 mt-1 line-clamp-1">{reason}</p>
+          <p className="text-xs text-emerald-600 mt-1 line-clamp-1">{reason}</p>
         )}
       </div>
-      <svg className="shrink-0 text-neutral-300" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg className="shrink-0 text-neutral-400" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M9 18l6-6-6-6" />
       </svg>
     </Link>
