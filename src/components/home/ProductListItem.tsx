@@ -57,7 +57,10 @@ export default function ProductListItem({
           type="button"
           onClick={onBookmark}
           className="shrink-0 flex items-center justify-center min-w-[44px] min-h-[44px] text-neutral-400 hover:text-neutral-900 transition-colors"
-          aria-label={saved ? "Remove bookmark" : "Save product"}
+          aria-label={saved
+            ? (locale === "vi" ? "Bỏ lưu" : "Remove bookmark")
+            : (locale === "vi" ? "Lưu sản phẩm" : "Save product")
+          }
         >
           <svg
             width="18"

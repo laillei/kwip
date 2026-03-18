@@ -22,9 +22,6 @@ const CATEGORIES: { category: Category; label: Record<string, string> }[] = [
 interface ConcernData {
   id: Concern;
   label: string;
-  icon: string;
-  symptom: string;
-  keyIngredientIds: string[];
 }
 
 interface DiscoveryHubProps {
