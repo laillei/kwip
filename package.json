@@ -11,7 +11,8 @@
     "pipeline:run": "tsx scripts/pipeline/run.ts",
     "pipeline:promote": "tsx scripts/pipeline/promote.ts",
     "pipeline:discover-vn": "npx tsx scripts/pipeline/discover-vn.ts",
-    "pipeline:verify": "npx tsx scripts/pipeline/verify-products.ts"
+    "pipeline:verify": "npx tsx scripts/pipeline/verify-products.ts",
+    "pipeline:audit": "npx tsx scripts/pipeline/audit-products.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.79.0",
