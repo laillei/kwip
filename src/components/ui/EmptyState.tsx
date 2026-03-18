@@ -1,5 +1,6 @@
 // src/components/ui/EmptyState.tsx
 import Link from "next/link";
+import { buttonVariants } from "./Button";
 
 interface EmptyStateProps {
   icon?: string;
@@ -20,9 +21,12 @@ export function EmptyState({ icon, title, body, actionLabel, actionHref }: Empty
       {actionLabel && actionHref && (
         <Link
           href={actionHref}
-          className="text-[15px] font-medium text-neutral-900 underline min-h-[44px] inline-flex items-center"
+          className={buttonVariants({ variant: "primary", size: "lg" })}
         >
           {actionLabel}
+          <svg className="ml-1.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
         </Link>
       )}
     </div>

@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import type { Routine } from "@/lib/types";
 import { getRoutines, deleteRoutine } from "@/lib/localRoutines";
 import RoutineCard from "@/components/routine/RoutineCard";
-import { EmptyState, buttonVariants } from "@/components/ui";
+import { EmptyState } from "@/components/ui";
 
 interface Dict {
   myRoutines: string;
@@ -79,14 +78,6 @@ export default function MePageClient({ locale, dict }: Props) {
           </div>
         )}
 
-        <div className="mt-8">
-          <Link
-            href={`/${locale}`}
-            className={buttonVariants({ variant: "ghost" })}
-          >
-            {dict.backToHome}
-          </Link>
-        </div>
       </div>
     </div>
   );
