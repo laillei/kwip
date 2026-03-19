@@ -14,9 +14,6 @@ interface ConcernFilterBarProps {
   onSelect: (id: Concern | "all") => void;
 }
 
-// Header (56px) + concern bar (~44px) = dropdown starts at 100px from viewport top
-const DROPDOWN_TOP = 100;
-
 export default function ConcernFilterBar({ options, selected, onSelect }: ConcernFilterBarProps) {
   const [open, setOpen] = useState(false);
 
@@ -27,8 +24,9 @@ export default function ConcernFilterBar({ options, selected, onSelect }: Concer
 
   return (
     <>
-      {/* Scrollable tab row + chevron */}
-      <div className="-mx-4 px-4 border-b border-neutral-100">
+      {/* Tab row + inline grid — lives inside the sticky container, no fixed overlay */}
+      <div className="-mx-4 px-4 border-b border-neutral-100 bg-white">
+        {/* Scrollable tab row */}
         <div className="flex items-center">
           <div className="flex overflow-x-auto no-scrollbar flex-1">
             {options.map((option) => {
@@ -51,7 +49,7 @@ export default function ConcernFilterBar({ options, selected, onSelect }: Concer
             })}
           </div>
 
-          {/* Expand chevron — always ▼, rotates to ▲ when open */}
+          {/* Chevron — rotates when open */}
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -74,45 +72,39 @@ export default function ConcernFilterBar({ options, selected, onSelect }: Concer
             </svg>
           </button>
         </div>
+
+        {/* Inline 2-column grid — expands below the tab row, no gap, no fixed positioning */}
+        {open && (
+          <div className="grid grid-cols-2 border-t border-neutral-100">
+            {options.map((option) => {
+              const active = selected === option.id;
+              return (
+                <button
+                  key={option.id}
+                  type="button"
+                  role="option"
+                  aria-selected={active}
+                  onClick={() => handleSelect(option.id)}
+                  className={`text-left px-4 py-3 text-[15px] border-b border-neutral-100 transition-colors ${
+                    active
+                      ? "font-semibold text-neutral-900"
+                      : "font-normal text-neutral-500 hover:text-neutral-900"
+                  }`}
+                >
+                  {option.label}
+                </button>
+              );
+            })}
+          </div>
+        )}
       </div>
 
-      {/* Full dropdown overlay — for seeing all options at once */}
+      {/* Scrim — fixed, z below the sticky bar (z-48), closes on tap */}
       {open && (
         <div
-          className="fixed inset-0 z-[44] flex flex-col"
-          style={{ top: `${DROPDOWN_TOP}px` }}
-        >
-          {/* Options grid */}
-          <div className="bg-white border-b border-neutral-100" role="listbox">
-            <div className="grid grid-cols-2">
-              {options.map((option) => {
-                const active = selected === option.id;
-                return (
-                  <button
-                    key={option.id}
-                    type="button"
-                    role="option"
-                    aria-selected={active}
-                    onClick={() => handleSelect(option.id)}
-                    className={`text-left px-6 py-4 text-[17px] border-b border-neutral-100 transition-colors ${
-                      active
-                        ? "font-semibold text-neutral-900"
-                        : "font-normal text-neutral-500 hover:text-neutral-900"
-                    }`}
-                  >
-                    {option.label}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Scrim — fills remaining height, closes on tap */}
-          <div
-            className="flex-1 bg-black/40"
-            onClick={() => setOpen(false)}
-          />
-        </div>
+          className="fixed inset-0 z-[46] bg-black/40"
+          onClick={() => setOpen(false)}
+        />
       )}
     </>
   );
