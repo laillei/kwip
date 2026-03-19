@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import type { Routine } from "@/lib/types";
-import { Card, Button, buttonVariants } from "@/components/ui";
+import { Button, buttonVariants } from "@/components/ui";
 
 interface RoutineCardProps {
   routine: Routine;
   locale: string;
+  concernLabel?: string;
   onDelete: (id: string) => void;
   dict: {
     deleteButton: string;
@@ -18,21 +19,19 @@ interface RoutineCardProps {
 export default function RoutineCard({
   routine,
   locale,
+  concernLabel,
   onDelete,
   dict,
 }: RoutineCardProps) {
   return (
-    <Card padding="md" className="space-y-3">
-      <div>
-        <h3 className="text-base font-semibold text-neutral-900">
-          {routine.name}
-        </h3>
-        <p className="text-[15px] text-neutral-500 mt-0.5">
-          {routine.concern} · {routine.products.length} {dict.productsCount}
-        </p>
-      </div>
-
-      <div className="flex gap-2">
+    <div className="py-4 border-b border-neutral-100 last:border-b-0">
+      <h3 className="text-[17px] font-semibold text-neutral-900">
+        {routine.name}
+      </h3>
+      <p className="text-[13px] text-neutral-500 mt-0.5">
+        {concernLabel ?? routine.concern} · {routine.products.length} {dict.productsCount}
+      </p>
+      <div className="flex gap-2 mt-3">
         <Link
           href={`/${locale}/routine/${routine.id}`}
           className={buttonVariants({ variant: "secondary", fullWidth: true })}
@@ -47,6 +46,6 @@ export default function RoutineCard({
           {dict.deleteButton}
         </Button>
       </div>
-    </Card>
+    </div>
   );
 }

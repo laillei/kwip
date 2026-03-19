@@ -26,7 +26,7 @@ export default function ProductListItem({
   return (
     <Link href={`/${locale}/products/${slug}`} className="block active:opacity-70 transition-opacity">
       {/* Image */}
-      <div className="relative w-full aspect-square rounded-xl bg-neutral-50 overflow-hidden mb-2">
+      <div className="relative w-full aspect-square rounded-xl bg-neutral-100 overflow-hidden mb-2">
         {image ? (
           <Image
             src={image}

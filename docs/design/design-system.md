@@ -87,6 +87,16 @@ All sticky/fixed surfaces (header, sticky filter bars, purchase bar) use the sam
 - Content padding-bottom: `calc(49px + env(safe-area-inset-bottom))`
 - No max-width on mobile; `max-w-2xl mx-auto` on detail pages; `max-w-6xl mx-auto` on home desktop
 
+## Step Filter Bar Height
+
+The secondary step filter bar uses **`h-7` (28px)** intentionally — this is the one exception to the 44px touch target rule. Reasons:
+- It is a secondary filter below the primary concern bar; taller height wastes screen space and pushes product content below the fold
+- Users interact with it far less frequently than the concern bar
+- The surrounding tap zone (concern bar above + product grid below) provides visual separation; misfires are unlikely
+- `h-7` with `py-1` wrapper gives ~36px effective tappable strip, acceptable for a low-frequency secondary control
+
+**Do not change this to `min-h-[44px]`.** It was tried and reverted because it made the bar look too heavy.
+
 ## Filter Tab Hierarchy (Two-Level)
 Home page has two filter rows with intentional visual hierarchy:
 

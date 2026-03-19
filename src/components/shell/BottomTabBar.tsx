@@ -7,7 +7,7 @@ import { getSavedCount } from "@/lib/localSaved";
 
 interface NavLabels {
   explore: string;
-  routine: string;
+  me: string;
 }
 
 interface Props {
@@ -51,7 +51,7 @@ export default function BottomTabBar({ locale, navLabels }: Props) {
     },
     {
       href: `/${locale}/me`,
-      label: navLabels.routine,
+      label: navLabels.me,
       icon: (
         <div className="relative">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

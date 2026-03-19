@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { getDictionary, type Locale } from "@/lib/i18n";
-import type { Product } from "@/lib/types";
+import type { Product, Concern } from "@/lib/types";
 import { getAllProducts, getAllConcerns } from "@/lib/db";
+import { t } from "@/lib/getLocalizedData";
 import RoutineBuilderClient from "@/components/routine/RoutineBuilderClient";
 import MobileShell from "@/components/shell/MobileShell";
 
@@ -10,12 +11,13 @@ export default async function RoutineNewPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ concern?: string }>;
+  searchParams: Promise<{ concern?: string; saved?: string }>;
 }) {
   const { locale } = await params;
-  const { concern } = await searchParams;
+  const { concern, saved } = await searchParams;
+  const loc = locale as Locale;
 
-  const dict = await getDictionary(locale as Locale);
+  const dict = await getDictionary(loc);
 
   const [allProductsRaw, allConcernsRaw] = await Promise.all([
     getAllProducts(),
@@ -33,9 +35,14 @@ export default async function RoutineNewPage({
     );
   });
 
-  const concernData = allConcernsRaw.find((c) => c.id === concern);
-  const concernLabel =
-    locale === "vi" ? concernData?.label?.vi : concernData?.label?.en;
+  const concerns = allConcernsRaw
+    .filter((c) => c.id && c.label)
+    .map((c) => ({
+      id: c.id as Concern,
+      label: t(c.label as Record<string, string>, loc),
+    }));
+
+  const initialSelectedIds = saved ? saved.split(",").filter(Boolean) : undefined;
 
   return (
     <MobileShell
@@ -64,9 +71,16 @@ export default async function RoutineNewPage({
       <RoutineBuilderClient
         locale={locale}
         concern={concern ?? ""}
-        concernLabel={concernLabel}
+        concerns={concerns}
         products={allProducts}
-        dict={dict.routine}
+        initialSelectedIds={initialSelectedIds}
+        dict={{
+          namePlaceholder: dict.routine.namePlaceholder,
+          saveButton: dict.routine.saveButton,
+          saving: dict.routine.saving,
+          allItems: dict.home.allItems,
+          emptyState: dict.products.emptyState,
+        }}
       />
     </MobileShell>
   );

@@ -36,7 +36,8 @@
     "backToRoutines": "Routine của tôi",
     "createdAt": "Đã tạo",
     "productsCount": "sản phẩm",
-    "shareCardTagline": "Routine của tôi — được xây dựng dựa trên thành phần, không phải quảng cáo."
+    "shareCardTagline": "Routine của tôi — được xây dựng dựa trên thành phần, không phải quảng cáo.",
+    "selectedCount": "đã chọn"
   },
   "products": {
     "popularLabel": "Phổ biến tại Hàn Quốc",

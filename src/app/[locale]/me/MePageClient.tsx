@@ -71,8 +71,8 @@ export default function MePageClient({ locale, products, concernLabels, dict }: 
             {dict.savedProducts} ({savedProducts.length})
           </h2>
           <Link
-            href={`/${locale}/routine/new`}
-            className="text-[13px] font-medium text-neutral-500"
+            href={`/${locale}/routine/new?saved=${savedProductIds.join(",")}`}
+            className="text-[13px] font-medium text-neutral-500 min-h-[44px] flex items-center"
           >
             {dict.createRoutineFromSaved}
           </Link>
@@ -84,7 +84,7 @@ export default function MePageClient({ locale, products, concernLabels, dict }: 
               href={`/${locale}/products/${product.slug}`}
               className="flex items-center gap-3 py-3 min-h-[44px] active:bg-neutral-50 transition-colors"
             >
-              <div className="relative w-12 h-12 shrink-0 rounded-xl overflow-hidden bg-white">
+              <div className="relative w-12 h-12 shrink-0 rounded-xl overflow-hidden bg-neutral-100">
                 <Image
                   src={product.image}
                   alt={product.name[loc] || product.name.vi}
@@ -141,12 +141,13 @@ export default function MePageClient({ locale, products, concernLabels, dict }: 
         <div className="max-w-2xl mx-auto w-full px-4 pt-4 pb-8">
           <h1 className="text-[22px] font-bold text-neutral-900 mb-6">{dict.myRoutines}</h1>
           {savedSection}
-          <div className="space-y-4">
+          <div className="divide-y divide-neutral-100">
             {routines.map((routine) => (
               <RoutineCard
                 key={routine.id}
                 routine={routine}
                 locale={locale}
+                concernLabel={concernLabels[routine.concern]}
                 onDelete={handleDelete}
                 dict={{
                   viewButton: dict.viewButton,

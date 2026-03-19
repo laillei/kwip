@@ -22,9 +22,10 @@ interface Props {
   id: string;
   dict: Dict;
   products: Product[];
+  concernLabels: Record<string, string>;
 }
 
-export default function RoutineDetailClient({ locale, id, dict, products }: Props) {
+export default function RoutineDetailClient({ locale, id, dict, products, concernLabels }: Props) {
   const router = useRouter();
   const [routine, setRoutine] = useState<Routine | null>(null);
   const [loaded, setLoaded] = useState(false);
@@ -68,7 +69,7 @@ export default function RoutineDetailClient({ locale, id, dict, products }: Prop
         <h1 className="text-[22px] font-bold text-neutral-900 mb-1">
           {routine.name}
         </h1>
-        <p className="text-[15px] text-neutral-500 mb-6">{routine.concern}</p>
+        <p className="text-[15px] text-neutral-500 mb-6">{concernLabels[routine.concern] ?? routine.concern}</p>
 
         <div className="flex gap-2 mb-8">
           <ShareButton routine={routine} dict={shareDict} />

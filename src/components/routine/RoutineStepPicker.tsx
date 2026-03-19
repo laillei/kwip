@@ -10,6 +10,7 @@ interface RoutineStepPickerProps {
   products: Product[];
   selectedIds: string[];
   locale: string;
+  selectedCountLabel: string;
   onToggle: (productId: string) => void;
 }
 
@@ -19,6 +20,7 @@ export default function RoutineStepPicker({
   products,
   selectedIds,
   locale,
+  selectedCountLabel,
   onToggle,
 }: RoutineStepPickerProps) {
   const loc = locale as "vi" | "en";
@@ -33,7 +35,7 @@ export default function RoutineStepPicker({
         <h3 className="text-[13px] font-semibold text-neutral-900 uppercase tracking-wide">{label}</h3>
         {selectedIds.length > 0 && (
           <span className="ml-auto text-xs text-emerald-600 font-medium">
-            {selectedIds.length} {locale === "vi" ? "đã chọn" : "selected"}
+            {selectedIds.length} {selectedCountLabel}
           </span>
         )}
       </div>

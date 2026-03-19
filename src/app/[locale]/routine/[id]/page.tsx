@@ -2,7 +2,8 @@ import Link from "next/link";
 import MobileShell from "@/components/shell/MobileShell";
 import RoutineDetailClient from "./RoutineDetailClient";
 import { getDictionary, type Locale } from "@/lib/i18n";
-import { getAllProducts } from "@/lib/db";
+import { getAllProducts, getAllConcerns } from "@/lib/db";
+import { t } from "@/lib/getLocalizedData";
 import type { Product } from "@/lib/types";
 
 export default async function RoutineDetailPage({
@@ -11,10 +12,17 @@ export default async function RoutineDetailPage({
   params: Promise<{ locale: string; id: string }>;
 }) {
   const { locale, id } = await params;
-  const [dict, products] = await Promise.all([
+  const [dict, products, rawConcerns] = await Promise.all([
     getDictionary(locale as Locale),
     getAllProducts(),
+    getAllConcerns(),
   ]);
+
+  const concernLabels = Object.fromEntries(
+    rawConcerns
+      .filter((c) => c.id && c.label)
+      .map((c) => [c.id, t(c.label as Record<string, string>, locale as Locale)])
+  ) as Record<string, string>;
 
   return (
     <MobileShell
@@ -51,6 +59,7 @@ export default async function RoutineDetailPage({
           shareCardTagline: dict.routine.shareCardTagline,
         }}
         products={products as Product[]}
+        concernLabels={concernLabels}
       />
     </MobileShell>
   );

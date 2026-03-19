@@ -30,6 +30,7 @@ interface DiscoveryHubProps {
   products: Product[];
   ingredients: Ingredient[];
   locale: string;
+  initialConcern?: string;
   dict: {
     allItems: string;
     emptyState: string;
@@ -37,14 +38,23 @@ interface DiscoveryHubProps {
   };
 }
 
+const VALID_CONCERNS = new Set<string>([
+  "acne", "pores", "hydration", "brightening", "soothing", "anti-aging", "sun-protection",
+]);
+
 export default function DiscoveryHub({
   concerns,
   products,
   ingredients,
   locale,
+  initialConcern,
   dict,
 }: DiscoveryHubProps) {
-  const [selectedConcern, setSelectedConcern] = useState<Concern | "all">("all");
+  const validInitial =
+    initialConcern && VALID_CONCERNS.has(initialConcern)
+      ? (initialConcern as Concern)
+      : "all";
+  const [selectedConcern, setSelectedConcern] = useState<Concern | "all">(validInitial);
   const [selectedCategory, setSelectedCategory] = useState<Category | "all">("all");
   const loc = locale as "vi" | "en";
 

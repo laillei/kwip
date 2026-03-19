@@ -36,7 +36,8 @@
     "backToRoutines": "My Routines",
     "createdAt": "Created",
     "productsCount": "products",
-    "shareCardTagline": "My routine — built on ingredient science, not ads."
+    "shareCardTagline": "My routine — built on ingredient science, not ads.",
+    "selectedCount": "selected"
   },
   "products": {
     "popularLabel": "Popular in Korea",

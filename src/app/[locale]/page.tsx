@@ -11,10 +11,13 @@ import MobileShell from "@/components/shell/MobileShell";
 
 export default async function Home({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ concern?: string }>;
 }) {
   const { locale } = await params;
+  const { concern: concernParam } = await searchParams;
   const dict = await getDictionary(locale as Locale);
   const loc = locale as Locale;
 
@@ -84,6 +87,7 @@ export default async function Home({
             products={allProducts}
             ingredients={rawIngredients as Ingredient[]}
             locale={locale}
+            initialConcern={concernParam}
             dict={{
               allItems: dict.home.allItems,
               emptyState: dict.products.emptyState,
