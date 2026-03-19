@@ -30,7 +30,7 @@ export default async function MobileShell({
       {/* Compact fixed header — mobile */}
       {!hideHeader && (
         <header
-          className="fixed top-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-md md:hidden"
+          className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md md:hidden"
           style={{ paddingTop: "env(safe-area-inset-top)" }}
         >
           <div className="flex items-center justify-between px-4 h-14">

@@ -1,5 +1,5 @@
 # Kwip — Value Proposition
-**Date:** March 13, 2026
+**Date:** March 19, 2026
 
 ---
 
@@ -21,11 +21,12 @@ Build a K-beauty routine that works for her specific skin concern. Job: confiden
 - Builds routine by trial and error across 3–4 apps and 2–3 tabs
 
 ### 4. How
-- Selects concern (acne, brightening, etc.) — page reconfigures instantly
-- Sees key ingredients for that concern with one-line Vietnamese explanations of *why* they work
-- Browses products grouped by routine step in application order, each showing ingredient reason
-- Builds personal routine in Routine Builder — picks multiple products per step
-- Saves to profile, shares to Facebook/Zalo as branded image card
+- Selects concern from tab bar (acne, brightening, etc.) — product grid filters instantly
+- Each product card shows the key ingredient connecting it to her concern — the "why" at a glance
+- Uses step filter (Cleanser → Sunscreen) to navigate routine order without getting lost
+- Taps a product for full ingredient breakdown in Vietnamese + purchase links
+- Builds personal routine in Routine Builder — picks products per step, saves to `/me`
+- Shares routine as a branded image card to Facebook/Zalo stories
 
 ### 5. What After
 - Understands her routine, not just her products — can explain *why* BHA is in her toner
@@ -65,11 +66,11 @@ Invest in skincare that actually works — not waste 500,000–1,000,000 VND on 
 - Buys based on packaging and brand name — frequently regrets it
 
 ### 4. How
-- Selects concern (brightening, anti-aging) — sees which ingredients address it and why
+- Selects concern (brightening, anti-aging) — product grid and step filter update instantly
 - No ratings, no sponsored rankings — editorial independence is explicit
-- Vietnamese ingredient explanations at her level — not intimidating, not oversimplified
-- Routine structure tells her what to buy, where it fits, and why it belongs
-- Share card lets her validate with friends before committing
+- Each product shows the key ingredient that makes it right for her concern — science-backed, no brand agenda
+- Step filter guides her through routine order (Cleanser → Sunscreen) without overwhelm
+- Saves routine to profile, shares to friends before committing to a purchase
 
 ### 5. What After
 - Understands what she's buying before buying — no post-purchase regret

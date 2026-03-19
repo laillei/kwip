@@ -1,5 +1,5 @@
 # Kwip — Product Brief
-**Last updated:** March 13, 2026
+**Last updated:** March 19, 2026
 
 ---
 
@@ -35,37 +35,43 @@ What problem do you have?
 LAYER 2 — INGREDIENT LOGIC
 What actually fixes that problem, and why?
 
-  e.g. Acne → BHA (dissolves inside the pore)
-              Niacinamide (reduces sebum, fades marks)
-              Tea Tree (antibacterial)
+  Distributed inline on every product card as the key ingredient
+  connecting that product to the active concern.
+  e.g. a toner in the Acne view shows: "BHA"
+       a serum in the Brightening view shows: "Niacinamide"
+
+  (Q2: ingredient detail pages expand this into full Vietnamese explanations)
 
         ↓
 
-LAYER 3 — PRODUCTS IN ROUTINE ORDER
+LAYER 3 — PRODUCTS, FILTERABLE BY ROUTINE STEP
 Which products contain those ingredients?
 Where do they fit in a daily routine?
 
-  Cleanser → Toner → Serum → Moisturizer → Sunscreen
-  (each card shows WHY it fits the selected concern)
+  Step filter: Cleanser → Pad → Toner → Essence → Serum → Ampoule → Mask → Cream → Sunscreen
+  Flat grid sorted by popularity rank — user browses by step or sees all at once
 ```
 
-This three-layer structure — concern → ingredient → product — is the core IA. It does not change as the product grows. Everything added in future phases (ingredient detail pages, personalization, search) is built on top of this structure, not instead of it.
+This three-layer structure — concern → ingredient signal → product — is the core IA. It does not change as the product grows. Layer 2 (ingredient logic) deepens over time: inline name at launch → full Vietnamese explanation pages in Q2. Everything added in future phases is built on top of this structure, not instead of it.
 
 ### Key Functions
 
-**1. Concern Selector**
-Filter chips at the top of the home screen. User selects one concern. The entire page reconfigures — ingredient highlights and product list update instantly. Single-select by design: one problem at a time, one clear answer.
+**1. Concern Filter**
+Horizontally scrollable tab bar at the top of the home screen. User selects one concern — the product grid and step filter update instantly. A chevron expands a full-screen overlay grid of all concerns (Olive Young-style). Single-select by design: one problem at a time, one clear answer.
 
-**2. Ingredient Highlight**
-When a concern is active, the key ingredients for that concern appear as a card row — each with a name, icon, and one-line Vietnamese explanation of what it does for that skin problem. This is the "why" layer. Without this, Kwip is just a filtered catalog.
+**2. Step Filter**
+Below the concern bar, a second tab row filters by routine step (Cleanser → Sunscreen). Shows only steps that have products matching the active concern. Resets when concern changes. This answers "where does this product go in my routine" without requiring a separate explanation layer.
 
-**3. Routine-Grouped Product Grid**
-Products are grouped by routine step (cleanser, toner, serum, etc.) in the order they are applied. This answers not just "what product" but "where does it go in my routine." Each product card shows the ingredient reason it was surfaced for the selected concern.
+**3. Product Grid with Ingredient Signal**
+Flat 2-column (mobile) / 4-column (desktop) grid, sorted by popularity rank. Each product card shows the name of the key ingredient connecting it to the active concern — the "why" distributed inline on every card rather than surfaced as a separate section. When no concern is selected, shows the product's first key ingredient.
 
 **4. Product Detail**
-Full ingredient breakdown. Purchase links to where the product is sold. Vietnamese + English.
+Full ingredient breakdown in flat sections (no card UI). Key ingredients with Vietnamese descriptions. Purchase links. Save button to bookmark the product. Vietnamese + English.
 
-**5. Bilingual (vi / en)**
+**5. Routine Builder + Personal Page**
+Authenticated users (Google OAuth) build a named personal routine at `/routine/new` — multiple products per step, concern pre-loaded from context. Saved routines and bookmarked products live at `/me`. Each routine has a public shareable URL at `/routine/[id]`.
+
+**6. Bilingual (vi / en)**
 All UI text, concern labels, ingredient explanations, and product descriptions are localized. Vietnamese is the primary locale.
 
 ### What Kwip Is Not
@@ -217,25 +223,22 @@ Vietnamese urban woman, 28–40. Higher spending power. Concerned about dark spo
 
 **Five things that ship at launch:**
 
-1. **Concern hero** — 2-column card grid. Each card shows concern label + symptom text. Selects a concern and the page reconfigures instantly. ✓ Done
+1. **Concern filter** — scrollable tab bar (All + 7 concerns) with chevron dropdown overlay. Selects a concern and the product grid + step filter update instantly. ✓ Done
 
-2. **Ingredient logic layer** — key ingredients per concern surfaced as highlight cards with Vietnamese explanations of *why* they work for that specific problem. The trust layer that separates Kwip from a filtered catalog. ✓ Done
+2. **Ingredient signal per product** — the key ingredient connecting each product to the active concern is shown inline on every product card. The "why" layer distributed at the point of decision rather than as a separate section. ✓ Done
 
-3. **Routine-grouped products** — products organized by routine step in application order, each showing the ingredient reason it was surfaced. ✓ Done
+3. **Step filter + product grid** — step tab bar filters by routine category (Cleanser → Sunscreen) in application order. Flat 2-col mobile / 4-col desktop grid sorted by popularity. ✓ Done
 
 4. **Routine Builder + Accounts** — users sign in with Google, build a personal routine (multiple products per step), save it to `/me`, view shareable detail at `/routine/[id]`. This turns "browsing" into "ownership." ✓ Done
 
 5. **Share Routine image card** — "Chia sẻ routine" generates a shareable image card for Facebook/Zalo stories. Turns every paid ad visitor into a potential organic acquisition. ⬜ Remaining
 
-**Distribution at launch:** Facebook and YouTube ads targeting Vietnamese women 20–35 interested in K-beauty and specific brands (COSRX, Anua, Beauty of Joseon). Ads lead with the skin problem, not the product. Landing directly on the concern view.
+**Distribution at launch:** Facebook and YouTube ads targeting Vietnamese women 20–35 interested in K-beauty and specific brands (COSRX, Anua, Beauty of Joseon). Ads lead with the skin problem, not the product. Landing URL includes concern param (`/vi/?concern=acne`) so the page opens pre-filtered — no extra tap required.
 
 **Success signals:**
 - Users who select a concern click through to at least one product in the same session
 - Share card is generated at least once per 20 sessions
 - Return visits within 7 days (bookmarks, direct traffic)
-
-**Retention mechanism — relevance nudge:**
-K-beauty routines are multi-step. A user who finds a serum for her acne concern still needs a cleanser, toner, and sunscreen. The return trigger is not a checklist ("your routine is incomplete") — it's a relevance signal. When a concern is active, routine sections she hasn't explored yet surface a soft contextual label: *"Pairs well with your acne concern"* or *"Most people with acne also use a gentle cleanser first."* She sees what's relevant next, not what she's missing. Same information, no pressure. This is built on the existing routine structure — no new data required.
 
 ---
 
@@ -283,8 +286,8 @@ K-beauty routines are multi-step. A user who finds a serum for her acne concern 
 |---|---|---|
 | Now–Q3 2026 | Zero | Build trust before monetizing. Editorial independence is the product. |
 | Q4 2026 | Affiliate commissions (3–8% per sale, Hasaki + Shopee) | Proof of concept — not a salary, a signal that the model works |
-| 2027 | Brand ingredient spotlights | Where real revenue starts — brands pay to explain their hero ingredients, never to change rankings |
-| 2027+ | Premium tier | Personalized routine builder, skin tracking — only after retention is proven |
+| Q1–Q2 2027 | Brand ingredient spotlights | Brands pay to explain their hero ingredients in the ingredient pages. Never changes rankings. |
+| Q3 2027+ | Premium tier | Personalized routine builder, skin tracking — only after retention is proven at scale |
 
 **Why affiliate is a signal, not a salary:**
 A typical K-beauty product in Vietnam costs ~300,000–500,000 VND. At 5% commission, one purchase earns ~15,000–25,000 VND (~$1). To earn $500/month requires ~500–800 purchases — which requires ~15,000–50,000 monthly visitors at realistic conversion rates. That's not reachable at launch. The goal of affiliate in Q4 2026 is not income — it's confirmation that users trust Kwip's recommendations enough to act on them. That confirmation is what justifies investing in brand partnerships, where the real revenue is.

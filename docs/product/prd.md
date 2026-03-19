@@ -1,6 +1,6 @@
 # Kwip — Product Requirements Document
 **Scope:** March 2026 Launch
-**Last updated:** March 2026
+**Last updated:** March 19, 2026
 
 ---
 
@@ -30,48 +30,48 @@ Each requirement is tagged by layer:
 
 ## Requirements
 
-### F1 — Concern Hero `[FEATURE]`
+### F1 — Concern Filter `[FEATURE]`
 
-**What:** Home screen opens with a 2-column card grid of concern cards. Each card shows icon + concern label + symptom text (e.g. "Mụn, bít lỗ chân lông"). Selecting a card reconfigures the entire page — ingredient highlights and product list update instantly. Selecting the same card deselects it and returns to the default state.
+**What:** Home screen opens with a horizontally scrollable tab bar of concern labels (All + 7 concerns). Selecting a tab filters the product grid and step filter bar instantly. A chevron button expands a full-screen overlay grid showing all concern options at once (Olive Young-style dropdown: white options panel + dark scrim below, header and tab bar float above). Selecting the same concern returns to "All."
 
 **Acceptance criteria:**
-- 7 concern cards displayed in 2-column grid
-- Each card shows icon, label, and symptom text
-- Active card: dark background, white text
-- Selecting a concern → ingredient highlights appear + products filter + group by routine step
-- Deselecting → page returns to full unfiltered product grid
-- Min touch target: 56px height
+- Scrollable tab row: "All" + 7 concern labels, active tab has bottom border + bold text
+- Chevron button rotates when overlay is open; 44×44px minimum touch target
+- Overlay: fixed position below header (top: 100px), 2-column grid of all concerns, dark scrim below options panel closes on tap
+- Concern tabs and header float above overlay (z-index layering correct)
+- Selecting a concern → product grid and step filter update instantly
+- Concern filter persists as sticky bar below the fixed header (top: 56px)
 
 **Status:** Done ✓
 
 ---
 
-### F2 — Ingredient Highlight `[FEATURE]`
+### F2 — Step Filter `[FEATURE]`
 
-**What:** When a concern is active, a row of key ingredient cards appears between the concern selector and the product grid. Each card shows ingredient name, icon, and a one-line Vietnamese explanation of what it does for that specific concern. This is the "why" layer — without it, Kwip is just a filtered catalog.
+**What:** Below the concern filter bar, a horizontally scrollable row of routine step labels (All + available categories). Filters the product grid to one step. Only shows steps that have products matching the active concern. Resets to "All" when concern changes.
 
 **Acceptance criteria:**
-- Appears only when a concern is selected
-- Shows 2–6 key ingredients for the active concern
-- Each card: ingredient name (Vietnamese) + icon + one-line reason in Vietnamese
-- Tapping an ingredient card does nothing at launch (detail pages are Q2)
-- Disappears when concern is deselected
+- Steps shown in routine order: Cleanser → Pad → Toner → Essence → Serum → Ampoule → Mask → Cream → Sunscreen
+- Only steps with matching products are shown
+- Active step: semibold text, neutral-900; inactive: regular text, neutral-400
+- Step bar sticky below concern bar (top: 100px); lower visual weight than concern bar (neutral-50 background)
+- 44×44px minimum touch target per step button
 
 **Status:** Done ✓
 
 ---
 
-### F3 — Routine-Grouped Product Grid `[FEATURE]`
+### F3 — Product Grid with Ingredient Signal `[FEATURE]`
 
-**What:** When a concern is active, products are grouped by routine step in application order: Cleanser → Pad → Toner → Essence → Serum → Ampoule → Mask → Cream → Sunscreen. Each step shows only steps that have matching products. Each product card shows the ingredient reason it was surfaced for the selected concern.
+**What:** Flat 2-column (mobile) / 4-column (desktop) product grid, sorted by popularity rank. Each product card shows: product image (square), brand name, product name, and the key ingredient name connecting the product to the active concern. When "All" concern is selected, shows the first key ingredient of each product regardless of concern.
 
 **Acceptance criteria:**
-- Routine groups appear only when concern is selected
-- Only routine steps with matching products are shown
-- Step label shows routine order number + category name in Vietnamese
-- Each product card shows: image, brand, product name, ingredient reason (why it fits the concern)
-- Empty state shown if no products match a concern
-- Without concern selected: flat grid of all products sorted by popularity rank
+- 2-col mobile, 4-col desktop grid
+- Each card: square image → brand (xs, neutral-400) → product name (13px semibold, 2-line clamp) → ingredient signal (xs, emerald-600, 1-line clamp)
+- No card UI — flat layout on neutral-50 page background
+- Ingredient signal: ingredient name only (no description)
+- Empty state centered vertically with optical offset (-mt-16) when no products match
+- Products filtered by active concern and active step simultaneously
 
 **Status:** Done ✓
 
@@ -79,34 +79,38 @@ Each requirement is tagged by layer:
 
 ### F4 — Share Routine Image Card `[FEATURE]`
 
-**What:** When a concern is active, a "Chia sẻ routine của bạn" button appears. Tapping it generates a shareable image card containing: concern label at the top, 2–3 key ingredients with one-line Vietnamese reasons, routine steps with product names, and the Kwip URL watermarked at the bottom. The card is formatted for Facebook and Zalo stories (vertical, 9:16 ratio).
+**What:** From the saved routine detail page (`/routine/[id]`), a "Chia sẻ" button generates a shareable image card. Card contains: concern label, key ingredients with Vietnamese reasons, routine steps with product names, and Kwip URL. Formatted for Facebook/Zalo stories (9:16 vertical).
 
 **Acceptance criteria:**
-- Button appears only when a concern is active
-- Card contains: concern label, 2–3 key ingredients + reasons, routine steps (step name + top 1–2 product names per step), Kwip URL
-- Card is downloadable as an image (PNG)
-- Card design is visually clean and brand-consistent — uses Kwip's neutral-900/white palette
+- Accessible from `/routine/[id]` detail page (public, no auth required to view)
+- Card contains: concern label, 2–3 key ingredients + reasons, routine steps (step name + top 1–2 product names per step), Kwip URL watermark
+- Downloadable as PNG
+- Card design uses neutral-900/white palette, Noto Sans, Kwip branding
 - Works on mobile (primary) and desktop
 
-**Status:** Not started
+**Status:** Not started ⬜
 
 ---
 
 ### F5 — Product Detail Page `[FEATURE]`
 
-**What:** Each product has a detail page at `/[locale]/products/[slug]`. Shows full ingredient breakdown with key ingredients highlighted, Vietnamese descriptions, and purchase links to Hasaki.vn and Shopee.
+**What:** Each product has a detail page at `/[locale]/products/[slug]`. Flat section layout (no cards): product image (4:3 ratio) + info block → key ingredients section → full ingredient list. Purchase links to Hasaki.vn and Shopee. Save button to add product to personal saved list.
 
 **Acceptance criteria:**
-- Product name, brand, category shown
+- Layout: bg-neutral-100 outer, bg-white content blocks separated by h-4 gaps
+- Product image: 4:3 aspect ratio
+- Product name: 17px semibold (not large title — this is a detail, not a hero)
+- Key ingredients: ingredient name + concern mapping + Vietnamese description
 - Full ingredient list with key ingredients flagged
 - Purchase links open in new tab
+- Save button (bookmark): 44×44px, saves to localStorage
 - Bilingual: vi + en
 
 **Status:** Done ✓
 
 ---
 
-### F6 — Bilingual support `[FEATURE]`
+### F6 — Bilingual Support `[FEATURE]`
 
 **What:** All UI text available in Vietnamese (`/vi`) and English (`/en`). Vietnamese is the primary locale. No hardcoded strings — all text via `src/dictionaries/vi.json` and `en.json`.
 
@@ -114,7 +118,50 @@ Each requirement is tagged by layer:
 
 ---
 
-### D1 — Full catalog coverage `[DATA]`
+### F7 — Routine Builder `[FEATURE]`
+
+**What:** Authenticated users can build a personal routine at `/[locale]/routine/new`. Select a concern (pre-loaded from active concern if arrived from home). Pick multiple products per routine step. Name and save the routine to Supabase.
+
+**Acceptance criteria:**
+- Requires Google OAuth sign-in
+- Concern pre-loaded if navigating from home with active concern
+- Multi-product selection per step
+- Routine name editable
+- Saved routine accessible at `/[locale]/me`
+
+**Status:** Done ✓
+
+---
+
+### F8 — Personal Page `[FEATURE]`
+
+**What:** `/[locale]/me` shows the user's saved routines list and saved (bookmarked) products grid. Empty states with CTAs to build a routine or browse products. Requires auth for routines; saved products from localStorage are visible without auth.
+
+**Acceptance criteria:**
+- Saved products: 2-col grid matching home product card style
+- Saved routines: list with concern label, product count, date
+- Delete routine action
+- Empty state centered vertically (-mt-16 optical offset)
+- Bottom tab bar badge shows saved product count
+
+**Status:** Done ✓
+
+---
+
+### F9 — Shareable Routine Detail `[FEATURE]`
+
+**What:** Each saved routine has a public detail page at `/[locale]/routine/[id]`. Shows concern, products organized by step, and a share button (F4). No auth required to view — anyone with the link can see it.
+
+**Acceptance criteria:**
+- Public page (no auth gate)
+- Products grouped by routine step in application order
+- Share button triggers image card generation (F4 — pending)
+
+**Status:** Done ✓ (share button pending F4)
+
+---
+
+### D1 — Full Catalog Coverage `[DATA]`
 
 **What:** All 7 concerns have products at every key routine step. No concern shows an empty state at launch.
 
@@ -134,7 +181,7 @@ Each requirement is tagged by layer:
 
 ---
 
-### D2 — Ingredient effects accuracy `[DATA]`
+### D2 — Ingredient Effects Accuracy `[DATA]`
 
 **What:** Key ingredients are correctly mapped to concerns they address. Concern mapping requires ≥2 ingredients with "good" effects for that concern (exception: sun-protection requires ≥1 UV filter ingredient, or product is sunscreen category).
 
@@ -142,17 +189,31 @@ Each requirement is tagged by layer:
 
 ---
 
-### DIST1 — Paid acquisition at launch `[DISTRIBUTION]`
+### F10 — Deep Link Concern Pre-selection `[FEATURE]`
+
+**What:** The URL param `?concern=acne` (or any valid concern ID) pre-selects the matching concern tab on page load. Required for paid ad landing pages — ads promise a concern-specific view, and the landing page must deliver it immediately without the user having to tap anything.
+
+**Acceptance criteria:**
+- `?concern=<id>` on `/[locale]/` pre-selects the concern tab and filters the product grid on load
+- Invalid or unknown concern values are silently ignored (fall back to "All")
+- Works with any of the 7 concern IDs: `acne`, `pores`, `hydration`, `brightening`, `soothing`, `anti-aging`, `sun-protection`
+- No flash of unfiltered state on load
+
+**Status:** Not started ⬜ (blocking DIST1)
+
+---
+
+### DIST1 — Paid Acquisition at Launch `[DISTRIBUTION]`
 
 **What:** Facebook and YouTube ads targeting Vietnamese women 20–35 interested in K-beauty. Ads lead with the skin problem ("Da mụn mãi không hết?"), not the product or brand. Landing URL goes directly to the concern view, not the homepage.
 
 **Acceptance criteria:**
 - Facebook ad set targeting: Vietnam, female, 20–35, interests: K-beauty brands (COSRX, Anua, Beauty of Joseon), skincare, beauty
 - Ad creative leads with concern/problem copy
-- Landing URL: `/vi/?concern=acne` (or relevant concern)
+- Landing URL: `/vi/?concern=acne` (or relevant concern) — deep link pre-selects the concern tab
 - UTM parameters on all ad URLs for tracking
 
-**Status:** Not started (post-build)
+**Status:** Not started ⬜ (post-build)
 
 ---
 
@@ -165,9 +226,8 @@ These are confirmed for later phases. Do not build now.
 | Ingredient detail pages | Q2 2026 |
 | Affiliate purchase links | Q2 2026 |
 | Editorial starter routines (curated brand combos) | Q2 2026 |
-| User accounts / saved routines | 2027 |
-| K-Routine Builder (drag & drop) | 2027 |
 | Creator/KOL partnerships | Q3 2026 |
+| Skin profile / personalization | 2027 |
 | Reviews or community features | Not planned |
 | Native app (iOS/Android) | Not planned |
 
@@ -193,4 +253,4 @@ These are confirmed for later phases. Do not build now.
 | **Deepen** | Q2 2026 | Ingredient pages + affiliate links + starter routines | Users bookmark Kwip as a reference |
 | **Distribute** | Q3 2026 | Creator partnerships, organic > paid | Share card + creators compound growth |
 | **Monetize** | Q4 2026 | Affiliate revenue live | Trust converts to purchase intent |
-| **Defend** | 2027 | K-Routine Builder + skin profiles | Personalization creates retention moat |
+| **Defend** | 2027 | Skin profiles + personalization | Personalization creates retention moat |

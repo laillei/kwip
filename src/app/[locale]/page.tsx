@@ -87,7 +87,6 @@ export default async function Home({
             dict={{
               allItems: dict.home.allItems,
               emptyState: dict.products.emptyState,
-              savedToast: dict.home.savedToast,
               productsCount: dict.home.productsCount,
             }}
           />

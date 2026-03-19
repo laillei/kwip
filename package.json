@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "bash scripts/dev.sh",
+    "dev:main": "rm -rf .next && next dev --turbo -p 3001",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",

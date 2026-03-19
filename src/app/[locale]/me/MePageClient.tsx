@@ -52,7 +52,7 @@ export default function MePageClient({ locale, products, dict }: Props) {
 
   if (!loaded) {
     return (
-      <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
+      <div className="min-h-screen bg-neutral-100 flex items-center justify-center">
         <div className="text-[17px] text-neutral-400">...</div>
       </div>
     );
@@ -75,7 +75,7 @@ export default function MePageClient({ locale, products, dict }: Props) {
             {dict.createRoutineFromSaved}
           </Link>
         </div>
-        <div className="space-y-3">
+        <div className="grid grid-cols-2 gap-x-3 gap-y-6">
           {savedProducts.map((product) => (
             <ProductListItem
               key={product.id}
@@ -92,21 +92,22 @@ export default function MePageClient({ locale, products, dict }: Props) {
     ) : null;
 
   return (
-    <div className="min-h-screen bg-neutral-50 flex flex-col">
-      {routines.length === 0 ? (
-        <div className="max-w-2xl mx-auto w-full px-4 pt-4 pb-8 flex flex-col flex-1">
+    <div className="min-h-screen bg-neutral-100 flex flex-col">
+      {routines.length === 0 && savedProducts.length === 0 ? (
+        <div className="flex-1 flex items-center justify-center" style={{ minHeight: "calc(100dvh - 56px - 49px)" }}>
+          <div className="-mt-16">
+            <EmptyState
+              icon="🌿"
+              title={dict.emptyTitle}
+              body={dict.emptyBody}
+              actionLabel={dict.emptyAction}
+              actionHref={`/${locale}`}
+            />
+          </div>
+        </div>
+      ) : routines.length === 0 ? (
+        <div className="max-w-2xl mx-auto w-full px-4 pt-4 pb-8">
           {savedSection}
-          {savedProducts.length === 0 && (
-            <div className="flex-1 flex items-center justify-center pb-0 pt-16">
-              <EmptyState
-                icon="🌿"
-                title={dict.emptyTitle}
-                body={dict.emptyBody}
-                actionLabel={dict.emptyAction}
-                actionHref={`/${locale}`}
-              />
-            </div>
-          )}
         </div>
       ) : (
         <div className="max-w-2xl mx-auto w-full px-4 pt-4 pb-8">

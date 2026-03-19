@@ -103,10 +103,16 @@ kwip/
 │       ├── i18n.ts               # getDictionary, Locale type
 │       └── brands.ts             # Brand display name lookup
 ├── docs/
-│   ├── product-brief.md          # Product direction & strategy — READ BEFORE product decisions
-│   ├── prd.md                    # Tactical requirements & launch scope
-│   ├── design-system.md          # Type scale, colors, spacing rules
-│   └── plans/                    # Feature design docs & implementation plans
+│   ├── product/                  # PM — strategy & requirements
+│   │   ├── product-brief.md      # Product direction & strategy — READ BEFORE product decisions
+│   │   ├── prd.md                # Tactical requirements & launch scope
+│   │   └── value-proposition.md
+│   ├── design/                   # Design standards (permanent reference)
+│   │   ├── design-system.md      # Type scale, colors, spacing rules
+│   │   ├── hig-mobile-first.md   # HIG typography & layout spec
+│   │   └── core-vision.md
+│   ├── plans/                    # Feature design docs & implementation plans (dated)
+│   └── reference/                # External API specs (future)
 └── scripts/
     └── pipeline/                 # Product data ingestion pipeline
 ```
@@ -186,7 +192,7 @@ interface RoutineProduct {
 ## Key Rules
 
 - All UI text via `src/dictionaries/vi.json` and `en.json` — no hardcoded strings
-- Follow design system: `docs/design-system.md`
+- Follow design system: `docs/design/design-system.md`
 - Mobile-first, min 44px touch targets
 - Ingredient `name` has no `en` field — use `inci` for English locale
 - Bundle/deal products (names containing `[deal]`, `bundle`, `2-pack`, `3-pack`, ` kit`) are filtered from display
