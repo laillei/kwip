@@ -124,7 +124,7 @@ export default function ConcernFilterBar({ options, selected, onSelect }: Concer
       */}
       {open && mounted && createPortal(
         <div
-          className="fixed inset-0 z-[47] bg-black/40"
+          className="fixed inset-x-0 bottom-0 top-14 z-[47] bg-black/40"
           onClick={() => setOpen(false)}
         />,
         document.body
