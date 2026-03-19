@@ -81,7 +81,7 @@ export default async function ProductDetailPage({
         <header className="flex items-center justify-between px-8 py-4">
           <Link
             href={`/${locale}`}
-            className="flex items-center gap-1.5 text-sm text-neutral-500 hover:text-neutral-900 transition-colors -ml-1 px-1 py-1"
+            className="flex items-center gap-1.5 text-[15px] text-neutral-500 hover:text-neutral-900 transition-colors -ml-1 px-1 min-h-[44px]"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M15 18l-6-6 6-6" />

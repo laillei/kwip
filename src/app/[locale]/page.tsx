@@ -63,7 +63,7 @@ export default async function Home({
           <header className="flex items-center justify-between px-8 pt-6 pb-4">
             <div>
               <span className="text-2xl font-bold tracking-tight">Kwip</span>
-              <p className="text-sm text-neutral-600 mt-0.5">
+              <p className="text-[15px] text-neutral-600 mt-0.5">
                 {dict.site.tagline}
               </p>
             </div>

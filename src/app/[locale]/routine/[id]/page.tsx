@@ -36,7 +36,7 @@ export default async function RoutineDetailPage({
           >
             <path d="M15 18l-6-6 6-6" />
           </svg>
-          <span className="text-sm font-medium">
+          <span className="text-[15px] font-medium">
             {dict.routine.backToRoutines}
           </span>
         </Link>

@@ -81,12 +81,12 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
                   ? "Tìm sản phẩm hoặc thương hiệu..."
                   : "Search products or brands..."
               }
-              className="w-full rounded-xl bg-white border border-neutral-200 pl-11 pr-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-900/10"
+              className="w-full rounded-xl bg-white border border-neutral-200 pl-11 pr-4 py-3 text-[15px] text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-900/10"
             />
           </div>
           <button
             onClick={onClose}
-            className="shrink-0 text-sm font-medium text-neutral-500 hover:text-neutral-900 px-2 py-2"
+            className="shrink-0 text-[15px] font-medium text-neutral-500 hover:text-neutral-900 min-h-[44px] px-3 flex items-center"
           >
             {loc === "vi" ? "Đóng" : "Close"}
           </button>
@@ -106,7 +106,7 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
                     <button
                       key={keyword}
                       onClick={() => setQuery(keyword)}
-                      className="px-3.5 py-2 rounded-full bg-white border border-neutral-200 text-sm font-medium text-neutral-500 hover:bg-neutral-100 active:bg-neutral-200 transition-colors"
+                      className="px-3.5 py-2 rounded-full bg-white border border-neutral-200 text-[13px] font-medium text-neutral-500 hover:bg-neutral-100 active:bg-neutral-200 transition-colors"
                     >
                       {keyword}
                     </button>
@@ -154,7 +154,7 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
 
           {/* Search results */}
           {isSearching && results.length === 0 && (
-            <p className="text-sm text-neutral-600 text-center py-10">
+            <p className="text-[15px] text-neutral-600 text-center py-10">
               {loc === "vi"
                 ? "Không tìm thấy sản phẩm"
                 : "No products found"}
@@ -182,7 +182,7 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
                     <p className="text-xs font-medium text-neutral-500 tracking-wide uppercase">
                       {getBrandName(product.brand)}
                     </p>
-                    <p className="text-sm font-semibold text-neutral-900 truncate">
+                    <p className="text-[13px] font-semibold text-neutral-900 truncate">
                       {product.name[loc] || product.name.vi}
                     </p>
                   </div>

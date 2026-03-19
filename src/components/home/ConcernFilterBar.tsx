@@ -49,8 +49,8 @@ export default function ConcernFilterBar({ options, selected, onSelect }: Concer
         When open, the absolute grid covers this bar AND extends below it,
         visually replacing the tabs without shifting any content.
       */}
-      <div className="relative -mx-4 px-4 border-b border-neutral-100 bg-white">
-        {/* Scrollable tabs — always rendered, hidden under grid when open */}
+      {/* Mobile: white bg + border. Desktop: transparent, no border */}
+      <div className="relative -mx-4 px-4 border-b border-neutral-100 bg-white md:bg-transparent md:border-b-0">
         <div className="flex items-center">
           <div className="flex overflow-x-auto no-scrollbar flex-1">
             {options.map((option) => {
@@ -61,7 +61,7 @@ export default function ConcernFilterBar({ options, selected, onSelect }: Concer
                   type="button"
                   aria-pressed={active}
                   onClick={() => onSelect(option.id)}
-                  className={`shrink-0 px-4 h-11 text-[15px] whitespace-nowrap border-b-2 -mb-px transition-colors ${
+                  className={`shrink-0 px-4 h-11 text-[13px] whitespace-nowrap border-b-2 -mb-px transition-colors ${
                     active
                       ? "font-semibold text-neutral-900 border-neutral-900"
                       : "font-normal text-neutral-400 border-transparent"
@@ -72,20 +72,20 @@ export default function ConcernFilterBar({ options, selected, onSelect }: Concer
               );
             })}
           </div>
+          {/* Chevron: mobile only */}
           <button
             type="button"
             onClick={() => setOpen(true)}
             aria-label="Show all concerns"
-            className="shrink-0 flex items-center justify-center w-11 h-11 border-b-2 border-transparent -mb-px"
+            className="md:hidden shrink-0 flex items-center justify-center w-11 h-11 border-b-2 border-transparent -mb-px"
           >
             {chevronIcon}
           </button>
         </div>
 
-        {/* Grid: starts at top-0 so it covers the tab bar, extends below — no layout shift */}
+        {/* Grid overlay: mobile only */}
         {open && (
-          <div className="absolute top-0 left-0 right-0 z-[48] bg-white border-b border-neutral-100 px-4">
-            {/* ▲ chevron at top-right, same position as collapsed ▼ */}
+          <div className="md:hidden absolute top-0 left-0 right-0 z-[48] bg-white border-b border-neutral-100 px-4">
             <button
               type="button"
               onClick={() => setOpen(false)}
@@ -104,7 +104,7 @@ export default function ConcernFilterBar({ options, selected, onSelect }: Concer
                     key={option.id}
                     type="button"
                     onClick={() => handleSelect(option.id)}
-                    className={`text-left py-3 text-[15px] transition-colors ${
+                    className={`text-left py-3 text-[13px] transition-colors ${
                       isLastOdd ? "col-span-2" : ""
                     } ${
                       active
@@ -121,15 +121,10 @@ export default function ConcernFilterBar({ options, selected, onSelect }: Concer
         )}
       </div>
 
-      {/*
-        Scrim via portal — renders at <body>, so z-[47] is in the ROOT stacking context.
-        - Below sticky concern bar (z-[48]) → grid stays visible above scrim
-        - Below header + bottom nav (z-50) → nav stays usable
-        - Above step bar (z-[30]) and product list → dims them correctly
-      */}
+      {/* Scrim: mobile only */}
       {open && mounted && createPortal(
         <div
-          className="fixed inset-x-0 bottom-0 top-14 z-[47] bg-black/40"
+          className="md:hidden fixed inset-x-0 bottom-0 top-14 z-[47] bg-black/40"
           onClick={() => setOpen(false)}
         />,
         document.body

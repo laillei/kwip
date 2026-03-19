@@ -5,9 +5,10 @@ import Link from "next/link";
 import type { Routine, Product } from "@/lib/types";
 import { getRoutines, deleteRoutine } from "@/lib/localRoutines";
 import { getSavedProducts } from "@/lib/localSaved";
+import Image from "next/image";
 import RoutineCard from "@/components/routine/RoutineCard";
 import { EmptyState } from "@/components/ui";
-import ProductListItem from "@/components/home/ProductListItem";
+import { getBrandName } from "@/lib/brands";
 
 interface Dict {
   myRoutines: string;
@@ -52,7 +53,7 @@ export default function MePageClient({ locale, products, dict }: Props) {
 
   if (!loaded) {
     return (
-      <div className="min-h-screen bg-neutral-100 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-[17px] text-neutral-400">...</div>
       </div>
     );
@@ -75,24 +76,38 @@ export default function MePageClient({ locale, products, dict }: Props) {
             {dict.createRoutineFromSaved}
           </Link>
         </div>
-        <div className="grid grid-cols-2 gap-x-3 gap-y-6">
+        <div className="divide-y divide-neutral-100">
           {savedProducts.map((product) => (
-            <ProductListItem
+            <Link
               key={product.id}
-              slug={product.slug}
-              name={product.name[loc] || product.name.vi}
-              brand={product.brand}
-              category={product.category}
-              image={product.image}
-              locale={locale}
-            />
+              href={`/${locale}/products/${product.slug}`}
+              className="flex items-center gap-3 py-3 min-h-[44px] active:bg-neutral-50 transition-colors"
+            >
+              <div className="relative w-12 h-12 shrink-0 rounded-xl overflow-hidden bg-white">
+                <Image
+                  src={product.image}
+                  alt={product.name[loc] || product.name.vi}
+                  fill
+                  className="object-contain p-1"
+                  sizes="48px"
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-[13px] font-semibold text-neutral-900 line-clamp-2 leading-snug">
+                  {product.name[loc] || product.name.vi}
+                </p>
+                <p className="text-xs text-neutral-400 mt-0.5">
+                  {getBrandName(product.brand)}
+                </p>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
     ) : null;
 
   return (
-    <div className="min-h-screen bg-neutral-100 flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col">
       {routines.length === 0 && savedProducts.length === 0 ? (
         <div className="flex-1 flex items-center justify-center" style={{ minHeight: "calc(100dvh - 56px - 49px)" }}>
           <div className="-mt-16">

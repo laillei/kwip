@@ -109,7 +109,7 @@ export default function DiscoveryHub({
   return (
     <div>
       {/* Concern bar — high z so it floats above dropdown overlay */}
-      <div className="sticky top-[56px] z-[48] bg-white/90 backdrop-blur-md md:top-0 -mx-4 px-4">
+      <div className="sticky top-[56px] z-[48] bg-white md:top-0 -mx-4 px-4">
         <ConcernFilterBar
           options={concernOptions}
           selected={selectedConcern}
@@ -118,7 +118,7 @@ export default function DiscoveryHub({
       </div>
 
       {/* Step bar — lower z, sits behind dropdown overlay when open */}
-      <div className="sticky top-[100px] z-[30] bg-neutral-50/80 md:top-0 -mx-4 px-4">
+      <div className="sticky top-[100px] z-[30] bg-white md:top-0 -mx-4 px-4">
         <StepFilterBar
           steps={categoryOptions}
           selected={selectedCategory}

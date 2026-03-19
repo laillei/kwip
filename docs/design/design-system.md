@@ -10,7 +10,7 @@
 | Headline | 17px | Semibold | `text-[17px] font-semibold` | Product names, subheadings |
 | Body | 17px | Regular | `text-[17px]` | Body text, ingredient descriptions |
 | Callout | 16px | Regular | `text-base` | Secondary body, wordmark |
-| Subhead | 15px | Regular | `text-[15px]` | Primary filter tabs, secondary labels |
+| Subhead | 15px | Regular | `text-[15px]` | CTAs, secondary labels, form text |
 | Footnote | 13px | Regular | `text-[13px]` | Tertiary text, INCI names, brand labels |
 | Caption | 12px | Regular | `text-xs` | Secondary filter tabs, badges, tab bar labels |
 | Overline | 12px | Semibold uppercase | `text-xs font-semibold uppercase tracking-wide` | Section headers (e.g. "Key Ingredients") |
@@ -92,7 +92,7 @@ Home page has two filter rows with intentional visual hierarchy:
 
 | Level | Component | Style | Role |
 |---|---|---|---|
-| Primary | ConcernFilterBar | 15px medium, underline active indicator | Concern selection |
+| Primary | ConcernFilterBar | 13px medium, underline active indicator | Concern selection |
 | Secondary | StepFilterBar | 12px, plain text, semibold when active | Product type filter |
 
 - Both rows are sticky, flush to the header

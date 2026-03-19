@@ -90,7 +90,7 @@ export default function RoutineBuilderClient({
   );
 
   return (
-    <div className="min-h-screen bg-neutral-100">
+    <div className="min-h-screen bg-white">
       {/* Scrollable content — extra bottom padding clears the fixed action bar */}
       <div className="max-w-2xl mx-auto px-4 pt-6 pb-32">
         <h1 className="text-[22px] font-bold text-neutral-900 mb-1">
@@ -107,7 +107,7 @@ export default function RoutineBuilderClient({
           className="mb-8"
         />
 
-        <div className="space-y-8">
+        <div className="-mx-4">
           {stepsWithProducts.map((step) => (
             <RoutineStepPicker
               key={step.category}

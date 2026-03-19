@@ -1,4 +1,3 @@
-import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import type { Product } from "@/lib/types";
@@ -15,10 +14,6 @@ export default async function RoutineNewPage({
 }) {
   const { locale } = await params;
   const { concern } = await searchParams;
-
-  if (!concern) {
-    redirect(`/${locale}`);
-  }
 
   const dict = await getDictionary(locale as Locale);
 

@@ -8,7 +8,7 @@ export default function AuthButton({ locale }: AuthButtonProps) {
   return (
     <Link
       href={`/${locale}/me`}
-      className="w-8 h-8 rounded-full bg-neutral-200 flex items-center justify-center hover:bg-neutral-300 transition-colors"
+      className="w-11 h-11 rounded-full bg-neutral-200 flex items-center justify-center hover:bg-neutral-300 transition-colors"
     >
       <svg
         width="18"
