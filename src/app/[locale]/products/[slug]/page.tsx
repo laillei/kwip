@@ -1,13 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Ingredient } from "@/lib/types";
 import { getProductBySlug, getAllProductSlugs, getAllIngredients } from "@/lib/db";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/getLocalizedData";
 import { getBrandName } from "@/lib/brands";
-import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
 import BookmarkButton from "@/components/shared/BookmarkButton";
 import MobileShell from "@/components/shell/MobileShell";
 
@@ -67,14 +65,7 @@ export default async function ProductDetailPage({
           <span className="text-[15px] font-medium">{dict.detail.back}</span>
         </Link>
       }
-      headerRight={
-        <div className="flex items-center gap-1">
-          <BookmarkButton productId={product.id} />
-          <Suspense>
-            <LanguageSwitcher />
-          </Suspense>
-        </div>
-      }
+      headerRight={<BookmarkButton productId={product.id} />}
     >
       {/* Desktop header — visible md+ only */}
       <div className="hidden md:block max-w-3xl mx-auto">
@@ -88,9 +79,6 @@ export default async function ProductDetailPage({
             </svg>
             {dict.detail.back}
           </Link>
-          <Suspense>
-            <LanguageSwitcher />
-          </Suspense>
         </header>
       </div>
 
@@ -112,7 +100,7 @@ export default async function ProductDetailPage({
             </div>
 
             {/* Product info */}
-            <div className="px-5 pt-4 pb-5">
+            <div className="px-4 md:px-8 pt-4 pb-5">
               <p className="text-[13px] text-neutral-400 uppercase tracking-wide">
                 {getBrandName(product.brand)}
               </p>
@@ -142,12 +130,12 @@ export default async function ProductDetailPage({
 
           {/* Key ingredients — white block */}
           <section className="bg-white">
-            <h2 className="text-xs font-semibold tracking-wide text-neutral-500 uppercase px-5 md:px-8 pt-4 pb-2">
+            <h2 className="text-xs font-semibold tracking-wide text-neutral-500 uppercase px-4 md:px-8 pt-4 pb-2">
               {dict.detail.keyIngredients}
             </h2>
             <div className="divide-y divide-neutral-100">
               {keyIngredients.map(({ detail }) => (
-                <div key={detail.id} className="px-5 md:px-8 py-4">
+                <div key={detail.id} className="px-4 md:px-8 py-4">
                   <div className="flex items-center justify-between">
                     <p className="text-[15px] font-semibold text-neutral-900">{detail.name.inci}</p>
                     {detail.ewgGrade && (
@@ -186,12 +174,12 @@ export default async function ProductDetailPage({
 
           {/* Full ingredient list — white block */}
           <section className="bg-white">
-            <h2 className="text-xs font-semibold tracking-wide text-neutral-500 uppercase px-5 md:px-8 pt-4 pb-2">
+            <h2 className="text-xs font-semibold tracking-wide text-neutral-500 uppercase px-4 md:px-8 pt-4 pb-2">
               {dict.detail.allIngredients}
             </h2>
             <div className="divide-y divide-neutral-100">
               {allIngredients.map(({ ingredientId, order, detail }) => (
-                <div key={ingredientId} className="flex items-start gap-4 px-5 md:px-8 py-3 min-h-[44px]">
+                <div key={ingredientId} className="flex items-start gap-4 px-4 md:px-8 py-3 min-h-[44px]">
                   <span className="text-[13px] text-neutral-400 w-5 shrink-0 pt-px text-right tabular-nums">
                     {order}
                   </span>
@@ -236,7 +224,7 @@ export default async function ProductDetailPage({
           className="fixed left-0 right-0 z-20 md:bottom-0"
           style={{ bottom: "calc(49px + env(safe-area-inset-bottom))" }}
         >
-          <div className="bg-white/80 backdrop-blur-xl border-t border-neutral-200/60 px-6 md:px-8 py-4">
+          <div className="bg-white border-t border-neutral-100 px-4 md:px-8 py-4">
             <div className="flex gap-3 max-w-3xl mx-auto">
               {purchaseLinks.map(({ platform, url }) => (
                 <a
@@ -244,7 +232,7 @@ export default async function ProductDetailPage({
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 rounded-2xl bg-neutral-900 text-white text-center text-[15px] font-semibold py-3.5 transition-all duration-200 hover:bg-neutral-800 active:scale-[0.98]"
+                  className="flex-1 rounded-xl bg-neutral-900 text-white text-center text-[15px] font-semibold py-3.5 active:opacity-70 transition-opacity"
                 >
                   {platform}
                 </a>
