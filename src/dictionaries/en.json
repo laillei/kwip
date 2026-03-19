@@ -33,6 +33,8 @@
     "viewButton": "View",
     "deleteButton": "Delete",
     "backToHome": "Home",
+    "backToMe": "Me",
+    "addMoreProducts": "Add more products",
     "backToRoutines": "My Routines",
     "createdAt": "Created",
     "productsCount": "products",

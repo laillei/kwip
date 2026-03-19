@@ -49,7 +49,7 @@ export default async function RoutineNewPage({
       locale={locale}
       headerLeft={
         <Link
-          href={`/${locale}`}
+          href={`/${locale}/me`}
           className="flex items-center gap-1 text-neutral-900 -ml-1 px-1 min-h-[44px] min-w-[44px]"
         >
           <svg
@@ -64,9 +64,10 @@ export default async function RoutineNewPage({
           >
             <path d="M15 18l-6-6 6-6" />
           </svg>
-          <span className="text-[15px] font-medium">{dict.routine.backToHome}</span>
+          <span className="text-[15px] font-medium">{dict.routine.backToMe}</span>
         </Link>
       }
+      headerRight={<></>}
     >
       <RoutineBuilderClient
         locale={locale}
@@ -80,6 +81,7 @@ export default async function RoutineNewPage({
           saving: dict.routine.saving,
           allItems: dict.home.allItems,
           emptyState: dict.products.emptyState,
+          addMoreProducts: dict.routine.addMoreProducts,
         }}
       />
     </MobileShell>
