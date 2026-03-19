@@ -14,12 +14,11 @@ interface ConcernFilterBarProps {
   onSelect: (id: Concern | "all") => void;
 }
 
-// Header (56px) + selector row (44px) = dropdown starts at 100px from viewport top
+// Header (56px) + concern bar (~44px) = dropdown starts at 100px from viewport top
 const DROPDOWN_TOP = 100;
 
 export default function ConcernFilterBar({ options, selected, onSelect }: ConcernFilterBarProps) {
   const [open, setOpen] = useState(false);
-  const selectedLabel = options.find((o) => o.id === selected)?.label ?? options[0]?.label;
 
   function handleSelect(id: Concern | "all") {
     onSelect(id);
@@ -28,35 +27,56 @@ export default function ConcernFilterBar({ options, selected, onSelect }: Concer
 
   return (
     <>
-      {/* Selector row — shows current selection, tapping opens dropdown */}
+      {/* Scrollable tab row + chevron */}
       <div className="-mx-4 px-4 border-b border-neutral-100">
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-haspopup="listbox"
-          aria-expanded={open}
-          className="flex items-center justify-between w-full h-11 text-left"
-        >
-          <span className="text-[15px] font-semibold text-neutral-900">
-            {selectedLabel}
-          </span>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className={`text-neutral-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+        <div className="flex items-center">
+          <div className="flex overflow-x-auto no-scrollbar flex-1">
+            {options.map((option) => {
+              const active = selected === option.id;
+              return (
+                <button
+                  key={option.id}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => onSelect(option.id)}
+                  className={`shrink-0 px-4 h-11 text-[15px] whitespace-nowrap border-b-2 -mb-px transition-colors ${
+                    active
+                      ? "font-semibold text-neutral-900 border-neutral-900"
+                      : "font-normal text-neutral-400 border-transparent"
+                  }`}
+                >
+                  {option.label}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Expand chevron — always ▼, rotates to ▲ when open */}
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Show all concerns"
+            aria-expanded={open}
+            className="shrink-0 flex items-center justify-center w-11 h-11 border-b-2 border-transparent -mb-px"
           >
-            <path d="M6 9l6 6 6-6" />
-          </svg>
-        </button>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={`text-neutral-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+        </div>
       </div>
 
-      {/* Dropdown overlay */}
+      {/* Full dropdown overlay — for seeing all options at once */}
       {open && (
         <div
           className="fixed inset-0 z-[44] flex flex-col"
