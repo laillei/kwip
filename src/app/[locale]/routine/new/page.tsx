@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { getDictionary, type Locale } from "@/lib/i18n";
-import type { Product, Concern } from "@/lib/types";
-import { getAllProducts, getAllConcerns } from "@/lib/db";
-import { t } from "@/lib/getLocalizedData";
+import type { Product } from "@/lib/types";
+import { getAllProducts } from "@/lib/db";
 import RoutineBuilderClient from "@/components/routine/RoutineBuilderClient";
 import MobileShell from "@/components/shell/MobileShell";
 
@@ -19,10 +18,7 @@ export default async function RoutineNewPage({
 
   const dict = await getDictionary(loc);
 
-  const [allProductsRaw, allConcernsRaw] = await Promise.all([
-    getAllProducts(),
-    getAllConcerns(),
-  ]);
+  const allProductsRaw = await getAllProducts();
 
   const allProducts = (allProductsRaw as Product[]).filter((p) => {
     const name = (p.name.en || p.name.vi || "").toLowerCase();
@@ -34,13 +30,6 @@ export default async function RoutineNewPage({
       !name.includes(" kit")
     );
   });
-
-  const concerns = allConcernsRaw
-    .filter((c) => c.id && c.label)
-    .map((c) => ({
-      id: c.id as Concern,
-      label: t(c.label as Record<string, string>, loc),
-    }));
 
   const initialSelectedIds = saved ? saved.split(",").filter(Boolean) : undefined;
 
@@ -72,16 +61,14 @@ export default async function RoutineNewPage({
       <RoutineBuilderClient
         locale={locale}
         concern={concern ?? ""}
-        concerns={concerns}
         products={allProducts}
         initialSelectedIds={initialSelectedIds}
         dict={{
+          defaultName: dict.routine.defaultName,
           namePlaceholder: dict.routine.namePlaceholder,
           saveButton: dict.routine.saveButton,
           saving: dict.routine.saving,
-          allItems: dict.home.allItems,
           emptyState: dict.products.emptyState,
-          addMoreProducts: dict.routine.addMoreProducts,
         }}
       />
     </MobileShell>
