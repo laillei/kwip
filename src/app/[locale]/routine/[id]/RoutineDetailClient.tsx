@@ -8,6 +8,8 @@ import { getRoutineById } from "@/lib/localRoutines";
 import type { Product } from "@/lib/types";
 import type { Routine, RoutineProduct } from "@/lib/types";
 import ShareButton from "@/components/routine/ShareButton";
+import { getBrandName } from "@/lib/brands";
+import type { Brand } from "@/lib/types";
 
 interface Dict {
   shareButton: string;
@@ -62,7 +64,7 @@ export default function RoutineDetailClient({ locale, id, dict, products }: Prop
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="max-w-2xl mx-auto px-6 py-8">
+      <div className="max-w-2xl mx-auto px-4 py-8">
         <h1 className="text-[22px] font-bold text-neutral-900 mb-1">
           {routine.name}
         </h1>
@@ -72,32 +74,34 @@ export default function RoutineDetailClient({ locale, id, dict, products }: Prop
           <ShareButton routine={routine} dict={shareDict} />
         </div>
 
-        <div className="space-y-6">
+        <div className="divide-y divide-neutral-100">
           {routineProducts.map((rp) => (
-            <div key={rp.productId} className="flex items-center gap-4">
-              <span className="text-xs font-semibold text-neutral-400 w-5 text-center">
+            <Link
+              key={rp.productId}
+              href={`/${locale}/products/${rp.product.slug}`}
+              className="flex items-center gap-3 py-3 min-h-[44px] active:bg-neutral-50 transition-colors"
+            >
+              <span className="text-[13px] font-semibold text-neutral-400 w-5 text-center shrink-0">
                 {rp.step}
               </span>
-              <Image
-                src={rp.product.image}
-                alt={rp.product.name[loc] ?? rp.product.name.vi}
-                width={56}
-                height={56}
-                className="rounded-xl object-cover"
-              />
+              <div className="relative w-12 h-12 shrink-0 rounded-xl overflow-hidden bg-neutral-100">
+                <Image
+                  src={rp.product.image}
+                  alt={rp.product.name[loc] ?? rp.product.name.vi}
+                  fill
+                  className="object-contain p-1"
+                  sizes="48px"
+                />
+              </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[15px] font-semibold text-neutral-900 truncate">
+                <p className="text-[13px] font-semibold text-neutral-900 line-clamp-2 leading-snug">
                   {rp.product.name[loc] ?? rp.product.name.vi}
                 </p>
-                <p className="text-[13px] text-neutral-500">{rp.product.brand}</p>
+                <p className="text-xs text-neutral-400 mt-0.5">
+                  {getBrandName(rp.product.brand as Brand)}
+                </p>
               </div>
-              <Link
-                href={`/${locale}/products/${rp.product.slug}`}
-                className="text-[13px] text-neutral-400 hover:text-neutral-900 flex-shrink-0 min-h-[44px] w-[44px] flex items-center justify-center"
-              >
-                →
-              </Link>
-            </div>
+            </Link>
           ))}
         </div>
 

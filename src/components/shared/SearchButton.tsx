@@ -11,7 +11,7 @@ export default function SearchButton({ locale, products }: { locale: string; pro
     <>
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center justify-center w-9 h-9 rounded-full bg-neutral-100 text-neutral-500 hover:bg-neutral-200 transition-colors"
+        className="flex items-center justify-center min-w-[44px] min-h-[44px] text-neutral-500 transition-colors"
         aria-label="Search"
       >
         <svg

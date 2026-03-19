@@ -23,16 +23,18 @@ export default function BottomTabBar({ locale, navLabels }: Props) {
 
   useEffect(() => {
     const update = () => setSavedCount(getSavedCount());
+    const onSearchOpen = () => setSearchOpen(true);
+    const onSearchClose = () => setSearchOpen(false);
     update();
     window.addEventListener("kwip_saved_updated", update);
     window.addEventListener("storage", update);
-    window.addEventListener("kwip_search_open", () => setSearchOpen(true));
-    window.addEventListener("kwip_search_close", () => setSearchOpen(false));
+    window.addEventListener("kwip_search_open", onSearchOpen);
+    window.addEventListener("kwip_search_close", onSearchClose);
     return () => {
       window.removeEventListener("kwip_saved_updated", update);
       window.removeEventListener("storage", update);
-      window.removeEventListener("kwip_search_open", () => setSearchOpen(true));
-      window.removeEventListener("kwip_search_close", () => setSearchOpen(false));
+      window.removeEventListener("kwip_search_open", onSearchOpen);
+      window.removeEventListener("kwip_search_close", onSearchClose);
     };
   }, []);
 
