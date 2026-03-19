@@ -18,7 +18,9 @@ export default async function MePage({
   ]);
 
   const concernLabels = Object.fromEntries(
-    rawConcerns.map((c) => [c.id, t(c.label, loc)])
+    rawConcerns
+      .filter((c) => c.id && c.label)
+      .map((c) => [c.id, t(c.label as Record<string, string>, loc)])
   ) as Record<string, string>;
 
   return (
