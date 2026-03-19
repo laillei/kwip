@@ -27,10 +27,11 @@ interface Dict {
 interface Props {
   locale: string;
   products: Product[];
+  concernLabels: Record<string, string>;
   dict: Dict;
 }
 
-export default function MePageClient({ locale, products, dict }: Props) {
+export default function MePageClient({ locale, products, concernLabels, dict }: Props) {
   const [routines, setRoutines] = useState<Routine[]>([]);
   const [savedProductIds, setSavedProductIds] = useState<string[]>([]);
   const [loaded, setLoaded] = useState(false);
@@ -99,6 +100,18 @@ export default function MePageClient({ locale, products, dict }: Props) {
                 <p className="text-xs text-neutral-400 mt-0.5">
                   {getBrandName(product.brand)}
                 </p>
+                {product.concerns.length > 0 && (
+                  <div className="flex flex-wrap gap-1 mt-1.5">
+                    {product.concerns.slice(0, 3).map((concern) => (
+                      <span
+                        key={concern}
+                        className="px-2 py-0.5 rounded-full bg-neutral-100 text-[11px] text-neutral-500"
+                      >
+                        {concernLabels[concern] ?? concern}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </Link>
           ))}

@@ -46,7 +46,7 @@ export default async function Home({
   }));
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen bg-white">
       <MobileShell
         locale={locale}
         headerRight={
@@ -62,7 +62,7 @@ export default async function Home({
         <div className="hidden md:block max-w-6xl mx-auto">
           <header className="flex items-center justify-between px-8 pt-6 pb-4">
             <div>
-              <span className="text-2xl font-bold tracking-tight">Kwip</span>
+              <span className="text-[22px] font-bold tracking-tight">Kwip</span>
               <p className="text-[15px] text-neutral-600 mt-0.5">
                 {dict.site.tagline}
               </p>

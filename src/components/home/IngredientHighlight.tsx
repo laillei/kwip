@@ -33,11 +33,7 @@ export default function IngredientHighlight({
           return (
             <div
               key={ing.id}
-              className="flex-shrink-0 w-[180px] bg-white rounded-xl p-3.5"
-              style={{
-                boxShadow:
-                  "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
-              }}
+              className="flex-shrink-0 w-44 bg-neutral-50 rounded-xl p-3.5"
             >
               <p className="text-[15px] font-semibold text-neutral-900">
                 {displayName}

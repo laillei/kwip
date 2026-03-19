@@ -19,15 +19,20 @@ export default function BottomTabBar({ locale, navLabels }: Props) {
   const pathname = usePathname();
 
   const [savedCount, setSavedCount] = useState(0);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     const update = () => setSavedCount(getSavedCount());
     update();
     window.addEventListener("kwip_saved_updated", update);
     window.addEventListener("storage", update);
+    window.addEventListener("kwip_search_open", () => setSearchOpen(true));
+    window.addEventListener("kwip_search_close", () => setSearchOpen(false));
     return () => {
       window.removeEventListener("kwip_saved_updated", update);
       window.removeEventListener("storage", update);
+      window.removeEventListener("kwip_search_open", () => setSearchOpen(true));
+      window.removeEventListener("kwip_search_close", () => setSearchOpen(false));
     };
   }, []);
 
@@ -66,6 +71,8 @@ export default function BottomTabBar({ locale, navLabels }: Props) {
     if (href === `/${locale}`) return pathname === `/${locale}` || pathname === `/${locale}/`;
     return pathname.startsWith(href);
   }
+
+  if (searchOpen) return null;
 
   return (
     <nav

@@ -33,8 +33,10 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
   useEffect(() => {
     inputRef.current?.focus();
     document.body.style.overflow = "hidden";
+    window.dispatchEvent(new Event("kwip_search_open"));
     return () => {
       document.body.style.overflow = "";
+      window.dispatchEvent(new Event("kwip_search_close"));
     };
   }, []);
 
@@ -52,8 +54,9 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
   const popularKeywords = loc === "vi" ? POPULAR_KEYWORDS_VI : POPULAR_KEYWORDS_EN;
 
   return (
-    <div className="fixed inset-0 z-50 bg-neutral-50">
-      <div className="max-w-3xl mx-auto px-6 md:px-8 pt-4">
+    /* z-[60] covers header (z-50) and bottom tab bar (z-50) */
+    <div className="fixed inset-0 z-[60] bg-white">
+      <div className="max-w-3xl mx-auto px-4 md:px-8 pt-4">
         {/* Search bar */}
         <div className="flex items-center gap-3">
           <div className="flex-1 relative">
@@ -81,18 +84,18 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
                   ? "Tìm sản phẩm hoặc thương hiệu..."
                   : "Search products or brands..."
               }
-              className="w-full rounded-xl bg-white border border-neutral-200 pl-11 pr-4 py-3 text-[15px] text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-900/10"
+              className="w-full rounded-xl bg-neutral-100 pl-11 pr-4 py-3 text-[15px] text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-neutral-900/10 transition-colors"
             />
           </div>
           <button
             onClick={onClose}
-            className="shrink-0 text-[15px] font-medium text-neutral-500 hover:text-neutral-900 min-h-[44px] px-3 flex items-center"
+            className="shrink-0 text-[15px] font-medium text-neutral-500 hover:text-neutral-900 min-h-[44px] px-2 flex items-center"
           >
             {loc === "vi" ? "Đóng" : "Close"}
           </button>
         </div>
 
-        <div className="mt-5 overflow-y-auto max-h-[calc(100vh-100px)]">
+        <div className="mt-6 overflow-y-auto max-h-[calc(100vh-80px)]">
           {/* Default state: popular keywords + trending */}
           {!isSearching && (
             <>
@@ -106,7 +109,7 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
                     <button
                       key={keyword}
                       onClick={() => setQuery(keyword)}
-                      className="px-3.5 py-2 rounded-full bg-white border border-neutral-200 text-[13px] font-medium text-neutral-500 hover:bg-neutral-100 active:bg-neutral-200 transition-colors"
+                      className="px-3.5 py-2 rounded-full bg-neutral-100 text-[13px] font-medium text-neutral-600 hover:bg-neutral-200 active:bg-neutral-200 transition-colors"
                     >
                       {keyword}
                     </button>
@@ -114,37 +117,39 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
                 </div>
               </section>
 
-              {/* Trending products */}
+              {/* Trending products — flat list rows */}
               <section className="mt-8">
-                <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400 mb-3">
+                <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-400 mb-2">
                   {loc === "vi" ? "Xu hướng" : "Trending"}
                 </h3>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="divide-y divide-neutral-100">
                   {trendingProducts.map((product, i) => (
                     <Link
                       key={product.id}
                       href={`/${locale}/products/${product.slug}`}
                       onClick={onClose}
-                      className="group rounded-2xl bg-white border border-neutral-100 p-3 hover:shadow-sm transition-shadow"
+                      className="flex items-center gap-3 py-3 min-h-[44px] active:bg-neutral-50 transition-colors"
                     >
-                      <div className="relative aspect-square rounded-xl bg-neutral-50 overflow-hidden mb-2">
-                        <span className="absolute top-1.5 left-1.5 z-10 text-xs font-medium text-neutral-500">
-                          {i + 1}
-                        </span>
+                      <span className="text-[13px] font-semibold text-neutral-300 w-4 text-center shrink-0">
+                        {i + 1}
+                      </span>
+                      <div className="relative w-12 h-12 shrink-0 rounded-xl overflow-hidden bg-neutral-100">
                         <Image
                           src={product.image}
                           alt={product.name[loc] || product.name.vi}
                           fill
-                          className="object-contain p-2"
-                          sizes="(max-width: 768px) 30vw, 200px"
+                          className="object-contain p-1"
+                          sizes="48px"
                         />
                       </div>
-                      <p className="text-xs font-medium text-neutral-500 uppercase tracking-wide">
-                        {getBrandName(product.brand)}
-                      </p>
-                      <p className="text-xs font-medium text-neutral-900 line-clamp-2 leading-snug mt-0.5">
-                        {product.name[loc] || product.name.vi}
-                      </p>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs text-neutral-400 uppercase tracking-wide">
+                          {getBrandName(product.brand)}
+                        </p>
+                        <p className="text-[13px] font-semibold text-neutral-900 line-clamp-2 leading-snug mt-0.5">
+                          {product.name[loc] || product.name.vi}
+                        </p>
+                      </div>
                     </Link>
                   ))}
                 </div>
@@ -154,22 +159,22 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
 
           {/* Search results */}
           {isSearching && results.length === 0 && (
-            <p className="text-[15px] text-neutral-600 text-center py-10">
+            <p className="text-[15px] text-neutral-400 text-center py-10">
               {loc === "vi"
                 ? "Không tìm thấy sản phẩm"
                 : "No products found"}
             </p>
           )}
-          {isSearching && (
-            <div className="space-y-1">
+          {isSearching && results.length > 0 && (
+            <div className="divide-y divide-neutral-100">
               {results.map((product) => (
                 <Link
                   key={product.id}
                   href={`/${locale}/products/${product.slug}`}
                   onClick={onClose}
-                  className="flex items-center gap-3 rounded-xl p-2.5 hover:bg-white transition-colors"
+                  className="flex items-center gap-3 py-3 min-h-[44px] active:bg-neutral-50 transition-colors"
                 >
-                  <div className="relative w-12 h-12 rounded-lg bg-white shrink-0 overflow-hidden">
+                  <div className="relative w-12 h-12 rounded-xl bg-neutral-100 shrink-0 overflow-hidden">
                     <Image
                       src={product.image}
                       alt={product.name[loc] || product.name.vi}
@@ -179,10 +184,10 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
                     />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs font-medium text-neutral-500 tracking-wide uppercase">
+                    <p className="text-xs text-neutral-400 uppercase tracking-wide">
                       {getBrandName(product.brand)}
                     </p>
-                    <p className="text-[13px] font-semibold text-neutral-900 truncate">
+                    <p className="text-[13px] font-semibold text-neutral-900 line-clamp-2 leading-snug mt-0.5">
                       {product.name[loc] || product.name.vi}
                     </p>
                   </div>

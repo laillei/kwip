@@ -63,7 +63,7 @@ export default async function RoutineNewPage({
     >
       <RoutineBuilderClient
         locale={locale}
-        concern={concern}
+        concern={concern ?? ""}
         concernLabel={concernLabel}
         products={allProducts}
         dict={dict.routine}

@@ -125,7 +125,7 @@ export default function DiscoveryHub({
           onSelect={setSelectedCategory}
         />
       </div>
-      <p className="text-[13px] text-neutral-500 px-1 pt-4 pb-2">{countLabel}</p>
+      <p className="text-[13px] text-neutral-400 pt-4 pb-2">{countLabel}</p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-6">
         {filtered.length === 0 ? (
           <p className="text-[15px] text-neutral-400 text-center py-12 col-span-2 md:col-span-4">{dict.emptyState}</p>
