@@ -1,4 +1,12 @@
-export type Concern = "acne" | "pores" | "hydration" | "brightening" | "soothing" | "anti-aging" | "sun-protection";
+export type Concern =
+  | "trouble"
+  | "hydration"
+  | "moisture"
+  | "pores"
+  | "brightening"
+  | "anti-aging"
+  | "soothing"
+  | "exfoliation";
 
 export interface ConcernMap {
   id: Concern;

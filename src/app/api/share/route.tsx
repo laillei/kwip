@@ -20,13 +20,14 @@ const CATEGORY_NAMES: Record<string, string> = {
 };
 
 const CONCERN_LABELS: Record<string, string> = {
-  acne: "Mụn",
-  pores: "Lỗ chân lông",
+  trouble: "Mụn",
   hydration: "Cấp ẩm",
+  moisture: "Dưỡng ẩm",
+  pores: "Lỗ chân lông",
   brightening: "Sáng da",
-  soothing: "Dịu da",
   "anti-aging": "Chống lão hóa",
-  "sun-protection": "Chống nắng",
+  soothing: "Dịu da",
+  exfoliation: "Tẩy da chết",
 };
 
 const fontRegular = readFileSync(

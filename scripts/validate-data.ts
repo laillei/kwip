@@ -13,7 +13,7 @@ const products = JSON.parse(readFileSync(join(dataDir, "products.json"), "utf-8"
 const errors: string[] = [];
 
 // --- Valid values (derived from types to stay in sync) ---
-const validConcerns: Concern[] = ["acne", "pores", "hydration", "brightening", "soothing", "anti-aging", "sun-protection"];
+const validConcerns: Concern[] = ["trouble", "hydration", "moisture", "pores", "brightening", "anti-aging", "soothing", "exfoliation"];
 const validBrands: Brand[] = [
   "cosrx", "anua", "torriden", "beauty-of-joseon", "round-lab", "skin1004",
   "klairs", "some-by-mi", "innisfree", "laneige", "isntree", "purito",

@@ -23,20 +23,20 @@ interface IngredientData {
 
 /** Canonical concern order for consistent output. */
 const CONCERN_ORDER: Concern[] = [
-  "acne",
+  "trouble",
   "pores",
   "hydration",
+  "moisture",
   "brightening",
   "soothing",
   "anti-aging",
-  "sun-protection",
+  "exfoliation",
 ];
 
 /**
  * Given a list of matched ingredient IDs, determine which concerns this product addresses.
  * Only ingredients with "good" effects contribute to concern assignment.
  * A concern needs at least 2 supporting ingredients to be assigned.
- * Exception: sun-protection requires only 1 UV filter ingredient (UV filters are rarely duplicated).
  */
 export function mapConcerns(
   ingredientIds: string[],
@@ -64,16 +64,15 @@ export function mapConcerns(
     }
   }
 
-  // sun-protection: threshold of 1 (UV filters are rarely duplicated per formula)
-  // All other concerns: threshold of 2
+  // All concerns: threshold of 2 supporting key ingredients
   const concerns = CONCERN_ORDER.filter((c) => {
     const count = concernCounts.get(c) || 0;
-    return c === "sun-protection" ? count >= 1 : count >= 2;
+    return count >= 2;
   });
 
-  // Category override: sunscreen products always include sun-protection
-  if (category === "sunscreen" && !concerns.includes("sun-protection")) {
-    concerns.push("sun-protection");
+  // Category override: pad products always include exfoliation
+  if (category === "pad" && !concerns.includes("exfoliation")) {
+    concerns.push("exfoliation");
     concerns.sort((a, b) => CONCERN_ORDER.indexOf(a) - CONCERN_ORDER.indexOf(b));
   }
 
