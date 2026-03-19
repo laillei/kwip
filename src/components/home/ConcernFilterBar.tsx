@@ -91,7 +91,7 @@ export default function ConcernFilterBar({ options, selected, onSelect }: Concer
             {chevronIcon}
           </button>
 
-          <div className="grid grid-cols-2 divide-x divide-neutral-100">
+          <div className="grid grid-cols-2 py-2">
             {options.map((option, i) => {
               const active = selected === option.id;
               const isLastOdd = i === options.length - 1 && options.length % 2 !== 0;
@@ -100,7 +100,7 @@ export default function ConcernFilterBar({ options, selected, onSelect }: Concer
                   key={option.id}
                   type="button"
                   onClick={() => handleSelect(option.id)}
-                  className={`text-left py-3 text-[15px] border-b border-neutral-100 transition-colors ${
+                  className={`text-left py-3 text-[15px] transition-colors ${
                     isLastOdd ? "col-span-2" : ""
                   } ${
                     active
