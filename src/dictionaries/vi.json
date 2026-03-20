@@ -71,13 +71,17 @@
   },
   "nav": {
     "explore": "Khám phá",
-    "routine": "Quy trình",
+    "routine": "Routine",
     "me": "Của tôi"
   },
   "me": {
     "savedProducts": "Đã lưu",
     "createRoutineFromSaved": "Tạo routine từ sản phẩm đã lưu",
-    "noSavedProducts": "Chưa lưu sản phẩm nào"
+    "noSavedProducts": "Chưa lưu sản phẩm nào",
+    "pageLabel": "Routine của bạn",
+    "buildRoutine": "Xây routine từ sản phẩm đã lưu →",
+    "noRoutinesTitle": "Chưa có routine nào",
+    "noRoutinesBody": "Lưu sản phẩm và xây routine đầu tiên của bạn"
   },
   "notFound": {
     "title": "404",

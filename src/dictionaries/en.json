@@ -77,7 +77,11 @@
   "me": {
     "savedProducts": "Saved",
     "createRoutineFromSaved": "Create routine from saved",
-    "noSavedProducts": "No saved products yet"
+    "noSavedProducts": "No saved products yet",
+    "pageLabel": "Your routine",
+    "buildRoutine": "Build routine from saved →",
+    "noRoutinesTitle": "No routines yet",
+    "noRoutinesBody": "Save products and build your first routine above"
   },
   "notFound": {
     "title": "404",
