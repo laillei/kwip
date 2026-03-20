@@ -18,10 +18,12 @@ interface RoutineCardProps {
   concernLabel?: string;
   productImages: ProductPreview[];
   onDelete: (id: string) => void;
+  onRename?: (id: string, name: string) => void;
   dict: {
     deleteButton: string;
     productsCount: string;
     viewButton: string;
+    rename?: string;
   };
 }
 

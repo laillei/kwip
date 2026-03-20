@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import MobileShell from "@/components/layout/MobileShell";
 import MePageClient from "./MePageClient";
 import { getDictionary, type Locale } from "@/lib/i18n";
@@ -25,6 +26,7 @@ export default async function MePage({
 
   return (
     <MobileShell locale={locale}>
+      <Suspense>
       <MePageClient
         locale={locale}
         products={products}
@@ -45,8 +47,13 @@ export default async function MePage({
           buildRoutine: dict.me.buildRoutine,
           noRoutinesTitle: dict.me.noRoutinesTitle,
           noRoutinesBody: dict.me.noRoutinesBody,
+          tabSaved: dict.me.tabSaved,
+          tabRoutines: dict.me.tabRoutines,
+          rename: dict.me.rename,
+          renameCancel: dict.me.renameCancel,
         }}
       />
+      </Suspense>
     </MobileShell>
   );
 }
