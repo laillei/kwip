@@ -71,8 +71,7 @@
   },
   "nav": {
     "explore": "Explore",
-    "routine": "Routine",
-    "me": "Me"
+    "routine": "Routine"
   },
   "me": {
     "savedProducts": "Saved",
