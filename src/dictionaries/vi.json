@@ -80,7 +80,11 @@
     "pageLabel": "Routine của bạn",
     "buildRoutine": "Xây routine từ sản phẩm đã lưu →",
     "noRoutinesTitle": "Chưa có routine nào",
-    "noRoutinesBody": "Lưu sản phẩm và xây routine đầu tiên của bạn"
+    "noRoutinesBody": "Lưu sản phẩm và xây routine đầu tiên của bạn",
+    "tabSaved": "Đã lưu",
+    "tabRoutines": "Routine",
+    "rename": "Đổi tên",
+    "renameCancel": "Huỷ"
   },
   "notFound": {
     "title": "404",
