@@ -1,5 +1,5 @@
 // src/components/home/IngredientChips.tsx
-import type { Ingredient, Concern } from "@/lib/types";
+import type { Ingredient, Concern } from "@/types";
 
 interface IngredientChipsProps {
   ingredients: Ingredient[];

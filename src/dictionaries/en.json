@@ -14,7 +14,7 @@
     "allSteps": "All Steps",
     "emptyState": "No matching products found",
     "allItems": "All",
-    "savedToast": "Saved. View in My Routines",
+    "savedToast": "Saved to Routine",
     "productsCount": "{{count}} products"
   },
   "routine": {
@@ -71,17 +71,17 @@
   },
   "nav": {
     "explore": "Explore",
-    "routine": "Routine"
+    "routine": "Saved"
   },
   "me": {
     "savedProducts": "Saved",
     "createRoutineFromSaved": "Create routine from saved",
     "noSavedProducts": "No saved products yet",
     "pageLabel": "Your routine",
-    "buildRoutine": "Build routine from saved →",
+    "buildRoutine": "Build routine from saved",
     "noRoutinesTitle": "No routines yet",
     "noRoutinesBody": "Save products and build your first routine above",
-    "tabSaved": "Saved",
+    "tabProducts": "Products",
     "tabRoutines": "Routines",
     "rename": "Rename",
     "renameCancel": "Cancel"

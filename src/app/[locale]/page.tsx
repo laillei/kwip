@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import type { Product, Ingredient } from "@/lib/types";
+import type { Product, Ingredient } from "@/types";
 import { getAllProducts, getAllIngredients, getAllConcerns } from "@/lib/db";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/getLocalizedData";
@@ -7,7 +7,7 @@ import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
 import SearchButton from "@/components/shared/SearchButton";
 import AuthButton from "@/components/shared/AuthButton";
 import DiscoveryHub from "@/components/home/DiscoveryHub";
-import MobileShell from "@/components/shell/MobileShell";
+import MobileShell from "@/components/layout/MobileShell";
 
 export default async function Home({
   params,
@@ -41,7 +41,7 @@ export default async function Home({
     .sort((a, b) => a.popularity.rank - b.popularity.rank);
 
   const concernData = rawConcerns.map((c) => ({
-    id: c.id as import("@/lib/types").Concern,
+    id: c.id as import("@/types").Concern,
     label: t(c.label, loc),
     icon: c.icon,
     symptom: t(c.symptom, loc),
@@ -55,9 +55,6 @@ export default async function Home({
         headerRight={
           <div className="flex items-center gap-2">
             <SearchButton locale={locale} products={allProducts} />
-            <Suspense>
-              <LanguageSwitcher />
-            </Suspense>
           </div>
         }
       >

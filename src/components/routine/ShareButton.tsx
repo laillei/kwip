@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Routine } from "@/lib/types";
+import type { Routine } from "@/types";
 import { Button } from "@/components/ui";
 
 interface ShareButtonProps {

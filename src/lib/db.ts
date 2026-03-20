@@ -5,7 +5,7 @@
 
 import { unstable_cache } from "next/cache";
 import { createServerSupabaseClient } from "./supabase";
-import type { Product, Ingredient } from "./types";
+import type { Product, Ingredient } from "@/types";
 
 export const CACHE_TAGS = {
   products: "products",

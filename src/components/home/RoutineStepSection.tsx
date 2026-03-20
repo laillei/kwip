@@ -1,5 +1,5 @@
 // src/components/home/RoutineStepSection.tsx
-import type { Product, Category } from "@/lib/types";
+import type { Product, Category } from "@/types";
 import ProductListItem from "./ProductListItem";
 
 interface RoutineStepSectionProps {

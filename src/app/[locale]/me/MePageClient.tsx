@@ -3,34 +3,27 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import type { Routine, Product } from "@/types";
 import { getRoutines, deleteRoutine, renameRoutine } from "@/store/localRoutines";
-import { getSavedProducts } from "@/store/localSaved";
-import Image from "next/image";
+import { getSavedProducts, unsaveProduct } from "@/store/localSaved";
 import RoutineCard from "@/components/routine/RoutineCard";
-import { EmptyState } from "@/components/ui";
 import { getBrandName } from "@/lib/brands";
 
 interface Dict {
-  myRoutines: string;
   emptyTitle: string;
   emptyBody: string;
   emptyAction: string;
   viewButton: string;
   deleteButton: string;
   productsCount: string;
-  backToHome: string;
-  savedProducts: string;
-  createRoutineFromSaved: string;
-  noSavedProducts: string;
-  pageLabel: string;
   buildRoutine: string;
-  noRoutinesTitle: string;
   noRoutinesBody: string;
-  tabSaved: string;
-  tabRoutines: string;
   rename: string;
-  renameCancel: string;
+  tabProducts: string;
+  tabRoutines: string;
+  noSavedProducts: string;
+  noRoutinesTitle: string;
 }
 
 interface Props {
@@ -40,23 +33,27 @@ interface Props {
   dict: Dict;
 }
 
+type Tab = "products" | "routines";
+
 export default function MePageClient({ locale, products, concernLabels, dict }: Props) {
   const searchParams = useSearchParams();
   const [routines, setRoutines] = useState<Routine[]>([]);
   const [savedProductIds, setSavedProductIds] = useState<string[]>([]);
   const [loaded, setLoaded] = useState(false);
-  const [tab, setTab] = useState<"saved" | "routines">("saved");
+  const [tab, setTab] = useState<Tab>("products");
 
   useEffect(() => {
+    const ids = getSavedProducts();
     const routineList = getRoutines();
-    const saved = getSavedProducts();
+    setSavedProductIds(ids);
     setRoutines(routineList);
-    setSavedProductIds(saved);
 
-    if (searchParams.get("tab") === "routines") {
+    // Switch to routines tab if ?tab=routines
+    const paramTab = searchParams.get("tab");
+    if (paramTab === "routines") {
       setTab("routines");
-    } else if (saved.length === 0 && routineList.length > 0) {
-      setTab("routines");
+    } else {
+      setTab("products");
     }
 
     setLoaded(true);
@@ -76,6 +73,11 @@ export default function MePageClient({ locale, products, concernLabels, dict }: 
     setRoutines((prev) => prev.map((r) => (r.id === id ? { ...r, name } : r)));
   }
 
+  function handleUnsave(productId: string) {
+    unsaveProduct(productId);
+    setSavedProductIds((prev) => prev.filter((id) => id !== productId));
+  }
+
   if (!loaded) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
@@ -85,8 +87,10 @@ export default function MePageClient({ locale, products, concernLabels, dict }: 
   }
 
   const loc = locale as "vi" | "en";
-  const savedProducts = products.filter((p) => savedProductIds.includes(p.id));
   const productMap = new Map(products.map((p) => [p.id, p]));
+  const savedProducts = savedProductIds
+    .map((id) => productMap.get(id))
+    .filter((p): p is Product => p !== undefined);
 
   function getRoutineProductImages(routine: Routine) {
     return routine.products
@@ -98,122 +102,127 @@ export default function MePageClient({ locale, products, concernLabels, dict }: 
       .filter((x): x is { id: string; image: string; name: string } => x !== null);
   }
 
-  if (routines.length === 0 && savedProducts.length === 0) {
-    return (
-      <div className="min-h-screen bg-white flex flex-col">
-        <div className="flex-1 flex items-center justify-center" style={{ minHeight: "calc(100dvh - 56px - 49px)" }}>
-          <div className="-mt-16">
-            <EmptyState
-              icon="🌿"
-              title={dict.emptyTitle}
-              body={dict.emptyBody}
-              actionLabel={dict.emptyAction}
-              actionHref={`/${locale}`}
-            />
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="min-h-screen bg-white flex flex-col">
-      <div className="max-w-2xl mx-auto w-full px-4 pt-4 pb-8">
+    <div className="min-h-screen bg-white">
+      {/* Underline tab bar */}
+      <div className="flex border-b border-neutral-100">
+        {(["products", "routines"] as Tab[]).map((t) => {
+          const label = t === "products" ? dict.tabProducts : dict.tabRoutines;
+          const active = tab === t;
+          return (
+            <button
+              key={t}
+              onClick={() => setTab(t)}
+              className={`flex-1 h-11 text-[13px] transition-colors border-b-2 -mb-px flex items-center justify-center ${
+                active
+                  ? "font-semibold text-neutral-900 border-neutral-900"
+                  : "font-normal text-neutral-400 border-transparent"
+              }`}
+            >
+              {label}
+            </button>
+          );
+        })}
+      </div>
 
-        {/* Segmented control */}
-        <div className="flex bg-neutral-100 rounded-xl p-1 mb-6">
-          <button
-            onClick={() => setTab("saved")}
-            className={`flex-1 rounded-lg text-[15px] font-semibold py-2 transition-all min-h-[44px] ${
-              tab === "saved"
-                ? "bg-white text-neutral-900 shadow-sm"
-                : "text-neutral-500"
-            }`}
-          >
-            {dict.tabSaved}
-            {savedProducts.length > 0 && (
-              <span className="ml-1.5 text-[13px] font-normal text-neutral-400">
-                {savedProducts.length}
-              </span>
-            )}
-          </button>
-          <button
-            onClick={() => setTab("routines")}
-            className={`flex-1 rounded-lg text-[15px] font-semibold py-2 transition-all min-h-[44px] ${
-              tab === "routines"
-                ? "bg-white text-neutral-900 shadow-sm"
-                : "text-neutral-500"
-            }`}
-          >
-            {dict.tabRoutines}
-            {routines.length > 0 && (
-              <span className="ml-1.5 text-[13px] font-normal text-neutral-400">
-                {routines.length}
-              </span>
-            )}
-          </button>
-        </div>
-
-        {/* Saved tab */}
-        {tab === "saved" && (
-          <div>
-            {savedProducts.length === 0 ? (
-              <p className="text-[15px] text-neutral-400 text-center py-8">
-                {dict.noSavedProducts}
-              </p>
-            ) : (
-              <>
-                <div className="divide-y divide-neutral-100">
-                  {savedProducts.map((product) => (
-                    <Link
-                      key={product.id}
-                      href={`/${locale}/products/${product.slug}`}
-                      className="flex items-center gap-3 py-3 min-h-[44px] active:bg-neutral-50 transition-colors"
-                    >
-                      <div className="relative w-14 h-14 shrink-0 rounded-xl overflow-hidden bg-neutral-100">
-                        <Image
-                          src={product.image}
-                          alt={product.name[loc] || product.name.vi}
-                          fill
-                          className="object-contain p-1"
-                          sizes="56px"
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-[15px] font-semibold text-neutral-900 line-clamp-1">
-                          {product.name[loc] || product.name.vi}
-                        </p>
-                        <p className="text-[13px] text-neutral-400 mt-0.5">
-                          {getBrandName(product.brand)}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
+      {/* Products tab */}
+      {tab === "products" && (
+        <>
+          {savedProducts.length === 0 ? (
+            <div className="flex flex-col items-center justify-center px-8 text-center"
+              style={{ minHeight: "calc(100dvh - 56px - 49px - 44px)" }}
+            >
+              <div className="-mt-16">
+                <p className="text-[17px] font-semibold text-neutral-900 mb-1">{dict.noSavedProducts}</p>
+                <p className="text-[15px] text-neutral-400 mb-6">{dict.emptyBody}</p>
                 <Link
-                  href={`/${locale}/routine/new?saved=${savedProductIds.join(",")}`}
-                  className="mt-4 flex items-center justify-center w-full h-[52px] rounded-2xl bg-neutral-900 text-white text-[17px] font-semibold"
+                  href={`/${locale}`}
+                  className="text-[15px] font-semibold text-neutral-900 underline underline-offset-2"
                 >
-                  {dict.buildRoutine}
+                  {dict.emptyAction}
                 </Link>
-              </>
-            )}
-          </div>
-        )}
-
-        {/* Routines tab */}
-        {tab === "routines" && (
-          <div>
-            {routines.length === 0 ? (
-              <div className="py-8 text-center">
-                <p className="text-[15px] text-neutral-500">{dict.noRoutinesTitle}</p>
-                <p className="text-[13px] text-neutral-400 mt-1">{dict.noRoutinesBody}</p>
               </div>
-            ) : (
-              <div>
-                {routines.map((routine) => (
+            </div>
+          ) : (
+            <ul>
+              {savedProducts.map((product) => (
+                <li
+                  key={product.id}
+                  className="flex items-center gap-3 px-4 py-3 min-h-[64px] border-b border-neutral-100 last:border-b-0"
+                >
+                  {/* Product image */}
+                  <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-neutral-100 shrink-0">
+                    <Image
+                      src={product.image}
+                      alt={product.name[loc] || product.name.vi}
+                      fill
+                      className="object-contain p-0.5"
+                      sizes="40px"
+                    />
+                  </div>
+
+                  {/* Name + brand */}
+                  <Link
+                    href={`/${locale}/products/${product.slug}`}
+                    className="flex-1 min-w-0"
+                  >
+                    <p className="text-[15px] font-semibold text-neutral-900 truncate">
+                      {product.name[loc] || product.name.vi}
+                    </p>
+                    <p className="text-[13px] text-neutral-400">{getBrandName(product.brand)}</p>
+                  </Link>
+
+                  {/* Filled bookmark — tap to unsave */}
+                  <button
+                    onClick={() => handleUnsave(product.id)}
+                    className="flex items-center justify-center w-[44px] h-[44px] text-neutral-900 shrink-0"
+                    aria-label="Remove from saved"
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" />
+                    </svg>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </>
+      )}
+
+      {/* Routines tab */}
+      {tab === "routines" && (
+        <>
+          {routines.length === 0 ? (
+            <div className="flex flex-col items-center justify-center px-8 text-center"
+              style={{ minHeight: "calc(100dvh - 56px - 49px - 44px)" }}
+            >
+              <div className="-mt-16">
+                <p className="text-[17px] font-semibold text-neutral-900 mb-1">{dict.noRoutinesTitle}</p>
+                <p className="text-[15px] text-neutral-400 mb-6">{dict.noRoutinesBody}</p>
+                {savedProducts.length > 0 && (
+                  <Link
+                    href={`/${locale}/routine/new?saved=${savedProductIds.join(",")}`}
+                    className="flex items-center justify-center h-[48px] px-6 rounded-2xl bg-neutral-900 text-white text-[15px] font-semibold"
+                  >
+                    {dict.buildRoutine}
+                  </Link>
+                )}
+              </div>
+            </div>
+          ) : (
+            <div className="divide-y divide-neutral-100">
+              {routines.map((routine) => (
+                <div key={routine.id} className="px-4">
                   <RoutineCard
-                    key={routine.id}
                     routine={routine}
                     locale={locale}
                     concernLabel={concernLabels[routine.concern]}
@@ -227,13 +236,12 @@ export default function MePageClient({ locale, products, concernLabels, dict }: 
                       rename: dict.rename,
                     }}
                   />
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-
-      </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 }

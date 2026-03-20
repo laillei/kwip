@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFileSync } from "fs";
 import { join } from "path";
 import { NextRequest } from "next/server";
-import type { Product, Ingredient } from "@/lib/types";
+import type { Product, Ingredient } from "@/types";
 import { createServerSupabaseClient } from "@/lib/supabase";
 
 export const runtime = "nodejs";

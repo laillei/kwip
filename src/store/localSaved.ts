@@ -1,4 +1,4 @@
-// src/lib/localSaved.ts
+// src/store/localSaved.ts
 const KEY = "kwip_saved_products";
 
 function dispatchUpdate() {

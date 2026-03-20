@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import type { Concern } from "@/lib/types";
+import type { Concern } from "@/types";
 
 interface ConcernOption {
   id: Concern | "all";
@@ -104,7 +104,7 @@ export default function ConcernFilterBar({ options, selected, onSelect }: Concer
                     key={option.id}
                     type="button"
                     onClick={() => handleSelect(option.id)}
-                    className={`text-left py-3 text-[13px] transition-colors ${
+                    className={`text-left py-3 text-[13px] transition-colors min-h-[44px] flex items-center ${
                       isLastOdd ? "col-span-2" : ""
                     } ${
                       active

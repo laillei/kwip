@@ -1,6 +1,5 @@
-import { Suspense } from "react";
 import BottomTabBar from "./BottomTabBar";
-import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
+import SavedToast from "@/components/shared/SavedToast";
 import { getDictionary } from "@/lib/i18n";
 import { type Locale } from "@/lib/i18n";
 
@@ -41,13 +40,11 @@ export default async function MobileShell({
                 </span>
               )}
             </div>
-            <div className="flex items-center gap-2">
-              {headerRight ?? (
-                <Suspense>
-                  <LanguageSwitcher />
-                </Suspense>
-              )}
-            </div>
+            {headerRight && (
+              <div className="flex items-center gap-2">
+                {headerRight}
+              </div>
+            )}
           </div>
         </header>
       )}
@@ -66,6 +63,7 @@ export default async function MobileShell({
         {children}
       </div>
 
+      <SavedToast message={dict.home.savedToast} />
       <BottomTabBar locale={locale} navLabels={navLabels} />
     </>
   );

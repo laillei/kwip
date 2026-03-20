@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Product, Concern, Ingredient, Category } from "@/lib/types";
+import type { Product, Concern, Ingredient, Category } from "@/types";
 import ConcernFilterBar from "./ConcernFilterBar";
 import StepFilterBar from "./StepFilterBar";
 import ProductListItem from "./ProductListItem";

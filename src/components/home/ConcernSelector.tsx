@@ -1,4 +1,4 @@
-import type { Concern } from "@/lib/types";
+import type { Concern } from "@/types";
 
 interface ConcernData {
   id: Concern;

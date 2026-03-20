@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Brand } from "@/lib/types";
+import type { Brand } from "@/types";
 import { getBrandName } from "@/lib/brands";
 
 interface ProductCardProps {

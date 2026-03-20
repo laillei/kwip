@@ -14,7 +14,7 @@
     "allSteps": "Tất cả bước",
     "emptyState": "Không tìm thấy sản phẩm phù hợp",
     "allItems": "Tất cả",
-    "savedToast": "Đã lưu. Xem trong Của tôi",
+    "savedToast": "Đã lưu vào Routine",
     "productsCount": "{{count}} sản phẩm"
   },
   "routine": {
@@ -71,17 +71,17 @@
   },
   "nav": {
     "explore": "Khám phá",
-    "routine": "Routine"
+    "routine": "Đã lưu"
   },
   "me": {
     "savedProducts": "Đã lưu",
     "createRoutineFromSaved": "Tạo routine từ sản phẩm đã lưu",
     "noSavedProducts": "Chưa lưu sản phẩm nào",
     "pageLabel": "Routine của bạn",
-    "buildRoutine": "Xây routine từ sản phẩm đã lưu →",
+    "buildRoutine": "Xây routine từ sản phẩm đã lưu",
     "noRoutinesTitle": "Chưa có routine nào",
     "noRoutinesBody": "Lưu sản phẩm và xây routine đầu tiên của bạn",
-    "tabSaved": "Đã lưu",
+    "tabProducts": "Sản phẩm",
     "tabRoutines": "Routine",
     "rename": "Đổi tên",
     "renameCancel": "Huỷ"

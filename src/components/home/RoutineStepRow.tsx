@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Product, Category } from "@/lib/types";
+import type { Product, Category } from "@/types";
 import ProductCard from "@/components/products/ProductCard";
 
 interface RoutineStepRowProps {

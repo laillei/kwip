@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import SearchOverlay from "./SearchOverlay";
-import type { Product } from "@/lib/types";
+import type { Product } from "@/types";
 
 export default function SearchButton({ locale, products }: { locale: string; products: Product[] }) {
   const [open, setOpen] = useState(false);

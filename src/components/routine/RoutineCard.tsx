@@ -74,7 +74,7 @@ export default function RoutineCard({
               maxLength={60}
             />
           ) : (
-            <h3 className="text-[17px] font-semibold text-neutral-900 truncate">
+            <h3 className="text-[17px] font-semibold text-neutral-900 leading-tight">
               {routine.name}
             </h3>
           )}
@@ -102,7 +102,7 @@ export default function RoutineCard({
                 className="fixed inset-0 z-10"
                 onClick={() => setMenuOpen(false)}
               />
-              <div className="absolute right-0 top-10 z-20 bg-white border border-neutral-200 rounded-xl shadow-lg py-1 min-w-[140px]">
+              <div className="absolute right-0 top-10 z-20 bg-white border border-neutral-200 rounded-xl py-1 min-w-[140px]">
                 <button
                   onClick={() => {
                     setMenuOpen(false);

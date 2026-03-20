@@ -85,7 +85,7 @@ export default function RoutineDetailClient({ locale, id, dict, products, concer
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="max-w-2xl mx-auto px-4 pt-6 pb-24">
+      <div className="max-w-2xl mx-auto px-4 pt-6 pb-6">
 
         {/* Routine name — tappable to rename */}
         <div className="mb-1">
@@ -124,12 +124,15 @@ export default function RoutineDetailClient({ locale, id, dict, products, concer
 
         {/* Product list with category overlines */}
         <div>
-          {routineProducts.map((rp) => (
+          {routineProducts.map((rp, i) => {
+            const showCategory = i === 0 || routineProducts[i - 1].category !== rp.category;
+            return (
             <div key={rp.productId}>
-              {/* Category overline */}
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-neutral-400 mt-4 mb-1 first:mt-0">
-                {dict.categories[rp.category] ?? rp.category}
-              </p>
+              {showCategory && (
+                <p className={`text-xs font-semibold uppercase tracking-wide text-neutral-500 mb-1 ${i === 0 ? "" : "mt-4"}`}>
+                  {dict.categories[rp.category] ?? rp.category}
+                </p>
+              )}
               <Link
                 href={`/${locale}/products/${rp.product.slug}`}
                 className="flex items-center gap-3 py-2 min-h-[44px] active:bg-neutral-50 transition-colors rounded-lg"
@@ -153,7 +156,8 @@ export default function RoutineDetailClient({ locale, id, dict, products, concer
                 </div>
               </Link>
             </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

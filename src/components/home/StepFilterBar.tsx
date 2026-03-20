@@ -1,6 +1,6 @@
 "use client";
 
-import type { Category } from "@/lib/types";
+import type { Category } from "@/types";
 
 interface StepOption {
   category: Category | "all";

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { getSavedCount } from "@/store/localSaved";
 
 interface NavLabels {
   explore: string;
@@ -17,22 +16,14 @@ interface Props {
 
 export default function BottomTabBar({ locale, navLabels }: Props) {
   const pathname = usePathname();
-
-  const [savedCount, setSavedCount] = useState(0);
   const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
-    const update = () => setSavedCount(getSavedCount());
     const onSearchOpen = () => setSearchOpen(true);
     const onSearchClose = () => setSearchOpen(false);
-    update();
-    window.addEventListener("kwip_saved_updated", update);
-    window.addEventListener("storage", update);
     window.addEventListener("kwip_search_open", onSearchOpen);
     window.addEventListener("kwip_search_close", onSearchClose);
     return () => {
-      window.removeEventListener("kwip_saved_updated", update);
-      window.removeEventListener("storage", update);
       window.removeEventListener("kwip_search_open", onSearchOpen);
       window.removeEventListener("kwip_search_close", onSearchClose);
     };
@@ -53,18 +44,11 @@ export default function BottomTabBar({ locale, navLabels }: Props) {
       href: `/${locale}/me`,
       label: navLabels.routine,
       icon: (
-        <div className="relative">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="8" r="4" />
-            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-            <polyline points="14 14 16 16 20 12" />
-          </svg>
-          {savedCount > 0 && (
-            <span className="absolute -top-1 -right-1 min-w-[16px] h-4 bg-neutral-900 text-white text-[10px] font-bold rounded-full flex items-center justify-center px-0.5">
-              {savedCount > 9 ? "9+" : savedCount}
-            </span>
-          )}
-        </div>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 8V21H3V8" />
+          <rect x="1" y="3" width="22" height="5" rx="1" />
+          <path d="M10 12h4" />
+        </svg>
       ),
     },
   ];
@@ -95,7 +79,7 @@ export default function BottomTabBar({ locale, navLabels }: Props) {
               }`}
             >
               {tab.icon}
-              <span className="text-xs font-medium leading-none">{tab.label}</span>
+              <span className={`text-xs leading-none ${active ? "font-semibold" : "font-normal"}`}>{tab.label}</span>
             </Link>
           );
         })}

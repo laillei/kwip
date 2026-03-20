@@ -1,4 +1,4 @@
-import type { Brand } from "./types";
+import type { Brand } from "@/types";
 
 const brandDisplayNames: Record<Brand, string> = {
   cosrx: "COSRX",

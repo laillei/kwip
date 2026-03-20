@@ -27,32 +27,26 @@ export default async function MePage({
   return (
     <MobileShell locale={locale}>
       <Suspense fallback={null}>
-      <MePageClient
-        locale={locale}
-        products={products}
-        concernLabels={concernLabels}
-        dict={{
-          myRoutines: dict.routine.myRoutines,
-          emptyTitle: dict.routine.emptyTitle,
-          emptyBody: dict.routine.emptyBody,
-          emptyAction: dict.routine.emptyAction,
-          viewButton: dict.routine.viewButton,
-          deleteButton: dict.routine.deleteButton,
-          productsCount: dict.routine.productsCount,
-          backToHome: dict.routine.backToHome,
-          savedProducts: dict.me.savedProducts,
-          createRoutineFromSaved: dict.me.createRoutineFromSaved,
-          noSavedProducts: dict.me.noSavedProducts,
-          pageLabel: dict.me.pageLabel,
-          buildRoutine: dict.me.buildRoutine,
-          noRoutinesTitle: dict.me.noRoutinesTitle,
-          noRoutinesBody: dict.me.noRoutinesBody,
-          tabSaved: dict.me.tabSaved,
-          tabRoutines: dict.me.tabRoutines,
-          rename: dict.me.rename,
-          renameCancel: dict.me.renameCancel,
-        }}
-      />
+        <MePageClient
+          locale={locale}
+          products={products}
+          concernLabels={concernLabels}
+          dict={{
+            emptyTitle: dict.routine.emptyTitle,
+            emptyBody: dict.routine.emptyBody,
+            emptyAction: dict.routine.emptyAction,
+            viewButton: dict.routine.viewButton,
+            deleteButton: dict.routine.deleteButton,
+            productsCount: dict.routine.productsCount,
+            buildRoutine: dict.me.buildRoutine,
+            noRoutinesBody: dict.me.noRoutinesBody,
+            rename: dict.me.rename,
+            tabProducts: dict.me.tabProducts,
+            tabRoutines: dict.me.tabRoutines,
+            noSavedProducts: dict.me.noSavedProducts,
+            noRoutinesTitle: dict.me.noRoutinesTitle,
+          }}
+        />
       </Suspense>
     </MobileShell>
   );

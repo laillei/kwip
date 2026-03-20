@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { isProductSaved, saveProduct, unsaveProduct } from "@/lib/localSaved";
+import { isProductSaved, saveProduct, unsaveProduct } from "@/store/localSaved";
 
 interface BookmarkButtonProps {
   productId: string;
@@ -22,6 +22,7 @@ export default function BookmarkButton({ productId }: BookmarkButtonProps) {
     } else {
       saveProduct(productId);
       setSaved(true);
+      window.dispatchEvent(new Event("kwip_product_saved"));
     }
   }
 

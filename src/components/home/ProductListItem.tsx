@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import type { Category, Brand } from "@/lib/types";
+import type { Category, Brand } from "@/types";
 import { getBrandName } from "@/lib/brands";
 
 interface ProductListItemProps {

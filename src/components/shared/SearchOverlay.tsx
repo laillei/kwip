@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import type { Product } from "@/lib/types";
+import type { Product } from "@/types";
 import { getBrandName } from "@/lib/brands";
 
 interface SearchOverlayProps {

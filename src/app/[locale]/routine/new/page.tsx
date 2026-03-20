@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { getDictionary, type Locale } from "@/lib/i18n";
-import type { Product } from "@/lib/types";
+import type { Product } from "@/types";
 import { getAllProducts } from "@/lib/db";
 import RoutineBuilderClient from "@/components/routine/RoutineBuilderClient";
-import MobileShell from "@/components/shell/MobileShell";
+import MobileShell from "@/components/layout/MobileShell";
 
 export default async function RoutineNewPage({
   params,

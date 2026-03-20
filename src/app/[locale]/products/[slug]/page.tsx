@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import type { Ingredient } from "@/lib/types";
+import type { Ingredient } from "@/types";
 import { getProductBySlug, getAllProductSlugs, getAllIngredients } from "@/lib/db";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/getLocalizedData";
 import { getBrandName } from "@/lib/brands";
 import BookmarkButton from "@/components/shared/BookmarkButton";
-import MobileShell from "@/components/shell/MobileShell";
+import MobileShell from "@/components/layout/MobileShell";
 
 export async function generateStaticParams() {
   const slugs = await getAllProductSlugs();
@@ -224,7 +224,7 @@ export default async function ProductDetailPage({
           className="fixed left-0 right-0 z-20 md:bottom-0"
           style={{ bottom: "calc(49px + env(safe-area-inset-bottom))" }}
         >
-          <div className="bg-white border-t border-neutral-100 px-4 md:px-8 py-4">
+          <div className="bg-white/90 backdrop-blur-md border-t border-neutral-100 px-4 md:px-8 py-4">
             <div className="flex gap-3 max-w-3xl mx-auto">
               {purchaseLinks.map(({ platform, url }) => (
                 <a
@@ -232,7 +232,7 @@ export default async function ProductDetailPage({
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 rounded-xl bg-neutral-900 text-white text-center text-[15px] font-semibold py-3.5 active:opacity-70 transition-opacity"
+                  className="flex-1 rounded-xl bg-neutral-900 text-white text-center text-[15px] font-semibold py-3.5 min-h-[50px] flex items-center justify-center active:opacity-70 transition-opacity"
                 >
                   {platform}
                 </a>
