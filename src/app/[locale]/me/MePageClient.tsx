@@ -123,7 +123,7 @@ export default function MePageClient({ locale, products, concernLabels, dict }: 
         <div className="flex bg-neutral-100 rounded-xl p-1 mb-6">
           <button
             onClick={() => setTab("saved")}
-            className={`flex-1 rounded-lg text-[15px] font-semibold py-2 transition-all min-h-[36px] ${
+            className={`flex-1 rounded-lg text-[15px] font-semibold py-2 transition-all min-h-[44px] ${
               tab === "saved"
                 ? "bg-white text-neutral-900 shadow-sm"
                 : "text-neutral-500"
@@ -138,7 +138,7 @@ export default function MePageClient({ locale, products, concernLabels, dict }: 
           </button>
           <button
             onClick={() => setTab("routines")}
-            className={`flex-1 rounded-lg text-[15px] font-semibold py-2 transition-all min-h-[36px] ${
+            className={`flex-1 rounded-lg text-[15px] font-semibold py-2 transition-all min-h-[44px] ${
               tab === "routines"
                 ? "bg-white text-neutral-900 shadow-sm"
                 : "text-neutral-500"
