@@ -1,10 +1,7 @@
 name: Product Discovery
 
 on:
-  schedule:
-    # Run nightly at 15:00 UTC (22:00 Vietnam time / ICT)
-    - cron: "0 15 * * *"
-  workflow_dispatch:
+  workflow_dispatch: # manual trigger only — nightly schedule disabled
 
 permissions:
   contents: write
@@ -106,7 +103,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update VN additions log [skip ci]"
-          file_pattern: src/data/vn-additions-log.json
+          file_pattern: logs/vn-additions-log.json
 
   # ── Job 3: Nightly availability verification ──────────────────────────
   verify-availability:
@@ -161,4 +158,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update product audit log [skip ci]"
-          file_pattern: src/data/audit-log.json
+          file_pattern: logs/audit-log.json
