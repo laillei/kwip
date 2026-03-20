@@ -1,4 +1,4 @@
-import MobileShell from "@/components/shell/MobileShell";
+import MobileShell from "@/components/layout/MobileShell";
 import MePageClient from "./MePageClient";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { getAllProducts, getAllConcerns } from "@/lib/db";
@@ -41,6 +41,10 @@ export default async function MePage({
           savedProducts: dict.me.savedProducts,
           createRoutineFromSaved: dict.me.createRoutineFromSaved,
           noSavedProducts: dict.me.noSavedProducts,
+          pageLabel: dict.me.pageLabel,
+          buildRoutine: dict.me.buildRoutine,
+          noRoutinesTitle: dict.me.noRoutinesTitle,
+          noRoutinesBody: dict.me.noRoutinesBody,
         }}
       />
     </MobileShell>
