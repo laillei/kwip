@@ -1,10 +1,10 @@
 import Link from "next/link";
-import MobileShell from "@/components/shell/MobileShell";
+import MobileShell from "@/components/layout/MobileShell";
 import RoutineDetailClient from "./RoutineDetailClient";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { getAllProducts, getAllConcerns } from "@/lib/db";
 import { t } from "@/lib/getLocalizedData";
-import type { Product } from "@/lib/types";
+import type { Product } from "@/types";
 
 export default async function RoutineDetailPage({
   params,
@@ -56,7 +56,8 @@ export default async function RoutineDetailPage({
         dict={{
           shareButton: dict.routine.shareButton,
           sharing: dict.routine.sharing,
-          shareCardTagline: dict.routine.shareCardTagline,
+          categories: dict.detail.categories,
+          rename: dict.me.rename,
         }}
         products={products as Product[]}
         concernLabels={concernLabels}
