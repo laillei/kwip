@@ -3,12 +3,12 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import type { Product, Category } from "@/lib/types";
-import type { RoutineProduct } from "@/lib/types";
-import { saveRoutine } from "@/lib/localRoutines";
-import { getSavedProducts } from "@/lib/localSaved";
+import type { Product, Category } from "@/types";
+import type { RoutineProduct } from "@/types";
+import { saveRoutine } from "@/store/localRoutines";
+import { getSavedProducts } from "@/store/localSaved";
 import { getBrandName } from "@/lib/brands";
-import type { Brand } from "@/lib/types";
+import type { Brand } from "@/types";
 import { Button } from "@/components/ui";
 
 const ROUTINE_STEPS: { category: Category; step: number; label: Record<string, string> }[] = [
@@ -103,7 +103,7 @@ export default function RoutineBuilderClient({
       }))
     );
     saveRoutine({ name: routineName.trim(), concern, products: routineProducts });
-    router.push(`/${locale}/me`);
+    router.push(`/${locale}/me?tab=routines`);
   }
 
   // Steps with selected products (in routine order)
