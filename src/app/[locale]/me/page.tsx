@@ -26,7 +26,7 @@ export default async function MePage({
 
   return (
     <MobileShell locale={locale}>
-      <Suspense>
+      <Suspense fallback={null}>
       <MePageClient
         locale={locale}
         products={products}

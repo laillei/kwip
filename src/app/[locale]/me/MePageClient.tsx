@@ -52,13 +52,14 @@ export default function MePageClient({ locale, products, concernLabels, dict }: 
     const saved = getSavedProducts();
     setRoutines(routineList);
     setSavedProductIds(saved);
-    setLoaded(true);
 
     if (searchParams.get("tab") === "routines") {
       setTab("routines");
     } else if (saved.length === 0 && routineList.length > 0) {
       setTab("routines");
     }
+
+    setLoaded(true);
 
     const update = () => setSavedProductIds(getSavedProducts());
     window.addEventListener("kwip_saved_updated", update);
