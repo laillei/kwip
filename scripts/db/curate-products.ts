@@ -6,7 +6,7 @@
  * Steps:
  *   1. Deactivate all legacy products (set is_active = false)
  *   2. Remove sun-protection concern (non-fatal if missing)
- *   3. Upsert 7 new key ingredients
+ *   3. Upsert 15 new key ingredients
  *   4. Upsert 22 curated products as is_active: true
  */
 
@@ -101,6 +101,95 @@ const KEY_INGREDIENTS = [
     ],
     ewg_grade: 1,
     category: "protein",
+  },
+  {
+    id: "niacinamide",
+    name: { inci: "Niacinamide", vi: "Niacinamide", ko: "나이아신아마이드" },
+    description: { vi: "Giảm thâm nám, thu nhỏ lỗ chân lông, điều tiết bã nhờn", en: "Fades dark spots, minimizes pores, regulates sebum" },
+    effects: [
+      { concern: "brightening", grade: "good", reason: { vi: "Giảm thâm nám và đồng đều màu da", en: "Fades hyperpigmentation and evens skin tone" } },
+      { concern: "pores", grade: "good", reason: { vi: "Thu nhỏ lỗ chân lông và kiểm soát dầu", en: "Minimizes pores and controls oil" } },
+      { concern: "trouble", grade: "good", reason: { vi: "Kháng khuẩn và giảm viêm mụn", en: "Antibacterial and reduces acne inflammation" } },
+    ],
+    ewg_grade: 1,
+    category: "vitamin",
+  },
+  {
+    id: "hyaluronic-acid",
+    name: { inci: "Sodium Hyaluronate", vi: "Axit hyaluronic", ko: "히알루론산" },
+    description: { vi: "Cấp ẩm sâu, giữ nước và làm đầy da", en: "Deep hydration, water retention, plumps skin" },
+    effects: [
+      { concern: "hydration", grade: "good", reason: { vi: "Giữ nước, cấp ẩm sâu cho da", en: "Retains water and deeply hydrates skin" } },
+    ],
+    ewg_grade: 1,
+    category: "humectant",
+  },
+  {
+    id: "snail-secretion-filtrate",
+    name: { inci: "Snail Secretion Filtrate", vi: "Dịch nhớt ốc sên", ko: "달팽이 분비물 여과물" },
+    description: { vi: "Phục hồi da, làm dịu, tái tạo và cấp ẩm chuyên sâu", en: "Repairs skin, soothes, regenerates and deeply moisturizes" },
+    effects: [
+      { concern: "hydration", grade: "good", reason: { vi: "Cấp ẩm sâu và phục hồi da", en: "Deep hydration and skin repair" } },
+      { concern: "soothing", grade: "good", reason: { vi: "Làm dịu và phục hồi vùng da kích ứng", en: "Soothes and heals irritated skin" } },
+      { concern: "trouble", grade: "good", reason: { vi: "Hỗ trợ làm lành mụn và giảm sẹo", en: "Aids acne healing and reduces scarring" } },
+    ],
+    ewg_grade: 1,
+    category: "biological",
+  },
+  {
+    id: "centella-asiatica",
+    name: { inci: "Centella Asiatica Extract", vi: "Rau má", ko: "센텔라 아시아티카" },
+    description: { vi: "Làm dịu, phục hồi và chống viêm cho da nhạy cảm", en: "Soothes, repairs and reduces inflammation for sensitive skin" },
+    effects: [
+      { concern: "soothing", grade: "good", reason: { vi: "Làm dịu và phục hồi da kích ứng", en: "Soothes and repairs irritated skin" } },
+      { concern: "trouble", grade: "good", reason: { vi: "Kháng viêm, hỗ trợ làm lành mụn", en: "Anti-inflammatory, helps heal acne" } },
+    ],
+    ewg_grade: 1,
+    category: "botanical",
+  },
+  {
+    id: "ceramide-np",
+    name: { inci: "Ceramide NP", vi: "Ceramide", ko: "세라마이드 NP" },
+    description: { vi: "Phục hồi hàng rào bảo vệ da, ngăn mất nước qua da", en: "Restores skin barrier, prevents transepidermal water loss" },
+    effects: [
+      { concern: "hydration", grade: "good", reason: { vi: "Khóa ẩm và phục hồi hàng rào bảo vệ da", en: "Locks in moisture and restores barrier" } },
+      { concern: "soothing", grade: "good", reason: { vi: "Tăng cường hàng rào bảo vệ, giảm nhạy cảm", en: "Strengthens barrier and reduces sensitivity" } },
+    ],
+    ewg_grade: 1,
+    category: "lipid",
+  },
+  {
+    id: "panthenol",
+    name: { inci: "Panthenol", vi: "Panthenol (Pro-Vitamin B5)", ko: "판테놀" },
+    description: { vi: "Dưỡng ẩm, làm dịu và phục hồi da bị tổn thương", en: "Moisturizes, soothes and repairs damaged skin" },
+    effects: [
+      { concern: "hydration", grade: "good", reason: { vi: "Hút và giữ ẩm hiệu quả", en: "Effectively attracts and retains moisture" } },
+      { concern: "soothing", grade: "good", reason: { vi: "Làm dịu và hỗ trợ phục hồi da", en: "Soothes and aids skin recovery" } },
+    ],
+    ewg_grade: 1,
+    category: "vitamin",
+  },
+  {
+    id: "salicylic-acid",
+    name: { inci: "Salicylic Acid", vi: "Axit salicylic (BHA)", ko: "살리실산" },
+    description: { vi: "Tẩy tế bào chết sâu trong lỗ chân lông, kiểm soát mụn và se khít lỗ chân lông", en: "Deep exfoliates inside pores, controls acne and tightens pores" },
+    effects: [
+      { concern: "trouble", grade: "good", reason: { vi: "Thâm nhập vào lỗ chân lông, loại bỏ bã nhờn và vi khuẩn gây mụn", en: "Penetrates pores to remove sebum and acne-causing bacteria" } },
+      { concern: "pores", grade: "good", reason: { vi: "Tẩy sạch bên trong lỗ chân lông, giúp se khít", en: "Cleans inside pores to minimize their appearance" } },
+    ],
+    ewg_grade: 3,
+    category: "acid",
+  },
+  {
+    id: "tea-tree",
+    name: { inci: "Melaleuca Alternifolia (Tea Tree) Leaf Oil", vi: "Tinh dầu tràm trà", ko: "티트리" },
+    description: { vi: "Kháng khuẩn mạnh, kiểm soát mụn và làm dịu vùng da viêm", en: "Strong antibacterial, controls acne and soothes inflamed skin" },
+    effects: [
+      { concern: "trouble", grade: "good", reason: { vi: "Kháng khuẩn, ngăn ngừa và điều trị mụn", en: "Antibacterial, prevents and treats acne" } },
+      { concern: "pores", grade: "good", reason: { vi: "Làm sạch lỗ chân lông và kiểm soát dầu", en: "Cleanses pores and controls oil production" } },
+    ],
+    ewg_grade: 2,
+    category: "botanical",
   },
 ];
 
