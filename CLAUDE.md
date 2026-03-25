@@ -12,7 +12,7 @@ Not a catalog, not a review site — the shortest path from concern → understa
 
 ## Rules
 - All text localized via `src/dictionaries/vi.json` and `en.json` — no hardcoded strings
-- Follow design system exactly — see `docs/design/design-system.md`
+- Follow design system exactly — see `docs/ux/design-system.md`
 - Mobile-first (min 44px touch targets)
 - Font: Noto Sans
 
@@ -44,10 +44,34 @@ Not a catalog, not a review site — the shortest path from concern → understa
 
 ## Design Standard
 - Act as a **senior UX/UI designer** applying Apple HIG (primary) + Material Design 3 (fallback)
-- Every UI change must respect the design system in `docs/design/design-system.md`
+- Every UI change must respect the design system in `docs/ux/design-system.md`
 - 44px minimum touch targets on all interactive elements — non-negotiable
-- Typography must follow the HIG scale defined in `docs/design/hig-mobile-first.md`
+- Typography must follow the HIG scale defined in `docs/ux/hig-mobile-first.md`
 - Run `/design-review` after any significant UI work to audit aesthetic + UX quality
+
+## Source Structure
+```
+src/
+├── app/           # Next.js App Router — pages, layouts, API routes
+├── components/
+│   ├── ui/        ← Design system primitives (Button, Card, Badge, etc.)
+│   ├── layout/    ← App shell: MobileShell, BottomTabBar
+│   ├── home/      ← Home page feature components
+│   ├── products/  ← Product feature components
+│   ├── routine/   ← Routine feature components
+│   ├── shared/    ← Cross-feature components (BookmarkButton, AuthButton, etc.)
+│   └── providers/ ← React context providers
+├── store/         ← Client-side state: localRoutines.ts, localSaved.ts
+├── types/         ← TypeScript types: Product, Ingredient, Routine, Concern, etc.
+├── lib/           ← Infrastructure: db.ts, supabase.ts, i18n.ts, brands.ts
+└── dictionaries/  ← Localization JSON: vi.json, en.json
+
+scripts/
+├── pipeline/      ← Product discovery pipeline
+└── db/            ← Database scripts: seed-supabase.ts, migrate-concern-taxonomy.ts
+
+logs/              ← Pipeline runtime output (gitignored): audit-log.json, etc.
+```
 
 ## Docs Structure
 All agents must follow this structure when reading and writing documentation.
@@ -55,11 +79,10 @@ All agents must follow this structure when reading and writing documentation.
 ```
 docs/
 ├── product/       # PM — permanent strategy & requirements. Read before any product/feature decision.
-│   ├── product-brief.md     ← Product direction, evidence, competitive position, roadmap
-│   ├── prd.md               ← Feature requirements, acceptance criteria, launch scope
-│   └── value-proposition.md ← User segments, JTBD, reusable copy
+│   ├── product-brief.md     ← Product direction, evidence, competitive position, roadmap, value prop
+│   └── prd.md               ← Feature requirements, acceptance criteria, launch scope
 │
-├── design/        # Design standards — permanent reference. Read before any UI work.
+├── ux/            # Design standards — permanent reference. Read before any UI work.
 │   ├── design-system.md     ← Type scale, colors, spacing, surface patterns
 │   ├── hig-mobile-first.md  ← HIG typography & layout rules
 │   └── core-vision.md       ← Visual design direction
@@ -71,16 +94,15 @@ docs/
 └── reference/     # External specs — Supabase schema, API docs, pipeline specs (future)
 ```
 
-**When reading:** Always read `docs/product/product-brief.md` + `docs/product/prd.md` before product decisions. Always read `docs/design/design-system.md` + `docs/design/hig-mobile-first.md` before UI changes.
+**When reading:** Always read `docs/product/product-brief.md` + `docs/product/prd.md` before product decisions. Always read `docs/ux/design-system.md` + `docs/ux/hig-mobile-first.md` before UI changes.
 
-**When writing:** New feature specs and implementation plans → `docs/plans/YYYY-MM-DD-feature[-design].md`. Never write dated files into `docs/product/` or `docs/design/` — those are permanent reference docs, updated in place.
+**When writing:** New feature specs and implementation plans → `docs/plans/YYYY-MM-DD-feature[-design].md`. Never write dated files into `docs/product/` or `docs/ux/` — those are permanent reference docs, updated in place.
 
 ## Key References
 - Full tech spec: `README.md`
 - **Product direction & strategy: `docs/product/product-brief.md` — READ THIS before any product decisions**
 - **Tactical requirements & launch scope: `docs/product/prd.md` — READ THIS before building any feature**
-- User segments & copy: `docs/product/value-proposition.md`
-- Design system & type scale: `docs/design/design-system.md`
-- HIG typography scale: `docs/design/hig-mobile-first.md`
-- Core vision: `docs/design/core-vision.md`
+- Design system & type scale: `docs/ux/design-system.md`
+- HIG typography scale: `docs/ux/hig-mobile-first.md`
+- Core vision: `docs/ux/core-vision.md`
 - Data: Supabase PostgreSQL (concerns, ingredients, products tables) — see `src/lib/db.ts`

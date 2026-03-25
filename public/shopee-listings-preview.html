@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopee 상품 상세 — 5가지 버전 비교</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    background: #f0f0f0;
+    color: #111;
+    padding: 32px 16px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 40px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+
+  .card-header {
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .version-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+  .v1 .version-tag { background: #fff3cd; color: #856404; }
+  .v2 .version-tag { background: #d1e7dd; color: #0a5038; }
+  .v3 .version-tag { background: #cfe2ff; color: #084298; }
+  .v4 .version-tag { background: #f8d7da; color: #842029; }
+  .v5 .version-tag { background: #e2d9f3; color: #432874; }
+
+  .card-header .product-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  .shopee-title {
+    background: #ee4d2d;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 14px;
+    line-height: 1.5;
+  }
+
+  .body {
+    padding: 16px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #222;
+  }
+
+  /* V1 — Award driven */
+  .v1 .badges {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 14px;
+  }
+  .badge-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .badge-icon { font-size: 14px; }
+  .badge-gold { color: #b8860b; }
+  .badge-green { color: #1a7f4b; }
+  .badge-blue { color: #1a4fa0; }
+
+  .hero-claim {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 6px;
+  }
+  .hero-sub {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #999;
+    margin: 14px 0 6px;
+  }
+
+  .ingredient-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: flex-start;
+  }
+  .ingredient-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .ingredient-text { font-size: 12px; line-height: 1.5; }
+  .ingredient-name { font-weight: 700; color: #111; }
+  .ingredient-desc { color: #555; }
+  .ingredient-arrow { color: #999; font-size: 11px; }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  .tag {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .tag-concern { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+  .tag-skin { background: #fef9c3; color: #713f12; border: 1px solid #fde047; }
+  .tag-free { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+
+  /* V2 — Editorial */
+  .concern-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  .chip {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+
+  .editorial-lead {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .editorial-lead em {
+    font-style: normal;
+    font-weight: 700;
+    color: #111;
+  }
+
+  .ingredient-card {
+    background: #f8fffe;
+    border: 1px solid #e0f2fe;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+  }
+  .ingredient-card .name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0369a1;
+    margin-bottom: 3px;
+  }
+  .ingredient-card .why {
+    font-size: 11px;
+    color: #444;
+    line-height: 1.5;
+  }
+  .ingredient-card .arrow {
+    color: #0ea5e9;
+    font-size: 10px;
+    margin-right: 4px;
+  }
+
+  .texture-note {
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+
+  /* V3 — Scientific */
+  .diff-banner {
+    background: #eff6ff;
+    border-left: 3px solid #3b82f6;
+    padding: 10px 12px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 14px;
+  }
+  .diff-banner .q {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e3a8a;
+    line-height: 1.5;
+  }
+  .diff-banner .a {
+    font-size: 12px;
+    color: #1e40af;
+    margin-top: 2px;
+  }
+
+  .science-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+  .science-table th {
+    background: #f1f5f9;
+    padding: 6px 10px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.05em;
+  }
+  .science-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+    line-height: 1.5;
+  }
+  .science-table .mol { color: #3b82f6; font-weight: 600; }
+  .science-table .effect { color: #555; }
+
+  .texture-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #0369a1;
+    margin-right: 4px;
+    margin-bottom: 6px;
+  }
+
+  /* V4 — Credentialist */
+  .stat-block {
+    background: #fff8f8;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  .stat-compare {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 8px;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .stat-item { }
+  .stat-label { font-size: 10px; color: #888; margin-bottom: 3px; }
+  .stat-value { font-size: 18px; font-weight: 800; color: #b91c1c; }
+  .stat-vs { font-size: 11px; color: #ccc; font-weight: 700; }
+  .stat-note { font-size: 10px; color: #777; text-align: center; line-height: 1.5; }
+
+  .mechanism-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .mechanism-list li {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 5px 0;
+    border-bottom: 1px solid #f9f9f9;
+    color: #333;
+  }
+  .mechanism-list li .arrow { color: #ef4444; font-weight: 700; flex-shrink: 0; }
+
+  .warning-box {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 11px;
+    color: #78350f;
+    line-height: 1.7;
+    margin-top: 10px;
+  }
+  .warning-box .warn-title { font-weight: 700; margin-bottom: 4px; }
+
+  /* V5 — Kwip identity */
+  .concern-hook {
+    background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    border: 1px solid #d1fae5;
+  }
+  .concern-hook .q {
+    font-size: 14px;
+    font-weight: 700;
+    color: #064e3b;
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+  .concern-hook .a {
+    font-size: 12px;
+    color: #065f46;
+    line-height: 1.5;
+  }
+
+  .science-card {
+    background: #f0fdf4;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+  .science-card .title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #064e3b;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .science-card .points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .science-card .points li {
+    font-size: 11px;
+    color: #166534;
+    line-height: 1.6;
+    padding: 2px 0;
+    display: flex;
+    gap: 6px;
+  }
+  .science-card .points li::before { content: "→"; color: #16a34a; font-weight: 700; flex-shrink: 0; }
+  .science-card .conc-note {
+    font-size: 11px;
+    color: #4b5563;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #d1fae5;
+    line-height: 1.5;
+  }
+
+  .routine-flow {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+    font-size: 11px;
+  }
+  .routine-step {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: #888;
+    background: #f5f5f5;
+  }
+  .routine-step.active {
+    background: #064e3b;
+    color: white;
+    font-weight: 700;
+  }
+  .routine-arrow { color: #ccc; font-size: 10px; }
+
+  /* Shared: steps */
+  .steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .steps li {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 4px 0;
+    color: #444;
+  }
+  .step-num {
+    width: 18px;
+    height: 18px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #555;
+  }
+
+  /* Shared: guarantee */
+  .guarantee {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .guarantee-item {
+    font-size: 10px;
+    font-weight: 600;
+    color: #166534;
+    background: #f0fdf4;
+    padding: 4px 8px;
+    border-radius: 20px;
+    border: 1px solid #bbf7d0;
+  }
+
+  .product-info {
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 11px;
+    color: #666;
+    line-height: 1.8;
+    margin-top: 10px;
+  }
+  .product-info span { font-weight: 600; color: #333; }
+
+  .divider {
+    height: 1px;
+    background: #f0f0f0;
+    margin: 12px 0;
+  }
+</style>
+</head>
+<body>
+
+<h1>Shopee 상품 상세 — 5가지 버전 비교</h1>
+<p class="subtitle">각 버전의 구조와 톤이 어떻게 다른지 비교해보세요</p>
+
+<div class="grid">
+
+  <!-- V1: Award-driven -->
+  <div class="card v1">
+    <div class="card-header">
+      <div class="version-tag">V1 — Award-driven</div>
+      <div class="product-title">COSRX 어드밴스드 스네일 96 뮤신 에센스</div>
+    </div>
+    <div class="shopee-title">
+      [올리브영 어워즈] COSRX 어드밴스드 스네일 96 뮤신 파워 에센스 100ml | 장벽+보습+진정
+    </div>
+    <div class="body">
+      <div class="badges">
+        <div class="badge-row badge-gold"><span class="badge-icon">🏆</span> 올리브영 2025 연간 어워즈 수상</div>
+        <div class="badge-row badge-green"><span class="badge-icon">✅</span> 전 세계 40개국 판매 글로벌 베스트셀러</div>
+        <div class="badge-row badge-blue"><span class="badge-icon">🐌</span> 달팽이 뮤신 96% — 숫자가 품질을 말합니다</div>
+      </div>
+
+      <div class="hero-claim">충전 · 회복 · 진정 — 한 병으로 세 가지.</div>
+      <div class="hero-sub">달팽이 뮤신이 피부 장벽을 채우고, 손상된 피부가 스스로 회복하도록 돕습니다.</div>
+
+      <div class="section-label">핵심 성분</div>
+      <div class="ingredient-row">
+        <span class="ingredient-icon">🐌</span>
+        <div class="ingredient-text">
+          <div class="ingredient-name">달팽이 점액 여과물 96%</div>
+          <div class="ingredient-desc ingredient-arrow">→ 글리코프로테인·펩타이드·히알루론산 자연 함유</div>
+          <div class="ingredient-desc ingredient-arrow">→ 손상된 피부 장벽을 빠르게 회복</div>
+        </div>
+      </div>
+      <div class="tag-row">
+        <span class="tag tag-free">무향</span>
+        <span class="tag tag-free">무색소</span>
+        <span class="tag tag-free">알코올 프리</span>
+      </div>
+
+      <div class="section-label">이런 피부에 추천</div>
+      <div style="font-size:12px; color:#444; line-height:1.8;">
+        • 피부 장벽이 무너진 느낌이 드는 분<br>
+        • 여드름 흔적·붉은기가 남아 있는 분<br>
+        • 자극 없이 집중 보습이 필요한 분
+      </div>
+
+      <div class="divider"></div>
+      <div class="section-label">사용 방법</div>
+      <ul class="steps">
+        <li><span class="step-num">1</span>세안 후 토너 단계 완료</li>
+        <li><span class="step-num">2</span>적당량을 손에 덜어 얼굴 전체에 펴 바름</li>
+        <li><span class="step-num">3</span>가볍게 두드려 흡수 후 다음 단계 진행</li>
+      </ul>
+
+      <div class="product-info">
+        <span>브랜드</span> COSRX (한국) &nbsp;·&nbsp; <span>용량</span> 100ml &nbsp;·&nbsp; <span>유통기한</span> 입고일 기준 18개월↑
+      </div>
+      <div class="guarantee">
+        <span class="guarantee-item">✅ 올리브영 직소싱 정품</span>
+        <span class="guarantee-item">✅ 가품 전액 환불</span>
+        <span class="guarantee-item">✅ 7일 교환</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- V2: Editorial -->
+  <div class="card v2">
+    <div class="card-header">
+      <div class="version-tag">V2 — Editorial / Ingredient WHY</div>
+      <div class="product-title">조선미녀 글로우 세럼 프로폴리스+나이아신아마이드</div>
+    </div>
+    <div class="shopee-title">
+      [조선미녀] 글로우 세럼 프로폴리스+나이아신아마이드 30ml | 잡티+톤업 | 올리브영 어워즈
+    </div>
+    <div class="body">
+      <div class="concern-chips">
+        <span class="chip">잡티 케어</span>
+        <span class="chip">피부 톤업</span>
+        <span class="chip">보습</span>
+        <span class="chip">모공 케어</span>
+      </div>
+
+      <div class="editorial-lead">
+        이 세럼이 한국에서 <em>'빛나는 피부'의 기준</em>이 된 이유.<br>
+        나이아신아마이드 5%와 프로폴리스 추출물의 조합 — 피부 톤을 고르게 하면서 깊은 수분감을 동시에 채워줍니다.
+      </div>
+
+      <div class="section-label">성분, 이렇게 작용합니다</div>
+      <div class="ingredient-card">
+        <div class="name">🍯 프로폴리스 추출물</div>
+        <div class="why"><span class="arrow">→</span>꿀벌이 벌집을 보호하는 천연 항균·항산화 성분</div>
+        <div class="why"><span class="arrow">→</span>피부에서는 칙칙함 + 트러블을 동시에 케어</div>
+      </div>
+      <div class="ingredient-card">
+        <div class="name">💊 나이아신아마이드 5%</div>
+        <div class="why"><span class="arrow">→</span>멜라닌 이동 억제 → 기존 잡티를 옅게, 새 잡티 예방</div>
+        <div class="why"><span class="arrow">→</span>피지 분비 조절 → 모공 개선</div>
+      </div>
+
+      <div class="texture-note">
+        💧 <strong>제형</strong>: 가볍고 투명한 젤 세럼. 끈적임 없이 빠르게 흡수. 여름에도, 지성 피부도 부담 없이 사용 가능.
+      </div>
+
+      <div class="divider"></div>
+      <div class="section-label">사용 방법</div>
+      <ul class="steps">
+        <li><span class="step-num">1</span>토너 후 소량(2~3방울)을 손에 덜기</li>
+        <li><span class="step-num">2</span>얼굴 전체에 펴 바른 후 가볍게 두드려 흡수</li>
+        <li><span class="step-num">3</span>잡티 부위에는 한 겹 더 덧바르기</li>
+      </ul>
+
+      <div class="product-info">
+        <span>브랜드</span> 조선미녀 (한국) &nbsp;·&nbsp; <span>용량</span> 30ml &nbsp;·&nbsp; 무향 · 파라벤 프리
+      </div>
+      <div class="guarantee">
+        <span class="guarantee-item">✅ 올리브영 직소싱 정품</span>
+        <span class="guarantee-item">✅ 가품 전액 환불</span>
+        <span class="guarantee-item">✅ 7일 교환</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- V3: Scientific Differentiation -->
+  <div class="card v3">
+    <div class="card-header">
+      <div class="version-tag">V3 — Scientific Differentiation</div>
+      <div class="product-title">토리든 다이브인 저분자 히알루론산 세럼</div>
+    </div>
+    <div class="shopee-title">
+      [토리든] 다이브인 저분자 히알루론산 세럼 50ml | 5D 복합 HA | 속건조 집중 케어
+    </div>
+    <div class="body">
+      <div class="diff-banner">
+        <div class="q">💧 히알루론산 세럼은 많습니다.<br>피부 속까지 실제로 전달되는 건 다릅니다.</div>
+      </div>
+
+      <div class="section-label">왜 '저분자'인가</div>
+      <table class="science-table">
+        <tr>
+          <th>분자 크기</th>
+          <th>침투 깊이</th>
+          <th>역할</th>
+        </tr>
+        <tr>
+          <td class="mol">저분자 HA</td>
+          <td>피부 깊은 층</td>
+          <td class="effect">속건조 해소</td>
+        </tr>
+        <tr>
+          <td class="mol">중분자 HA</td>
+          <td>중간층</td>
+          <td class="effect">수분 유지</td>
+        </tr>
+        <tr>
+          <td class="mol">고분자 HA</td>
+          <td>표면 보호막</td>
+          <td class="effect">수분 증발 차단</td>
+        </tr>
+      </table>
+      <div style="font-size:11px; color:#1e40af; font-weight:600; margin-bottom:12px;">→ 겉만 촉촉한 것이 아닌, 속부터 채워지는 보습</div>
+
+      <div class="section-label">진정 복합 성분</div>
+      <div style="font-size:12px; color:#444; line-height:1.9;">
+        • <strong>판테놀 (비타민 B5)</strong>: 손상된 피부 장벽 회복<br>
+        • <strong>알란토인</strong>: 예민한 피부 자극 완화<br>
+        • <strong>마데카소사이드</strong>: 붉은기·염증 진정
+      </div>
+
+      <div class="divider"></div>
+      <div class="section-label">사용감</div>
+      <div>
+        <span class="texture-pill">💧 파란빛 젤 세럼</span>
+        <span class="texture-pill">🚫 끈적임 없음</span>
+        <span class="texture-pill">⚡ 빠른 흡수</span>
+      </div>
+
+      <div class="divider"></div>
+      <div class="section-label">사용 방법</div>
+      <ul class="steps">
+        <li><span class="step-num">1</span>토너 후 3~5방울을 손에 덜기</li>
+        <li><span class="step-num">2</span>얼굴 전체에 가볍게 두드려 흡수</li>
+        <li><span class="step-num">3</span>속건조 심한 경우 2겹 레이어링 추천</li>
+      </ul>
+
+      <div class="product-info">
+        <span>브랜드</span> Torriden (한국) &nbsp;·&nbsp; <span>용량</span> 50ml &nbsp;·&nbsp; 무향 · 임상 자극 테스트 완료
+      </div>
+      <div class="guarantee">
+        <span class="guarantee-item">✅ 올리브영 직소싱 정품</span>
+        <span class="guarantee-item">✅ 가품 전액 환불</span>
+        <span class="guarantee-item">✅ 7일 교환</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- V4: Credentialist -->
+  <div class="card v4">
+    <div class="card-header">
+      <div class="version-tag">V4 — Credentialist / Numbers</div>
+      <div class="product-title">본셉트 레티놀 2500 IU 링클샷 퍼펙터</div>
+    </div>
+    <div class="shopee-title">
+      [본셉트] 레티놀 2500 IU 링클샷 퍼펙터 | 고함량 안티에이징 | 주름+탄력+톤
+    </div>
+    <div class="body">
+      <div class="stat-block">
+        <div class="stat-compare">
+          <div class="stat-item">
+            <div class="stat-label">일반 레티놀 크림</div>
+            <div class="stat-value" style="color:#aaa;">300–500</div>
+            <div class="stat-label">IU</div>
+          </div>
+          <div class="stat-vs">VS</div>
+          <div class="stat-item">
+            <div class="stat-label">본셉트 레티놀 크림</div>
+            <div class="stat-value">2,500</div>
+            <div class="stat-label">IU</div>
+          </div>
+        </div>
+        <div class="stat-note">피부과 권장 유효 농도에 근접 · 국내 최고 수준 함량</div>
+      </div>
+
+      <div class="section-label">레티놀이 주름에 작용하는 원리</div>
+      <ul class="mechanism-list">
+        <li><span class="arrow">→</span>콜라겐 생성 자극 → 피부 탄력 회복</li>
+        <li><span class="arrow">→</span>표피 두께 증가 → 잔주름 완화</li>
+        <li><span class="arrow">→</span>색소침착 개선 → 피부 톤 균일화</li>
+        <li><span class="arrow">→</span>세포 턴오버 촉진 → 피부 재생 가속</li>
+      </ul>
+      <div style="font-size:11px; color:#888; margin-top:6px;">단순 보습 크림과 작용 방식 자체가 다릅니다.</div>
+
+      <div class="warning-box">
+        <div class="warn-title">⚠️ 처음 사용하시는 분께</div>
+        처음 2주는 격일 저녁 사용 (적응 기간)<br>
+        반드시 다음 날 아침 자외선 차단제 사용<br>
+        임산부·수유 중 사용 자제
+      </div>
+
+      <div class="divider"></div>
+      <div class="section-label">사용 방법</div>
+      <ul class="steps">
+        <li><span class="step-num">1</span>저녁 스킨케어 마지막 단계</li>
+        <li><span class="step-num">2</span>소량을 주름·눈가 부위 위주로 도포</li>
+        <li><span class="step-num">3</span>다음 날 아침 자외선 차단제 필수</li>
+      </ul>
+
+      <div class="product-info">
+        <span>브랜드</span> 본셉트 (한국) &nbsp;·&nbsp; 🌙 야간 전용 권장
+      </div>
+      <div class="guarantee">
+        <span class="guarantee-item">✅ 올리브영 직소싱 정품</span>
+        <span class="guarantee-item">✅ 가품 전액 환불</span>
+        <span class="guarantee-item">✅ 7일 교환</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- V5: Kwip Identity -->
+  <div class="card v5">
+    <div class="card-header">
+      <div class="version-tag">V5 — Kwip Identity / Concern-first</div>
+      <div class="product-title">아누아 어성초 77% 진정 토너</div>
+    </div>
+    <div class="shopee-title">
+      [아누아] 어성초 77% 진정 토너 250ml | 트러블·민감성 피부 | 올리브영 어워즈 2025
+    </div>
+    <div class="body">
+      <div class="concern-hook">
+        <div class="q">피부가 계속 자극받고 쉽게 붉어지나요?</div>
+        <div class="a">원인의 대부분은 피부 위 유해균입니다.</div>
+      </div>
+
+      <div class="science-card">
+        <div class="title">🌿 왜 어성초인가</div>
+        <ul class="points">
+          <li>항균 — 트러블 유발균(P. acnes)의 증식 억제</li>
+          <li>항산화 — 피부 산화 스트레스로 인한 칙칙함 완화</li>
+          <li>진정 — 염증 반응 억제로 붉은기 감소</li>
+        </ul>
+        <div class="conc-note">
+          아누아는 이 성분을 <strong>77% 고함량</strong>으로 담았습니다.<br>
+          일반 토너에 0.1~1% 들어가는 것과는 차원이 다릅니다.
+        </div>
+      </div>
+
+      <div class="section-label">루틴에서의 위치</div>
+      <div class="routine-flow">
+        <span class="routine-step">세안</span>
+        <span class="routine-arrow">›</span>
+        <span class="routine-step active">이 토너 ✅</span>
+        <span class="routine-arrow">›</span>
+        <span class="routine-step">에센스</span>
+        <span class="routine-arrow">›</span>
+        <span class="routine-step">세럼</span>
+        <span class="routine-arrow">›</span>
+        <span class="routine-step">크림</span>
+      </div>
+      <div style="font-size:11px; color:#555; margin-top:6px; line-height:1.5;">토너 단계에서 피부를 진정시키고 다음 단계 흡수력을 끌어올립니다.</div>
+
+      <div class="divider"></div>
+      <div class="section-label">사용감</div>
+      <div>
+        <span class="texture-pill" style="background:#f0fdf4;border-color:#bbf7d0;color:#166534;">💧 물처럼 가벼운 제형</span>
+        <span class="texture-pill" style="background:#f0fdf4;border-color:#bbf7d0;color:#166534;">🌿 무향·무자극</span>
+        <span class="texture-pill" style="background:#f0fdf4;border-color:#bbf7d0;color:#166534;">🚫 끈적임 없음</span>
+      </div>
+
+      <div class="divider"></div>
+      <div class="section-label">사용 방법</div>
+      <ul class="steps">
+        <li><span class="step-num">1</span>세안 후 물기를 부드럽게 제거</li>
+        <li><span class="step-num">2</span>손 또는 화장솜에 덜어 얼굴에 도포</li>
+        <li><span class="step-num">3</span>아침·저녁 세럼·크림 전 단계에 사용</li>
+      </ul>
+
+      <div class="product-info">
+        <span>브랜드</span> Anua (한국) &nbsp;·&nbsp; <span>용량</span> 250ml &nbsp;·&nbsp; 무알코올 · 무향 · 파라벤 프리
+      </div>
+      <div class="guarantee">
+        <span class="guarantee-item">✅ 올리브영 직소싱 정품</span>
+        <span class="guarantee-item">✅ 가품 전액 환불</span>
+        <span class="guarantee-item">✅ 7일 교환</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

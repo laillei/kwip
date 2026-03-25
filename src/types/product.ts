@@ -43,7 +43,14 @@ export type Brand =
   | "boncept"
   | "a-pieu"
   | "sungboon-editor"
-  | "medipeel";
+  | "medipeel"
+  | "wellage"
+  | "s-nature"
+  | "la-roche-posay"
+  | "real-barrier"
+  | "isoi"
+  | "dr-althea"
+  | "celladix";
 
 export type Category = "toner" | "serum" | "sunscreen" | "cream" | "pad" | "cleanser" | "mask" | "ampoule" | "essence";
 

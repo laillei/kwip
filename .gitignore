@@ -11,6 +11,7 @@ npm-debug.log*
 next-env.d.ts
 .worktrees/
 src/data/staging/
+/logs/
 .claude/settings.local.json
 
 # Agent/skill plugin directories (auto-generated from skills-lock.json)

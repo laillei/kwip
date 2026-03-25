@@ -32,10 +32,10 @@ Each requirement is tagged by layer:
 
 ### F1 — Concern Filter `[FEATURE]`
 
-**What:** Home screen opens with a horizontally scrollable tab bar of concern labels (All + 7 concerns). Selecting a tab filters the product grid and step filter bar instantly. A chevron button expands a full-screen overlay grid showing all concern options at once (Olive Young-style dropdown: white options panel + dark scrim below, header and tab bar float above). Selecting the same concern returns to "All."
+**What:** Home screen opens with a horizontally scrollable tab bar of concern labels (All + 6 concerns). Selecting a tab filters the product grid and step filter bar instantly. A chevron button expands a full-screen overlay grid showing all concern options at once (Olive Young-style dropdown: white options panel + dark scrim below, header and tab bar float above). Selecting the same concern returns to "All."
 
 **Acceptance criteria:**
-- Scrollable tab row: "All" + 7 concern labels, active tab has bottom border + bold text
+- Scrollable tab row: "All" + 6 concern labels, active tab has bottom border + bold text
 - Chevron button rotates when overlay is open; 44×44px minimum touch target
 - Overlay: fixed position below header (top: 100px), 2-column grid of all concerns, dark scrim below options panel closes on tap
 - Concern tabs and header float above overlay (z-index layering correct)
@@ -161,23 +161,32 @@ Each requirement is tagged by layer:
 
 ---
 
-### D1 — Full Catalog Coverage `[DATA]`
+### D1 — Curated Catalog `[DATA]`
 
-**What:** All 7 concerns have products at every key routine step. No concern shows an empty state at launch.
+**What:** 22 curated products across 6 concerns, sourced from Olive Young KR Annual Awards 2025 and Daiso KR best sellers. All active products are proven bestsellers based on real purchase data. No concern shows an empty state at launch.
+
+**Source:**
+- Olive Young KR Annual Awards 2025 — 13 products (based on 180M+ purchase records, July 2024–June 2025)
+- Daiso KR community-verified best sellers — 9 products (cross-referenced across 5+ independent sources)
+
+**Implementation:** All 309 legacy products set to `is_active = false`. The 22 curated products are activated (or seeded). No data deleted — legacy products can be re-activated later.
 
 **Acceptance criteria:**
 
-| Concern | Min products | Must have steps |
+| Concern | Min products | Steps covered |
 |---|---|---|
-| acne | 10+ | cleanser, toner, serum, cream, sunscreen |
-| pores | 5+ | toner, serum, cream |
-| hydration | 10+ | cleanser, toner, serum, cream, sunscreen |
-| brightening | 8+ | toner, serum, cream, sunscreen |
-| soothing | 8+ | cleanser, toner, serum, cream |
-| anti-aging | 8+ | toner, serum, cream, sunscreen |
-| sun-protection | 5+ | sunscreen |
+| acne | 3+ | cleanser, pad, toner, essence, serum, cream |
+| pores | 3+ | cleanser, pad, serum |
+| hydration | 3+ | cleanser, toner, essence, serum, cream, mask |
+| brightening | 3+ | cleanser, toner, serum, mask |
+| soothing | 3+ | cleanser, pad, toner, essence, cream, mask |
+| anti-aging | 3+ | ampoule, cream, mask |
 
-**Status:** Done ✓ (309 products, all concerns covered)
+`sun-protection` concern removed — sunscreen is a separate product category. No sunscreen products in the curated set.
+
+**Full product list:** See `docs/plans/2026-03-25-product-curation-design.md`
+
+**Status:** Not started ⬜ (replaces previous D1)
 
 ---
 
@@ -196,7 +205,7 @@ Each requirement is tagged by layer:
 **Acceptance criteria:**
 - `?concern=<id>` on `/[locale]/` pre-selects the concern tab and filters the product grid on load
 - Invalid or unknown concern values are silently ignored (fall back to "All")
-- Works with any of the 7 concern IDs: `acne`, `pores`, `hydration`, `brightening`, `soothing`, `anti-aging`, `sun-protection`
+- Works with any of the 6 concern IDs: `acne`, `pores`, `hydration`, `brightening`, `soothing`, `anti-aging`
 - No flash of unfiltered state on load
 
 **Status:** Not started ⬜ (blocking DIST1)
@@ -210,7 +219,7 @@ Each requirement is tagged by layer:
 **Acceptance criteria:**
 - Facebook ad set targeting: Vietnam, female, 20–35, interests: K-beauty brands (COSRX, Anua, Beauty of Joseon), skincare, beauty
 - Ad creative leads with concern/problem copy
-- Landing URL: `/vi/?concern=acne` (or relevant concern) — deep link pre-selects the concern tab
+- Landing URL: `/vi/?concern=acne` (or relevant concern from: acne, pores, hydration, brightening, soothing, anti-aging) — deep link pre-selects the concern tab
 - UTM parameters on all ad URLs for tracking
 
 **Status:** Not started ⬜ (post-build)

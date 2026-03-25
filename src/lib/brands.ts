@@ -44,6 +44,13 @@ const brandDisplayNames: Record<Brand, string> = {
   "a-pieu": "A'PIEU",
   "sungboon-editor": "Sungboon Editor",
   medipeel: "Medipeel",
+  wellage: "Wellage",
+  "s-nature": "S.NATURE",
+  "la-roche-posay": "La Roche-Posay",
+  "real-barrier": "Real Barrier",
+  isoi: "Isoi",
+  "dr-althea": "Dr. Althea",
+  celladix: "Celladix",
 };
 
 export function getBrandName(brand: Brand): string {

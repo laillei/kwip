@@ -28,7 +28,7 @@ LAYER 1 — CONCERN
 What problem do you have?
 
   Acne · Pores · Hydration · Brightening
-  Soothing · Anti-aging · Sun Protection
+  Soothing · Anti-aging
 
         ↓
 
@@ -195,7 +195,7 @@ From direct survey, urban women 25–44 (Q&Me):
 2. Uneven skin tone / dark spots
 3. Acne
 
-These are exactly the 7 concerns Kwip is built around: acne, pores, hydration, brightening, soothing, anti-aging, sun protection. The product is calibrated to the real distribution of Vietnamese consumer needs, not to what K-beauty brands decide to market.
+These map directly to the 6 concerns Kwip is built around: acne, pores, hydration, brightening, soothing, anti-aging. The product is calibrated to the real distribution of Vietnamese consumer needs, not to what K-beauty brands decide to market.
 
 ---
 
@@ -217,13 +217,13 @@ Vietnamese urban woman, 28–40. Higher spending power. Concerned about dark spo
 
 ### Now — End of March 2026: Prove the core loop + seed organic growth
 
-**What:** Home screen with concern selector → ingredient highlights → routine-grouped products → routine builder. Product detail page. Mobile web. Vietnamese + English. 309 products across all 7 concerns with full routine coverage. Google auth. User accounts with saved routines.
+**What:** Home screen with concern selector → ingredient highlights → routine-grouped products → routine builder. Product detail page. Mobile web. Vietnamese + English. 22 curated products across 6 concerns (Olive Young KR Awards 2025 + Daiso KR best sellers). Google auth. User accounts with saved routines.
 
 **The hypothesis being tested:** A Vietnamese woman will select a concern, read the ingredient logic, feel confident enough to build and save a routine — and share it. If the loop doesn't close with a share, paid acquisition stays a treadmill with no organic growth.
 
 **Five things that ship at launch:**
 
-1. **Concern filter** — scrollable tab bar (All + 7 concerns) with chevron dropdown overlay. Selects a concern and the product grid + step filter update instantly. ✓ Done
+1. **Concern filter** — scrollable tab bar (All + 6 concerns) with chevron dropdown overlay. Selects a concern and the product grid + step filter update instantly. ✓ Done
 
 2. **Ingredient signal per product** — the key ingredient connecting each product to the active concern is shown inline on every product card. The "why" layer distributed at the point of decision rather than as a separate section. ✓ Done
 
@@ -340,7 +340,7 @@ A typical K-beauty product in Vietnam costs ~300,000–500,000 VND. At 5% commis
 
 Reviewty can add a concern filter in a sprint. No competitor can replicate:
 
-1. **Editorial depth at K-beauty scale** — 309 curated products with ingredient logic. 35,000-product platforms cannot go this deep per product.
+1. **Editorial depth at K-beauty scale** — 22 curated products (Olive Young KR Awards 2025 + Daiso KR best sellers), each with ingredient logic. 35,000-product platforms cannot go this deep per product.
 2. **Saved routine data** — once a user's routine history lives in Kwip, switching is painful. This is the personalization moat seed.
 3. **Voice** — the "knowledgeable friend" tone, once established through great Vietnamese copy, cannot be copied by an algorithm or a platform that covers all beauty at shallow depth.
 
