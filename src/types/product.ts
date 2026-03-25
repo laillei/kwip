@@ -34,7 +34,16 @@ export type Brand =
   | "the-face-shop"
   | "banila-co"
   | "ahc"
-  | "vt-cosmetics";
+  | "vt-cosmetics"
+  // New brands added for curated catalog
+  | "ma-nyo"
+  | "aestura"
+  | "senka"
+  | "madeca21"
+  | "boncept"
+  | "a-pieu"
+  | "sungboon-editor"
+  | "medipeel";
 
 export type Category = "toner" | "serum" | "sunscreen" | "cream" | "pad" | "cleanser" | "mask" | "ampoule" | "essence";
 

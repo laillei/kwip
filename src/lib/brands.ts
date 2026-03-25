@@ -35,6 +35,15 @@ const brandDisplayNames: Record<Brand, string> = {
   "banila-co": "Banila Co.",
   ahc: "AHC",
   "vt-cosmetics": "VT Cosmetics",
+  // New brands added for curated catalog
+  "ma-nyo": "Ma:nyo",
+  aestura: "Aestura",
+  senka: "Senka",
+  madeca21: "Madeca21",
+  boncept: "Boncept",
+  "a-pieu": "A'PIEU",
+  "sungboon-editor": "Sungboon Editor",
+  medipeel: "Medipeel",
 };
 
 export function getBrandName(brand: Brand): string {
