@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopee 상품 상세 — Kwip</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,0,0" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f9f9f8;
+  --border: #efefed;
+  --text-primary: #111110;
+  --text-secondary: #666664;
+  --text-tertiary: #767674;
+  --accent: #2a6e4a;
+  --accent-bg: #f0f7f3;
+  --accent-mid: #c8e6d6;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #f0efec;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--border);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+  font-size: 18px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--bg);
+  padding: 40px 24px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-overline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.hero-overline-dot { width: 4px; height: 4px; background: var(--accent); border-radius: 50%; }
+
+.hero-headline {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+.hero-headline em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.hero-desc {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  font-weight: 400;
+}
+
+.hero-product-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+.hero-meta { flex: 1; padding-bottom: 28px; }
+.hero-brand-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 6px;
+}
+.hero-product-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+.hero-size {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+  font-weight: 400;
+}
+.hero-award {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 10px;
+  padding: 4px 10px;
+  background: var(--accent-bg);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.hero-img {
+  width: 150px;
+  flex-shrink: 0;
+}
+.hero-img img {
+  width: 100%;
+  display: block;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.08));
+}
+
+/* ─── SHARED ─── */
+.section {
+  background: var(--bg);
+  padding: 32px 24px;
+}
+.section-soft {
+  background: var(--bg-soft);
+  padding: 32px 24px;
+}
+
+.overline {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.headline {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+}
+.body-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+/* ─── CONCERN CHIPS ─── */
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 18px;
+}
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--bg-soft);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+.chip .material-symbols-outlined { font-size: 14px; color: var(--text-tertiary); }
+.chip.active {
+  background: var(--accent-bg);
+  color: var(--accent);
+  border-color: var(--accent-mid);
+}
+.chip.active .material-symbols-outlined { color: var(--accent); }
+
+/* ─── INGREDIENT STAT ─── */
+.stat-section {
+  background: var(--bg);
+  padding: 32px 24px;
+  border-top: 1px solid var(--border);
+}
+.stat-number {
+  font-size: 80px;
+  font-weight: 900;
+  color: var(--text-primary);
+  letter-spacing: -4px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-number span {
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  letter-spacing: 0;
+}
+.stat-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+.stat-inci {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+.stat-sub {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+
+.ingredient-points {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ing-point {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.ing-point:last-child { border-bottom: none; padding-bottom: 0; }
+.ing-point-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--accent-bg);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ing-point-icon .material-symbols-outlined { font-size: 18px; color: var(--accent); }
+.ing-point-body { flex: 1; padding-top: 2px; }
+.ing-point-title { font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 3px; }
+.ing-point-desc { font-size: 11px; color: var(--text-secondary); line-height: 1.6; font-weight: 400; }
+
+/* ─── HOW IT WORKS GRID ─── */
+.works-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+.works-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 16px;
+}
+.works-card-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--bg-soft);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.works-card-icon .material-symbols-outlined { font-size: 16px; color: var(--text-secondary); }
+.works-card-title { font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.works-card-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.6; font-weight: 400; }
+
+/* ─── SOURCING FLOW ─── */
+.flow { display: flex; flex-direction: column; margin-top: 24px; }
+.flow-step {
+  display: flex;
+  gap: 16px;
+  position: relative;
+}
+.flow-step:not(:last-child) { padding-bottom: 28px; }
+.flow-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 17px;
+  top: 36px;
+  width: 1px;
+  height: calc(100% - 20px);
+  background: var(--border);
+}
+.flow-node {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--bg);
+  position: relative;
+  z-index: 1;
+}
+.flow-node .material-symbols-outlined { font-size: 16px; color: var(--text-secondary); }
+.flow-node.active {
+  border-color: var(--accent-mid);
+  background: var(--accent-bg);
+}
+.flow-node.active .material-symbols-outlined { color: var(--accent); }
+.flow-body { flex: 1; padding-top: 6px; }
+.flow-title { font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 3px; }
+.flow-desc { font-size: 11px; color: var(--text-secondary); line-height: 1.6; font-weight: 400; }
+.flow-pill {
+  display: inline-block;
+  margin-top: 7px;
+  padding: 3px 9px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+.flow-pill.accent {
+  background: var(--accent-bg);
+  border-color: var(--accent-mid);
+  color: var(--accent);
+}
+
+/* ─── ROUTINE ─── */
+.routine-list { margin-top: 20px; display: flex; flex-direction: column; gap: 6px; }
+.routine-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  border-radius: 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+.routine-row.active {
+  background: var(--accent-bg);
+  border-color: var(--accent-mid);
+}
+.routine-index {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.routine-row.active .routine-index { color: var(--accent); }
+.routine-sep { width: 1px; height: 20px; background: var(--border); flex-shrink: 0; }
+.routine-row.active .routine-sep { background: var(--accent-mid); }
+.routine-info { flex: 1; }
+.routine-name { font-size: 12px; font-weight: 600; color: var(--text-primary); }
+.routine-row.active .routine-name { color: var(--accent); }
+.routine-note { font-size: 10px; color: var(--text-tertiary); margin-top: 2px; font-weight: 400; }
+.routine-row.active .routine-note { color: var(--accent); opacity: 0.7; }
+.routine-check .material-symbols-outlined { font-size: 16px; color: var(--accent); }
+
+/* ─── FREE FROM ─── */
+.ff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+.ff-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.ff-item .material-symbols-outlined { font-size: 16px; color: var(--accent); }
+
+/* ─── HOW TO USE ─── */
+.step-list { display: flex; flex-direction: column; margin-top: 24px; }
+.step-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  position: relative;
+}
+.step-row:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 13px;
+  top: 28px;
+  width: 1px;
+  height: calc(100% - 14px);
+  background: var(--border);
+}
+.step-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--bg);
+  position: relative;
+  z-index: 1;
+}
+.step-content { padding-top: 4px; flex: 1; }
+.step-title { font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.step-desc { font-size: 11px; color: var(--text-secondary); line-height: 1.7; font-weight: 400; }
+
+/* ─── GUARANTEE ─── */
+.g-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+.g-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 16px;
+}
+.g-card-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--accent-bg);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.g-card-icon .material-symbols-outlined { font-size: 16px; color: var(--accent); }
+.g-card-title { font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.g-card-desc { font-size: 10px; color: var(--text-tertiary); line-height: 1.6; font-weight: 400; }
+
+/* ─── PRODUCT INFO TABLE ─── */
+.info-table { margin-top: 20px; }
+.info-row {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  align-items: flex-start;
+}
+.info-row:last-child { border-bottom: none; }
+.info-key { width: 88px; color: var(--text-tertiary); flex-shrink: 0; font-weight: 400; }
+.info-val { color: var(--text-primary); font-weight: 500; flex: 1; line-height: 1.6; }
+
+/* ─── INGREDIENT LIST ─── */
+.inci-list {
+  margin-top: 16px;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  line-height: 1.9;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* ─── KWIP FOOTER ─── */
+.kwip-footer {
+  background: var(--bg);
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+}
+.kwip-footer-left {}
+.kwip-footer-brand {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+  margin-bottom: 3px;
+}
+.kwip-footer-desc {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  font-weight: 400;
+  line-height: 1.6;
+}
+.kwip-footer-link {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.kwip-footer-link .material-symbols-outlined { font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-overline">
+      <span class="hero-overline-dot"></span>
+      Serum · Hydration
+    </div>
+    <div class="hero-headline">
+      당기지 않는 보습,<br>
+      <em>5종 히알루론산</em>
+    </div>
+    <div class="hero-desc">저분자부터 고분자까지, 피부 깊숙이<br>촘촘하게 수분을 채워줘요</div>
+    <div class="hero-product-row">
+      <div class="hero-meta">
+        <div class="hero-brand-label">Torriden</div>
+        <div class="hero-product-name">다이브인 저분자<br>히알루론산 세럼</div>
+        <div class="hero-size">50ml</div>
+        <div class="hero-award">
+          <span class="material-symbols-outlined" style="font-size:12px;">workspace_premium</span>
+          올리브영 2025 어워즈
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="images/products/torriden-dive-in-serum.jpg" alt="토리든 다이브인 세럼">
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCERN -->
+  <div class="section">
+    <div class="overline">Who is this for</div>
+    <div class="headline">이런 고민이라면<br>잘 맞을 거예요</div>
+    <div class="chip-list">
+      <span class="chip active">
+        <span class="material-symbols-outlined">water_drop</span>
+        발라도 금방 당기는 피부
+      </span>
+      <span class="chip active">
+        <span class="material-symbols-outlined">air</span>
+        환절기 수분 부족
+      </span>
+      <span class="chip active">
+        <span class="material-symbols-outlined">favorite</span>
+        예민하고 자극받기 쉬운 피부
+      </span>
+      <span class="chip">
+        <span class="material-symbols-outlined">shield</span>
+        향·알코올 자극이 걱정되는 피부
+      </span>
+      <span class="chip">
+        <span class="material-symbols-outlined">bolt</span>
+        가벼운 레이어링을 원할 때
+      </span>
+    </div>
+  </div>
+
+  <!-- INGREDIENT STAT -->
+  <div class="stat-section">
+    <div class="overline">Core Ingredient</div>
+    <div class="stat-number">5<span>종</span></div>
+    <div class="stat-name">히알루론산 복합체 (5D Complex)</div>
+    <div class="stat-inci">Sodium Hyaluronate · Hydrolyzed Hyaluronic Acid · Sodium Acetylated Hyaluronate · Sodium Hyaluronate Crosspolymer · Hydrolyzed Sodium Hyaluronate</div>
+
+    <div class="stat-sub">저분자부터 고분자까지, 피부 각 층에 맞는 분자량으로 수분을 전달해요</div>
+
+    <div class="ingredient-points">
+      <div class="ing-point">
+        <div class="ing-point-icon">
+          <span class="material-symbols-outlined">water_drop</span>
+        </div>
+        <div class="ing-point-body">
+          <div class="ing-point-title">촉촉하고 당김 없는 보습</div>
+          <div class="ing-point-desc">발랐을 때 끈적이지 않고, 촉촉함이 오래 유지돼요. 토리든이 공식적으로 강조하는 제품 특성이에요</div>
+        </div>
+      </div>
+      <div class="ing-point">
+        <div class="ing-point-icon">
+          <span class="material-symbols-outlined">layers</span>
+        </div>
+        <div class="ing-point-body">
+          <div class="ing-point-title">피부 장벽 지원</div>
+          <div class="ing-point-desc">세라마이드 NP와 베타글루칸이 장벽 기능을 보조해요</div>
+        </div>
+      </div>
+      <div class="ing-point">
+        <div class="ing-point-icon">
+          <span class="material-symbols-outlined">spa</span>
+        </div>
+        <div class="ing-point-body">
+          <div class="ing-point-title">진정 보조</div>
+          <div class="ing-point-desc">판테놀, 알란토인, 마데카소사이드가 민감해진 피부를 차분하게 가라앉혀요</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section-soft">
+    <div class="overline">Why it works</div>
+    <div class="headline">5종 히알루론산이<br>하는 일</div>
+    <div class="works-grid">
+      <div class="works-card">
+        <div class="works-card-icon">
+          <span class="material-symbols-outlined">water_drop</span>
+        </div>
+        <div class="works-card-title">깊은 수분 공급</div>
+        <div class="works-card-desc">저분자 히알루론산이 피부 깊숙이 흡수돼 안쪽부터 채워줘요</div>
+      </div>
+      <div class="works-card">
+        <div class="works-card-icon">
+          <span class="material-symbols-outlined">lock</span>
+        </div>
+        <div class="works-card-title">수분 장벽 형성</div>
+        <div class="works-card-desc">고분자 히알루론산이 피부 표면에 막을 만들어 수분이 날아가지 않게 잡아줘요</div>
+      </div>
+      <div class="works-card">
+        <div class="works-card-icon">
+          <span class="material-symbols-outlined">shield</span>
+        </div>
+        <div class="works-card-title">약산성 pH 5.5</div>
+        <div class="works-card-desc">피부 본연의 pH에 맞춰 자극 없이 순하게 사용할 수 있어요</div>
+      </div>
+      <div class="works-card">
+        <div class="works-card-icon">
+          <span class="material-symbols-outlined">expand</span>
+        </div>
+        <div class="works-card-title">가볍게 흡수</div>
+        <div class="works-card-desc">워터 세럼 제형이라 끈적임 없이 빠르게 스며들어요</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOURCING FLOW -->
+  <div class="section">
+    <div class="overline">Authenticity</div>
+    <div class="headline">정품이 손에<br>닿기까지</div>
+    <div class="body-text">올리브영 한국에서 직접 사서 보냅니다.<br>검수를 거친 제품만 출고해요</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-node active">
+          <span class="material-symbols-outlined">storefront</span>
+        </div>
+        <div class="flow-body">
+          <div class="flow-title">올리브영 한국 공식 매장 구매</div>
+          <div class="flow-desc">한국 최대 뷰티 리테일러. 가품이 유통될 수 없는 경로예요</div>
+          <span class="flow-pill accent">Olive Young KR</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-node">
+          <span class="material-symbols-outlined">search</span>
+        </div>
+        <div class="flow-body">
+          <div class="flow-title">Kwip 입고 전수 검수</div>
+          <div class="flow-desc">제품 상태, 유통기한, 봉인 여부를 하나하나 확인해요. 이상 있으면 즉시 반품합니다</div>
+          <span class="flow-pill">입고 전수 검수</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-node">
+          <span class="material-symbols-outlined">local_shipping</span>
+        </div>
+        <div class="flow-body">
+          <div class="flow-title">한국에서 직접 발송</div>
+          <div class="flow-desc">검수 완료 후 한국에서 바로 포장해 발송합니다</div>
+          <span class="flow-pill">한국 직발송</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-node">
+          <span class="material-symbols-outlined">home</span>
+        </div>
+        <div class="flow-body">
+          <div class="flow-title">고객님 수령</div>
+          <div class="flow-desc">주문 후 배송 진행. 실시간 배송 추적 가능합니다</div>
+          <span class="flow-pill">직배송</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROUTINE STEP -->
+  <div class="section-soft">
+    <div class="overline">Routine Step</div>
+    <div class="headline">루틴 어디에<br>쓰면 될까요?</div>
+    <div class="body-text">토너·에센스 후 세럼 단계에요.<br>흡수가 빠른 워터 세럼이라 레이어링도 부담 없어요</div>
+    <div class="routine-list">
+      <div class="routine-row">
+        <div class="routine-index">1</div>
+        <div class="routine-sep"></div>
+        <div class="routine-info">
+          <div class="routine-name">클렌저</div>
+          <div class="routine-note">세안으로 피부 정리</div>
+        </div>
+      </div>
+      <div class="routine-row">
+        <div class="routine-index">2</div>
+        <div class="routine-sep"></div>
+        <div class="routine-info">
+          <div class="routine-name">토너</div>
+          <div class="routine-note">피부 결 정돈</div>
+        </div>
+      </div>
+      <div class="routine-row">
+        <div class="routine-index">3</div>
+        <div class="routine-sep"></div>
+        <div class="routine-info">
+          <div class="routine-name">에센스 (선택)</div>
+          <div class="routine-note">보습 레이어 추가</div>
+        </div>
+      </div>
+      <div class="routine-row active">
+        <div class="routine-index">4</div>
+        <div class="routine-sep"></div>
+        <div class="routine-info">
+          <div class="routine-name">세럼 — 지금 이 제품 ✓</div>
+          <div class="routine-note">집중 보습</div>
+        </div>
+        <div class="routine-check">
+          <span class="material-symbols-outlined">check_circle</span>
+        </div>
+      </div>
+      <div class="routine-row">
+        <div class="routine-index">5</div>
+        <div class="routine-sep"></div>
+        <div class="routine-info">
+          <div class="routine-name">크림</div>
+          <div class="routine-note">보습 마무리 및 장벽 강화</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FREE FROM -->
+  <div class="section">
+    <div class="overline">Formulation</div>
+    <div class="headline">민감한 피부도<br>안심하고 쓸 수 있어요</div>
+    <div class="ff-grid">
+      <div class="ff-item">
+        <span class="material-symbols-outlined">check</span>
+        무알코올
+      </div>
+      <div class="ff-item">
+        <span class="material-symbols-outlined">check</span>
+        무향
+      </div>
+      <div class="ff-item">
+        <span class="material-symbols-outlined">check</span>
+        pH 5.5 약산성
+      </div>
+      <div class="ff-item">
+        <span class="material-symbols-outlined">check</span>
+        민감성 피부 테스트 완료
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="section-soft">
+    <div class="overline">How to Use</div>
+    <div class="headline">사용 방법</div>
+    <div class="step-list">
+      <div class="step-row">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">세안 후 기초 단계 진행</div>
+          <div class="step-desc">클렌징 후 토너·에센스 순서로 피부를 정돈해요</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">적당량 손에 덜기</div>
+          <div class="step-desc">2~3 펌프 정도. 워터 제형이라 양 조절이 쉬워요</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">얼굴 전체에 가볍게 도포</div>
+          <div class="step-desc">문지르지 않고 손으로 가볍게 눌러 흡수시킵니다. 건조한 부위는 한 번 더 덧발라도 괜찮아요</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-title">크림으로 마무리</div>
+          <div class="step-desc">세럼이 흡수된 후 크림으로 수분을 잠궈요. 아침·저녁 모두 사용 가능합니다</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GUARANTEE -->
+  <div class="section">
+    <div class="overline">Our Promise</div>
+    <div class="headline">Kwip의 약속</div>
+    <div class="g-grid">
+      <div class="g-card">
+        <div class="g-card-icon">
+          <span class="material-symbols-outlined">verified</span>
+        </div>
+        <div class="g-card-title">100% 정품 보장</div>
+        <div class="g-card-desc">올리브영 직소싱. 가품 수령 시 전액 환불</div>
+      </div>
+      <div class="g-card">
+        <div class="g-card-icon">
+          <span class="material-symbols-outlined">package_2</span>
+        </div>
+        <div class="g-card-title">안전 포장</div>
+        <div class="g-card-desc">파손 방지 포장. 배송 중 파손 시 즉시 교환</div>
+      </div>
+      <div class="g-card">
+        <div class="g-card-icon">
+          <span class="material-symbols-outlined">calendar_month</span>
+        </div>
+        <div class="g-card-title">신선 유통기한</div>
+        <div class="g-card-desc">입고일 기준 18개월 이상 남은 제품만 발송</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT INFO -->
+  <div class="section-soft">
+    <div class="overline">Product Info</div>
+    <div class="headline">제품 스펙</div>
+    <div class="info-table">
+      <div class="info-row">
+        <div class="info-key">브랜드</div>
+        <div class="info-val">Torriden (대한민국)</div>
+      </div>
+      <div class="info-row">
+        <div class="info-key">제품명</div>
+        <div class="info-val">다이브인 저분자 히알루론산 세럼</div>
+      </div>
+      <div class="info-row">
+        <div class="info-key">용량</div>
+        <div class="info-val">50ml</div>
+      </div>
+      <div class="info-row">
+        <div class="info-key">제형</div>
+        <div class="info-val">워터 세럼</div>
+      </div>
+      <div class="info-row">
+        <div class="info-key">pH</div>
+        <div class="info-val">5.5</div>
+      </div>
+      <div class="info-row">
+        <div class="info-key">유통기한</div>
+        <div class="info-val">입고일 기준 18개월 이상</div>
+      </div>
+      <div class="info-row">
+        <div class="info-key">소싱</div>
+        <div class="info-val">올리브영 한국 직소싱</div>
+      </div>
+    </div>
+    <div class="overline" style="margin-top: 28px;">Full Ingredient List</div>
+    <div class="inci-list">Water, Butylene Glycol, Glycerin, Dipropylene Glycol, 1,2-Hexanediol, Panthenol, Sodium Hyaluronate, Hydrolyzed Hyaluronic Acid, Sodium Acetylated Hyaluronate, Sodium Hyaluronate Crosspolymer, Hydrolyzed Sodium Hyaluronate, Allantoin, Trehalose, Betaine, Propanediol, Portulaca Oleracea Extract, Hamamelis Virginiana Extract, Madecassoside, Madecassic Acid, Ceramide NP, Beta-Glucan, Malachite Extract, Cholesterol, Pentylene Glycol, Glyceryl Acrylate/Acrylic Acid Copolymer, Pvm/Ma Copolymer, Polyglyceryl-10 Laurate, Xanthan Gum, Tromethamine, Carbomer, Ethylhexylglycerin, Scutellaria Baicalensis Root Extract, Paeonia Suffruticosa Root Extract</div>
+  </div>
+
+  <!-- KWIP FOOTER -->
+  <div class="kwip-footer">
+    <div class="kwip-footer-left">
+      <div class="kwip-footer-brand">Kwip</div>
+      <div class="kwip-footer-desc">성분을 알면 스킨케어가 달라집니다<br>kwip.vn</div>
+    </div>
+    <a class="kwip-footer-link" href="#">
+      kwip.vn
+      <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
+  </div>
+
+</div>
+</body>
+</html>
