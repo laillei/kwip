@@ -12,7 +12,7 @@ import { detectCategory } from "./detect-category.js";
 import { matchIngredients } from "./match-ingredients.js";
 import { mapConcerns } from "./map-concerns.js";
 import { generateViName, today } from "./utils.js";
-import type { Category } from "../../src/lib/types";
+import type { Category } from "../../src/types";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const stagingDir = join(__dirname, "../../src/data/staging");

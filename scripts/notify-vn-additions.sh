@@ -2,8 +2,8 @@
 # Show VN product discoveries and audit flags since last Claude session.
 # Called by UserPromptSubmit hook — must be fast and silent on no news.
 
-VN_LOG="src/data/vn-additions-log.json"
-AUDIT_LOG="src/data/audit-log.json"
+VN_LOG="logs/vn-additions-log.json"
+AUDIT_LOG="logs/audit-log.json"
 
 # Run both checks; output only if there's news
 node --input-type=module << 'EOF'
@@ -13,7 +13,7 @@ let hasNews = false;
 const today = new Date().toISOString().slice(0, 10);
 
 // ── VN Additions ──────────────────────────────────────────────────────
-const vnFile = "src/data/vn-additions-log.json";
+const vnFile = "logs/vn-additions-log.json";
 try {
   const log = JSON.parse(readFileSync(vnFile, "utf-8"));
   const last = log.lastNotifiedAt || "";
@@ -35,7 +35,7 @@ try {
 }
 
 // ── Audit Flags ───────────────────────────────────────────────────────
-const auditFile = "src/data/audit-log.json";
+const auditFile = "logs/audit-log.json";
 try {
   const log = JSON.parse(readFileSync(auditFile, "utf-8"));
   const last = log.lastNotifiedAt || "";

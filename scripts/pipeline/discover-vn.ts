@@ -5,7 +5,7 @@
  * WARNING: DOM selectors are fragile; if scraping breaks, update selectors by
  * inspecting the live page in Chrome DevTools.
  *
- * Output: appends new discoveries to src/data/vn-additions-log.json
+ * Output: appends new discoveries to logs/vn-additions-log.json
  */
 
 import { writeFileSync, readFileSync, existsSync } from "fs";
@@ -17,7 +17,7 @@ import { BRANDS } from "./brands.config.js";
 import { normalizeTitle, today, sleep } from "./utils.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const dataDir = join(__dirname, "../../src/data");
+const dataDir = join(__dirname, "../../logs");
 const logFile = join(dataDir, "vn-additions-log.json");
 
 interface VnDiscovery {

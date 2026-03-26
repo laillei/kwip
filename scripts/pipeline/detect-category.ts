@@ -2,7 +2,7 @@
  * Detect product category from Shopify product_type and title keywords.
  */
 
-import type { Category } from "../../src/lib/types";
+import type { Category } from "../../src/types";
 
 /** Keyword map: category → keywords to match in title (lowercase). */
 const KEYWORD_MAP: [Category, string[]][] = [

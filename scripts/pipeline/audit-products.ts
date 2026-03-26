@@ -22,7 +22,7 @@ import { matchIngredients } from "./match-ingredients.js";
 import { normalizeTitle, sleep, today } from "./utils.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const dataDir = join(__dirname, "../../src/data");
+const dataDir = join(__dirname, "../../logs");
 const logFile = join(dataDir, "audit-log.json");
 
 // ── Types ──────────────────────────────────────────────────────────────

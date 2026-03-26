@@ -2,7 +2,7 @@
  * Shared utilities for the product discovery pipeline.
  */
 
-import type { Category } from "../../src/lib/types";
+import type { Category } from "../../src/types";
 
 /** Generate a URL-safe slug from brand + product title. */
 export function generateSlug(brand: string, title: string): string {
