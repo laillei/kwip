@@ -51,6 +51,9 @@ const brandDisplayNames: Record<Brand, string> = {
   isoi: "Isoi",
   "dr-althea": "Dr. Althea",
   celladix: "Celladix",
+  "dong-a": "동아제약",
+  dalba: "d'Alba",
+  fation: "Fation",
 };
 
 export function getBrandName(brand: Brand): string {

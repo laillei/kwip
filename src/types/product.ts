@@ -50,9 +50,12 @@ export type Brand =
   | "real-barrier"
   | "isoi"
   | "dr-althea"
-  | "celladix";
+  | "celladix"
+  | "dong-a"
+  | "dalba"
+  | "fation";
 
-export type Category = "toner" | "serum" | "sunscreen" | "cream" | "pad" | "cleanser" | "mask" | "ampoule" | "essence";
+export type Category = "toner" | "serum" | "sunscreen" | "cream" | "pad" | "cleanser" | "mask" | "ampoule" | "essence" | "mist";
 
 export interface ProductIngredient {
   ingredientId: string;

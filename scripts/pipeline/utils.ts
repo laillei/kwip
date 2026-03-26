@@ -59,6 +59,7 @@ const VI_TEMPLATES: Record<Category, string> = {
   mask: "Mặt nạ {brand} {name}",
   ampoule: "Tinh chất {brand} {name}",
   essence: "Tinh chất {brand} {name}",
+  mist: "Xịt dưỡng {brand} {name}",
 };
 
 /** Generate a Vietnamese product name from brand display name, English title, and category. */
