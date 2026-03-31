@@ -54,6 +54,9 @@ export default async function Home({
         locale={locale}
         headerRight={
           <div className="flex items-center gap-2">
+            <Suspense>
+              <LanguageSwitcher />
+            </Suspense>
             <SearchButton locale={locale} products={allProducts} />
           </div>
         }
@@ -68,10 +71,10 @@ export default async function Home({
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <SearchButton locale={locale} products={allProducts} />
               <Suspense>
                 <LanguageSwitcher />
               </Suspense>
+              <SearchButton locale={locale} products={allProducts} />
               <AuthButton locale={locale} />
             </div>
           </header>

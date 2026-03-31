@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import MobileShell from "@/components/layout/MobileShell";
+import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
 import MePageClient from "./MePageClient";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { getAllProducts, getAllConcerns } from "@/lib/db";
@@ -25,7 +26,7 @@ export default async function MePage({
   ) as Record<string, string>;
 
   return (
-    <MobileShell locale={locale}>
+    <MobileShell locale={locale} headerRight={<Suspense><LanguageSwitcher /></Suspense>}>
       <Suspense fallback={null}>
         <MePageClient
           locale={locale}
