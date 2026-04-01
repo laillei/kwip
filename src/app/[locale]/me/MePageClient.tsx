@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Routine, Product } from "@/types";
 import { getRoutines, deleteRoutine, renameRoutine } from "@/store/localRoutines";
+import { buttonVariants } from "@/components/ui";
 import { getSavedProducts, unsaveProduct } from "@/store/localSaved";
 import RoutineCard from "@/components/routine/RoutineCard";
 import { getBrandName } from "@/lib/brands";
@@ -134,10 +135,10 @@ export default function MePageClient({ locale, products, concernLabels, dict }: 
             >
               <div className="-mt-16">
                 <p className="text-[17px] font-semibold text-neutral-900 mb-1">{dict.noSavedProducts}</p>
-                <p className="text-[15px] text-neutral-400 mb-6">{dict.emptyBody}</p>
+                <p className="text-[15px] text-neutral-500 mb-6">{dict.emptyBody}</p>
                 <Link
                   href={`/${locale}`}
-                  className="text-[15px] font-semibold text-neutral-900 underline underline-offset-2"
+                  className={buttonVariants({ variant: "primary", size: "lg" })}
                 >
                   {dict.emptyAction}
                 </Link>
