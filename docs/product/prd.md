@@ -1,265 +1,189 @@
 # Kwip — Product Requirements Document
-**Scope:** March 2026 Launch
-**Last updated:** March 19, 2026
+**Scope:** April 2026 Pivot — Editorial Site v1
+**Last updated:** April 2, 2026
 
 ---
 
 ## Problem Statement
 
-Vietnamese women who research K-beauty skincare ingredients have no Vietnamese-language tool that starts with their skin concern and explains the ingredient science behind a recommended routine. Every existing tool (CosDNA, SkinCarisma, INCIDecoder) is English-first. Reviewty covers ingredients in Vietnamese but is product-first, not concern-first, and provides safety ratings rather than ingredient logic. The result: users discover products on TikTok with no structured way to understand why they work or how to build a complete routine.
+Korean skincare consumers have no trusted editorial voice that consistently surfaces emerging K-beauty products and trends *before* they go mainstream. Hwahae has user reviews. Olive Young has sales rankings. Influencers have personal brands. Nobody has independent, brand-agnostic editorial conviction.
+
+Kwip fills that gap: a bilingual (KR + EN) editorial site that publishes trend articles and curated product picks, written as a brand voice with no named author.
 
 ---
 
 ## Target User
 
-**Primary:** Vietnamese urban woman, 20–32. Already ingredient-literate (knows niacinamide, BHA, centella). Frustrated that every ingredient tool is in English. Discovers products on TikTok but wants the science before committing. Wants a complete routine, not just one product.
+**Korean consumers interested in skincare discovery** — curious readers who want to find something new, not verify something they already know. Primary arrival path: short-form video (TikTok/Shorts) → Kwip article for the full story.
 
 ---
 
-## Launch Scope — End of March 2026
+## Launch Scope — April 2026
+
+### Content model
+
+Two content types power the site:
+
+1. **Articles** — editorial trend pieces, product roundups, ingredient deep-dives. Korean (primary) + English. 500–1,500 words. Embedded product cards inline.
+2. **Product cards** — curated product entries with editorial tags. Every product has a reason it's here.
 
 ### Classification framework
 
-Each requirement is tagged by layer:
-- `[FEATURE]` — what the user interacts with
-- `[DATA]` — what powers the experience
+- `[FEATURE]` — user-facing UI
+- `[DATA]` — content that powers the experience
 - `[DISTRIBUTION]` — how users find it
-- `[REVENUE]` — business model (none at launch)
 
 ---
 
 ## Requirements
 
-### F1 — Concern Filter `[FEATURE]`
+### F1 — Home: Articles Feed `[FEATURE]`
 
-**What:** Home screen opens with a horizontally scrollable tab bar of concern labels (All + 6 concerns). Selecting a tab filters the product grid and step filter bar instantly. A chevron button expands a full-screen overlay grid showing all concern options at once (Olive Young-style dropdown: white options panel + dark scrim below, header and tab bar float above). Selecting the same concern returns to "All."
-
-**Acceptance criteria:**
-- Scrollable tab row: "All" + 6 concern labels, active tab has bottom border + bold text
-- Chevron button rotates when overlay is open; 44×44px minimum touch target
-- Overlay: fixed position below header (top: 100px), 2-column grid of all concerns, dark scrim below options panel closes on tap
-- Concern tabs and header float above overlay (z-index layering correct)
-- Selecting a concern → product grid and step filter update instantly
-- Concern filter persists as sticky bar below the fixed header (top: 56px)
-
-**Status:** Done ✓
-
----
-
-### F2 — Step Filter `[FEATURE]`
-
-**What:** Below the concern filter bar, a horizontally scrollable row of routine step labels (All + available categories). Filters the product grid to one step. Only shows steps that have products matching the active concern. Resets to "All" when concern changes.
+**What:** Homepage is a feed of the latest articles, newest first. Each article entry shows: cover image, title, short description, editorial tag, date. Below the fold: featured product picks grid.
 
 **Acceptance criteria:**
-- Steps shown in routine order: Cleanser → Pad → Toner → Essence → Serum → Ampoule → Mask → Cream → Sunscreen
-- Only steps with matching products are shown
-- Active step: semibold text, neutral-900; inactive: regular text, neutral-400
-- Step bar sticky below concern bar (top: 100px); lower visual weight than concern bar (neutral-50 background)
-- 44×44px minimum touch target per step button
-
-**Status:** Done ✓
-
----
-
-### F3 — Product Grid with Ingredient Signal `[FEATURE]`
-
-**What:** Flat 2-column (mobile) / 4-column (desktop) product grid, sorted by popularity rank. Each product card shows: product image (square), brand name, product name, and the key ingredient name connecting the product to the active concern. When "All" concern is selected, shows the first key ingredient of each product regardless of concern.
-
-**Acceptance criteria:**
-- 2-col mobile, 4-col desktop grid
-- Each card: square image → brand (xs, neutral-400) → product name (13px semibold, 2-line clamp) → ingredient signal (xs, emerald-600, 1-line clamp)
-- No card UI — flat layout on neutral-50 page background
-- Ingredient signal: ingredient name only (no description)
-- Empty state centered vertically with optical offset (-mt-16) when no products match
-- Products filtered by active concern and active step simultaneously
-
-**Status:** Done ✓
-
----
-
-### F4 — Share Routine Image Card `[FEATURE]`
-
-**What:** From the saved routine detail page (`/routine/[id]`), a "Chia sẻ" button generates a shareable image card. Card contains: concern label, key ingredients with Vietnamese reasons, routine steps with product names, and Kwip URL. Formatted for Facebook/Zalo stories (9:16 vertical).
-
-**Acceptance criteria:**
-- Accessible from `/routine/[id]` detail page (public, no auth required to view)
-- Card contains: concern label, 2–3 key ingredients + reasons, routine steps (step name + top 1–2 product names per step), Kwip URL watermark
-- Downloadable as PNG
-- Card design uses neutral-900/white palette, Noto Sans, Kwip branding
-- Works on mobile (primary) and desktop
+- Article cards: cover image (16:9) + title + 1-line description + tag chip + date
+- Featured products section below articles feed
+- Mobile-first layout, 1-col article list on mobile / 2-col on desktop
+- Korean as default locale (`/ko/`), English at `/en/`
 
 **Status:** Not started ⬜
 
 ---
 
-### F5 — Product Detail Page `[FEATURE]`
+### F2 — Article Detail Page `[FEATURE]`
 
-**What:** Each product has a detail page at `/[locale]/products/[slug]`. Flat section layout (no cards): product image (4:3 ratio) + info block → key ingredients section → full ingredient list. Purchase links to Hasaki.vn and Shopee. Save button to add product to personal saved list.
-
-**Acceptance criteria:**
-- Layout: bg-neutral-100 outer, bg-white content blocks separated by h-4 gaps
-- Product image: 4:3 aspect ratio
-- Product name: 17px semibold (not large title — this is a detail, not a hero)
-- Key ingredients: ingredient name + concern mapping + Vietnamese description
-- Full ingredient list with key ingredients flagged
-- Purchase links open in new tab
-- Save button (bookmark): 44×44px, saves to localStorage
-- Bilingual: vi + en
-
-**Status:** Done ✓
-
----
-
-### F6 — Bilingual Support `[FEATURE]`
-
-**What:** All UI text available in Vietnamese (`/vi`) and English (`/en`). Vietnamese is the primary locale. No hardcoded strings — all text via `src/dictionaries/vi.json` and `en.json`.
-
-**Status:** Done ✓
-
----
-
-### F7 — Routine Builder `[FEATURE]`
-
-**What:** Authenticated users can build a personal routine at `/[locale]/routine/new`. Select a concern (pre-loaded from active concern if arrived from home). Pick multiple products per routine step. Name and save the routine to Supabase.
+**What:** Full article at `/[locale]/article/[slug]`. Long-form editorial content with inline product cards. Ends with subscribe CTA.
 
 **Acceptance criteria:**
-- Requires Google OAuth sign-in
-- Concern pre-loaded if navigating from home with active concern
-- Multi-product selection per step
-- Routine name editable
-- Saved routine accessible at `/[locale]/me`
+- Title, cover image, date, estimated read time
+- Rich text body (markdown or CMS-driven)
+- Inline product cards embedded within article body
+- Subscribe CTA block at end of every article: "Kwip의 다음 발견을 가장 먼저 받아보세요"
+- Share button (KakaoTalk + copy link)
+- Related articles section at bottom
+- Bilingual: `/ko/article/[slug]` and `/en/article/[slug]`
 
-**Status:** Done ✓
+**Status:** Not started ⬜
 
 ---
 
-### F8 — Personal Page `[FEATURE]`
+### F3 — Product Discovery Grid `[FEATURE]`
 
-**What:** `/[locale]/me` shows the user's saved routines list and saved (bookmarked) products grid. Empty states with CTAs to build a routine or browse products. Requires auth for routines; saved products from localStorage are visible without auth.
+**What:** Browsable product grid at `/[locale]/products`. Curated products with editorial tags. Filterable by editorial tag. No concern filter — editorial signal is the organising principle.
 
 **Acceptance criteria:**
-- Saved products: 2-col grid matching home product card style
-- Saved routines: list with concern label, product count, date
-- Delete routine action
-- Empty state centered vertically (-mt-16 optical offset)
-- Bottom tab bar badge shows saved product count
+- 2-col mobile / 4-col desktop grid
+- Editorial tag filter chips at top (All + 지금 뜨는 / 숨겨진 명품 / 성분 주목 / 편집장 픽)
+- Each card: image + brand + product name + editorial tag + one-line editorial note
+- Tapping card goes to product detail page
 
-**Status:** Done ✓
+**Status:** Not started ⬜
 
 ---
 
-### F9 — Shareable Routine Detail `[FEATURE]`
+### F4 — Product Detail Page `[FEATURE]`
 
-**What:** Each saved routine has a public detail page at `/[locale]/routine/[id]`. Shows concern, products organized by step, and a share button (F4). No auth required to view — anyone with the link can see it.
+**What:** Each product at `/[locale]/products/[slug]`. Full product info, key ingredients, editorial note, purchase links, related articles.
 
 **Acceptance criteria:**
-- Public page (no auth gate)
-- Products grouped by routine step in application order
-- Share button triggers image card generation (F4 — pending)
+- Product image + brand + name + editorial tag
+- Short editorial note explaining why this product is featured
+- Key ingredients with brief descriptions
+- Purchase links (Olive Young, Coupang — open in new tab)
+- Related articles that feature this product
+- Bilingual: ko + en
 
-**Status:** Done ✓ (share button pending F4)
+**Status:** Partially done (adapt from existing product detail) ⬜
 
 ---
 
-### D1 — Curated Catalog `[DATA]`
+### F5 — Subscribe Page + CTA `[FEATURE]`
 
-**What:** 22 curated products across 6 concerns, sourced from Olive Young KR Annual Awards 2025 and Daiso KR best sellers. All active products are proven bestsellers based on real purchase data. No concern shows an empty state at launch.
-
-**Source:**
-- Olive Young KR Annual Awards 2025 — 13 products (based on 180M+ purchase records, July 2024–June 2025)
-- Daiso KR community-verified best sellers — 9 products (cross-referenced across 5+ independent sources)
-
-**Implementation:** All 309 legacy products set to `is_active = false`. The 22 curated products are activated (or seeded). No data deleted — legacy products can be re-activated later.
+**What:** `/subscribe` — single-focus page to capture email and/or KakaoTalk Channel subscribers. Value prop: get Kwip's early picks before they go mainstream.
 
 **Acceptance criteria:**
+- Single CTA, no distractions
+- Email capture form
+- KakaoTalk Channel follow link
+- Copy: "올리브영이 알기 전에 먼저 알아보세요" (know it before Olive Young does)
+- Embedded CTA block also appears at bottom of every article (F2)
 
-| Concern | Min products | Steps covered |
-|---|---|---|
-| acne | 3+ | cleanser, pad, toner, essence, serum, cream |
-| pores | 3+ | cleanser, pad, serum |
-| hydration | 3+ | cleanser, toner, essence, serum, cream, mask |
-| brightening | 3+ | cleanser, toner, serum, mask |
-| soothing | 3+ | cleanser, pad, toner, essence, cream, mask |
-| anti-aging | 3+ | ampoule, cream, mask |
-
-`sun-protection` concern removed — sunscreen is a separate product category. No sunscreen products in the curated set.
-
-**Full product list:** See `docs/plans/2026-03-25-product-curation-design.md`
-
-**Status:** Not started ⬜ (replaces previous D1)
+**Status:** Not started ⬜
 
 ---
 
-### D2 — Ingredient Effects Accuracy `[DATA]`
+### F6 — Bilingual Support (KO + EN) `[FEATURE]`
 
-**What:** Key ingredients are correctly mapped to concerns they address. Concern mapping requires ≥2 ingredients with "good" effects for that concern (exception: sun-protection requires ≥1 UV filter ingredient, or product is sunscreen category).
+**What:** All UI text available in Korean (`/ko`) and English (`/en`). Korean is the primary locale. All text via `src/dictionaries/ko.json` and `en.json`. No hardcoded strings.
 
-**Status:** Done ✓
+**Status:** Requires migration from `vi` → `ko` as primary ⬜
 
 ---
 
-### F10 — Deep Link Concern Pre-selection `[FEATURE]`
+### D1 — Article Content `[DATA]`
 
-**What:** The URL param `?concern=acne` (or any valid concern ID) pre-selects the matching concern tab on page load. Required for paid ad landing pages — ads promise a concern-specific view, and the landing page must deliver it immediately without the user having to tap anything.
+**What:** Initial editorial content — 10 articles before launch promotion.
+
+**Content plan:**
+- 5 hidden gem product roundups
+- 3 ingredient trend pieces
+- 2 brand discovery pieces
 
 **Acceptance criteria:**
-- `?concern=<id>` on `/[locale]/` pre-selects the concern tab and filters the product grid on load
-- Invalid or unknown concern values are silently ignored (fall back to "All")
-- Works with any of the 6 concern IDs: `acne`, `pores`, `hydration`, `brightening`, `soothing`, `anti-aging`
-- No flash of unfiltered state on load
+- Each article has: title, cover image, body, at least 2 embedded product cards
+- Each article has a Korean and English version
+- All articles reviewed for editorial voice consistency before publish
 
-**Status:** Not started ⬜ (blocking DIST1)
+**Status:** Not started ⬜
 
 ---
 
-### DIST1 — Paid Acquisition at Launch `[DISTRIBUTION]`
+### D2 — Curated Product Catalog `[DATA]`
 
-**What:** Facebook and YouTube ads targeting Vietnamese women 20–35 interested in K-beauty. Ads lead with the skin problem ("Da mụn mãi không hết?"), not the product or brand. Landing URL goes directly to the concern view, not the homepage.
+**What:** Initial curated product set. Not a large catalog — every product must have an editorial reason to be included. Starting point: existing 22 curated products from Olive Young KR Awards 2025 + Daiso KR best sellers.
 
 **Acceptance criteria:**
-- Facebook ad set targeting: Vietnam, female, 20–35, interests: K-beauty brands (COSRX, Anua, Beauty of Joseon), skincare, beauty
-- Ad creative leads with concern/problem copy
-- Landing URL: `/vi/?concern=acne` (or relevant concern from: acne, pores, hydration, brightening, soothing, anti-aging) — deep link pre-selects the concern tab
-- UTM parameters on all ad URLs for tracking
+- Each product has: name, brand, images, key ingredients, editorial tag, editorial note (1–2 sentences)
+- Purchase links (Olive Young KR, Coupang)
+- Products linked to relevant articles
 
-**Status:** Not started ⬜ (post-build)
+**Status:** Adapt from existing data ⬜
 
 ---
 
-## Out of Scope — March 2026
+## What's Cut from Old Kwip
 
-These are confirmed for later phases. Do not build now.
-
-| Feature | Phase |
+| Feature | Reason |
 |---|---|
-| Ingredient detail pages | Q2 2026 |
-| Affiliate purchase links | Q2 2026 |
-| Editorial starter routines (curated brand combos) | Q2 2026 |
-| Creator/KOL partnerships | Q3 2026 |
-| Skin profile / personalization | 2027 |
-| Reviews or community features | Not planned |
-| Native app (iOS/Android) | Not planned |
+| Routine Builder (`/routine/new`) | Not relevant for editorial model |
+| Personal page (`/me`) | No routine builder, no need |
+| Share routine image card | Replaced by article share |
+| Concern filter + step filter | Replaced by editorial tags |
+| Vietnamese locale | Korean is new primary |
+| Google OAuth / accounts | Not needed at launch |
+
+These are removed, not deferred. The editorial model does not require user accounts at launch.
 
 ---
 
-## Success Metrics — 30 Days Post-Launch
+## Out of Scope — April 2026
+
+| Feature | When |
+|---|---|
+| TikTok/Shorts video pipeline | After article foundation is established |
+| Brand partnership / sponsored content | After 500 subscribers |
+| Personalization / user accounts | Not planned for 2026 |
+| Native app | Not planned |
+| Community / comments | Not planned |
+
+---
+
+## Success Metrics — First 90 Days
 
 | Metric | Target | Why |
 |---|---|---|
-| Concern selection rate | >60% of sessions | Core loop activation |
-| Product click-through | >1 product per concern session | Loop closure |
-| Share card generated | >1 per 20 sessions | Organic growth seed |
-| 7-day return rate | >15% | Retention signal |
-| Bounce rate on concern view | <70% | Landing page quality |
-
----
-
-## Long-Term Roadmap Summary
-
-| Phase | Horizon | Key deliverable | Hypothesis tested |
-|---|---|---|---|
-| **Launch** | End of March 2026 | Core loop + share card | Users convert concern → product click |
-| **Deepen** | Q2 2026 | Ingredient pages + affiliate links + starter routines | Users bookmark Kwip as a reference |
-| **Distribute** | Q3 2026 | Creator partnerships, organic > paid | Share card + creators compound growth |
-| **Monetize** | Q4 2026 | Affiliate revenue live | Trust converts to purchase intent |
-| **Defend** | 2027 | Skin profiles + personalization | Personalization creates retention moat |
+| Subscribers (email + KakaoTalk) | 500 | Only metric that matters in phase 1 |
+| Articles published | 2/week | Editorial consistency builds algorithm trust |
+| Article share rate | >10% of readers share | Measures editorial resonance |
+| Return visit rate (7-day) | >20% | Readers coming back = editorial trust |
