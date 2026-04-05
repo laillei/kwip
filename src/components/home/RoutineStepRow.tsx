@@ -20,7 +20,6 @@ export default function RoutineStepRow({
   label,
   products,
   locale,
-  getProductReason,
 }: RoutineStepRowProps) {
   const [expanded, setExpanded] = useState(false);
   const loc = locale as "vi" | "en";
@@ -40,13 +39,12 @@ export default function RoutineStepRow({
           {products.map((product) => (
             <div key={product.id} className="shrink-0 w-40 snap-start">
               <ProductCard
+                id={product.id}
                 slug={product.slug}
                 name={product.name[loc] || product.name.vi}
                 brand={product.brand}
-                category={product.category}
                 image={product.image}
                 locale={locale}
-                reason={getProductReason(product)}
               />
             </div>
           ))}
@@ -59,13 +57,12 @@ export default function RoutineStepRow({
           {desktopProducts.map((product) => (
             <ProductCard
               key={product.id}
+              id={product.id}
               slug={product.slug}
               name={product.name[loc] || product.name.vi}
               brand={product.brand}
-              category={product.category}
               image={product.image}
               locale={locale}
-              reason={getProductReason(product)}
             />
           ))}
         </div>
