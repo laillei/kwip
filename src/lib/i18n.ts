@@ -1,9 +1,9 @@
-export const locales = ["vi", "en"] as const;
+export const locales = ["ko", "en"] as const;
 export type Locale = (typeof locales)[number];
-export const defaultLocale: Locale = "vi";
+export const defaultLocale: Locale = "ko";
 
 const dictionaries = {
-  vi: () => import("@/dictionaries/vi.json").then((m) => m.default),
+  ko: () => import("@/dictionaries/ko.json").then((m) => m.default),
   en: () => import("@/dictionaries/en.json").then((m) => m.default),
 };
 

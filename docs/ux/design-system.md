@@ -1,254 +1,357 @@
 # Kwip Design System
 
-Standards: **Apple HIG** (primary) · **Material Design 3** (secondary where HIG has no guidance)
+Standards: **Apple HIG** (primary) · **Material Design 3** (secondary)
+Strict compliance — no arbitrary sizes, no raw hex in component code.
+
+---
+
+## Typefaces
+
+Two typefaces only. No exceptions.
+
+| Font | Role | Usage |
+|---|---|---|
+| **Pretendard** | Primary | Korean body text, headings, article content |
+| **Plus Jakarta Sans** | Secondary | English labels, wordmark, dates, badges, overline, tab labels |
+
+**Removed:** Noto Sans, Noto Serif — no longer in the system.
 
 ---
 
 ## Type Scale
 
-Apple HIG Dynamic Type roles, rendered in Noto Sans. Only these sizes are permitted.
+Apple HIG Dynamic Type roles. Only these sizes are permitted.
 
-| Role | Size | Weight | Tailwind | Usage in Kwip |
-|---|---|---|---|---|
-| Large Title | 34px | Bold | `text-[34px] font-bold` | Empty state decorative icons |
-| Title 2 | 22px | Bold | `text-[22px] font-bold` | Page headings (routine detail, desktop wordmark) |
-| Headline | 17px | Semibold | `text-[17px] font-semibold` | Product names, routine names, empty state titles |
-| Body | 17px | Regular | `text-[17px]` | General body text |
-| Callout | 16px | Regular/Semibold | `text-base` | Navigation Bar wordmark ("Kwip") |
-| Subheadline | 15px | Regular | `text-[15px]` | CTAs, product names in lists, form text, ingredient descriptions |
-| Footnote | 13px | Regular | `text-[13px]` | Brand labels, INCI names, tertiary info, Scrollable/Fixed Tab labels |
-| Overline | 12px | Semibold + uppercase | `text-xs font-semibold uppercase tracking-wide` | Section labels ("Key Ingredients", category headers) |
-| Caption | 12px | Regular | `text-xs` | Tab Bar labels, badges, Secondary Tab labels |
+| Role | Size | Weight | Font | Tailwind | Usage in Kwip |
+|---|---|---|---|---|---|
+| Large Title | 34px | Bold | Pretendard | `text-[34px] font-bold` | Empty state decorative |
+| Title 1 | 28px | Bold | Pretendard | `text-[28px] font-bold` | Reserved |
+| Title 2 | 22px | Bold | Pretendard | `text-[22px] font-bold` | Section headings ("추천 제품"), page titles |
+| Title 3 | 20px | Semibold | Pretendard | `text-[20px] font-semibold` | Reserved |
+| Headline | 17px | Semibold | Pretendard | `text-[17px] font-semibold` | Article card titles, product names, wordmark |
+| Body | 17px | Regular | Pretendard | `text-[17px]` | General body text, article content |
+| Callout | 16px | Regular | Pretendard | `text-base` | Reserved |
+| Subheadline | 15px | Regular | Pretendard | `text-[15px]` | Article subtitles, CTAs, descriptions |
+| Footnote | 13px | Regular/Semibold | Pretendard | `text-[13px]` | Product names in grids, brand labels |
+| Caption 1 | 12px | Regular | Plus Jakarta Sans | `text-xs` | Tab bar labels, filter chip labels, overline |
+| Caption 2 | 11px | Regular | Plus Jakarta Sans | `text-[11px]` | Dates, editorial badge text |
 
-**Forbidden sizes:** `text-sm` (14px) and `text-2xl` (24px) are not HIG sizes — do not use them.
+### Wordmark
 
-Title 3 (20px, `text-xl font-semibold`) is a valid HIG role but not currently used in Kwip. Default to Headline (17px) or Title 2 (22px).
+| Property | Value |
+|---|---|
+| Font | Plus Jakarta Sans |
+| Role | Headline (17px Semibold) |
+| Transform | `uppercase` |
+| Letter spacing | `tracking-[-1px]` |
+| Color | `text-on-surface` |
+
+```jsx
+<span className="font-semibold text-[17px] tracking-[-1px] uppercase text-on-surface">
+  KWIP
+</span>
+```
+
+### Forbidden sizes
+
+`text-sm` (14px), `text-2xl` (24px), 10px, 18px — not HIG Dynamic Type roles. Do not use.
 
 ---
 
-## Color
+## Color System
 
-### Content colors
-| Role | Token | Usage |
-|---|---|---|
-| Primary | `text-neutral-900` | Headings, primary content, active states |
-| Secondary | `text-neutral-500` | Overline labels, subtitles |
-| Tertiary | `text-neutral-400` | Brand names, INCI, placeholders, inactive tabs |
-| Body | `text-neutral-600` | Ingredient descriptions, body copy |
-| On-dark | `text-white` / `text-white/60` | Text on `bg-neutral-900` surfaces |
+MD3 semantic color roles. Every color has a named role — no raw hex values in component code.
 
-### Semantic colors (meaning only — never decorative)
-| Token | Meaning |
-|---|---|
-| `text-emerald-600` | Positive / beneficial ingredient effect |
-| `text-amber-600` | Caution / potential irritant |
+### Primary (Deep Forest)
 
-### Forbidden text tokens
-`text-neutral-300`, `text-neutral-700`, `text-neutral-800` — not in the palette.
+| Role | Hex | Token | Usage |
+|---|---|---|---|
+| Primary | `#1A3D2B` | `primary` | Filled buttons, active chips, editorial badges, links |
+| On Primary | `#FFFFFF` | `on-primary` | Text/icons on primary |
+| Primary Container | `#A8D5BA` | `primary-container` | Tonal chips, subtle highlights |
+| On Primary Container | `#0D2016` | `on-primary-container` | Text on primary container |
+
+### Secondary
+
+| Role | Hex | Token | Usage |
+|---|---|---|---|
+| Secondary | `#4A6355` | `secondary` | Secondary actions |
+| On Secondary | `#FFFFFF` | `on-secondary` | Text on secondary |
+| Secondary Container | `#CCE5D5` | `secondary-container` | Tag badge bg, inactive chip tonal fill |
+| On Secondary Container | `#072015` | `on-secondary-container` | Tag label text |
+
+### Tertiary (warm complement)
+
+| Role | Hex | Token | Usage |
+|---|---|---|---|
+| Tertiary | `#6B5C4D` | `tertiary` | Accent, warm differentiation |
+| On Tertiary | `#FFFFFF` | `on-tertiary` | Text on tertiary |
+| Tertiary Container | `#F4DFCE` | `tertiary-container` | Warm highlight surfaces |
+| On Tertiary Container | `#24180D` | `on-tertiary-container` | Text on warm surfaces |
+
+### Error
+
+| Role | Hex | Token | Usage |
+|---|---|---|---|
+| Error | `#BA1A1A` | `error` | Error states, destructive actions |
+| On Error | `#FFFFFF` | `on-error` | Text on error |
+| Error Container | `#FFDAD6` | `error-container` | Error background |
+| On Error Container | `#410002` | `on-error-container` | Text on error bg |
+
+### Surface
+
+| Role | Hex | Token | Usage |
+|---|---|---|---|
+| Surface | `#FAFAF7` | `surface` | Page background |
+| Surface Container Lowest | `#FFFFFF` | `surface-lowest` | Cards, content blocks |
+| Surface Container Low | `#F4F4F1` | `surface-low` | Subtle separation |
+| Surface Container | `#EEEFEB` | `surface-container` | Gaps between sections |
+| Surface Container High | `#E8E9E5` | `surface-high` | Image placeholder bg |
+| Surface Container Highest | `#E3E3E0` | `surface-highest` | Inactive chip fill |
+
+### On Surface
+
+| Role | Hex | Token | Usage |
+|---|---|---|---|
+| On Surface | `#1A1C19` | `on-surface` | Headings, primary text |
+| On Surface Variant | `#414942` | `on-surface-variant` | Subtitles, secondary text, dates, brand labels |
+
+### Outline
+
+| Role | Hex | Token | Usage |
+|---|---|---|---|
+| Outline | `#717972` | `outline` | Borders, dividers |
+| Outline Variant | `#C1C9C0` | `outline-variant` | Subtle dividers, tab bar border |
+
+### Inverse
+
+| Role | Hex | Token | Usage |
+|---|---|---|---|
+| Inverse Surface | `#2F312E` | `inverse-surface` | Dark banners, tooltips |
+| Inverse On Surface | `#F0F1ED` | `inverse-on-surface` | Text on inverse surface |
+
+### Scrim
+
+`bg-black/40` — semi-transparent overlay behind modals and drawers.
+
+### Removed tokens
+
+These are no longer valid — do not use:
+- `neutral-*` (100, 300, 400, 500, 600, 700, 800, 900)
+- `emerald-600`, `amber-600`
+- Raw hex: `#00855d`, `#777`, `#5e5e5e`, `#85f8c4`, `#f3f3f3`, `#eee`
 
 ---
 
 ## Surfaces
 
-MD3 surface terminology applied to Kwip's flat design language. No elevation shadows — surfaces are separated by gaps and dividers only.
+MD3 surface terminology. No elevation shadows — surfaces are separated by gaps and dividers only.
 
 | Surface role | Implementation | Usage |
 |---|---|---|
-| **Surface** | `bg-white` full-width block | Content sections (product info, ingredient lists) |
-| **Surface Container** | `<div className="h-4 bg-neutral-100" />` | Gap separating Surface blocks |
-| **Surface Dim** | `bg-neutral-100` | Page background behind Surface blocks |
-| **Surface Divider** | `divide-y divide-neutral-100` | Row separators within a Surface |
+| **Surface** | `bg-surface-lowest` full-width block | Content sections (article cards, product info) |
+| **Surface Container** | `<div className="h-4 bg-surface-container" />` | Gap separating Surface blocks |
+| **Surface Dim** | `bg-surface` | Page background behind Surface blocks |
+| **Surface Divider** | `divide-y divide-outline-variant` | Row separators within a Surface |
 
 ```
-[Surface Dim — bg-neutral-100]
-  [Surface — bg-white] product image + info
-  [Surface Container — h-4 bg-neutral-100]
-  [Surface — bg-white] key ingredients (Surface Dividers inside)
-  [Surface Container — h-4 bg-neutral-100]
-  [Surface — bg-white] all ingredients (Surface Dividers inside)
+[Surface Dim — bg-surface]
+  [Surface — bg-surface-lowest] article card
+  [Surface Container — h-4 bg-surface-container]
+  [Surface — bg-surface-lowest] featured products
+  [Surface Container — h-4 bg-surface-container]
+  [Surface — bg-surface-lowest] more content
 ```
 
-No `shadow-*` on surfaces. White background + border is the only acceptable alternative to `divide-y` for menus/overlays.
+No `shadow-*` on surfaces. `bg-surface-lowest` + `border-outline-variant` is the only acceptable alternative for menus/overlays.
 
 ---
 
 ## Elevation & Scrim
 
-**Scrim** (MD3): semi-transparent overlay behind modals and drawers — `bg-black/40`.
+**Scrim** (MD3): `bg-black/40` behind modals and drawers.
 
-**Material Surface** (Apple HIG): surfaces that float above scrolling content use a translucent material:
-- `bg-white/90 backdrop-blur-md`
-- Applied to: purchase bar (product detail), routine builder save bar
-- The **Navigation Bar** does NOT use this — it sits above the content area, not over it
+**Material Surface** (Apple HIG): surfaces that float above scrolling content:
+- `bg-surface-lowest/90 backdrop-blur-md`
+- Applied to: purchase bar, save bar
+- Navigation Bar uses its own translucent material (see App Shell)
 
 ---
 
-## Spacing — 8pt Grid
+## Spacing — 8pt Grid (strict)
 
-Base unit: 8px. All spacing must be a multiple of 4px minimum, 8px preferred.
+Base unit: 8px. All spacing must be a multiple of 4px (minimum), 8px (preferred). **No exceptions.**
 
-| Usage | Value |
-|---|---|
-| Section horizontal padding (mobile) | `px-4` (16px) |
-| Section horizontal padding (desktop) | `px-8` (32px) |
-| Surface Container gap | `h-4` (16px) |
-| Grid column gap | `gap-x-3` (12px) |
-| Grid row gap | `gap-y-6` (24px) |
-| Surface Divider | `divide-y divide-neutral-100` |
+| Usage | Token | Px |
+|---|---|---|
+| Section horizontal padding | `px-4` | 16px |
+| Section vertical padding | `py-12` | 48px |
+| Surface Container gap | `h-4` | 16px |
+| Grid column gap | `gap-x-4` | 16px |
+| Grid row gap | `gap-y-8` | 32px |
+| Card internal gap | `gap-3` | 12px |
+| Chip gap | `gap-2` | 8px |
+| Overline-to-title gap | `gap-1` | 4px |
+
+**Forbidden values:** `gap-[11px]`, `gap-[15.99px]`, `gap-y-[40px]` — not on 8pt grid.
 
 ---
 
 ## App Shell
 
-The app shell wraps every page. Implemented in `MobileShell` (server component).
+### Navigation Bar (Apple HIG)
 
-### Navigation Bar (Apple HIG) — Top App Bar (MD3)
-- Component: `MobileShell` header
-- Height: `h-14` (56px) + `env(safe-area-inset-top)`
-- Background: solid `bg-white` (no blur — sits above content, not over it)
-- Left slot: wordmark or back button (`headerLeft` prop)
-- Right slot: contextual actions (`headerRight` prop) — empty by default
-- Hidden at `md` breakpoint and above
+| Property | Value |
+|---|---|
+| Height | `h-14` (56px) + `env(safe-area-inset-top)` |
+| Background | `bg-surface-lowest/80 backdrop-blur-[12px]` (HIG translucent material) |
+| Padding | `px-4` (16px) |
+| Left slot | Wordmark (Headline 17px, Plus Jakarta Sans, uppercase) |
+| Right slot | Search + Menu icons, `gap-4`, `min-w-[44px] min-h-[44px]` each |
+| Hidden at | `md` breakpoint and above |
 
-### Tab Bar (Apple HIG) — Navigation Bar (MD3)
-- Component: `BottomTabBar`
-- Height: `h-[49px]` + `env(safe-area-inset-bottom)`
-- Background: `bg-white`, `border-t border-neutral-100`
-- Two destinations: Explore · Saved
-- Hidden at `md` breakpoint and above
+### Tab Bar (Apple HIG)
+
+| Property | Value |
+|---|---|
+| Height | `h-[49px]` + `env(safe-area-inset-bottom)` |
+| Background | `bg-surface-lowest` |
+| Border | `border-t border-outline-variant` |
+| Tabs | HOME · PRODUCTS |
+| Label | Caption 1 (12px), Plus Jakarta Sans |
+| Active | `text-primary font-semibold` |
+| Inactive | `text-on-surface-variant font-normal` |
+| Item touch target | `min-h-[44px]` |
+| Hidden at | `md` breakpoint and above |
 
 ### Content Area
+
 - `padding-top`: `calc(56px + env(safe-area-inset-top))`
 - `padding-bottom`: `calc(49px + env(safe-area-inset-bottom))`
 
 ### Max-width by page
+
 | Page | Max-width |
 |---|---|
-| Home | `max-w-6xl mx-auto` (desktop only, no max-width on mobile) |
+| Home | `max-w-6xl mx-auto` (desktop only) |
+| Article detail | `max-w-3xl mx-auto` |
 | Product detail | `max-w-3xl mx-auto` |
-| Routine detail | `max-w-2xl mx-auto` |
-| /me, /routine/new | no max-width on mobile |
 
 ---
 
-## Navigation Components
+## Filter Chips (MD3)
 
-### Tab Bar (Apple HIG) — bottom destination navigation
-**Component:** `BottomTabBar`
+MD3 Filter Chip with HIG touch target compliance.
 
-| Property | Value |
-|---|---|
-| Label style | Caption — `text-xs` |
-| Active | `font-semibold text-neutral-900` |
-| Inactive | `font-normal text-neutral-400` |
-| Active indicator | color + weight only — no underline |
-| Container height | `h-[49px]` |
-| Item min touch target | `min-h-[44px]` |
-
-### Scrollable Tabs (MD3) — horizontal content filter
-**Component:** `ConcernFilterBar`
-
-Used when there are many mutually exclusive filter options that overflow horizontally.
-
-| Property | Value |
-|---|---|
-| Label style | Footnote — `text-[13px]` |
-| Active | `font-semibold text-neutral-900 border-b-2 border-neutral-900 -mb-px` |
-| Inactive | `font-normal text-neutral-400 border-b-2 border-transparent -mb-px` |
-| Container | `border-b border-neutral-100` |
-| Item height | `h-11` (44px) |
-
-### Fixed Tabs (MD3) — section switcher
-**Component:** `MePageClient` tab bar (Products · Routines)
-
-Used when there are 2–3 equal-weight sections on the same screen. Full-width, no scrolling.
-
-| Property | Value |
-|---|---|
-| Label style | Footnote — `text-[13px]` |
-| Active | `font-semibold text-neutral-900 border-b-2 border-neutral-900 -mb-px` |
-| Inactive | `font-normal text-neutral-400 border-b-2 border-transparent -mb-px` |
-| Container | `border-b border-neutral-100` |
-| Item height | `h-11` (44px) — same as Scrollable Tabs, never `py-*` |
-| Text alignment | `flex items-center justify-center` |
-
-### Secondary Tabs (MD3) — subordinate filter
-**Component:** `StepFilterBar`
-
-One hierarchy level below Scrollable Tabs. Color-only active state, no underline indicator.
-
-| Property | Value |
-|---|---|
-| Label style | Caption — `text-xs` |
-| Active | `font-semibold text-neutral-900` |
-| Inactive | `font-normal text-neutral-400` |
-| Active indicator | none — color + weight only |
-| Height | `h-7` (28px) — see Minimum Touch Target exception below |
-
-### Tab active indicator — implementation standard
-Scrollable Tabs and Fixed Tabs share the same indicator implementation:
-- Active button: `border-b-2 border-neutral-900 -mb-px`
-- Inactive button: `border-b-2 border-transparent -mb-px`
-- Container: `border-b border-neutral-100`
-- The `-mb-px` makes the 2px active border visually replace the container's 1px border
-
-**Never** implement the indicator with an absolutely-positioned element or background div.
-
----
-
-## Minimum Touch Target (Apple HIG)
-
-All interactive elements must meet **44×44pt minimum** (Apple HIG requirement).
-
-| Element | Implementation |
-|---|---|
-| Navigation Bar actions | `min-w-[44px] min-h-[44px]` |
-| Tab Bar items | `min-h-[44px]` |
-| Scrollable Tab items | `h-11` (44px) |
-| Fixed Tab items | `min-h-[44px]` |
-| Form inputs | `min-h-[44px]` |
-| Icon-only buttons | `min-w-[44px] min-h-[44px]` |
-| List rows | `min-h-[44px]` |
-
-**Exception — Secondary Tabs (`StepFilterBar`):** uses `h-7` (28px). This is the only documented exception. Reasons: secondary filter with low interaction frequency; 44px height was tried and reverted — visually too heavy, pushed product content below the fold. Do not change.
-
----
-
-## Overline
-
-Overline is a label style used above grouped content to name a section. It is not a standalone HIG role but a widely used professional convention.
-
-```
-text-xs font-semibold uppercase tracking-wide text-neutral-500
-```
-
-- Color: always `text-neutral-500` (Secondary) — never `text-neutral-400`
-- Used in: product detail (Key Ingredients, All Ingredients), routine detail (step category labels)
-- Can be implemented via `SectionHeader` UI component or inline element with the above classes
-
----
-
-## Empty States (Apple HIG — No Content state)
-
-Empty states are centered in the available viewport using optical centering.
+| Property | Selected | Unselected |
+|---|---|---|
+| Background | `bg-primary` | `bg-surface-highest` |
+| Text color | `text-on-primary` | `text-on-surface-variant` |
+| Font | Caption 1 — 12px, Plus Jakarta Sans | Same |
+| Shape | `rounded-full` | `rounded-full` |
+| Visual height | `h-8` (32px) | `h-8` (32px) |
+| Touch target | `min-h-[48px]` (MD3 48dp — larger than HIG 44) | Same |
+| Padding | `px-4` (16px) | Same |
+| Container gap | `gap-2` (8px) | — |
 
 ```jsx
-<div
-  className="flex items-center justify-center"
-  style={{ minHeight: "calc(100dvh - 56px - 49px)" }}
->
-  <div className="-mt-16">
-    {/* EmptyState component or custom content */}
-  </div>
-</div>
+<button className="min-h-[48px] flex items-center">
+  <span className="h-8 rounded-full bg-primary text-on-primary text-xs px-4 flex items-center">
+    전체
+  </span>
+</button>
 ```
 
-- `56px` = Navigation Bar height, `49px` = Tab Bar height
-- Subtract additional fixed UI height when present: e.g. `calc(100dvh - 56px - 49px - 44px)` on /me (internal Fixed Tabs bar)
-- `-mt-16` is optical correction — mathematically centered content reads as too low; shifting 64px upward corrects this
-- Do NOT add `pt-*` / `pb-*` to the centering wrapper
-- For inline empty states (e.g. no filter results): `<p className="text-[15px] text-neutral-400 text-center py-12">`
-- For full-page empty states: use the `EmptyState` UI component
+### Filter chip values
+
+| Korean | Meaning |
+|---|---|
+| 전체 | All |
+| 지금 뜨는 | Rising now |
+| 숨겨진 명품 | Hidden gem |
+| 성분 주목 | Ingredient watch |
+| 편집장 픽 | Editor's pick |
+
+---
+
+## Article Card
+
+| Element | Style | Type role |
+|---|---|---|
+| Container | `bg-surface-lowest p-4 flex flex-col gap-3` | — |
+| Image | `aspect-video w-full rounded-xl overflow-clip` | MD3 medium shape |
+| Tag badge | `bg-secondary-container text-on-secondary-container rounded-full px-2 py-0.5` | Caption 2 (11px) |
+| Headline | `text-on-surface` | Headline (17px Semibold, Pretendard) |
+| Subtitle | `text-on-surface-variant` | Subheadline (15px Regular, Pretendard) |
+| Date | `text-on-surface-variant` | Caption 2 (11px, Plus Jakarta Sans) |
+| Touch target | Entire card tappable | — |
+
+```
+[Image — 16:9, rounded-xl]
+  gap-3
+[Tag — rounded-full, secondary-container]
+  gap-3
+[Headline — 17px semibold, on-surface]
+  gap-3
+[Subtitle — 15px regular, on-surface-variant]
+  gap-3
+[Date — 11px, on-surface-variant]
+```
+
+---
+
+## Editorial Tag Badge
+
+Inline label identifying the editorial category of an article.
+
+| Property | Value |
+|---|---|
+| Background | `bg-secondary-container` |
+| Text color | `text-on-secondary-container` |
+| Font | Caption 2 (11px), Plus Jakarta Sans |
+| Padding | `px-2 py-0.5` (8px / 2px) |
+| Shape | `rounded-full` |
+
+---
+
+## Editorial Product Badge
+
+Applied to curated product cards below the product name.
+
+| Property | Value |
+|---|---|
+| Background | `bg-primary` |
+| Text color | `text-on-primary` |
+| Font | Caption 2 (11px), Plus Jakarta Sans Bold |
+| Padding | `px-2 py-0.5` (8px / 2px) |
+| Shape | `rounded-full` |
+
+Labels: `BEST` · `SALE` · `NEW` · `EDITOR'S PICK`
+
+```jsx
+<span className="rounded-full bg-primary text-on-primary text-[11px] font-bold px-2 py-0.5">
+  BEST
+</span>
+```
+
+---
+
+## Section Header
+
+Pattern for named editorial sections.
+
+| Element | Style | Type role |
+|---|---|---|
+| Overline | `text-on-surface-variant uppercase tracking-[2px]` | Caption 2 (11px, Plus Jakarta Sans Bold) |
+| Title | `text-on-surface` | Title 2 (22px Bold, Pretendard) |
+| SEE ALL link | `text-primary underline decoration-primary` | Caption 1 (12px Bold, Plus Jakarta Sans) |
+| Gap overline→title | `gap-1` (4px) | — |
+| Layout | `flex items-end justify-between` | — |
+
+```
+[CURATION — 11px uppercase tracking-wide, on-surface-variant]
+[추천 제품 — 22px bold, on-surface]          [SEE ALL — 12px underline, primary]
+```
 
 ---
 
@@ -258,11 +361,13 @@ Empty states are centered in the available viewport using optical centering.
 |---|---|
 | Mobile columns | 2 — `grid-cols-2` |
 | Desktop columns | 4 — `md:grid-cols-4` |
-| Gap | `gap-x-3 gap-y-6` |
-| Image | `aspect-square rounded-xl bg-neutral-100 object-contain` |
-| Brand label | Caption — `text-xs text-neutral-400` |
-| Product name | Footnote Semibold — `text-[13px] font-semibold`, max 2 lines |
-| Reason chip | Caption — `text-xs text-emerald-600`, max 1 line, optional |
+| Column gap | `gap-x-4` (16px) |
+| Row gap | `gap-y-8` (32px) |
+| Section padding | `px-4 py-12` (16px / 48px) |
+| Image | `aspect-square bg-surface-high rounded-xl overflow-clip` |
+| Brand label | Caption 2 (11px), `text-on-surface-variant`, Plus Jakarta Sans, uppercase |
+| Product name | Footnote Semibold (13px), `text-on-surface`, max 2 lines |
+| Badge | Editorial product badge below product name |
 | Bookmark | Top-right overlay, `min-w-[44px] min-h-[44px]` |
 
 ---
@@ -271,14 +376,53 @@ Empty states are centered in the available viewport using optical centering.
 
 | Element | Style |
 |---|---|
-| Product image | `aspect-[4/3] object-contain p-6 bg-white` |
-| Brand | `text-[13px] text-neutral-400 uppercase tracking-wide` |
-| Product name | Headline — `text-[17px] font-semibold text-neutral-900` |
-| Section labels | Overline — `text-xs font-semibold uppercase tracking-wide text-neutral-500` |
-| Surface separation | `<div className="h-4 bg-neutral-100" />` |
+| Product image | `aspect-[4/3] object-contain p-6 bg-surface-lowest` |
+| Brand | Caption 2 (11px), `text-on-surface-variant uppercase tracking-wide` |
+| Product name | Headline (17px Semibold), `text-on-surface` |
+| Section labels | Overline — Caption 1 (12px), `font-semibold uppercase tracking-wide text-on-surface-variant` |
+| Surface separation | `<div className="h-4 bg-surface-container" />` |
 | Purchase bar position | Fixed, `bottom: calc(49px + env(safe-area-inset-bottom))` |
-| Purchase bar surface | `bg-white/90 backdrop-blur-md border-t border-neutral-100` |
-| Purchase buttons | `min-h-[50px] text-[15px] font-semibold rounded-xl bg-neutral-900 text-white` |
+| Purchase bar surface | `bg-surface-lowest/90 backdrop-blur-md border-t border-outline-variant` |
+| Purchase buttons | `min-h-[50px] text-[15px] font-semibold rounded-xl bg-primary text-on-primary` |
+
+---
+
+## Minimum Touch Target
+
+All interactive elements must meet **44pt minimum** (Apple HIG) or **48dp** (MD3) — use the larger.
+
+| Element | Implementation |
+|---|---|
+| Navigation Bar actions | `min-w-[44px] min-h-[44px]` |
+| Tab Bar items | `min-h-[44px]` |
+| Filter Chips | `min-h-[48px]` (visual 32px + padding) |
+| Form inputs | `min-h-[44px]` |
+| Icon-only buttons | `min-w-[44px] min-h-[44px]` |
+| List rows | `min-h-[44px]` |
+| Product grid bookmark | `min-w-[44px] min-h-[44px]` |
+
+No exceptions documented. Every interactive element meets this requirement.
+
+---
+
+## Empty States (Apple HIG — No Content state)
+
+Centered in available viewport using optical centering.
+
+```jsx
+<div
+  className="flex items-center justify-center"
+  style={{ minHeight: "calc(100dvh - 56px - 49px)" }}
+>
+  <div className="-mt-16">
+    {/* EmptyState component */}
+  </div>
+</div>
+```
+
+- `56px` = Navigation Bar, `49px` = Tab Bar
+- `-mt-16` is optical correction
+- For inline empty states: `<p className="text-[15px] text-on-surface-variant text-center py-12">`
 
 ---
 
@@ -290,14 +434,14 @@ Empty states are centered in the available viewport using optical centering.
 
 ## Category Translations
 
-| ID | Vietnamese | English |
-|----|-----------|---------|
-| cleanser | Sữa rửa mặt | Cleanser |
-| pad | Pad | Pad |
-| toner | Nước hoa hồng | Toner |
-| essence | Tinh chất | Essence |
-| serum | Serum | Serum |
-| ampoule | Tinh chất cô đặc | Ampoule |
-| mask | Mặt nạ | Mask |
-| cream | Kem | Cream |
-| sunscreen | Chống nắng | Sunscreen |
+| ID | Korean | English |
+|----|--------|---------|
+| cleanser | 클렌저 | Cleanser |
+| pad | 패드 | Pad |
+| toner | 토너 | Toner |
+| essence | 에센스 | Essence |
+| serum | 세럼 | Serum |
+| ampoule | 앰플 | Ampoule |
+| mask | 마스크 | Mask |
+| cream | 크림 | Cream |
+| sunscreen | 선크림 | Sunscreen |

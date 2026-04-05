@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Noto_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import { locales, type Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/i18n";
-import AuthProvider from "@/components/providers/AuthProvider";
 
-const notoSans = Noto_Sans({
-  subsets: ["latin", "vietnamese"],
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
   display: "swap",
+  variable: "--font-plus-jakarta",
 });
 
 export function generateStaticParams() {
@@ -40,12 +40,17 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css"
+        />
+      </head>
       <body
-        className={`${notoSans.className} bg-neutral-100 text-neutral-900 min-h-screen antialiased`}
+        className={`${plusJakartaSans.variable} bg-surface text-on-surface min-h-screen antialiased`}
+        style={{ fontFamily: "'Pretendard', var(--font-plus-jakarta), system-ui, sans-serif" }}
       >
-        <AuthProvider>
-          {children}
-        </AuthProvider>
+        {children}
       </body>
     </html>
   );

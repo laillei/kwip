@@ -1,44 +1,80 @@
 @import "tailwindcss";
 
 /* ─── Kwip Design Tokens ────────────────────────────────────────────────────
- * Source of truth: docs/ux/design-system.md + Figma file "Kwip mobile web"
+ * Source of truth: docs/ux/design-system.md
  * Standards: Apple HIG (primary) · Material Design 3 (secondary)
- * Font: Noto Sans · Spacing: 8pt grid
+ * Fonts: Pretendard (Korean) · Plus Jakarta Sans (English/labels)
+ * Spacing: 8pt grid (strict)
  * ─────────────────────────────────────────────────────────────────────────── */
 @theme {
-  /* Content colors — text only, never decorative */
-  --color-primary:    #171717; /* neutral-900 — headings, active states */
-  --color-body:       #525252; /* neutral-600 — ingredient descriptions, body copy */
-  --color-secondary:  #737373; /* neutral-500 — overlines, subtitles */
-  --color-tertiary:   #a3a3a3; /* neutral-400 — brand labels, INCI, placeholders, inactive */
+  /* ── MD3 Primary (Deep Forest) ─────────────────────────────────────────── */
+  --color-primary:              #1A3D2B;
+  --color-on-primary:           #FFFFFF;
+  --color-primary-container:    #A8D5BA;
+  --color-on-primary-container: #0D2016;
 
-  /* Semantic colors — meaning only, never decorative */
-  --color-positive:   #059669; /* emerald-600 — beneficial ingredient effect */
-  --color-caution:    #d97706; /* amber-600   — potential irritant */
+  /* ── MD3 Secondary ─────────────────────────────────────────────────────── */
+  --color-secondary:              #4A6355;
+  --color-on-secondary:           #FFFFFF;
+  --color-secondary-container:    #CCE5D5;
+  --color-on-secondary-container: #072015;
 
-  /* Surface colors */
-  --color-surface:    #ffffff; /* bg-white — content sections */
-  --color-surface-dim: #f5f5f5; /* neutral-100 — page background, gaps, dividers */
+  /* ── MD3 Tertiary (warm complement) ────────────────────────────────────── */
+  --color-tertiary:              #6B5C4D;
+  --color-on-tertiary:           #FFFFFF;
+  --color-tertiary-container:    #F4DFCE;
+  --color-on-tertiary-container: #24180D;
 
-  /* Typography — Apple HIG Dynamic Type (Noto Sans) */
-  --text-large-title:   34px; /* Bold   — empty state decorative icons */
-  --text-title-2:       22px; /* Bold   — page headings */
-  --text-headline:      17px; /* Semibold — product names, section titles */
-  --text-body:          17px; /* Regular — general body text */
-  --text-callout:       16px; /* Regular — nav bar wordmark */
-  --text-subheadline:   15px; /* Regular — CTAs, product names in lists */
-  --text-footnote:      13px; /* Regular — brand labels, INCI, tertiary info */
-  --text-caption:       12px; /* Regular — tab bar labels, badges */
-  /* Overline: text-xs font-semibold uppercase tracking-wide text-neutral-500 */
+  /* ── MD3 Error ─────────────────────────────────────────────────────────── */
+  --color-error:              #BA1A1A;
+  --color-on-error:           #FFFFFF;
+  --color-error-container:    #FFDAD6;
+  --color-on-error-container: #410002;
 
-  /* Spacing — 8pt grid */
+  /* ── MD3 Surface ───────────────────────────────────────────────────────── */
+  --color-surface:           #FAFAF7;
+  --color-surface-lowest:    #FFFFFF;
+  --color-surface-low:       #F4F4F1;
+  --color-surface-container: #EEEFEB;
+  --color-surface-high:      #E8E9E5;
+  --color-surface-highest:   #E3E3E0;
+
+  /* ── MD3 On Surface ────────────────────────────────────────────────────── */
+  --color-on-surface:         #1A1C19;
+  --color-on-surface-variant: #414942;
+
+  /* ── MD3 Outline ───────────────────────────────────────────────────────── */
+  --color-outline:         #717972;
+  --color-outline-variant: #C1C9C0;
+
+  /* ── MD3 Inverse ───────────────────────────────────────────────────────── */
+  --color-inverse-surface:    #2F312E;
+  --color-inverse-on-surface: #F0F1ED;
+
+  /* ── Scrim ─────────────────────────────────────────────────────────────── */
+  --color-scrim: rgba(0, 0, 0, 0.4);
+
+  /* ── Typography — Apple HIG Dynamic Type ───────────────────────────────── */
+  --text-large-title: 34px; /* Bold   — Pretendard */
+  --text-title-1:     28px; /* Bold   — Pretendard */
+  --text-title-2:     22px; /* Bold   — Pretendard */
+  --text-title-3:     20px; /* Semi   — Pretendard */
+  --text-headline:    17px; /* Semi   — Pretendard */
+  --text-body:        17px; /* Regular — Pretendard */
+  --text-callout:     16px; /* Regular — Pretendard */
+  --text-subheadline: 15px; /* Regular — Pretendard */
+  --text-footnote:    13px; /* Regular — Pretendard */
+  --text-caption-1:   12px; /* Regular — Plus Jakarta Sans */
+  --text-caption-2:   11px; /* Regular — Plus Jakarta Sans */
+
+  /* ── Spacing — 8pt grid (strict) ───────────────────────────────────────── */
   --spacing-1:   4px;
   --spacing-2:   8px;
-  --spacing-3:   12px;
-  --spacing-4:   16px;  /* section horizontal padding (mobile) */
-  --spacing-6:   24px;
-  --spacing-8:   32px;  /* section horizontal padding (desktop) */
-  --spacing-12:  48px;
+  --spacing-3:  12px;
+  --spacing-4:  16px;
+  --spacing-6:  24px;
+  --spacing-8:  32px;
+  --spacing-12: 48px;
 }
 
 @layer base {
@@ -50,7 +86,7 @@
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #ffffff;
+    background-color: var(--color-surface);
   }
 
   /* Reset mobile shell padding on desktop — inline styles cannot be overridden by Tailwind */

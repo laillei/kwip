@@ -1,0 +1,99 @@
+{
+  "site": {
+    "title": "Kwip \u2014 K-\uc2a4\ud0a8\ucf00\uc5b4 \uc5d0\ub514\ud1a0\ub9ac\uc5bc",
+    "description": "\ub0a8\ub4e4\ubcf4\ub2e4 \uba3c\uc800, \ub728\uae30 \uc804\uc5d0 \ubc1c\uacac\ud558\ub294 K-\uc2a4\ud0a8\ucf00\uc5b4",
+    "tagline": "\ub728\uae30 \uc804\uc5d0 \ubc1c\uacac\ud558\ub294 K-\uc2a4\ud0a8\ucf00\uc5b4 \uc5d0\ub514\ud1a0\ub9ac\uc5bc"
+  },
+  "home": {
+    "heading": "Kwip",
+    "viewMore": "\ub354 \ubcf4\uae30",
+    "helpfulIngredients": "\uc8fc\ubaa9\ud560 \uc131\ubd84",
+    "selectConcern": "\ud53c\ubd80 \uace0\ubbfc\uc744 \uc120\ud0dd\ud558\uc138\uc694",
+    "concernPrompt": "\uc5b4\ub5a4 \ud53c\ubd80 \uace0\ubbfc\uc774 \uc788\uc73c\uc138\uc694?",
+    "pickConcernPrompt": "\ud53c\ubd80 \uace0\ubbfc\uc744 \uc120\ud0dd\ud558\uba74 \ub9de\ucda4 \uc81c\ud488\uc744 \ubcf4\uc5ec\ub4dc\ub824\uc694",
+    "allSteps": "\ubaa8\ub4e0 \ub2e8\uacc4",
+    "emptyState": "\uc77c\uce58\ud558\ub294 \uc81c\ud488\uc774 \uc5c6\uc2b5\ub2c8\ub2e4",
+    "allItems": "\uc804\uccb4",
+    "filterAll": "\uc804\uccb4",
+    "curation": "\ucd94\ucc9c \uc81c\ud488",
+    "seeAll": "SEE ALL",
+    "savedToast": "\uc800\uc7a5\ub418\uc5c8\uc2b5\ub2c8\ub2e4",
+    "productsCount": "{{count}}\uac1c \uc81c\ud488"
+  },
+  "routine": {
+    "buildCta": "\ub098\ub9cc\uc758 \ub8e8\ud2f4 \ub9cc\ub4e4\uae30",
+    "builderTitle": "\ub8e8\ud2f4 \ub9cc\ub4e4\uae30",
+    "selectProducts": "\uac01 \ub2e8\uacc4\uc5d0 \ub9de\ub294 \uc81c\ud488\uc744 \uc120\ud0dd\ud558\uc138\uc694",
+    "namePlaceholder": "\ub8e8\ud2f4 \uc774\ub984\uc744 \uc785\ub825\ud558\uc138\uc694...",
+    "saveButton": "\ub8e8\ud2f4 \uc800\uc7a5",
+    "saving": "\uc800\uc7a5 \uc911...",
+    "myRoutines": "\ub098\uc758 \ub8e8\ud2f4",
+    "emptyTitle": "\ub8e8\ud2f4\uc774 \uc5ec\uae30\uc5d0 \uc800\uc7a5\ub429\ub2c8\ub2e4.",
+    "emptyBody": "\ud648\uc5d0\uc11c \ud53c\ubd80 \uace0\ubbfc\uc744 \uc120\ud0dd\ud574 \ubcf4\uc138\uc694.",
+    "emptyAction": "\ud648",
+    "shareButton": "\uacf5\uc720",
+    "sharing": "\uc0dd\uc131 \uc911...",
+    "viewButton": "\ubcf4\uae30",
+    "deleteButton": "\uc0ad\uc81c",
+    "backToHome": "\ud648",
+    "backToMe": "\ub098",
+    "addMoreProducts": "\uc81c\ud488 \ucd94\uac00",
+    "defaultName": "\ub098\uc758 \ub8e8\ud2f4",
+    "backToRoutines": "\ub098\uc758 \ub8e8\ud2f4",
+    "createdAt": "\uc0dd\uc131\uc77c",
+    "productsCount": "\uc81c\ud488",
+    "shareCardTagline": "\ub098\uc758 \ub8e8\ud2f4 \u2014 \uad11\uace0\uac00 \uc544\ub2cc \uc131\ubd84 \uae30\ubc18.",
+    "selectedCount": "\uc120\ud0dd\ub428"
+  },
+  "products": {
+    "popularLabel": "\ud55c\uad6d\uc5d0\uc11c \uc778\uae30",
+    "emptyState": "\uc81c\ud488\uc744 \ucd94\uac00\ud558\uace0 \uc788\uc2b5\ub2c8\ub2e4"
+  },
+  "detail": {
+    "back": "\ub4a4\ub85c",
+    "keyIngredients": "\ud575\uc2ec \uc131\ubd84",
+    "allIngredients": "\uc804\uccb4 \uc131\ubd84",
+    "bestSeller": "\ubca0\uc2a4\ud2b8\uc140\ub7ec",
+    "sensitiveSafe": "\ubbfc\uac10\uc131 \ud53c\ubd80 \uc801\ud569",
+    "buyNow": "\uad6c\ub9e4\ud558\uae30",
+    "categories": {
+      "serum": "\uc138\ub7fc",
+      "cream": "\ud06c\ub9bc",
+      "toner": "\ud1a0\ub108",
+      "sunscreen": "\uc120\ud06c\ub9bc",
+      "cleanser": "\ud074\ub80c\uc800",
+      "mask": "\ub9c8\uc2a4\ud06c",
+      "pad": "\ud328\ub4dc",
+      "ampoule": "\uc568\ud480",
+      "essence": "\uc5d0\uc13c\uc2a4"
+    }
+  },
+  "views": {
+    "grid": "\uadf8\ub9ac\ub4dc",
+    "ranking": "\ub7ad\ud0b9"
+  },
+  "nav": {
+    "home": "HOME",
+    "products": "PRODUCTS",
+    "explore": "HOME",
+    "routine": "PRODUCTS"
+  },
+  "me": {
+    "savedProducts": "\uc800\uc7a5\ub428",
+    "createRoutineFromSaved": "\uc800\uc7a5\ub41c \uc81c\ud488\uc73c\ub85c \ub8e8\ud2f4 \ub9cc\ub4e4\uae30",
+    "noSavedProducts": "\uc544\uc9c1 \uc800\uc7a5\ub41c \uc81c\ud488\uc774 \uc5c6\uc2b5\ub2c8\ub2e4",
+    "pageLabel": "\ub098\uc758 \ub8e8\ud2f4",
+    "buildRoutine": "\uc800\uc7a5\ub41c \uc81c\ud488\uc73c\ub85c \ub8e8\ud2f4 \ub9cc\ub4e4\uae30",
+    "noRoutinesTitle": "\uc544\uc9c1 \ub8e8\ud2f4\uc774 \uc5c6\uc2b5\ub2c8\ub2e4",
+    "noRoutinesBody": "\uc81c\ud488\uc744 \uc800\uc7a5\ud558\uace0 \uccab \ub8e8\ud2f4\uc744 \ub9cc\ub4e4\uc5b4 \ubcf4\uc138\uc694",
+    "tabProducts": "\uc81c\ud488",
+    "tabRoutines": "\ub8e8\ud2f4",
+    "rename": "\uc774\ub984 \ubcc0\uacbd",
+    "renameCancel": "\ucde8\uc18c"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "\ud398\uc774\uc9c0\ub97c \ucc3e\uc744 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4",
+    "backHome": "\ud648\uc73c\ub85c \ub3cc\uc544\uac00\uae30"
+  }
+}

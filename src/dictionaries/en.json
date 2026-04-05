@@ -15,7 +15,10 @@
     "emptyState": "No matching products found",
     "allItems": "All",
     "savedToast": "Saved to Routine",
-    "productsCount": "{{count}} products"
+    "productsCount": "{{count}} products",
+    "filterAll": "All",
+    "curation": "Curated Products",
+    "seeAll": "SEE ALL"
   },
   "routine": {
     "buildCta": "Build My Routine",
@@ -70,6 +73,8 @@
     "ranking": "Ranking"
   },
   "nav": {
+    "home": "HOME",
+    "products": "PRODUCTS",
     "explore": "Explore",
     "routine": "Saved"
   },
