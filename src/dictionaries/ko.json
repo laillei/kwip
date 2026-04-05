@@ -46,6 +46,8 @@
     "selectedCount": "\uc120\ud0dd\ub428"
   },
   "products": {
+    "title": "\uc81c\ud488",
+    "filterAll": "\uc804\uccb4",
     "popularLabel": "\ud55c\uad6d\uc5d0\uc11c \uc778\uae30",
     "emptyState": "\uc81c\ud488\uc744 \ucd94\uac00\ud558\uace0 \uc788\uc2b5\ub2c8\ub2e4"
   },
@@ -90,6 +92,13 @@
     "tabRoutines": "\ub8e8\ud2f4",
     "rename": "\uc774\ub984 \ubcc0\uacbd",
     "renameCancel": "\ucde8\uc18c"
+  },
+  "article": {
+    "featuredProducts": "\ucd94\ucc9c \uc81c\ud488",
+    "relatedArticles": "\uad00\ub828 \uae30\uc0ac",
+    "readTime": "{{minutes}}\ubd84 \uc77d\uae30",
+    "share": "\uacf5\uc720",
+    "back": "\ub4a4\ub85c"
   },
   "notFound": {
     "title": "404",

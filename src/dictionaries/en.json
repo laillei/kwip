@@ -46,6 +46,8 @@
     "selectedCount": "selected"
   },
   "products": {
+    "title": "Products",
+    "filterAll": "All",
     "popularLabel": "Popular in Korea",
     "emptyState": "We're adding more products"
   },
@@ -90,6 +92,13 @@
     "tabRoutines": "Routines",
     "rename": "Rename",
     "renameCancel": "Cancel"
+  },
+  "article": {
+    "featuredProducts": "FEATURED PRODUCTS",
+    "relatedArticles": "RELATED",
+    "readTime": "{{minutes}} min read",
+    "share": "Share",
+    "back": "Back"
   },
   "notFound": {
     "title": "404",

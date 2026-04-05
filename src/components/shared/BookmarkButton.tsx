@@ -30,7 +30,7 @@ export default function BookmarkButton({ productId }: BookmarkButtonProps) {
     <button
       type="button"
       onClick={handleToggle}
-      className="flex items-center justify-center min-w-[44px] min-h-[44px] text-neutral-900 transition-colors"
+      className="flex items-center justify-center min-w-[44px] min-h-[44px] text-on-surface transition-colors"
       aria-label={saved ? "Bỏ lưu" : "Lưu sản phẩm"}
     >
       <svg

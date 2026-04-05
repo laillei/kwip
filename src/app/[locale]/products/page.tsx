@@ -1,19 +1,30 @@
-import { redirect } from "next/navigation";
+import { getAllProducts } from "@/lib/db";
+import { getDictionary, type Locale } from "@/lib/i18n";
+import MobileShell from "@/components/layout/MobileShell";
+import ProductsClient from "@/components/products/ProductsClient";
 
 export default async function ProductsPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ concern?: string; category?: string }>;
 }) {
   const { locale } = await params;
-  const { concern, category } = await searchParams;
+  const [products, dict] = await Promise.all([
+    getAllProducts(),
+    getDictionary(locale as Locale),
+  ]);
 
-  const p = new URLSearchParams();
-  if (concern && concern !== "all") p.set("concern", concern);
-  if (category && category !== "all") p.set("category", category);
-  const qs = p.toString();
-
-  redirect(`/${locale}${qs ? `?${qs}` : ""}`);
+  return (
+    <MobileShell locale={locale}>
+      <div className="min-h-screen bg-surface">
+        <div className="max-w-3xl mx-auto">
+          <ProductsClient
+            products={products}
+            locale={locale}
+            dictionary={dict}
+          />
+        </div>
+      </div>
+    </MobileShell>
+  );
 }
