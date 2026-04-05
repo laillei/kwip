@@ -1,35 +1,23 @@
-import { Suspense } from "react";
-import type { Product, Ingredient } from "@/types";
-import { getAllProducts, getAllIngredients, getAllConcerns } from "@/lib/db";
+import type { Product } from "@/types";
+import { getAllProducts } from "@/lib/db";
 import { getDictionary, type Locale } from "@/lib/i18n";
-import { t } from "@/lib/getLocalizedData";
-import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
-import SearchButton from "@/components/shared/SearchButton";
-import AuthButton from "@/components/shared/AuthButton";
-import DiscoveryHub from "@/components/home/DiscoveryHub";
+import { mockArticles } from "@/data/articles";
 import MobileShell from "@/components/layout/MobileShell";
+import HomeClient from "@/components/home/HomeClient";
 
 export default async function Home({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ concern?: string }>;
 }) {
   const { locale } = await params;
-  const { concern: concernParam } = await searchParams;
   const dict = await getDictionary(locale as Locale);
-  const loc = locale as Locale;
 
-  const [rawProducts, rawIngredients, rawConcerns] = await Promise.all([
-    getAllProducts(),
-    getAllIngredients(),
-    getAllConcerns(),
-  ]);
+  const rawProducts = await getAllProducts();
 
   const allProducts = (rawProducts as Product[])
     .filter((p) => {
-      const name = (p.name.en || p.name.vi || "").toLowerCase();
+      const name = (p.name.en || p.name.ko || "").toLowerCase();
       return (
         !name.includes("[deal]") &&
         !name.includes("bundle") &&
@@ -40,61 +28,19 @@ export default async function Home({
     })
     .sort((a, b) => a.popularity.rank - b.popularity.rank);
 
-  const concernData = rawConcerns.map((c) => ({
-    id: c.id as import("@/types").Concern,
-    label: t(c.label, loc),
-    icon: c.icon,
-    symptom: t(c.symptom, loc),
-    keyIngredientIds: c.key_ingredients,
-  }));
-
   return (
-    <div className="min-h-screen bg-white">
-      <MobileShell
-        locale={locale}
-        headerRight={
-          <div className="flex items-center gap-2">
-            <Suspense>
-              <LanguageSwitcher />
-            </Suspense>
-            <SearchButton locale={locale} products={allProducts} />
-          </div>
-        }
-      >
-        {/* Desktop header — only visible at md+ */}
-        <div className="hidden md:block max-w-6xl mx-auto">
-          <header className="flex items-center justify-between px-8 pt-6 pb-4">
-            <div>
-              <span className="text-[22px] font-bold tracking-tight">Kwip</span>
-              <p className="text-[15px] text-neutral-600 mt-0.5">
-                {dict.site.tagline}
-              </p>
-            </div>
-            <div className="flex items-center gap-3">
-              <Suspense>
-                <LanguageSwitcher />
-              </Suspense>
-              <SearchButton locale={locale} products={allProducts} />
-              <AuthButton locale={locale} />
-            </div>
-          </header>
-        </div>
-
-        {/* Content */}
-        <div className="max-w-6xl mx-auto px-4 md:px-8 pt-0 md:pt-2">
-          <DiscoveryHub
-            concerns={concernData}
-            products={allProducts}
-            ingredients={rawIngredients as Ingredient[]}
-            locale={locale}
-            initialConcern={concernParam}
-            dict={{
-              allItems: dict.home.allItems,
-              emptyState: dict.products.emptyState,
-              productsCount: dict.home.productsCount,
-            }}
-          />
-        </div>
+    <div className="min-h-screen bg-surface">
+      <MobileShell locale={locale}>
+        <HomeClient
+          articles={mockArticles}
+          products={allProducts}
+          locale={locale}
+          dictionary={{
+            filterAll: dict.home.filterAll,
+            curation: dict.home.curation,
+            seeAll: dict.home.seeAll,
+          }}
+        />
       </MobileShell>
     </div>
   );
