@@ -41,11 +41,8 @@ export default async function ProductDetailPage({
     .map((pi) => ({ ...pi, detail: ingredientMap.get(pi.ingredientId)! }));
 
   const purchaseLinks = [
-    { platform: "Shopee", url: product.purchase.shopee },
-    { platform: "Lazada", url: product.purchase.lazada },
-    { platform: "Oliveyoung", url: product.purchase.oliveyoung },
-    { platform: "TikTok Shop", url: product.purchase.tiktokShop },
-    { platform: "Hasaki", url: product.purchase.hasaki },
+    { platform: "Olive Young", url: product.purchase.oliveyoung },
+    { platform: "Coupang", url: product.purchase.coupang },
   ].filter((l): l is { platform: string; url: string } => Boolean(l.url));
 
   const loc = locale as Locale;
@@ -67,23 +64,8 @@ export default async function ProductDetailPage({
       }
       headerRight={<BookmarkButton productId={product.id} />}
     >
-      {/* Desktop header — visible md+ only */}
-      <div className="hidden md:block max-w-3xl mx-auto">
-        <header className="flex items-center justify-between px-8 py-4">
-          <Link
-            href={`/${locale}/products`}
-            className="flex items-center gap-1.5 text-[15px] text-on-surface-variant hover:text-on-surface transition-colors -ml-1 px-1 min-h-[44px]"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-            {dict.detail.back}
-          </Link>
-        </header>
-      </div>
-
       <div className="min-h-screen bg-surface-container">
-        <div className="max-w-3xl mx-auto pb-24 md:pb-28">
+        <div className="pb-24">
 
           {/* Product image + info — white block */}
           <div className="bg-surface-lowest">
@@ -94,13 +76,13 @@ export default async function ProductDetailPage({
                 alt={product.name[loc] || product.name.ko}
                 fill
                 className="object-contain p-6"
-                sizes="(max-width: 768px) 100vw, 672px"
+                sizes="100vw"
                 priority
               />
             </div>
 
             {/* Product info */}
-            <div className="px-4 md:px-8 pt-4 pb-5">
+            <div className="px-4 pt-4 pb-5">
               <p
                 className="text-[11px] text-on-surface-variant uppercase tracking-wide"
                 style={{
@@ -136,12 +118,12 @@ export default async function ProductDetailPage({
 
           {/* Key ingredients — white block */}
           <section className="bg-surface-lowest">
-            <h2 className="text-xs font-semibold tracking-wide text-on-surface-variant uppercase px-4 md:px-8 pt-4 pb-2">
+            <h2 className="text-xs font-semibold tracking-wide text-on-surface-variant uppercase px-4 pt-4 pb-2">
               {dict.detail.keyIngredients}
             </h2>
             <div className="divide-y divide-outline-variant">
               {keyIngredients.map(({ detail }) => (
-                <div key={detail.id} className="px-4 md:px-8 py-4">
+                <div key={detail.id} className="px-4 py-4">
                   <div className="flex items-center justify-between">
                     <p className="text-[15px] font-semibold text-on-surface">{detail.name.inci}</p>
                     {detail.ewgGrade && (
@@ -150,8 +132,8 @@ export default async function ProductDetailPage({
                       </span>
                     )}
                   </div>
-                  {loc !== "en" && (
-                    <p className="text-[13px] text-on-surface-variant mt-0.5">{detail.name.vi}</p>
+                  {detail.name.ko && (
+                    <p className="text-[13px] text-on-surface-variant mt-0.5">{detail.name.ko}</p>
                   )}
                   <p className="text-[15px] text-on-surface-variant mt-2 leading-relaxed">
                     {t(detail.description, loc)}
@@ -180,12 +162,12 @@ export default async function ProductDetailPage({
 
           {/* Full ingredient list — white block */}
           <section className="bg-surface-lowest">
-            <h2 className="text-xs font-semibold tracking-wide text-on-surface-variant uppercase px-4 md:px-8 pt-4 pb-2">
+            <h2 className="text-xs font-semibold tracking-wide text-on-surface-variant uppercase px-4 pt-4 pb-2">
               {dict.detail.allIngredients}
             </h2>
             <div className="divide-y divide-outline-variant">
               {allIngredients.map(({ ingredientId, order, detail }) => (
-                <div key={ingredientId} className="flex items-start gap-4 px-4 md:px-8 py-3 min-h-[44px]">
+                <div key={ingredientId} className="flex items-start gap-4 px-4 py-3 min-h-[44px]">
                   <span className="text-[13px] text-on-surface-variant w-5 shrink-0 pt-px text-right tabular-nums">
                     {order}
                   </span>
@@ -199,7 +181,7 @@ export default async function ProductDetailPage({
                       )}
                     </div>
                     {loc !== "en" && (
-                      <p className="text-[13px] text-on-surface-variant mt-0.5">{detail.name.vi}</p>
+                      <p className="text-[13px] text-on-surface-variant mt-0.5">{detail.name.ko}</p>
                     )}
                     {detail.effects.length > 0 && (
                       <div className="flex flex-wrap gap-1 mt-2">
@@ -227,11 +209,11 @@ export default async function ProductDetailPage({
       {/* Sticky purchase bar — elevated above tab bar on mobile */}
       {purchaseLinks.length > 0 && (
         <div
-          className="fixed left-0 right-0 z-20 md:bottom-0"
+          className="fixed left-0 right-0 z-20"
           style={{ bottom: "calc(49px + env(safe-area-inset-bottom))" }}
         >
-          <div className="bg-surface-lowest/90 backdrop-blur-md border-t border-outline-variant px-4 md:px-8 py-4">
-            <div className="flex gap-3 max-w-3xl mx-auto">
+          <div className="bg-surface-lowest/90 backdrop-blur-md border-t border-outline-variant px-4 py-4">
+            <div className="flex gap-3">
               {purchaseLinks.map(({ platform, url }) => (
                 <a
                   key={platform}

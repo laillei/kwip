@@ -70,7 +70,7 @@ export default function ProductsClient({
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 px-4 py-8">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-8 px-4 py-8">
           {filtered.map(({ product, editorialTag }) => (
             <ProductCard
               key={product.id}
