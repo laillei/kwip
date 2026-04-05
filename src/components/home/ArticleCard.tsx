@@ -32,13 +32,13 @@ export default function ArticleCard({ article, locale }: ArticleCardProps) {
 
       {/* Tag badge */}
       <span
-        className="bg-surface-variant text-accent px-2 py-0.5 text-[11px] w-fit"
+        className="bg-surface-variant text-accent rounded-full px-2 py-0.5 text-[11px] w-fit"
         style={{
           fontFamily:
             "var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif",
         }}
       >
-        {article.tag}
+        최근
       </span>
 
       {/* Headline */}

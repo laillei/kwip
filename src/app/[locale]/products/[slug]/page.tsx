@@ -65,7 +65,7 @@ export default async function ProductDetailPage({
           {/* Product image + info — white block */}
           <div className="bg-surface-lowest">
             {/* Image — 4:3 ratio */}
-            <div className="relative w-full aspect-[4/3] overflow-hidden bg-surface-lowest">
+            <div className="relative w-full aspect-[4/3] overflow-hidden bg-white border-b border-outline">
               <Image
                 src={product.image}
                 alt={product.name[loc] || product.name.ko}
@@ -91,16 +91,16 @@ export default async function ProductDetailPage({
                 {product.name[loc] || product.name.ko}
               </h1>
               <div className="flex flex-wrap items-center gap-2 mt-3">
-                <span className="inline-flex items-center bg-surface-variant px-3 py-1 text-[13px] font-medium text-on-surface-variant">
+                <span className="inline-flex items-center bg-surface-variant rounded-full px-3 py-1 text-[13px] font-medium text-on-surface-variant">
                   {dict.detail.categories[product.category as keyof typeof dict.detail.categories] || product.category}
                 </span>
                 {product.tags.includes("best-seller") && (
-                  <span className="inline-flex items-center bg-surface-variant px-3 py-1 text-[13px] font-medium text-accent">
+                  <span className="inline-flex items-center bg-surface-variant rounded-full px-3 py-1 text-[13px] font-medium text-accent">
                     {dict.detail.bestSeller}
                   </span>
                 )}
                 {product.tags.includes("sensitive-safe") && (
-                  <span className="inline-flex items-center bg-surface-variant px-3 py-1 text-[13px] font-medium text-accent">
+                  <span className="inline-flex items-center bg-surface-variant rounded-full px-3 py-1 text-[13px] font-medium text-accent">
                     {dict.detail.sensitiveSafe}
                   </span>
                 )}

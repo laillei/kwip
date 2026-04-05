@@ -16,7 +16,7 @@
     "allItems": "\uc804\uccb4",
     "filterAll": "\uc804\uccb4",
     "curation": "\ucd94\ucc9c \uc81c\ud488",
-    "seeAll": "SEE ALL",
+    "seeAll": "더보기",
     "savedToast": "\uc800\uc7a5\ub418\uc5c8\uc2b5\ub2c8\ub2e4",
     "productsCount": "{{count}}\uac1c \uc81c\ud488"
   },
@@ -77,11 +77,11 @@
     "ranking": "\ub7ad\ud0b9"
   },
   "nav": {
-    "home": "HOME",
-    "products": "PRODUCTS",
-    "explore": "HOME",
-    "routine": "PRODUCTS",
-    "saved": "저장"
+    "home": "홈",
+    "products": "발견",
+    "explore": "홈",
+    "routine": "발견",
+    "saved": "북마크"
   },
   "me": {
     "savedProducts": "\uc800\uc7a5\ub428",

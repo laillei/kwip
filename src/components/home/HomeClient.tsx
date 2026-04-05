@@ -3,7 +3,6 @@
 import { useState } from "react";
 import type { Article } from "@/types/article";
 import type { Product } from "@/types";
-import FilterChips from "./FilterChips";
 import ArticleCard from "./ArticleCard";
 import FeaturedProducts from "./FeaturedProducts";
 
@@ -18,7 +17,7 @@ interface HomeClientProps {
   };
 }
 
-const EDITORIAL_TAGS = ["전체", "지금 뜨는", "숨겨진 명품", "성분 주목", "편집장 픽"];
+const HOME_TABS = ["전체", "최근"];
 
 export default function HomeClient({
   articles,
@@ -26,26 +25,32 @@ export default function HomeClient({
   locale,
   dictionary,
 }: HomeClientProps) {
-  const [activeTag, setActiveTag] = useState("전체");
-
-  const filteredArticles =
-    activeTag === "전체"
-      ? articles
-      : articles.filter((a) => a.tag === activeTag);
+  const [activeTab, setActiveTab] = useState("전체");
 
   return (
     <>
-      {/* Filter chips */}
-      <FilterChips
-        tags={EDITORIAL_TAGS}
-        activeTag={activeTag}
-        onTagChange={setActiveTag}
-        locale={locale}
-      />
+      {/* Primary tabs */}
+      <div className="flex border-b border-outline bg-white sticky top-14 z-40">
+        {HOME_TABS.map((tab) => (
+          <button
+            key={tab}
+            type="button"
+            onClick={() => setActiveTab(tab)}
+            className={`h-11 px-4 flex items-center whitespace-nowrap text-[13px] border-b-2 transition-colors ${
+              activeTab === tab
+                ? "font-semibold text-black border-black"
+                : "font-medium text-[#A3A3A3] border-transparent"
+            }`}
+            style={{ fontFamily: "'Pretendard', system-ui, sans-serif" }}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
 
       {/* Articles feed */}
       <div className="flex flex-col">
-        {filteredArticles.map((article) => (
+        {articles.map((article) => (
           <ArticleCard key={article.id} article={article} locale={locale} />
         ))}
       </div>

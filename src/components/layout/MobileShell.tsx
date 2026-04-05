@@ -30,7 +30,7 @@ export default async function MobileShell({
       {/* Compact fixed header — mobile */}
       {!hideHeader && (
         <header
-          className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-outline"
+          className="fixed top-0 left-1/2 -translate-x-1/2 w-[375px] z-50 bg-white border-b border-outline"
           style={{ paddingTop: "env(safe-area-inset-top)" }}
         >
           <div className="flex items-center justify-between px-4 h-14">
@@ -50,31 +50,16 @@ export default async function MobileShell({
             </div>
             <div className="flex items-center gap-1">
               {headerRight ?? (
-                <>
-                  {/* Search icon */}
-                  <button
-                    type="button"
-                    className="flex items-center justify-center min-w-[44px] min-h-[44px] text-on-surface"
-                    aria-label="Search"
-                  >
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="11" cy="11" r="8" />
-                      <path d="M21 21l-4.35-4.35" />
-                    </svg>
-                  </button>
-                  {/* Menu icon */}
-                  <button
-                    type="button"
-                    className="flex items-center justify-center min-w-[44px] min-h-[44px] text-on-surface"
-                    aria-label="Menu"
-                  >
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="3" y1="6" x2="21" y2="6" />
-                      <line x1="3" y1="12" x2="21" y2="12" />
-                      <line x1="3" y1="18" x2="21" y2="18" />
-                    </svg>
-                  </button>
-                </>
+                <button
+                  type="button"
+                  className="flex items-center justify-center min-w-[44px] min-h-[44px] text-on-surface"
+                  aria-label="Search"
+                >
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="M21 21l-4.35-4.35" />
+                  </svg>
+                </button>
               )}
             </div>
           </div>

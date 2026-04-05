@@ -1,447 +1,315 @@
 # Kwip Design System
 
-Standards: **Apple HIG** (primary) · **Material Design 3** (secondary)
-Strict compliance — no arbitrary sizes, no raw hex in component code.
+Standards: **Apple HIG** (primary) · **Material Design 3** (structure)
+Neutral-first editorial palette with green accent (text only).
+Target: Korean consumers. Language: Korean (primary) + English.
 
 ---
 
-## Typefaces
+## 01 · Color
 
-Two typefaces only. No exceptions.
+### Neutral (Primary UI)
+
+| Token | Hex | Usage |
+|---|---|---|
+| Black | `#000000` | Active tabs, headings, active tab bar icons |
+| Neutral 900 | `#171717` | Inverse surface |
+| Neutral 600 | `#525252` | Body text |
+| Neutral 550 | `#5E5E5E` | Subtitles, descriptions (`on-surface-variant`) |
+| Neutral 500 | `#777777` | Dates, brand labels, overline, action links (`tertiary`) |
+| Neutral 400 | `#A3A3A3` | Inactive tab icons, inactive tab text, placeholders |
+| Neutral 200 | `#EEEEEE` | Borders, dividers (`outline`) |
+| Neutral 100 | `#F3F3F3` | Tag/chip background, product thumbnail bg (`surface-variant`) |
+| Neutral 50 | `#F5F5F5` | Page background behind 375px container, surface gaps (`surface-container`) |
+| White | `#FFFFFF` | Cards, content blocks, nav bar, tab bar (`surface`) |
+
+### Accent — Green (text only)
+
+| Token | Hex | Usage |
+|---|---|---|
+| Green 600 | `#00855D` | Editorial tag text only (`accent`) |
+
+> Green is ONLY used as text color on `#F3F3F3` background. **Never as a fill/background color.**
+
+### Semantic
+
+| Token | Hex | Usage |
+|---|---|---|
+| Error | `#BA1A1A` | Error states |
+| Caution | `#D97706` | Potential irritant ingredients |
+
+### MD3 Role Mapping
+
+| Role | Token | Hex |
+|---|---|---|
+| Primary | `primary` | `#000000` |
+| On Primary | `on-primary` | `#FFFFFF` |
+| Surface | `surface` | `#FFFFFF` |
+| Surface Container | `surface-container` | `#F5F5F5` |
+| Surface Variant | `surface-variant` | `#F3F3F3` |
+| On Surface | `on-surface` | `#000000` |
+| On Surface Variant | `on-surface-variant` | `#5E5E5E` |
+| Outline | `outline` | `#EEEEEE` |
+| Tertiary | `tertiary` | `#777777` |
+| Accent | `accent` | `#00855D` |
+
+---
+
+## 02 · Typography
+
+### Typefaces — 3 fonts, strict roles
 
 | Font | Role | Usage |
 |---|---|---|
-| **Pretendard** | Primary | Korean body text, headings, article content |
-| **Plus Jakarta Sans** | Secondary | English labels, wordmark, dates, badges, overline, tab labels |
+| **Noto Serif** (Black 900) | Wordmark only | KWIP logotype — 20px, uppercase, tracking -1px |
+| **Pretendard** | Korean text | Headings, body, article content, product names, tab labels |
+| **Plus Jakarta Sans** | English/labels | Brand labels (uppercase), dates, tab bar labels, overline |
 
-**Removed:** Noto Sans, Noto Serif — no longer in the system.
+### Apple HIG Dynamic Type Scale
 
----
+| Role | Size | Weight | Font | Usage |
+|---|---|---|---|---|
+| Title 2 | 22px | Bold | Pretendard | Section headings ("추천 제품"), article detail titles |
+| Headline | 17px | Semibold | Pretendard | Article card titles, product names in detail, empty state title |
+| Body | 17px | Regular | Pretendard | Article body text |
+| Subheadline | 15px | Regular | Pretendard | Article subtitles, descriptions, empty state body |
+| Footnote | 13px | Semibold | Pretendard | Product names in grid, scrollable tab labels, action links |
+| Caption 1 | 12px | Regular | Plus Jakarta Sans | Bottom tab bar labels |
+| Caption 2 | 11px | Regular | Plus Jakarta Sans | Dates, brand labels, tag/chip text |
 
-## Type Scale
+**Forbidden sizes:** 14px, 18px, 24px, 10px — not HIG Dynamic Type roles.
 
-Apple HIG Dynamic Type roles. Only these sizes are permitted.
+### Language rules
 
-| Role | Size | Weight | Font | Tailwind | Usage in Kwip |
-|---|---|---|---|---|---|
-| Large Title | 34px | Bold | Pretendard | `text-[34px] font-bold` | Empty state decorative |
-| Title 1 | 28px | Bold | Pretendard | `text-[28px] font-bold` | Reserved |
-| Title 2 | 22px | Bold | Pretendard | `text-[22px] font-bold` | Section headings ("추천 제품"), page titles |
-| Title 3 | 20px | Semibold | Pretendard | `text-[20px] font-semibold` | Reserved |
-| Headline | 17px | Semibold | Pretendard | `text-[17px] font-semibold` | Article card titles, product names, wordmark |
-| Body | 17px | Regular | Pretendard | `text-[17px]` | General body text, article content |
-| Callout | 16px | Regular | Pretendard | `text-base` | Reserved |
-| Subheadline | 15px | Regular | Pretendard | `text-[15px]` | Article subtitles, CTAs, descriptions |
-| Footnote | 13px | Regular/Semibold | Pretendard | `text-[13px]` | Product names in grids, brand labels |
-| Caption 1 | 12px | Regular | Plus Jakarta Sans | `text-xs` | Tab bar labels, filter chip labels, overline |
-| Caption 2 | 11px | Regular | Plus Jakarta Sans | `text-[11px]` | Dates, editorial badge text |
-
-### Wordmark
-
-| Property | Value |
-|---|---|
-| Font | Plus Jakarta Sans |
-| Role | Headline (17px Semibold) |
-| Transform | `uppercase` |
-| Letter spacing | `tracking-[-1px]` |
-| Color | `text-on-surface` |
-
-```jsx
-<span className="font-semibold text-[17px] tracking-[-1px] uppercase text-on-surface">
-  KWIP
-</span>
-```
-
-### Forbidden sizes
-
-`text-sm` (14px), `text-2xl` (24px), 10px, 18px — not HIG Dynamic Type roles. Do not use.
+- All UI text in Korean (primary) + English (secondary) via dictionaries
+- Ingredient names: show Korean from DB. Exception: "PDRN" stays as "PDRN"
+- Product descriptions: Korean. Fallback chain: `ko` → `inci` → `vi`
+- Brand names: English uppercase (e.g. "ANUA", "ROUND LAB")
 
 ---
 
-## Color System
+## 03 · Shape
 
-MD3 semantic color roles. Every color has a named role — no raw hex values in component code.
-
-### Primary (Deep Forest)
-
-| Role | Hex | Token | Usage |
-|---|---|---|---|
-| Primary | `#1A3D2B` | `primary` | Filled buttons, active chips, editorial badges, links |
-| On Primary | `#FFFFFF` | `on-primary` | Text/icons on primary |
-| Primary Container | `#A8D5BA` | `primary-container` | Tonal chips, subtle highlights |
-| On Primary Container | `#0D2016` | `on-primary-container` | Text on primary container |
-
-### Secondary
-
-| Role | Hex | Token | Usage |
-|---|---|---|---|
-| Secondary | `#4A6355` | `secondary` | Secondary actions |
-| On Secondary | `#FFFFFF` | `on-secondary` | Text on secondary |
-| Secondary Container | `#CCE5D5` | `secondary-container` | Tag badge bg, inactive chip tonal fill |
-| On Secondary Container | `#072015` | `on-secondary-container` | Tag label text |
-
-### Tertiary (warm complement)
-
-| Role | Hex | Token | Usage |
-|---|---|---|---|
-| Tertiary | `#6B5C4D` | `tertiary` | Accent, warm differentiation |
-| On Tertiary | `#FFFFFF` | `on-tertiary` | Text on tertiary |
-| Tertiary Container | `#F4DFCE` | `tertiary-container` | Warm highlight surfaces |
-| On Tertiary Container | `#24180D` | `on-tertiary-container` | Text on warm surfaces |
-
-### Error
-
-| Role | Hex | Token | Usage |
-|---|---|---|---|
-| Error | `#BA1A1A` | `error` | Error states, destructive actions |
-| On Error | `#FFFFFF` | `on-error` | Text on error |
-| Error Container | `#FFDAD6` | `error-container` | Error background |
-| On Error Container | `#410002` | `on-error-container` | Text on error bg |
-
-### Surface
-
-| Role | Hex | Token | Usage |
-|---|---|---|---|
-| Surface | `#FAFAF7` | `surface` | Page background |
-| Surface Container Lowest | `#FFFFFF` | `surface-lowest` | Cards, content blocks |
-| Surface Container Low | `#F4F4F1` | `surface-low` | Subtle separation |
-| Surface Container | `#EEEFEB` | `surface-container` | Gaps between sections |
-| Surface Container High | `#E8E9E5` | `surface-high` | Image placeholder bg |
-| Surface Container Highest | `#E3E3E0` | `surface-highest` | Inactive chip fill |
-
-### On Surface
-
-| Role | Hex | Token | Usage |
-|---|---|---|---|
-| On Surface | `#1A1C19` | `on-surface` | Headings, primary text |
-| On Surface Variant | `#414942` | `on-surface-variant` | Subtitles, secondary text, dates, brand labels |
-
-### Outline
-
-| Role | Hex | Token | Usage |
-|---|---|---|---|
-| Outline | `#717972` | `outline` | Borders, dividers |
-| Outline Variant | `#C1C9C0` | `outline-variant` | Subtle dividers, tab bar border |
-
-### Inverse
-
-| Role | Hex | Token | Usage |
-|---|---|---|---|
-| Inverse Surface | `#2F312E` | `inverse-surface` | Dark banners, tooltips |
-| Inverse On Surface | `#F0F1ED` | `inverse-on-surface` | Text on inverse surface |
-
-### Scrim
-
-`bg-black/40` — semi-transparent overlay behind modals and drawers.
-
-### Removed tokens
-
-These are no longer valid — do not use:
-- `neutral-*` (100, 300, 400, 500, 600, 700, 800, 900)
-- `emerald-600`, `amber-600`
-- Raw hex: `#00855d`, `#777`, `#5e5e5e`, `#85f8c4`, `#f3f3f3`, `#eee`
-
----
-
-## Surfaces
-
-MD3 surface terminology. No elevation shadows — surfaces are separated by gaps and dividers only.
-
-| Surface role | Implementation | Usage |
+| Element | Radius | Notes |
 |---|---|---|
-| **Surface** | `bg-surface-lowest` full-width block | Content sections (article cards, product info) |
-| **Surface Container** | `<div className="h-4 bg-surface-container" />` | Gap separating Surface blocks |
-| **Surface Dim** | `bg-surface` | Page background behind Surface blocks |
-| **Surface Divider** | `divide-y divide-outline-variant` | Row separators within a Surface |
-
-```
-[Surface Dim — bg-surface]
-  [Surface — bg-surface-lowest] article card
-  [Surface Container — h-4 bg-surface-container]
-  [Surface — bg-surface-lowest] featured products
-  [Surface Container — h-4 bg-surface-container]
-  [Surface — bg-surface-lowest] more content
-```
-
-No `shadow-*` on surfaces. `bg-surface-lowest` + `border-outline-variant` is the only acceptable alternative for menus/overlays.
+| **Chips, tags, badges** | `rounded-full` | All pill-shaped |
+| **Images** | `0px` | Square, no border-radius |
+| **Buttons** | `0px` | Square |
 
 ---
 
-## Elevation & Scrim
+## 04 · Spacing — 8pt Grid
 
-**Scrim** (MD3): `bg-black/40` behind modals and drawers.
-
-**Material Surface** (Apple HIG): surfaces that float above scrolling content:
-- `bg-surface-lowest/90 backdrop-blur-md`
-- Applied to: purchase bar, save bar
-- Navigation Bar uses its own translucent material (see App Shell)
-
----
-
-## Spacing — 8pt Grid (strict)
-
-Base unit: 8px. All spacing must be a multiple of 4px (minimum), 8px (preferred). **No exceptions.**
-
-| Usage | Token | Px |
+| Value | Token | Usage |
 |---|---|---|
-| Section horizontal padding | `px-4` | 16px |
-| Section vertical padding | `py-12` | 48px |
-| Surface Container gap | `h-4` | 16px |
-| Grid column gap | `gap-x-4` | 16px |
-| Grid row gap | `gap-y-8` | 32px |
-| Card internal gap | `gap-3` | 12px |
-| Chip gap | `gap-2` | 8px |
-| Overline-to-title gap | `gap-1` | 4px |
-
-**Forbidden values:** `gap-[11px]`, `gap-[15.99px]`, `gap-y-[40px]` — not on 8pt grid.
+| 4px | `gap-1` | Overline-to-title gap |
+| 8px | `gap-2` | Chip/tag gap |
+| 12px | `gap-3` | Card internal gap, article card gap |
+| 16px | `px-4` | Section horizontal padding |
+| 24px | `gap-6` | Product grid column gap |
+| 32px | `gap-8` | Product grid row gap |
+| 48px | `py-12` | Section vertical padding |
 
 ---
 
-## App Shell
+## 05 · Elevation
 
-### Navigation Bar (Apple HIG)
+**Flat — no shadows.** Surfaces separated by:
+- Gaps: `h-4 bg-surface-container` (`#F5F5F5`)
+- Dividers: `border-b border-outline` (`#EEEEEE`)
+
+---
+
+## 06 · Viewport
+
+**Fixed 375×812.** No responsive breakpoints. Same layout on all viewports.
+
+- Body: `bg-[#F5F5F5]` (gray behind the white container)
+- Container: `width: 375px`, `bg-white`, centered with `mx-auto`
+- All `fixed` elements: `left-1/2 -translate-x-1/2 w-[375px]`
+- Overlays/scrims: `left-1/2 -translate-x-1/2 w-[375px]` — NEVER `inset-0` or portal to `document.body`
+- NO `md:`, `lg:` or any responsive Tailwind classes
+
+---
+
+## 07 · Components
+
+### Navigation Bar
 
 | Property | Value |
 |---|---|
-| Height | `h-14` (56px) + `env(safe-area-inset-top)` |
-| Background | `bg-surface-lowest/80 backdrop-blur-[12px]` (HIG translucent material) |
-| Padding | `px-4` (16px) |
-| Left slot | Wordmark (Headline 17px, Plus Jakarta Sans, uppercase) |
-| Right slot | Search + Menu icons, `gap-4`, `min-w-[44px] min-h-[44px]` each |
-| Hidden at | `md` breakpoint and above |
+| Height | `h-14` (56px) |
+| Position | `fixed top-0 left-1/2 -translate-x-1/2 w-[375px] z-50` |
+| Background | `bg-white` solid |
+| Border | `border-b border-outline` |
+| Wordmark | Noto Serif Black, 20px, uppercase, tracking -1px |
+| Right icon | Search only (no hamburger menu), `min-w-[44px] min-h-[44px]` |
 
-### Tab Bar (Apple HIG)
+### Primary Tabs (Scrollable with Chevron)
+
+Used on: 홈 page (전체, 최근), 발견 page (전체, 클렌저, 토너, ...)
+
+| Property | Active | Inactive |
+|---|---|---|
+| Height | `h-11` (44px) | Same |
+| Text | `font-semibold text-black` | `font-normal text-[#A3A3A3]` |
+| Indicator | `border-b-2 border-black` | `border-b-2 border-transparent` |
+| Container | `border-b border-outline bg-white` | — |
+| Font | Footnote (13px), Pretendard | Same |
+| Position | `sticky top-14 z-40` | — |
+| Chevron | Right-aligned arrow button (발견 page only) — opens 2-column grid overlay with scrim |
+| Drag scroll | Mouse drag-to-scroll enabled for desktop |
+
+### Snackbar / Toast (MD3)
 
 | Property | Value |
 |---|---|
-| Height | `h-[49px]` + `env(safe-area-inset-bottom)` |
-| Background | `bg-surface-lowest` |
-| Border | `border-t border-outline-variant` |
-| Tabs | HOME · PRODUCTS |
+| Height | `h-12` (48px) |
+| Text | 13px, `font-medium`, white |
+| Background | `#171717` |
+| Width | `w-fit` (content-sized), centered |
+| Position | `fixed bottom, left-1/2 -translate-x-1/2 w-[375px]` area |
+
+### Editorial Tags
+
+| Property | Value |
+|---|---|
+| Background | `#F3F3F3` (`surface-variant`) |
+| Text | `#00855D` (`accent`) |
+| Font | Caption 2 (11px) |
+| Padding | `px-2 py-0.5` |
+| Shape | `rounded-full` |
+
+Home article cards use tag text "최근". 홈 curation products use "올리브영 랭킹".
+
+### Ingredient Chips (on product cards)
+
+| Property | Value |
+|---|---|
+| Background | `#F3F3F3` (`surface-variant`) |
+| Text | `#5E5E5E` (`on-surface-variant`) |
+| Font | 10px |
+| Padding | `px-2 py-0.5` |
+| Shape | `rounded-full` |
+| Content | Korean ingredient names from DB (exception: PDRN stays "PDRN") |
+
+### Product Thumbnail
+
+| Property | Value |
+|---|---|
+| Aspect ratio | `aspect-square` |
+| Background | `#F3F3F3` (`surface-variant`) — same as chip bg |
+| Border | `border border-outline` (`#EEE`) |
+| Image fit | `object-contain p-5` |
+
+### Tab Bar — 3 Tabs
+
+| Property | Value |
+|---|---|
+| Height | `h-[49px]` |
+| Position | `fixed bottom-0 left-1/2 -translate-x-1/2 w-[375px] z-50` |
+| Background | `bg-white` |
+| Border | `border-t border-outline` |
+| Tabs | 홈 · 발견 · 북마크 |
+| Active | `text-black font-semibold` |
+| Inactive | `text-[#A3A3A3] font-normal` |
 | Label | Caption 1 (12px), Plus Jakarta Sans |
-| Active | `text-primary font-semibold` |
-| Inactive | `text-on-surface-variant font-normal` |
-| Item touch target | `min-h-[44px]` |
-| Hidden at | `md` breakpoint and above |
+| Icons | House (홈), Grid (발견), Bookmark (북마크) |
 
-### Content Area
-
-- `padding-top`: `calc(56px + env(safe-area-inset-top))`
-- `padding-bottom`: `calc(49px + env(safe-area-inset-bottom))`
-
-### Max-width by page
-
-| Page | Max-width |
-|---|---|
-| Home | `max-w-6xl mx-auto` (desktop only) |
-| Article detail | `max-w-3xl mx-auto` |
-| Product detail | `max-w-3xl mx-auto` |
-
----
-
-## Filter Chips (MD3)
-
-MD3 Filter Chip with HIG touch target compliance.
-
-| Property | Selected | Unselected |
-|---|---|---|
-| Background | `bg-primary` | `bg-surface-highest` |
-| Text color | `text-on-primary` | `text-on-surface-variant` |
-| Font | Caption 1 — 12px, Plus Jakarta Sans | Same |
-| Shape | `rounded-full` | `rounded-full` |
-| Visual height | `h-8` (32px) | `h-8` (32px) |
-| Touch target | `min-h-[48px]` (MD3 48dp — larger than HIG 44) | Same |
-| Padding | `px-4` (16px) | Same |
-| Container gap | `gap-2` (8px) | — |
-
-```jsx
-<button className="min-h-[48px] flex items-center">
-  <span className="h-8 rounded-full bg-primary text-on-primary text-xs px-4 flex items-center">
-    전체
-  </span>
-</button>
-```
-
-### Filter chip values
-
-| Korean | Meaning |
-|---|---|
-| 전체 | All |
-| 지금 뜨는 | Rising now |
-| 숨겨진 명품 | Hidden gem |
-| 성분 주목 | Ingredient watch |
-| 편집장 픽 | Editor's pick |
-
----
-
-## Article Card
-
-| Element | Style | Type role |
-|---|---|---|
-| Container | `bg-surface-lowest p-4 flex flex-col gap-3` | — |
-| Image | `aspect-video w-full rounded-xl overflow-clip` | MD3 medium shape |
-| Tag badge | `bg-secondary-container text-on-secondary-container rounded-full px-2 py-0.5` | Caption 2 (11px) |
-| Headline | `text-on-surface` | Headline (17px Semibold, Pretendard) |
-| Subtitle | `text-on-surface-variant` | Subheadline (15px Regular, Pretendard) |
-| Date | `text-on-surface-variant` | Caption 2 (11px, Plus Jakarta Sans) |
-| Touch target | Entire card tappable | — |
-
-```
-[Image — 16:9, rounded-xl]
-  gap-3
-[Tag — rounded-full, secondary-container]
-  gap-3
-[Headline — 17px semibold, on-surface]
-  gap-3
-[Subtitle — 15px regular, on-surface-variant]
-  gap-3
-[Date — 11px, on-surface-variant]
-```
-
----
-
-## Editorial Tag Badge
-
-Inline label identifying the editorial category of an article.
-
-| Property | Value |
-|---|---|
-| Background | `bg-secondary-container` |
-| Text color | `text-on-secondary-container` |
-| Font | Caption 2 (11px), Plus Jakarta Sans |
-| Padding | `px-2 py-0.5` (8px / 2px) |
-| Shape | `rounded-full` |
-
----
-
-## Editorial Product Badge
-
-Applied to curated product cards below the product name.
-
-| Property | Value |
-|---|---|
-| Background | `bg-primary` |
-| Text color | `text-on-primary` |
-| Font | Caption 2 (11px), Plus Jakarta Sans Bold |
-| Padding | `px-2 py-0.5` (8px / 2px) |
-| Shape | `rounded-full` |
-
-Labels: `BEST` · `SALE` · `NEW` · `EDITOR'S PICK`
-
-```jsx
-<span className="rounded-full bg-primary text-on-primary text-[11px] font-bold px-2 py-0.5">
-  BEST
-</span>
-```
-
----
-
-## Section Header
-
-Pattern for named editorial sections.
-
-| Element | Style | Type role |
-|---|---|---|
-| Overline | `text-on-surface-variant uppercase tracking-[2px]` | Caption 2 (11px, Plus Jakarta Sans Bold) |
-| Title | `text-on-surface` | Title 2 (22px Bold, Pretendard) |
-| SEE ALL link | `text-primary underline decoration-primary` | Caption 1 (12px Bold, Plus Jakarta Sans) |
-| Gap overline→title | `gap-1` (4px) | — |
-| Layout | `flex items-end justify-between` | — |
-
-```
-[CURATION — 11px uppercase tracking-wide, on-surface-variant]
-[추천 제품 — 22px bold, on-surface]          [SEE ALL — 12px underline, primary]
-```
-
----
-
-## Product Grid
-
-| Property | Value |
-|---|---|
-| Mobile columns | 2 — `grid-cols-2` |
-| Desktop columns | 4 — `md:grid-cols-4` |
-| Column gap | `gap-x-4` (16px) |
-| Row gap | `gap-y-8` (32px) |
-| Section padding | `px-4 py-12` (16px / 48px) |
-| Image | `aspect-square bg-surface-high rounded-xl overflow-clip` |
-| Brand label | Caption 2 (11px), `text-on-surface-variant`, Plus Jakarta Sans, uppercase |
-| Product name | Footnote Semibold (13px), `text-on-surface`, max 2 lines |
-| Badge | Editorial product badge below product name |
-| Bookmark | Top-right overlay, `min-w-[44px] min-h-[44px]` |
-
----
-
-## Product Detail
+### Section Header
 
 | Element | Style |
 |---|---|
-| Product image | `aspect-[4/3] object-contain p-6 bg-surface-lowest` |
-| Brand | Caption 2 (11px), `text-on-surface-variant uppercase tracking-wide` |
-| Product name | Headline (17px Semibold), `text-on-surface` |
-| Section labels | Overline — Caption 1 (12px), `font-semibold uppercase tracking-wide text-on-surface-variant` |
-| Surface separation | `<div className="h-4 bg-surface-container" />` |
-| Purchase bar position | Fixed, `bottom: calc(49px + env(safe-area-inset-bottom))` |
-| Purchase bar surface | `bg-surface-lowest/90 backdrop-blur-md border-t border-outline-variant` |
-| Purchase buttons | `min-h-[50px] text-[15px] font-semibold rounded-xl bg-primary text-on-primary` |
+| Overline | 10px Bold, uppercase, tracking-[2px], `#777`, Plus Jakarta Sans |
+| Title | Title 2 (22px Bold), `#000`, Pretendard |
+| Action link | 13px Semibold, `#777` ("더보기"), not underlined |
 
----
+### Empty State (북마크 page)
 
-## Minimum Touch Target
-
-All interactive elements must meet **44pt minimum** (Apple HIG) or **48dp** (MD3) — use the larger.
-
-| Element | Implementation |
+| Property | Value |
 |---|---|
-| Navigation Bar actions | `min-w-[44px] min-h-[44px]` |
-| Tab Bar items | `min-h-[44px]` |
-| Filter Chips | `min-h-[48px]` (visual 32px + padding) |
-| Form inputs | `min-h-[44px]` |
-| Icon-only buttons | `min-w-[44px] min-h-[44px]` |
-| List rows | `min-h-[44px]` |
-| Product grid bookmark | `min-w-[44px] min-h-[44px]` |
-
-No exceptions documented. Every interactive element meets this requirement.
+| Icon | 48px bookmark SVG, stroke `#DDD` |
+| Title | Headline (17px Semibold), "저장한 제품이 없어요" |
+| Body | Subheadline (15px), `#777`, "마음에 드는 제품을 북마크해보세요" |
+| Layout | Centered vertically, `-mt-16` optical correction |
 
 ---
 
-## Empty States (Apple HIG — No Content state)
+## 08 · Navigation & Screens
 
-Centered in available viewport using optical centering.
+**Default landing page:** 홈 (`/[locale]/`)
 
-```jsx
-<div
-  className="flex items-center justify-center"
-  style={{ minHeight: "calc(100dvh - 56px - 49px)" }}
->
-  <div className="-mt-16">
-    {/* EmptyState component */}
-  </div>
-</div>
+**Bottom tabs:** 홈 · 발견 · 북마크
+
+### 홈 (Home)
+
+```
+Nav Bar (KWIP + Search)
+Primary Tabs: 전체 (default) | 최근
+Articles Feed (article cards with "최근" tag)
+Surface Gap
+Section Header: CURATION / 추천 제품 / 더보기
+Product Grid (4 products, "올리브영 랭킹" badge)
 ```
 
-- `56px` = Navigation Bar, `49px` = Tab Bar
-- `-mt-16` is optical correction
-- For inline empty states: `<p className="text-[15px] text-on-surface-variant text-center py-12">`
+### Article Detail
+
+```
+Nav Bar (← Back + Share)
+Cover Image (16:9)
+Tag + Date + Read time
+Article Body (17px, line-height 1.8)
+Surface Gap
+Inline Product Cards (horizontal)
+Surface Gap
+Related Articles (2-column thumbnails)
+```
+
+### 발견 (Discovery / Products)
+
+```
+Nav Bar (KWIP + Search)
+Primary Tabs: 전체 | 클렌저 | 토너 | 에센스 | 세럼 | 크림 | 선크림 | 마스크 | 패드 | 앰플 + Chevron
+Product Grid (2-col, with ingredient chips per card)
+```
+
+- Category tabs filter products by type
+- Chevron opens 2-column grid overlay with scrim (scrim starts below tab row)
+- Each product card shows: image + brand + name + ingredient chips (Korean, rounded-full)
+
+### Product Detail
+
+```
+Nav Bar (← Back + Bookmark + Share)
+Product Image (4:3, bg-white border)
+Tag + Brand + Name + Description
+Surface Gap
+Key Ingredients (INCI + Korean name + description)
+Surface Gap
+Related Articles
+```
+
+No purchase buttons.
+
+### 북마크 (Saved)
+
+```
+Nav Bar (KWIP + Search)
+Saved products grid (from localStorage) OR Empty State
+```
 
 ---
 
-## Skincare Routine Order
+## 09 · UX Rules
 
-1. Cleanser → 2. Pad → 3. Toner → 4. Essence → 5. Serum → 6. Ampoule → 7. Mask → 8. Cream → 9. Sunscreen
-
----
-
-## Category Translations
-
-| ID | Korean | English |
-|----|--------|---------|
-| cleanser | 클렌저 | Cleanser |
-| pad | 패드 | Pad |
-| toner | 토너 | Toner |
-| essence | 에센스 | Essence |
-| serum | 세럼 | Serum |
-| ampoule | 앰플 | Ampoule |
-| mask | 마스크 | Mask |
-| cream | 크림 | Cream |
-| sunscreen | 선크림 | Sunscreen |
+- **44px minimum touch targets** on all interactive elements — non-negotiable
+- **Sticky tabs** stay fixed below nav bar on scroll
+- **Scrim** for overlays: `bg-black/40`, constrained to 375px, starts below sticky tabs
+- **Toast/Snackbar**: MD3 spec, `w-fit` centered, 48px height, appears above tab bar
+- **Drag-to-scroll** enabled on tab rows for desktop mouse users
+- **No hamburger menu** — removed, only search icon in nav bar
+- **No purchase buttons** — removed from product detail
+- **No subscribe page** — removed
+- **Korean first** — all content in Korean. PDRN exception: stays as "PDRN"
+- **Ingredient chip names** — Korean from DB, displayed on product cards in 발견 page
+- **Product thumbnail bg** — `#F3F3F3` with `#EEE` border for consistent appearance across different product image backgrounds

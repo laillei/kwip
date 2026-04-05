@@ -45,7 +45,7 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
   const results = isSearching
     ? products.filter((p) => {
         const q = query.toLowerCase();
-        const name = (p.name[loc] || p.name.vi).toLowerCase();
+        const name = (p.name[loc] || p.name.ko).toLowerCase();
         const brand = getBrandName(p.brand).toLowerCase();
         return name.includes(q) || brand.includes(q);
       })
@@ -136,7 +136,7 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
                       <div className="relative w-12 h-12 shrink-0 rounded-none overflow-hidden bg-neutral-100">
                         <Image
                           src={product.image}
-                          alt={product.name[loc] || product.name.vi}
+                          alt={product.name[loc] || product.name.ko}
                           fill
                           className="object-contain p-1"
                           sizes="48px"
@@ -147,7 +147,7 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
                           {getBrandName(product.brand)}
                         </p>
                         <p className="text-[13px] font-semibold text-neutral-900 line-clamp-2 leading-snug mt-0.5">
-                          {product.name[loc] || product.name.vi}
+                          {product.name[loc] || product.name.ko}
                         </p>
                       </div>
                     </Link>
@@ -177,7 +177,7 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
                   <div className="relative w-12 h-12 rounded-none bg-neutral-100 shrink-0 overflow-hidden">
                     <Image
                       src={product.image}
-                      alt={product.name[loc] || product.name.vi}
+                      alt={product.name[loc] || product.name.ko}
                       fill
                       className="object-contain p-1"
                       sizes="48px"
@@ -188,7 +188,7 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
                       {getBrandName(product.brand)}
                     </p>
                     <p className="text-[13px] font-semibold text-neutral-900 line-clamp-2 leading-snug mt-0.5">
-                      {product.name[loc] || product.name.vi}
+                      {product.name[loc] || product.name.ko}
                     </p>
                   </div>
                 </Link>

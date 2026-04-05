@@ -20,7 +20,7 @@ export const mockArticles: Article[] = [
 
 What they share: ingredient transparency, minimal packaging, and high repurchase rates — even without viral social media campaigns. Here are the five brands Kwip is watching now.`,
     },
-    coverImage: "/images/products/round-lab-mugwort-calming-toner.webp",
+    coverImage: "/images/products/anua-heartleaf-pore-control-cleansing-oil.jpg",
     tag: "지금 뜨는",
     publishedAt: "2026-04-02",
     readTimeMinutes: 4,
@@ -49,7 +49,7 @@ What they share: ingredient transparency, minimal packaging, and high repurchase
 
 These three cleansers have been quietly circulating among ingredient experts. They all share a mildly acidic formula with non-irritating surfactants that leave the skin barrier intact.`,
     },
-    coverImage: "/images/products/beauty-of-joseon-green-plum-refreshing-cleanser.webp",
+    coverImage: "/images/products/beauty-of-joseon-calming-serum.webp",
     tag: "숨겨진 명품",
     publishedAt: "2026-03-28",
     readTimeMinutes: 3,
@@ -77,7 +77,7 @@ These three cleansers have been quietly circulating among ingredient experts. Th
 
 For H2 2026, Kwip is watching three key ingredients: bakuchiol (retinol alternative), panthenol derivatives (barrier reinforcement), and low-molecular crosspolymer hyaluronic acid (lasting hydration). Let's look at the evidence and recommended products.`,
     },
-    coverImage: "/images/products/cosrx-advanced-snail-96-mucin-power-essence.webp",
+    coverImage: "/images/products/cosrx-propolis-light-cream.jpg",
     tag: "성분 주목",
     publishedAt: "2026-03-25",
     readTimeMinutes: 5,

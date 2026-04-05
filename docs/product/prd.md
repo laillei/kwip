@@ -90,7 +90,7 @@ Two content types power the site:
 - Product image + brand + name + editorial tag
 - Short editorial note explaining why this product is featured
 - Key ingredients with brief descriptions
-- Purchase links (Olive Young, Coupang — open in new tab)
+- Purchase links (Olive Young KR, Coupang — open in new tab, no Shopee/Lazada/TikTok Shop)
 - Related articles that feature this product
 - Bilingual: ko + en
 
@@ -162,6 +162,7 @@ Two content types power the site:
 | Concern filter + step filter | Replaced by editorial tags |
 | Vietnamese locale | Korean is new primary |
 | Google OAuth / accounts | Not needed at launch |
+| Shopee / Lazada / TikTok Shop / Hasaki links | KR market only — Olive Young + Coupang |
 
 These are removed, not deferred. The editorial model does not require user accounts at launch.
 

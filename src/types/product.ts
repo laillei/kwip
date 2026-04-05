@@ -81,11 +81,8 @@ export interface Product {
     updatedAt: string;
   };
   purchase: {
-    shopee?: string;
-    lazada?: string;
-    tiktokShop?: string;
-    hasaki?: string;
     oliveyoung?: string;
+    coupang?: string;
   };
   tags: string[];
 }

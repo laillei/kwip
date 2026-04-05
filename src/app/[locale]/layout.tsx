@@ -51,10 +51,12 @@ export default async function LocaleLayout({
         />
       </head>
       <body
-        className={`${plusJakartaSans.variable} bg-white text-on-surface min-h-screen antialiased`}
+        className={`${plusJakartaSans.variable} bg-[#F5F5F5] text-on-surface min-h-screen antialiased`}
         style={{ fontFamily: "'Pretendard', var(--font-plus-jakarta), system-ui, sans-serif" }}
       >
-        {children}
+        <div className="mx-auto bg-white relative" style={{ width: 375, minHeight: '100dvh' }}>
+          {children}
+        </div>
       </body>
     </html>
   );

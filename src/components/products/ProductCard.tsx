@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Brand, EditorialTag } from "@/types";
+import type { Brand } from "@/types";
 import { getBrandName } from "@/lib/brands";
 import BookmarkButton from "@/components/shared/BookmarkButton";
 
@@ -11,7 +11,7 @@ interface ProductCardProps {
   brand: Brand;
   image: string;
   locale: string;
-  editorialTag?: EditorialTag;
+  ingredientChips?: string[];
 }
 
 export default function ProductCard({
@@ -21,7 +21,7 @@ export default function ProductCard({
   brand,
   image,
   locale,
-  editorialTag,
+  ingredientChips,
 }: ProductCardProps) {
   return (
     <div className="relative">
@@ -29,13 +29,13 @@ export default function ProductCard({
         href={`/${locale}/products/${slug}`}
         className="group block"
       >
-        <div className="relative aspect-square bg-surface-high overflow-hidden">
+        <div className="relative aspect-square bg-surface-variant border border-outline overflow-hidden">
           <Image
             src={image}
             alt={name}
             fill
             className="object-contain p-5 relative z-[1] transition-transform duration-300 group-hover:scale-105"
-            sizes="(max-width: 768px) 50vw, 25vw"
+            sizes="50vw"
           />
         </div>
         <div className="pt-3">
@@ -51,14 +51,20 @@ export default function ProductCard({
           <p className="text-[13px] font-semibold text-on-surface leading-snug mt-1 line-clamp-2">
             {name}
           </p>
-          {editorialTag && (
-            <span className="inline-block mt-2 bg-surface-variant text-accent px-2 py-0.5 text-[11px] font-bold w-fit">
-              {editorialTag}
-            </span>
+          {ingredientChips && ingredientChips.length > 0 && (
+            <div className="flex flex-wrap gap-1 mt-2">
+              {ingredientChips.map((label) => (
+                <span
+                  key={label}
+                  className="bg-surface-variant text-on-surface-variant rounded-full px-2 py-0.5 text-[10px]"
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
           )}
         </div>
       </Link>
-      {/* Bookmark overlay */}
       <div className="absolute top-0 right-0 z-10">
         <BookmarkButton productId={id} />
       </div>

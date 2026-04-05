@@ -47,7 +47,7 @@ export default function FeaturedProducts({
               className="flex flex-col gap-2"
             >
               {/* Product image */}
-              <div className="aspect-square bg-surface-high overflow-hidden relative">
+              <div className="aspect-square bg-surface-variant border border-outline overflow-hidden relative">
                 {product.image ? (
                   <Image
                     src={product.image}
@@ -82,13 +82,13 @@ export default function FeaturedProducts({
 
               {/* Badge */}
               <span
-                className="bg-surface-variant text-accent px-2 py-0.5 text-[11px] font-bold w-fit"
+                className="bg-surface-variant text-accent rounded-full px-2 py-0.5 text-[11px] font-bold w-fit"
                 style={{
                   fontFamily:
                     "var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif",
                 }}
               >
-                {badgeLabel}
+                올리브영 랭킹
               </span>
             </Link>
           );

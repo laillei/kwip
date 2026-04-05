@@ -29,7 +29,7 @@ export default function SavedToast({ message }: Props) {
 
   return (
     <div
-      className="fixed left-4 right-4 z-50 flex items-center justify-center h-[52px] bg-neutral-900 text-white text-[15px] font-semibold rounded-2xl pointer-events-none"
+      className="fixed left-1/2 -translate-x-1/2 z-50 flex items-center px-4 h-12 bg-[#171717] text-white text-[13px] font-medium pointer-events-none w-fit"
       style={{ bottom: "calc(49px + env(safe-area-inset-bottom) + 8px)" }}
     >
       {message}

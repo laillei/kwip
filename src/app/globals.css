@@ -1,71 +1,65 @@
 @import "tailwindcss";
 
-/* ─── Kwip Design Tokens ────────────────────────────────────────────────────
+/* ─── Kwip Design Tokens — Final Merged ─────────────────────────────────────
  * Source of truth: docs/ux/design-system.md
- * Standards: Apple HIG (primary) · Material Design 3 (secondary)
- * Fonts: Pretendard (Korean) · Plus Jakarta Sans (English/labels)
- * Spacing: 8pt grid (strict)
+ * Standards: Apple HIG (primary) · Material Design 3 (structure)
+ * Fonts: Noto Serif Black (wordmark) · Pretendard (Korean) · Plus Jakarta Sans (English)
+ * Palette: Neutral-first with green accent (text only)
+ * Spacing: 8pt grid (strict) · Shape: square (0px) default
  * ─────────────────────────────────────────────────────────────────────────── */
 @theme {
-  /* ── MD3 Primary (Deep Forest) ─────────────────────────────────────────── */
-  --color-primary:              #1A3D2B;
-  --color-on-primary:           #FFFFFF;
-  --color-primary-container:    #A8D5BA;
-  --color-on-primary-container: #0D2016;
+  /* ── Primary (Black) ───────────────────────────────────────────────────── */
+  --color-primary:    #000000;
+  --color-on-primary: #FFFFFF;
 
-  /* ── MD3 Secondary ─────────────────────────────────────────────────────── */
-  --color-secondary:              #4A6355;
-  --color-on-secondary:           #FFFFFF;
-  --color-secondary-container:    #CCE5D5;
-  --color-on-secondary-container: #072015;
+  /* ── Accent (Green — text only, never as background) ───────────────────── */
+  --color-accent:     #00855D;
 
-  /* ── MD3 Tertiary (warm complement) ────────────────────────────────────── */
-  --color-tertiary:              #6B5C4D;
-  --color-on-tertiary:           #FFFFFF;
-  --color-tertiary-container:    #F4DFCE;
-  --color-on-tertiary-container: #24180D;
+  /* ── Error / Semantic ──────────────────────────────────────────────────── */
+  --color-error:      #BA1A1A;
+  --color-on-error:   #FFFFFF;
+  --color-caution:    #D97706;
 
-  /* ── MD3 Error ─────────────────────────────────────────────────────────── */
-  --color-error:              #BA1A1A;
-  --color-on-error:           #FFFFFF;
-  --color-error-container:    #FFDAD6;
-  --color-on-error-container: #410002;
+  /* ── Neutral Surface ───────────────────────────────────────────────────── */
+  --color-surface:           #FFFFFF;
+  --color-surface-container: #F5F5F5;
+  --color-surface-variant:   #F3F3F3;
+  --color-surface-dim:       #EEEEEE;
 
-  /* ── MD3 Surface ───────────────────────────────────────────────────────── */
-  --color-surface:           #FAFAF7;
-  --color-surface-lowest:    #FFFFFF;
-  --color-surface-low:       #F4F4F1;
-  --color-surface-container: #EEEFEB;
-  --color-surface-high:      #E8E9E5;
-  --color-surface-highest:   #E3E3E0;
+  /* ── On Surface ────────────────────────────────────────────────────────── */
+  --color-on-surface:         #000000;
+  --color-on-surface-variant: #5E5E5E;
 
-  /* ── MD3 On Surface ────────────────────────────────────────────────────── */
-  --color-on-surface:         #1A1C19;
-  --color-on-surface-variant: #414942;
+  /* ── Tertiary (labels, dates) ──────────────────────────────────────────── */
+  --color-tertiary: #777777;
 
-  /* ── MD3 Outline ───────────────────────────────────────────────────────── */
-  --color-outline:         #717972;
-  --color-outline-variant: #C1C9C0;
+  /* ── Outline ───────────────────────────────────────────────────────────── */
+  --color-outline:         #EEEEEE;
+  --color-outline-variant: #EEEEEE;
 
-  /* ── MD3 Inverse ───────────────────────────────────────────────────────── */
-  --color-inverse-surface:    #2F312E;
-  --color-inverse-on-surface: #F0F1ED;
+  /* ── Inverse ───────────────────────────────────────────────────────────── */
+  --color-inverse-surface:    #171717;
+  --color-inverse-on-surface: #FFFFFF;
 
-  /* ── Scrim ─────────────────────────────────────────────────────────────── */
-  --color-scrim: rgba(0, 0, 0, 0.4);
+  /* ── Legacy compat (used by existing components) ───────────────────────── */
+  --color-secondary-container:    #F3F3F3;
+  --color-on-secondary-container: #00855D;
+  --color-surface-lowest:         #FFFFFF;
+  --color-surface-high:           #EEEEEE;
+  --color-surface-highest:        #EEEEEE;
 
   /* ── Typography — Apple HIG Dynamic Type ───────────────────────────────── */
-  --text-large-title: 34px; /* Bold   — Pretendard */
-  --text-title-1:     28px; /* Bold   — Pretendard */
-  --text-title-2:     22px; /* Bold   — Pretendard */
-  --text-title-3:     20px; /* Semi   — Pretendard */
-  --text-headline:    17px; /* Semi   — Pretendard */
-  --text-body:        17px; /* Regular — Pretendard */
-  --text-callout:     16px; /* Regular — Pretendard */
-  --text-subheadline: 15px; /* Regular — Pretendard */
-  --text-footnote:    13px; /* Regular — Pretendard */
-  --text-caption-1:   12px; /* Regular — Plus Jakarta Sans */
-  --text-caption-2:   11px; /* Regular — Plus Jakarta Sans */
+  --text-large-title: 34px;
+  --text-title-1:     28px;
+  --text-title-2:     22px;
+  --text-title-3:     20px;
+  --text-headline:    17px;
+  --text-body:        17px;
+  --text-callout:     16px;
+  --text-subheadline: 15px;
+  --text-footnote:    13px;
+  --text-caption-1:   12px;
+  --text-caption-2:   11px;
 
   /* ── Spacing — 8pt grid (strict) ───────────────────────────────────────── */
   --spacing-1:   4px;
@@ -87,14 +81,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--color-surface);
-  }
-
-  /* Reset mobile shell padding on desktop — inline styles cannot be overridden by Tailwind */
-  @media (min-width: 768px) {
-    .mobile-shell-main {
-      padding-bottom: 0 !important;
-      padding-top: 0 !important;
-    }
   }
 
   /* Hide scrollbar for horizontal scroll containers */

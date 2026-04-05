@@ -1,8 +1,7 @@
-import { getAllProducts } from "@/lib/db";
+import { getAllProducts, getAllIngredients } from "@/lib/db";
 import { getDictionary, type Locale } from "@/lib/i18n";
 import MobileShell from "@/components/layout/MobileShell";
 import ProductsClient from "@/components/products/ProductsClient";
-import IngredientDiscovery from "@/components/products/IngredientDiscovery";
 
 export default async function ProductsPage({
   params,
@@ -10,23 +9,32 @@ export default async function ProductsPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const [products, dict] = await Promise.all([
+  const [products, ingredientsList, dict] = await Promise.all([
     getAllProducts(),
+    getAllIngredients(),
     getDictionary(locale as Locale),
   ]);
+
+  // Build ingredient ID → Korean name map
+  const ingredientNames: Record<string, string> = {};
+  for (const ing of ingredientsList) {
+    const ko = ing.name.ko || "";
+    if (ko.startsWith("PDRN")) {
+      ingredientNames[ing.id] = "PDRN";
+    } else {
+      ingredientNames[ing.id] = ko || ing.name.inci;
+    }
+  }
 
   return (
     <MobileShell locale={locale}>
       <div className="min-h-screen bg-surface">
-        <div className="max-w-3xl mx-auto">
-          <ProductsClient
-            products={products}
-            locale={locale}
-            dictionary={dict}
-          />
-          <div className="h-4 bg-surface-container" />
-          <IngredientDiscovery dictionary={dict} />
-        </div>
+        <ProductsClient
+          products={products}
+          locale={locale}
+          dictionary={dict}
+          ingredientNames={ingredientNames}
+        />
       </div>
     </MobileShell>
   );
