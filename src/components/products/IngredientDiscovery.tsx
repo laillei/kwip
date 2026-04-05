@@ -65,7 +65,7 @@ export default function IngredientDiscovery({
               {group.items.map((item) => (
                 <span
                   key={item}
-                  className="bg-secondary-container text-on-secondary-container rounded-full px-2 py-0.5 text-[11px]"
+                  className="bg-surface-variant text-on-surface-variant rounded-full px-2 py-0.5 text-[11px]"
                 >
                   {item}
                 </span>

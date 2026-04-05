@@ -84,7 +84,7 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
                   ? "Tìm sản phẩm hoặc thương hiệu..."
                   : "Search products or brands..."
               }
-              className="w-full rounded-xl bg-neutral-100 pl-11 pr-4 py-3 text-[15px] text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-neutral-900/10 transition-colors"
+              className="w-full rounded-none bg-neutral-100 pl-11 pr-4 py-3 text-[15px] text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-neutral-900/10 transition-colors"
             />
           </div>
           <button
@@ -133,7 +133,7 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
                       <span className="text-[13px] font-semibold text-neutral-300 w-4 text-center shrink-0">
                         {i + 1}
                       </span>
-                      <div className="relative w-12 h-12 shrink-0 rounded-xl overflow-hidden bg-neutral-100">
+                      <div className="relative w-12 h-12 shrink-0 rounded-none overflow-hidden bg-neutral-100">
                         <Image
                           src={product.image}
                           alt={product.name[loc] || product.name.vi}
@@ -174,7 +174,7 @@ export default function SearchOverlay({ locale, onClose, products }: SearchOverl
                   onClick={onClose}
                   className="flex items-center gap-3 py-3 min-h-[44px] active:bg-neutral-50 transition-colors"
                 >
-                  <div className="relative w-12 h-12 rounded-xl bg-neutral-100 shrink-0 overflow-hidden">
+                  <div className="relative w-12 h-12 rounded-none bg-neutral-100 shrink-0 overflow-hidden">
                     <Image
                       src={product.image}
                       alt={product.name[loc] || product.name.vi}

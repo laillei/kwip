@@ -45,9 +45,13 @@ export default async function LocaleLayout({
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@900&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body
-        className={`${plusJakartaSans.variable} bg-surface text-on-surface min-h-screen antialiased`}
+        className={`${plusJakartaSans.variable} bg-white text-on-surface min-h-screen antialiased`}
         style={{ fontFamily: "'Pretendard', var(--font-plus-jakarta), system-ui, sans-serif" }}
       >
         {children}

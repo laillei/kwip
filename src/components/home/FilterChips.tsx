@@ -13,7 +13,7 @@ export default function FilterChips({
   onTagChange,
 }: FilterChipsProps) {
   return (
-    <div className="flex gap-2 px-4 py-3 overflow-x-auto no-scrollbar">
+    <div className="flex overflow-x-auto no-scrollbar bg-white border-b border-outline sticky top-14 z-40">
       {tags.map((tag) => {
         const isActive = tag === activeTag;
         return (
@@ -21,21 +21,16 @@ export default function FilterChips({
             key={tag}
             type="button"
             onClick={() => onTagChange(tag)}
-            className="min-h-[48px] flex items-center"
+            className={`h-11 px-4 flex items-center whitespace-nowrap text-[13px] transition-colors border-b-2 ${
+              isActive
+                ? "font-semibold text-black border-black"
+                : "font-medium text-[#A3A3A3] border-transparent"
+            }`}
+            style={{
+              fontFamily: "'Pretendard', system-ui, sans-serif",
+            }}
           >
-            <span
-              className={`h-8 px-4 rounded-full flex items-center whitespace-nowrap text-xs transition-colors ${
-                isActive
-                  ? "bg-primary text-on-primary"
-                  : "bg-surface-highest text-on-surface-variant"
-              }`}
-              style={{
-                fontFamily:
-                  "var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif",
-              }}
-            >
-              {tag}
-            </span>
+            {tag}
           </button>
         );
       })}

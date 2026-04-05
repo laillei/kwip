@@ -35,7 +35,7 @@ export default function SectionHeader({
       {actionLabel && actionHref && (
         <Link
           href={actionHref}
-          className="text-xs font-bold text-primary underline decoration-primary"
+          className="text-[13px] font-semibold text-tertiary"
           style={{
             fontFamily:
               "var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif",

@@ -21,7 +21,7 @@ export default function InlineProductCard({
       href={`/${locale}/products/${product.slug}`}
       className="flex gap-3 p-4 border-b border-outline-variant items-center"
     >
-      <div className="w-16 h-16 rounded-xl bg-surface-container flex-shrink-0 overflow-hidden relative">
+      <div className="w-16 h-16 bg-surface-container flex-shrink-0 overflow-hidden relative">
         {product.image ? (
           <Image
             src={product.image}

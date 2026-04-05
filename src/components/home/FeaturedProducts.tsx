@@ -32,7 +32,7 @@ export default function FeaturedProducts({
         actionLabel={dictionary.seeAll}
         actionHref={`/${locale}/products`}
       />
-      <div className="grid grid-cols-2 gap-x-4 gap-y-8 px-4 pb-12 pt-8">
+      <div className="grid grid-cols-2 gap-x-4 gap-y-8 px-4 pb-24 pt-8">
         {featured.map((product, index) => {
           const name =
             product.name[loc] || product.name.ko || product.name.en;
@@ -47,7 +47,7 @@ export default function FeaturedProducts({
               className="flex flex-col gap-2"
             >
               {/* Product image */}
-              <div className="aspect-square bg-surface-high rounded-xl overflow-hidden relative">
+              <div className="aspect-square bg-surface-high overflow-hidden relative">
                 {product.image ? (
                   <Image
                     src={product.image}
@@ -82,7 +82,7 @@ export default function FeaturedProducts({
 
               {/* Badge */}
               <span
-                className="bg-secondary-container text-on-secondary-container rounded-full px-2 py-0.5 text-[11px] font-bold w-fit"
+                className="bg-surface-variant text-accent px-2 py-0.5 text-[11px] font-bold w-fit"
                 style={{
                   fontFamily:
                     "var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif",

@@ -58,7 +58,7 @@ export default function BottomTabBar({ locale, navLabels }: Props) {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-50 bg-surface-lowest border-t border-outline-variant md:hidden"
+      className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-outline"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
       <div className="flex items-stretch h-[49px]">
@@ -70,7 +70,7 @@ export default function BottomTabBar({ locale, navLabels }: Props) {
               href={tab.href}
               aria-current={active ? "page" : undefined}
               className={`flex-1 flex flex-col items-center justify-center gap-0.5 min-h-[44px] transition-colors ${
-                active ? "text-primary font-semibold" : "text-on-surface-variant font-normal"
+                active ? "text-black font-semibold" : "text-[#A3A3A3] font-normal"
               }`}
             >
               {tab.icon}

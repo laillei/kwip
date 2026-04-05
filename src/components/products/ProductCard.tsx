@@ -29,7 +29,7 @@ export default function ProductCard({
         href={`/${locale}/products/${slug}`}
         className="group block"
       >
-        <div className="relative aspect-square bg-surface-high rounded-xl overflow-hidden">
+        <div className="relative aspect-square bg-surface-high overflow-hidden">
           <Image
             src={image}
             alt={name}
@@ -52,7 +52,7 @@ export default function ProductCard({
             {name}
           </p>
           {editorialTag && (
-            <span className="inline-block mt-2 bg-secondary-container text-on-secondary-container rounded-full px-2 py-0.5 text-[11px] font-bold w-fit">
+            <span className="inline-block mt-2 bg-surface-variant text-accent px-2 py-0.5 text-[11px] font-bold w-fit">
               {editorialTag}
             </span>
           )}

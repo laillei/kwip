@@ -30,17 +30,17 @@ export default async function MobileShell({
       {/* Compact fixed header — mobile */}
       {!hideHeader && (
         <header
-          className="fixed top-0 left-0 right-0 z-50 bg-surface-lowest/80 backdrop-blur-[12px] md:hidden"
+          className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-outline"
           style={{ paddingTop: "env(safe-area-inset-top)" }}
         >
           <div className="flex items-center justify-between px-4 h-14">
             <div className="flex items-center">
               {headerLeft ?? (
                 <span
-                  className="font-semibold uppercase text-on-surface"
+                  className="font-black uppercase text-on-surface"
                   style={{
-                    fontFamily: "var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif",
-                    fontSize: "17px",
+                    fontFamily: "'Noto Serif', serif",
+                    fontSize: "20px",
                     letterSpacing: "-1px",
                   }}
                 >

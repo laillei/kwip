@@ -40,11 +40,6 @@ export default async function ProductDetailPage({
     .sort((a, b) => a.order - b.order)
     .map((pi) => ({ ...pi, detail: ingredientMap.get(pi.ingredientId)! }));
 
-  const purchaseLinks = [
-    { platform: "Olive Young", url: product.purchase.oliveyoung },
-    { platform: "Coupang", url: product.purchase.coupang },
-  ].filter((l): l is { platform: string; url: string } => Boolean(l.url));
-
   const loc = locale as Locale;
 
   return (
@@ -96,16 +91,16 @@ export default async function ProductDetailPage({
                 {product.name[loc] || product.name.ko}
               </h1>
               <div className="flex flex-wrap items-center gap-2 mt-3">
-                <span className="inline-flex items-center rounded-full bg-surface-container px-3 py-1 text-[13px] font-medium text-on-surface-variant">
+                <span className="inline-flex items-center bg-surface-variant px-3 py-1 text-[13px] font-medium text-on-surface-variant">
                   {dict.detail.categories[product.category as keyof typeof dict.detail.categories] || product.category}
                 </span>
                 {product.tags.includes("best-seller") && (
-                  <span className="inline-flex items-center rounded-full bg-secondary-container px-3 py-1 text-[13px] font-medium text-on-secondary-container">
+                  <span className="inline-flex items-center bg-surface-variant px-3 py-1 text-[13px] font-medium text-accent">
                     {dict.detail.bestSeller}
                   </span>
                 )}
                 {product.tags.includes("sensitive-safe") && (
-                  <span className="inline-flex items-center rounded-full bg-secondary-container px-3 py-1 text-[13px] font-medium text-on-secondary-container">
+                  <span className="inline-flex items-center bg-surface-variant px-3 py-1 text-[13px] font-medium text-accent">
                     {dict.detail.sensitiveSafe}
                   </span>
                 )}
@@ -206,29 +201,6 @@ export default async function ProductDetailPage({
         </div>
       </div>
 
-      {/* Sticky purchase bar — elevated above tab bar on mobile */}
-      {purchaseLinks.length > 0 && (
-        <div
-          className="fixed left-0 right-0 z-20"
-          style={{ bottom: "calc(49px + env(safe-area-inset-bottom))" }}
-        >
-          <div className="bg-surface-lowest/90 backdrop-blur-md border-t border-outline-variant px-4 py-4">
-            <div className="flex gap-3">
-              {purchaseLinks.map(({ platform, url }) => (
-                <a
-                  key={platform}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 rounded-xl bg-primary text-on-primary text-center text-[15px] font-semibold py-3.5 min-h-[50px] flex items-center justify-center active:opacity-70 transition-opacity"
-                >
-                  {platform}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
     </MobileShell>
   );
 }

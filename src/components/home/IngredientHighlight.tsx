@@ -33,7 +33,7 @@ export default function IngredientHighlight({
           return (
             <div
               key={ing.id}
-              className="flex-shrink-0 w-44 bg-neutral-100 rounded-xl p-3.5"
+              className="flex-shrink-0 w-44 bg-neutral-100 p-3.5"
             >
               <p className="text-[15px] font-semibold text-neutral-900">
                 {displayName}
