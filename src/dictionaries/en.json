@@ -49,7 +49,9 @@
     "title": "Products",
     "filterAll": "All",
     "popularLabel": "Popular in Korea",
-    "emptyState": "We're adding more products"
+    "emptyState": "We're adding more products",
+    "discovery": "Ingredient Discovery",
+    "discoveryOverline": "DISCOVERY"
   },
   "detail": {
     "back": "Back",
@@ -78,7 +80,8 @@
     "home": "HOME",
     "products": "PRODUCTS",
     "explore": "Explore",
-    "routine": "Saved"
+    "routine": "Saved",
+    "saved": "SAVED"
   },
   "me": {
     "savedProducts": "Saved",
@@ -99,6 +102,11 @@
     "readTime": "{{minutes}} min read",
     "share": "Share",
     "back": "Back"
+  },
+  "saved": {
+    "title": "Saved Products",
+    "emptyTitle": "No saved products",
+    "emptyBody": "Bookmark products you like"
   },
   "notFound": {
     "title": "404",

@@ -22,6 +22,7 @@ export default async function MobileShell({
   const navLabels = {
     home: dict.nav.home,
     products: dict.nav.products,
+    saved: dict.nav.saved,
   };
 
   return (

@@ -52,7 +52,7 @@ export default function ProductCard({
             {name}
           </p>
           {editorialTag && (
-            <span className="inline-block mt-2 bg-primary text-on-primary rounded-full px-2 py-0.5 text-[11px] font-bold w-fit">
+            <span className="inline-block mt-2 bg-secondary-container text-on-secondary-container rounded-full px-2 py-0.5 text-[11px] font-bold w-fit">
               {editorialTag}
             </span>
           )}

@@ -82,7 +82,7 @@ export default function FeaturedProducts({
 
               {/* Badge */}
               <span
-                className="bg-primary text-on-primary rounded-full px-2 py-0.5 text-[11px] font-bold w-fit"
+                className="bg-secondary-container text-on-secondary-container rounded-full px-2 py-0.5 text-[11px] font-bold w-fit"
                 style={{
                   fontFamily:
                     "var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif",
